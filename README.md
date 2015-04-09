@@ -1,2 +1,2 @@
 # pkcao
-匿名吐槽软件
+匿名吐槽APP for Android
