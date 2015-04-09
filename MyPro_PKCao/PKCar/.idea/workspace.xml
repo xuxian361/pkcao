@@ -114,14 +114,23 @@
       <file leaf-file-name="RegisterFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/register/RegisterFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.394913" vertical-offset="555" max-vertical-offset="1700">
-              <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+            <state vertical-scroll-proportion="1.0892255" vertical-offset="475" max-vertical-offset="1819">
+              <caret line="86" column="72" selection-start-line="86" selection-start-column="72" selection-end-line="86" selection-end-column="72" />
               <folding>
-                <element signature="e#1282#1299#0" expanded="true" />
-                <element signature="e#2062#2107#0" expanded="true" />
-                <element signature="e#2412#2807#0" expanded="true" />
-                <element signature="e#2692#2724#0" expanded="true" />
-                <element signature="e#2806#2807#0" expanded="true" />
+                <element signature="e#1314#1331#0" expanded="true" />
+                <element signature="e#2094#2139#0" expanded="true" />
+                <element signature="e#2439#2792#0" expanded="true" />
+                <element signature="e#2791#2792#0" expanded="true" />
+                <element signature="e#2844#2845#0" expanded="true" />
+                <element signature="e#2876#2877#0" expanded="true" />
+                <element signature="e#2919#2920#0" expanded="true" />
+                <element signature="e#2950#2951#0" expanded="true" />
+                <element signature="e#2992#2993#0" expanded="true" />
+                <element signature="e#3022#3023#0" expanded="true" />
+                <element signature="e#3071#3072#0" expanded="true" />
+                <element signature="e#3108#3109#0" expanded="true" />
+                <element signature="e#3153#3154#0" expanded="true" />
+                <element signature="e#3186#3187#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,10 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/ResourceTaker.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/content_frame.xml" />
         <option value="$PROJECT_DIR$/res/layout/menu_frame.xml" />
         <option value="$PROJECT_DIR$/res/drawable/drawable.xml" />
@@ -205,6 +210,10 @@
         <option value="$PROJECT_DIR$/res/layout/login.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/login/LoginFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/register.xml" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/model/vo/User.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/model/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/model/daoimpl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/model/factory/UserFactory.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/register/RegisterFragment.java" />
       </list>
     </option>
@@ -213,7 +222,7 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1645" />
+    <option name="x" value="1650" />
     <option name="y" value="23" />
     <option name="width" value="1566" />
     <option name="height" value="1157" />
@@ -295,29 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="register" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
+              <option name="myItemId" value="vo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -350,6 +337,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/res/drawable-hdpi" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.sundy.pkcao" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.PKCar">
@@ -543,7 +533,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1645" y="23" width="1566" height="1157" extended-state="0" />
+    <frame x="1650" y="23" width="1566" height="1157" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -561,14 +551,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32853025" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23054755" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23054755" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16469817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3775216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3775216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -631,53 +621,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/content_frame.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18230563" vertical-offset="0" max-vertical-offset="373">
-          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/menu_frame.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18230563" vertical-offset="0" max-vertical-offset="373">
-          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/shadow.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33746898" vertical-offset="0" max-vertical-offset="403">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9565217" vertical-offset="1397" max-vertical-offset="1972">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#onCreateView#0;class#_AbstractFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/corner_all_red.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16267942" vertical-offset="0" max-vertical-offset="418">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/view_filter_left.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48245615" vertical-offset="209" max-vertical-offset="1088">
@@ -1082,16 +1025,41 @@
         <state />
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/avoscloud-sdk-v3.0.4.jar!/com/avos/avoscloud/AVObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39319727" vertical-offset="0" max-vertical-offset="28730">
+          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/vo/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15394567" vertical-offset="0" max-vertical-offset="773">
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/register/RegisterFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.394913" vertical-offset="555" max-vertical-offset="1700">
-          <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+        <state vertical-scroll-proportion="1.0892255" vertical-offset="475" max-vertical-offset="1819">
+          <caret line="86" column="72" selection-start-line="86" selection-start-column="72" selection-end-line="86" selection-end-column="72" />
           <folding>
-            <element signature="e#1282#1299#0" expanded="true" />
-            <element signature="e#2062#2107#0" expanded="true" />
-            <element signature="e#2412#2807#0" expanded="true" />
-            <element signature="e#2692#2724#0" expanded="true" />
-            <element signature="e#2806#2807#0" expanded="true" />
+            <element signature="e#1314#1331#0" expanded="true" />
+            <element signature="e#2094#2139#0" expanded="true" />
+            <element signature="e#2439#2792#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
+            <element signature="e#2844#2845#0" expanded="true" />
+            <element signature="e#2876#2877#0" expanded="true" />
+            <element signature="e#2919#2920#0" expanded="true" />
+            <element signature="e#2950#2951#0" expanded="true" />
+            <element signature="e#2992#2993#0" expanded="true" />
+            <element signature="e#3022#3023#0" expanded="true" />
+            <element signature="e#3071#3072#0" expanded="true" />
+            <element signature="e#3108#3109#0" expanded="true" />
+            <element signature="e#3153#3154#0" expanded="true" />
+            <element signature="e#3186#3187#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -13,6 +13,7 @@ import com.avos.avoscloud.SaveCallback;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
+import com.sundy.pkcao.vo.User;
 
 /**
  * Created by sundy on 15/3/22.
@@ -73,24 +74,21 @@ public class RegisterFragment extends _AbstractFragment {
             return;
         }
 
-        AVObject user = new AVObject("PkUser");
-        user.put("username", username);
-        user.put("password", password);
+        AVObject user = new AVObject(User.table_name);
+        user.put(User.username, username);
+        user.put(User.password, password);
 
-        try {
-            user.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(AVException e) {
-                    if (e == null) {
-                        mCallback.switchContent(new MainFragment());
-                    } else {
-                        Toast.makeText(context, getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
-                    }
+        user.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(AVException e) {
+                if (e == null) {
+                    mCallback.switchContent(new MainFragment());
+                } else {
+                    Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT);
                 }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            }
+        });
+
     }
 
     @Override

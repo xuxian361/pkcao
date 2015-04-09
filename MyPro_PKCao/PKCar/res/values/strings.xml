@@ -4,4 +4,5 @@
     <string name="register">注册</string>
     <string name="login_failed">该用户已存在，请重新注册!</string>
     <string name="confirm_pwd_not_equal_pwd">确认密码与密码不一致，请重新输入!</string>
+    <string name="register_faid">注册失败，请重新注册!</string>
 </resources>
