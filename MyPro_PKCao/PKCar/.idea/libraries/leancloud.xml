@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="leancloud">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/android-async-http-1.4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/avoscloud-push-v3.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/avoscloud-sdk-v3.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/avoscloud-statistics-v3.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/fastjson.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/httpmime-4.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/Java-WebSocket-1.2.0-leancloud.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/qq.sdk.1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/weibo.sdk.android.sso.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

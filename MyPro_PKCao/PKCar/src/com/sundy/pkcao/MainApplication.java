@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.Log;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.BitmapAjaxCallback;
+import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVOSCloud;
 
 /**
  * Created by sundy on 15/3/21.
@@ -30,6 +32,9 @@ public class MainApplication extends Application {
         //set the max size of the memory cache, default is 1M pixels (4MB)
         BitmapAjaxCallback.setMaxPixelLimit(2000000);
 
+        AVOSCloud.initialize(this,
+                "f20bpd0qsoqvkjj79otbh09i5mk70gesw2kl5d7gv738jkon",
+                "31hhp1ykz4czouw626n7asjmd5uvonsg0fx3p49wcbqq6no4");
 
         super.onCreate();
     }

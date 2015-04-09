@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVObject;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.sundy.pkcao.main.MainFragment;
@@ -28,6 +30,9 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     public void onCreate(Bundle savedInstanceState) {
         try {
             super.onCreate(savedInstanceState);
+
+            AVAnalytics.trackAppOpened(getIntent());
+
             initeFragment();
         } catch (Exception e) {
             e.printStackTrace();
