@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp">
+        <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/img_profile"
+                android:src="@drawable/icon_profile"
+                android:scaleType="fitCenter"/>
+        <TextView
+                style="@style/txt_font_12_black"
+                android:text="Sundy"
+                android:id="@+id/txt_name"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" android:visibility="invisible"/>
+    </LinearLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView"
+                android:layout_above="@+id/linear_main_bottom">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="主页"
+                        android:id="@+id/btn_main"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/corner_all_light_blue" style="@style/txt_font_14_white"
+                        android:textStyle="bold"/>
+
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="我 +"
+                        android:id="@+id/btn_I_like"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/corner_all_light_blue" style="@style/txt_font_14_white"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"/>
+
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="TA +"
+                        android:id="@+id/btn_TA_like"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/corner_all_light_blue" style="@style/txt_font_14_white"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"/>
+
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="聊天记录"
+                        android:id="@+id/btn_record"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/corner_all_light_blue" style="@style/txt_font_14_white"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linear_menu_bottom"
+                android:layout_alignParentBottom="true">
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="登出"
+                    android:id="@+id/btn_logout"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/corner_all_red"
+                    style="@style/txt_font_14_white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:visibility="gone"/>
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="登陆"
+                    android:id="@+id/btn_login"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/corner_all_green"
+                    style="@style/txt_font_14_white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:visibility="visible"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

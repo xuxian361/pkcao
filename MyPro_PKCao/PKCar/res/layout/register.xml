@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:onClick="onClick">
+
+    <include android:layout_width="match_parent"
+             android:layout_height="60dp"
+             layout="@layout/topbar_back"/>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/linear_register_bottom"
+                android:gravity="center">
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="注册"
+                    android:id="@+id/btn_register"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/corner_all_light_blue"
+                    style="@style/txt_font_14_white"
+                    android:textStyle="bold"
+                    />
+        </LinearLayout>
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/linear_register_bottom">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_height"
+                        android:id="@+id/ext_name"
+                        android:background="@drawable/corner_all_light_blue_strok"
+                        android:textSize="14dp" android:padding="5dp"
+                        android:maxLength="1" android:hint="用户名"/>
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_height"
+                        android:id="@+id/edt_password"
+                        android:layout_marginTop="15dp" android:background="@drawable/corner_all_light_blue_strok"
+                        android:hint="密码" android:inputType="textPassword" android:padding="5dp"
+                        android:textSize="14dp" android:maxLength="1"/>
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_height"
+                        android:id="@+id/edt_confirm_pwd"
+                        android:layout_marginTop="15dp" android:background="@drawable/corner_all_light_blue_strok"
+                        android:hint="确认密码" android:inputType="textPassword" android:padding="5dp"
+                        android:textSize="14dp" android:maxLength="1"/>
+                <RelativeLayout
+                        android:layout_width="65dp"
+                        android:layout_height="65dp" android:layout_marginTop="15dp" android:gravity="center">
+                    <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:id="@+id/img_user"
+                            android:src="@drawable/icon_profile" android:scaleType="fitCenter"/>
+                    <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true" android:src="@drawable/icon_edit"
+                            android:scaleType="fitCenter" android:layout_marginBottom="2dp"/>
+                </RelativeLayout>
+                <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        >
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:gravity="center|left">
+                        <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:id="@+id/img_1" android:src="@drawable/icon_profile"
+                                android:layout_marginLeft="5dp"/>
+                        <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:id="@+id/img_2" android:src="@drawable/icon_profile"
+                                android:layout_marginLeft="10dp"/>
+                        <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:id="@+id/img_3" android:src="@drawable/icon_profile"
+                                android:layout_marginLeft="10dp"/>
+                        <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:id="@+id/img_4" android:src="@drawable/icon_profile"
+                                android:layout_marginLeft="10dp"/>
+                        <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:id="@+id/img_5" android:src="@drawable/icon_profile"
+                                android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/linear_filter_right"
+              android:paddingTop="10dp">
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp">
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp">
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="最新"
+                android:id="@+id/btn_filter_latest"
+                android:background="@drawable/corner_all_light_blue"
+                style="@style/txt_font_14_white"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                />
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="最热"
+                android:id="@+id/btn_filter_hot"
+                android:background="@drawable/corner_all_light_blue"
+                style="@style/txt_font_14_white"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                />
+    </LinearLayout>
+</LinearLayout>
