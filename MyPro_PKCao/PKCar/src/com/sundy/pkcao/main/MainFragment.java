@@ -53,6 +53,7 @@ public class MainFragment extends _AbstractFragment {
     }
 
     private void init() {
+        //Test
         lv_main = aq.id(R.id.lv_main).getListView();
         adapter = new CaoListAdapter(context, inflater);
         lv_main.setAdapter(adapter);
