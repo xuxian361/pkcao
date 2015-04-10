@@ -20,10 +20,10 @@
                 android:scaleType="fitCenter"/>
         <TextView
                 style="@style/txt_font_12_black"
-                android:text="Sundy"
                 android:id="@+id/txt_name"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp" android:visibility="invisible"/>
+                android:layout_marginBottom="10dp"
+                android:visibility="invisible"/>
     </LinearLayout>
     <RelativeLayout
             android:layout_width="match_parent"

@@ -6,4 +6,8 @@
     <string name="confirm_pwd_not_equal_pwd">确认密码与密码不一致，请重新输入!</string>
     <string name="register_faid">注册失败，请重新注册!</string>
     <string name="user_exit">该用户已存在，请使用新用户名!</string>
+    <string name="user_not_exit">用户不存在，请用新账号登陆!</string>
+    <string name="confirm_logout">确定登出？</string>
+    <string name="confrim">确定</string>
+    <string name="cancel">取消</string>
 </resources>

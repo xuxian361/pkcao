@@ -11,4 +11,9 @@ public class User {
     public static final String password = "password";
     public static final String user_img = "user_img";
 
+    public static final String objectId = "objectId";
+    public static final String updatedAt = "updatedAt";
+    public static final String createdAt = "createdAt";
+    public static final String uuid = "uuid";
+
 }

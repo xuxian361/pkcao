@@ -1,5 +1,6 @@
 package com.sundy.pkcao;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     private final String TAG = "MainActivity";
     private MenuFragment menuFragment;
     private Fragment mContent;
+    private ProgressDialog loadingDailog;
 
     public MainActivity() {
     }
@@ -87,11 +89,21 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
 
     @Override
     public void onLoading() {
+        if (loadingDailog != null)
+            loadingDailog.dismiss();
+        loadingDailog = ProgressDialog.show(this, null, null);
+        loadingDailog.setCancelable(true);
     }
 
     @Override
     public void finishLoading() {
-
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (loadingDailog != null)
+                    loadingDailog.dismiss();
+            }
+        }, 500);
     }
 
     @Override
@@ -169,6 +181,12 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     @Override
     public void reloadActivity() {
         try {
+            if (loadingDailog != null) {
+                loadingDailog.dismiss();
+                loadingDailog.cancel();
+                loadingDailog = null;
+            }
+
             getSupportFragmentManager().popBackStack();
             rtLog(TAG, "------------>reloadActivity");
             menuFragment = new MenuFragment(menuFragment.curRadioId);

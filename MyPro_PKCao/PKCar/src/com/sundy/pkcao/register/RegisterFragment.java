@@ -79,11 +79,13 @@ public class RegisterFragment extends _AbstractFragment {
         query.whereEqualTo(User.username, username);
         query.whereEqualTo(User.password, password);
 
+        mCallback.onLoading();
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 if (e == null) {
                     if (list != null && list.size() != 0) {
+                        mCallback.finishLoading();
                         Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
                     } else {
                         AVObject user = new AVObject(User.table_name);
@@ -93,6 +95,7 @@ public class RegisterFragment extends _AbstractFragment {
                         user.saveInBackground(new SaveCallback() {
                             @Override
                             public void done(AVException e) {
+                                mCallback.finishLoading();
                                 if (e == null) {
                                     mCallback.switchContent(new MainFragment());
                                 } else {
@@ -102,6 +105,7 @@ public class RegisterFragment extends _AbstractFragment {
                         });
                     }
                 } else {
+                    mCallback.finishLoading();
                     Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
                 }
             }

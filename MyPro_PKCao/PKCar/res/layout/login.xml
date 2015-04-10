@@ -66,8 +66,9 @@
                     android:layout_marginTop="20dp"
                     android:textSize="14dp"
                     android:padding="5dp"
-                    android:maxLength="1"
-                    android:hint="用户名 (仅限英文或者数字)"/>
+                    android:maxLines="1"
+                    android:hint="用户名 (仅限英文或者数字)"
+                    android:inputType="textEmailAddress"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_height"
@@ -78,7 +79,8 @@
                     android:inputType="textPassword"
                     android:padding="5dp"
                     android:textSize="14dp"
-                    android:maxLength="1"/>
+                    android:maxLines="1"
+                    />
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

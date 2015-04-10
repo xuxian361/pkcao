@@ -1,6 +1,9 @@
 package com.sundy.pkcao.menu;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,14 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.androidquery.AQuery;
+import com.androidquery.util.Common;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.ilike.ILikeFragment;
 import com.sundy.pkcao.login.LoginFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.record.RecordFragment;
+import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.taker.ResourceTaker;
 import com.sundy.pkcao.talike.TaLikeFragment;
+import com.sundy.pkcao.vo.User;
 
 /**
  * Created by sundy on 15/3/21.
@@ -77,13 +83,46 @@ public class MenuFragment extends Fragment {
             //replace fragment
             aq.id(R.id.btn_main).clicked(onClickListener);
             aq.id(R.id.btn_login).clicked(onClickListener);
+            aq.id(R.id.btn_logout).clicked(onClickListener);
             aq.id(R.id.btn_I_like).clicked(onClickListener);
             aq.id(R.id.btn_TA_like).clicked(onClickListener);
             aq.id(R.id.btn_record).clicked(onClickListener);
 
+            rtLog(TAG, "----------->1");
+            if (CommonUtility.isLogin(context)) {
+                rtLog(TAG, "----------->2");
+                showUserInfo();
+            } else {
+                rtLog(TAG, "----------->3");
+                hideUserInfo();
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void hideUserInfo() {
+        aq.id(R.id.btn_logout).gone();
+        aq.id(R.id.btn_login).visible();
+        aq.id(R.id.txt_name).invisible();
+        aq.id(R.id.img_profile).image(R.drawable.icon_profile);
+    }
+
+    private void showUserInfo() {
+        aq.id(R.id.btn_logout).visible();
+        aq.id(R.id.btn_login).gone();
+        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+        String username = preferences.getString(User.username, "");
+        if (username != null && username.length() != 0)
+            aq.id(R.id.txt_name).visible().text(username);
+        else
+            aq.id(R.id.txt_name).invisible();
+        String user_img = preferences.getString(User.user_img, "");
+        if (user_img != null && user_img.length() != 0)
+            aq.id(R.id.img_profile).image(user_img);
+        else
+            aq.id(R.id.img_profile).image(R.drawable.icon_profile);
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -112,6 +151,9 @@ public class MenuFragment extends Fragment {
             case R.id.btn_login:
                 mCallback.addContent(new LoginFragment());
                 break;
+            case R.id.btn_logout:
+                logout();
+                break;
             case R.id.btn_I_like:
                 if (i_like == null)
                     i_like = new ILikeFragment(MenuFragment.this);
@@ -135,6 +177,41 @@ public class MenuFragment extends Fragment {
                 break;
         }
         return fragment;
+    }
+
+    private void logout() {
+        LayoutInflater inflater = context.getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_ok_cancel, null);
+        final Dialog dialog = new Dialog(context, R.style.dialog);
+        dialog.setContentView(view);
+        AQuery aq = new AQuery(view);
+        aq.id(R.id.btn_ok).text(getString(R.string.confrim));
+        aq.id(R.id.btn_done).text(getString(R.string.cancel));
+        aq.id(R.id.txt_msg).text(getString(R.string.confirm_logout));
+        aq.id(R.id.btn_done).clicked(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                dialog.cancel();
+            }
+        });
+        aq.id(R.id.btn_ok).clicked(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                dialog.cancel();
+                clearUserInfo();
+                hideUserInfo();
+            }
+        });
+        dialog.show();
+    }
+
+    private void clearUserInfo() {
+        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.commit();
     }
 
     @Override
