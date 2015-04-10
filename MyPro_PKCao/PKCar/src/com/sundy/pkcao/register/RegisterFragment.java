@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import com.androidquery.AQuery;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.SaveCallback;
+import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.vo.User;
+
+import java.util.List;
 
 /**
  * Created by sundy on 15/3/22.
@@ -64,8 +64,8 @@ public class RegisterFragment extends _AbstractFragment {
     };
 
     private void registerUser() {
-        String username = aq.id(R.id.ext_name).getEditText().getText().toString().trim();
-        String password = aq.id(R.id.edt_password).getEditText().getText().toString().trim();
+        final String username = aq.id(R.id.ext_name).getEditText().getText().toString().trim();
+        final String password = aq.id(R.id.edt_password).getEditText().getText().toString().trim();
         String confirm_pwd = aq.id(R.id.edt_confirm_pwd).getEditText().getText().toString().trim();
 
         if (!password.equals(confirm_pwd)) {
@@ -74,21 +74,38 @@ public class RegisterFragment extends _AbstractFragment {
             return;
         }
 
-        AVObject user = new AVObject(User.table_name);
-        user.put(User.username, username);
-        user.put(User.password, password);
+        //先查询Server是否存在这个User
+        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
+        query.whereEqualTo(User.username, username);
+        query.whereEqualTo(User.password, password);
 
-        user.saveInBackground(new SaveCallback() {
+        query.findInBackground(new FindCallback<AVObject>() {
             @Override
-            public void done(AVException e) {
+            public void done(List<AVObject> list, AVException e) {
                 if (e == null) {
-                    mCallback.switchContent(new MainFragment());
+                    if (list != null && list.size() != 0) {
+                        Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
+                    } else {
+                        AVObject user = new AVObject(User.table_name);
+                        user.put(User.username, username);
+                        user.put(User.password, password);
+
+                        user.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if (e == null) {
+                                    mCallback.switchContent(new MainFragment());
+                                } else {
+                                    Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
                 } else {
-                    Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT);
+                    Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
     @Override
