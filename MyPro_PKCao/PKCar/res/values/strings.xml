@@ -10,4 +10,9 @@
     <string name="confirm_logout">确定登出？</string>
     <string name="confrim">确定</string>
     <string name="cancel">取消</string>
+    <string name="gallery">相册</string>
+    <string name="camera">拍照</string>
+    <string name="upload_image">上传头像</string>
+    <string name="sdk_not_exist">SDK不存在，获取图片失败!</string>
+    <string name="selete_photo_again">获取图片失败，请重新获取!</string>
 </resources>

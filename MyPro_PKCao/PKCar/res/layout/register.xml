@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -82,57 +83,26 @@
                         android:layout_width="65dp"
                         android:layout_height="65dp"
                         android:layout_marginTop="15dp"
-                        android:gravity="center">
-                    <ImageView
+                        android:gravity="center"
+                        android:id="@+id/relative_upload_photo">
+
+                    <com.sundy.pkcao.tools.CircleImageView
+                            app:border_color="@color/transparent"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:id="@+id/img_user"
                             android:src="@drawable/icon_profile"
-                            android:scaleType="fitCenter"/>
+                            />
+
                     <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_alignParentBottom="true"
-                            android:layout_alignParentRight="true" android:src="@drawable/icon_edit"
-                            android:scaleType="fitCenter" android:layout_marginBottom="2dp"/>
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/icon_edit"
+                            android:scaleType="fitCenter"
+                            android:layout_marginBottom="2dp"/>
                 </RelativeLayout>
-                <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        >
-                    <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:gravity="center|left">
-                        <ImageView
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:id="@+id/img_1" android:src="@drawable/icon_profile"
-                                android:layout_marginLeft="5dp"/>
-                        <ImageView
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:id="@+id/img_2" android:src="@drawable/icon_profile"
-                                android:layout_marginLeft="10dp"/>
-                        <ImageView
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:id="@+id/img_3" android:src="@drawable/icon_profile"
-                                android:layout_marginLeft="10dp"/>
-                        <ImageView
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:id="@+id/img_4" android:src="@drawable/icon_profile"
-                                android:layout_marginLeft="10dp"/>
-                        <ImageView
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:id="@+id/img_5" android:src="@drawable/icon_profile"
-                                android:layout_marginLeft="10dp"/>
-                    </LinearLayout>
-                </ScrollView>
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

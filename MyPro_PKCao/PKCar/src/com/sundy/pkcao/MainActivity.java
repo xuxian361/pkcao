@@ -16,6 +16,7 @@ import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.menu.MenuFragment;
+import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.taker.ResourceTaker;
 
 public class MainActivity extends SlidingFragmentActivity implements MainFragment.OnListListener, MenuFragment.OnListListener {
@@ -205,6 +206,13 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         rtLog(TAG, "------------------------onActivityResult");
+        if (requestCode == CommonUtility.IMAGE_CAPTURE_OK) {
+            mContent.onActivityResult(requestCode, resultCode, data);
+        } else if (requestCode == CommonUtility.CONSULT_DOC_PICTURE) {
+            mContent.onActivityResult(requestCode, resultCode, data);
+        } else if (requestCode == CommonUtility.CONSULT_DOC_PICTURE_1) {
+            mContent.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
@@ -12,12 +13,15 @@
             android:gravity="center"
             android:paddingTop="30dp"
             android:paddingBottom="30dp">
-        <ImageView
+
+        <com.sundy.pkcao.tools.CircleImageView
+                app:border_color="@color/transparent"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:id="@+id/img_profile"
                 android:src="@drawable/icon_profile"
-                android:scaleType="fitCenter"/>
+                />
+
         <TextView
                 style="@style/txt_font_12_black"
                 android:id="@+id/txt_name"

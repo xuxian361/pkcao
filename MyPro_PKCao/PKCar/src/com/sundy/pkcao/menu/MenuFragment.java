@@ -156,25 +156,34 @@ public class MenuFragment extends Fragment {
                 logout();
                 break;
             case R.id.btn_I_like:
-                if (i_like == null)
-                    i_like = new ILikeFragment(MenuFragment.this);
-                fragment = i_like;
-                curRadioId = index;
-
+                if (CommonUtility.isLogin(context)) {
+                    if (i_like == null)
+                        i_like = new ILikeFragment(MenuFragment.this);
+                    fragment = i_like;
+                    curRadioId = index;
+                } else {
+                    mCallback.addContent(new LoginFragment());
+                }
                 break;
             case R.id.btn_TA_like:
-                if (ta_like == null)
-                    ta_like = new TaLikeFragment(MenuFragment.this);
-                fragment = ta_like;
-                curRadioId = index;
-
+                if (CommonUtility.isLogin(context)) {
+                    if (ta_like == null)
+                        ta_like = new TaLikeFragment(MenuFragment.this);
+                    fragment = ta_like;
+                    curRadioId = index;
+                } else {
+                    mCallback.addContent(new LoginFragment());
+                }
                 break;
             case R.id.btn_record:
-                if (record == null)
-                    record = new RecordFragment(MenuFragment.this);
-                fragment = record;
-                curRadioId = index;
-
+                if (CommonUtility.isLogin(context)) {
+                    if (record == null)
+                        record = new RecordFragment(MenuFragment.this);
+                    fragment = record;
+                    curRadioId = index;
+                } else {
+                    mCallback.addContent(new LoginFragment());
+                }
                 break;
         }
         return fragment;
