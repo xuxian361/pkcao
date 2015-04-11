@@ -15,4 +15,6 @@
     <string name="upload_image">上传头像</string>
     <string name="sdk_not_exist">SDK不存在，获取图片失败!</string>
     <string name="selete_photo_again">获取图片失败，请重新获取!</string>
+    <string name="fill_username">用户名 (16个以内的英文字或者数字)</string>
+    <string name="fill_password">密码 (6~16个英文字或者数字)</string>
 </resources>

@@ -52,7 +52,7 @@
                         android:textSize="14dp"
                         android:padding="5dp"
                         android:maxLines="1"
-                        android:hint="用户名 (仅限英文或者数字)"
+                        android:hint="@string/fill_username"
                         android:inputType="textEmailAddress"/>
 
                 <EditText
@@ -61,7 +61,7 @@
                         android:id="@+id/edt_password"
                         android:layout_marginTop="15dp"
                         android:background="@drawable/corner_all_light_blue_strok"
-                        android:hint="密码 (6~10个英文字或者数字)"
+                        android:hint="@string/fill_password"
                         android:inputType="textPassword"
                         android:padding="5dp"
                         android:textSize="14dp"

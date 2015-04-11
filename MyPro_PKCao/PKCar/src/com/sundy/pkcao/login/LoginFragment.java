@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,32 @@ public class LoginFragment extends _AbstractFragment {
     private void login() {
         username = aq.id(R.id.ext_name).getEditText().getText().toString().trim();
         String password = aq.id(R.id.edt_password).getEditText().getText().toString().trim();
+
+        if (TextUtils.isEmpty(username)) {
+            Toast.makeText(context, getString(R.string.fill_username), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (username.length() > 16) {
+            Toast.makeText(context, getString(R.string.fill_username), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (username.length() == 0) {
+            Toast.makeText(context, getString(R.string.fill_username), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.length() > 16) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.length() < 6) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
         query.whereEqualTo(User.username, username);
