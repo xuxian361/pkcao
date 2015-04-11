@@ -88,17 +88,18 @@ public class MenuFragment extends Fragment {
             aq.id(R.id.btn_TA_like).clicked(onClickListener);
             aq.id(R.id.btn_record).clicked(onClickListener);
 
-            rtLog(TAG, "----------->1");
-            if (CommonUtility.isLogin(context)) {
-                rtLog(TAG, "----------->2");
-                showUserInfo();
-            } else {
-                rtLog(TAG, "----------->3");
-                hideUserInfo();
-            }
+            refreshUserInfo();
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void refreshUserInfo() {
+        if (CommonUtility.isLogin(context)) {
+            showUserInfo();
+        } else {
+            hideUserInfo();
         }
     }
 
@@ -239,8 +240,21 @@ public class MenuFragment extends Fragment {
         super.onDestroy();
     }
 
-    public void onClick(View v) {
-
+    public void onClick(View view) {
+        rtLog(TAG, "------------->");
+        if (mCallback == null)
+            return;
+        int id = view.getId();
+        switch (id) {
+            case R.id.btn_main:
+                if (curRadioId == id) {
+                    mCallback.showSlidingMenu();
+                }
+                break;
+            case R.id.btnMenu:
+                refreshUserInfo();
+                break;
+        }
     }
 
     // Container Activity must implement this interface
