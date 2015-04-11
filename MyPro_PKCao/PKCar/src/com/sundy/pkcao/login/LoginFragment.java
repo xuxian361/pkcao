@@ -133,9 +133,13 @@ public class LoginFragment extends _AbstractFragment {
         editor.putString(User.createdAt, CommonUtility.formatDate2String(user.getCreatedAt()));
         editor.putString(User.updatedAt, CommonUtility.formatDate2String(user.getUpdatedAt()));
         editor.putString(User.username, username);
-        String user_img = user.getString(User.user_img);
-        if (user_img != null) {
-            editor.putString(User.user_img, user_img);
+        AVFile file = user.getAVFile(User.user_img);
+        if (username != null) {
+            String user_img = file.getUrl();
+            if (user_img != null)
+                editor.putString(User.user_img, user_img);
+            else
+                editor.putString(User.user_img, "");
         } else {
             editor.putString(User.user_img, "");
         }

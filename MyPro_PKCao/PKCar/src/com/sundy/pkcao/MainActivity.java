@@ -76,6 +76,7 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
 
     @Override
     protected void onResume() {
+        rtLog(TAG, "------------------------onResume");
         super.onResume();
     }
 

@@ -250,7 +250,6 @@ public class MenuFragment extends Fragment {
     }
 
     public void onClick(View view) {
-        rtLog(TAG, "------------->");
         if (mCallback == null)
             return;
         int id = view.getId();

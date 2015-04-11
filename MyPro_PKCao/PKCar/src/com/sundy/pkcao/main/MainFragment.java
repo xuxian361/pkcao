@@ -1,5 +1,7 @@
 package com.sundy.pkcao.main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +17,8 @@ import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
 import com.sundy.pkcao.caodian.AddCaoDianFragment;
 import com.sundy.pkcao.caodian.CaoDetailFragment;
+import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.vo.User;
 
 /**
  * Created by sundy on 15/3/21.
