@@ -5,12 +5,11 @@
     <color name="black">#ff000000</color>
     <color name="red">#ffff3243</color>
     <color name="green">#ff0ce825</color>
-    <color name="transparent">#d4090606</color>
+    <color name="transparent">#00000000</color>
     <color name="orange1">#ffeef397</color>
     <color name="orange2">#fff4dc28</color>
     <color name="orange3">#fff3b812</color>
     <color name="orange4">#fff39c0d</color>
     <color name="white2">#14080a09</color>
-    <color name="transparent3">#00000000</color>
 
 </resources>
