@@ -103,8 +103,8 @@
       <file leaf-file-name="AddCaoDianFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/AddCaoDianFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6088496" vertical-offset="2223" max-vertical-offset="6086">
-              <caret line="252" column="23" selection-start-line="252" selection-start-column="23" selection-end-line="252" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.6637168" vertical-offset="4181" max-vertical-offset="6358">
+              <caret line="369" column="19" selection-start-line="369" selection-start-column="19" selection-end-line="369" selection-end-column="19" />
               <folding>
                 <element signature="e#1774#1782#0" expanded="true" />
                 <element signature="e#2019#2020#0" expanded="true" />
@@ -134,27 +134,16 @@
                 <element signature="method#clearUserInfo#0;class#AddCaoDianFragment#0" expanded="false" />
                 <element signature="e#13168#13201#0" expanded="true" />
                 <element signature="e#14376#14414#0" expanded="true" />
-                <element signature="e#15220#15527#0" expanded="true" />
-                <element signature="e#15526#15527#0" expanded="true" />
-                <element signature="e#16438#16745#0" expanded="true" />
-                <element signature="e#16744#16745#0" expanded="true" />
-                <element signature="e#17461#17997#0" expanded="true" />
-                <element signature="e#17996#17997#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_cao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/add_cao.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1785715" vertical-offset="1556" max-vertical-offset="2346">
-              <caret line="102" column="44" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="44" />
-              <folding>
-                <element signature="e#1523#1543#0" expanded="true" />
+                <element signature="e#15072#15507#0" expanded="true" />
+                <element signature="e#15506#15507#0" expanded="true" />
+                <element signature="e#15665#15972#0" expanded="true" />
+                <element signature="e#15971#15972#0" expanded="true" />
+                <element signature="e#16597#17032#0" expanded="true" />
+                <element signature="e#17031#17032#0" expanded="true" />
+                <element signature="e#17190#17497#0" expanded="true" />
+                <element signature="e#17496#17497#0" expanded="true" />
+                <element signature="e#18213#18749#0" expanded="true" />
+                <element signature="e#18748#18749#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -221,8 +210,8 @@
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Caodian.java" />
         <option value="$PROJECT_DIR$/res/layout/caodian_img.xml" />
-        <option value="$PROJECT_DIR$/res/layout/add_cao.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/AddCaoDianFragment.java" />
+        <option value="$PROJECT_DIR$/res/layout/add_cao.xml" />
       </list>
     </option>
   </component>
@@ -586,7 +575,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1308" y="23" width="1592" height="1031" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -602,7 +591,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2644809" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3092896" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3092896" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1103,12 +1092,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/add_cao.xml">
-      <provider editor-type-id="android-designer">
+      <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1785715" vertical-offset="1556" max-vertical-offset="2346">
-          <caret line="102" column="44" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="44" />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8461537" vertical-offset="1556" max-vertical-offset="2431">
+          <caret line="102" column="20" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
           <folding>
             <element signature="e#1523#1543#0" expanded="true" />
           </folding>
@@ -1117,8 +1106,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/AddCaoDianFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6088496" vertical-offset="2223" max-vertical-offset="6086">
-          <caret line="252" column="23" selection-start-line="252" selection-start-column="23" selection-end-line="252" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.6637168" vertical-offset="4181" max-vertical-offset="6358">
+          <caret line="369" column="19" selection-start-line="369" selection-start-column="19" selection-end-line="369" selection-end-column="19" />
           <folding>
             <element signature="e#1774#1782#0" expanded="true" />
             <element signature="e#2019#2020#0" expanded="true" />
@@ -1148,12 +1137,16 @@
             <element signature="method#clearUserInfo#0;class#AddCaoDianFragment#0" expanded="false" />
             <element signature="e#13168#13201#0" expanded="true" />
             <element signature="e#14376#14414#0" expanded="true" />
-            <element signature="e#15220#15527#0" expanded="true" />
-            <element signature="e#15526#15527#0" expanded="true" />
-            <element signature="e#16438#16745#0" expanded="true" />
-            <element signature="e#16744#16745#0" expanded="true" />
-            <element signature="e#17461#17997#0" expanded="true" />
-            <element signature="e#17996#17997#0" expanded="true" />
+            <element signature="e#15072#15507#0" expanded="true" />
+            <element signature="e#15506#15507#0" expanded="true" />
+            <element signature="e#15665#15972#0" expanded="true" />
+            <element signature="e#15971#15972#0" expanded="true" />
+            <element signature="e#16597#17032#0" expanded="true" />
+            <element signature="e#17031#17032#0" expanded="true" />
+            <element signature="e#17190#17497#0" expanded="true" />
+            <element signature="e#17496#17497#0" expanded="true" />
+            <element signature="e#18213#18749#0" expanded="true" />
+            <element signature="e#18748#18749#0" expanded="true" />
           </folding>
         </state>
       </provider>

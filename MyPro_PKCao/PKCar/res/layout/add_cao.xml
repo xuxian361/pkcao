@@ -108,6 +108,11 @@
                         android:id="@+id/img_video"
                         android:scaleType="centerCrop"/>
                 <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/imageView" android:layout_centerInParent="true"
+                        android:src="@drawable/icon_play" android:scaleType="fitCenter"/>
+                <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:id="@+id/img_delete_video"

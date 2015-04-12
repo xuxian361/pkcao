@@ -358,7 +358,16 @@ public class AddCaoDianFragment extends _AbstractFragment {
             Bitmap thumbnail =
                     CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
             if (thumbnail != null) {
-                aq.id(R.id.relative_video).visible();
+                aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        String type = "video/mp4";
+                        Uri uri = Uri.parse(videoPath);
+                        intent.setDataAndType(uri, type);
+                        startActivity(intent);
+                    }
+                });
                 aq.id(R.id.img_video).image(thumbnail);
                 aq.id(R.id.btn_video).gone();
                 aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
@@ -374,17 +383,24 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 aq.id(R.id.btn_video).visible();
             }
         } else if (CommonUtility.VIDEO_TAKE_VIDEO == requestCode) {
-            rtLog(TAG, "----------->data= " + data.toString());
             if (data == null) {
                 return;
             }
             Uri uri = data.getData();
             videoPath = CommonUtility.getImagePath3(context, uri);
-            rtLog(TAG, "----------->videoPath= " + videoPath.toString());
             Bitmap thumbnail =
                     CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
             if (thumbnail != null) {
-                aq.id(R.id.relative_video).visible();
+                aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        String type = "video/mp4";
+                        Uri uri = Uri.parse(videoPath);
+                        intent.setDataAndType(uri, type);
+                        startActivity(intent);
+                    }
+                });
                 aq.id(R.id.img_video).image(thumbnail);
                 aq.id(R.id.btn_video).gone();
                 aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
