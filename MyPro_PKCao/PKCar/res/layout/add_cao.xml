@@ -18,8 +18,11 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:text="确定"
-                android:id="@+id/txt_confirm" style="@style/txt_font_14_black" android:layout_alignParentRight="true"
-                android:layout_marginRight="5dp" android:gravity="center"/>
+                android:id="@+id/txt_confirm"
+                style="@style/txt_font_14_black"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:gravity="center"/>
     </RelativeLayout>
     <ScrollView
             android:layout_width="match_parent"
@@ -28,21 +31,31 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" android:padding="10dp">
+                android:layout_height="fill_parent"
+                android:padding="10dp">
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_height"
-                    android:id="@+id/edt_title" android:background="@drawable/corner_all_light_blue_strok"
-                    android:layout_marginLeft="10dp" android:layout_marginTop="10dp" android:layout_marginRight="10dp"
-                    android:hint="标题" android:gravity="center|left" android:padding="5dp" android:maxLines="1"
+                    android:id="@+id/edt_title"
+                    android:background="@drawable/corner_all_light_blue_strok"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="标题"
+                    android:gravity="center|left"
+                    android:padding="5dp"
+                    android:maxLines="1"
                     android:textSize="14dp"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
-                    android:id="@+id/edt_content" android:background="@drawable/corner_all_light_blue_strok"
+                    android:id="@+id/edt_content"
+                    android:background="@drawable/corner_all_light_blue_strok"
                     android:layout_margin="10dp"
-                    android:gravity="left|top" android:padding="5dp"
-                    android:hint="内容" android:textIsSelectable="false" android:textSize="14dp"/>
+                    android:gravity="left|top"
+                    android:padding="5dp"
+                    android:hint="内容"
+                    android:textSize="14dp"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,19 +63,25 @@
                     style="@style/txt_font_12_black"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"/>
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_margin="10dp"
-                    android:id="@+id/linear_photo">
-                <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/btn_photo" android:src="@drawable/icon_add_big" android:scaleType="fitCenter"
-                        android:layout_gravity="center_vertical" android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"/>
-            </LinearLayout>
+
+            <LinearLayout android:layout_width="200dp"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/linear_imgs"
+                          android:orientation="vertical"
+                          android:layout_marginTop="5dp"
+                          android:layout_marginBottom="5dp"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"/>
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/btn_photo"
+                    android:src="@drawable/icon_add_big"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -72,6 +91,33 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"/>
 
+            <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/relative_video"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="gone">
+                <ImageView
+                        android:orientation="horizontal"
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:id="@+id/img_video"
+                        android:scaleType="centerCrop"/>
+                <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/img_delete_video"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/red_delete"
+                        android:scaleType="fitCenter"
+                        android:padding="5dp"/>
+
+            </RelativeLayout>
+
             <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -79,7 +125,7 @@
                     android:src="@drawable/icon_add_big"
                     android:scaleType="fitCenter"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"/>
 
         </LinearLayout>

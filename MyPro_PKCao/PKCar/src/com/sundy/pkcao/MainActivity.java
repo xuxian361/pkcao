@@ -213,6 +213,10 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
             mContent.onActivityResult(requestCode, resultCode, data);
         } else if (requestCode == CommonUtility.CONSULT_DOC_PICTURE_1) {
             mContent.onActivityResult(requestCode, resultCode, data);
+        } else if (requestCode == CommonUtility.VIDEO_LOCAL) {
+            mContent.onActivityResult(requestCode, resultCode, data);
+        } else if (requestCode == CommonUtility.VIDEO_TAKE_VIDEO) {
+            mContent.onActivityResult(requestCode, resultCode, data);
         }
     }
 

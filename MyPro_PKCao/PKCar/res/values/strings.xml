@@ -17,4 +17,13 @@
     <string name="selete_photo_again">获取图片失败，请重新获取!</string>
     <string name="fill_username">用户名 (16个以内的英文字或者数字)</string>
     <string name="fill_password">密码 (6~16个英文字或者数字)</string>
+    <string name="please_login">请先登陆!</string>
+    <string name="add_failed">添加失败，请稍后再试!</string>
+    <string name="input_empty">输入不能空!</string>
+    <string name="account_exception">账户异常，请重新登陆!</string>
+    <string name="add_success">添加成功!</string>
+    <string name="upload_caodian_img">上传图片</string>
+    <string name="local">本地视频</string>
+    <string name="take_video">拍摄</string>
+    <string name="upload_caodian_video">上传视频</string>
 </resources>

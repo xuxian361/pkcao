@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 import com.androidquery.AQuery;
+import com.androidquery.util.Common;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
@@ -138,7 +140,11 @@ public class MainFragment extends _AbstractFragment {
                     aq.id(R.id.btn_filter_right).text("最新");
                     break;
                 case R.id.btnAdd:
-                    mCallback.addContent(new AddCaoDianFragment());
+                    if (CommonUtility.isLogin(context)) {
+                        mCallback.addContent(new AddCaoDianFragment(MainFragment.this));
+                    } else {
+                        Toast.makeText(context, getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                    }
                     break;
             }
         }
