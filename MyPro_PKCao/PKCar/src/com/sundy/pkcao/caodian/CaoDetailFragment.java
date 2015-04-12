@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import com.androidquery.AQuery;
+import com.avos.avoscloud.AVObject;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.ImageHListAdapter;
+import com.sundy.pkcao.vo.Caodian;
 import it.sephiroth.android.library.widget.HListView;
 
 /**
@@ -18,16 +20,17 @@ import it.sephiroth.android.library.widget.HListView;
 public class CaoDetailFragment extends _AbstractFragment {
 
     private final String TAG = "CaoDetailFragment";
+    private AVObject item;
     private Fragment fragment;
     private View v;
-    private HListView lv_images;
     private ImageHListAdapter adapter;
 
     public CaoDetailFragment() {
     }
 
-    public CaoDetailFragment(Fragment fragment) {
+    public CaoDetailFragment(Fragment fragment, AVObject item) {
         this.fragment = fragment;
+        this.item = item;
     }
 
     @Override
@@ -46,25 +49,17 @@ public class CaoDetailFragment extends _AbstractFragment {
     }
 
     private void init() {
-        lv_images = (HListView) aq.id(R.id.lv_images).getView();
-        adapter = new ImageHListAdapter(context, inflater);
-        lv_images.setAdapter(adapter);
+        showCaodian();
+    }
 
-        aq.id(R.id.btn_more).clicked(onClick);
+    private void showCaodian() {
+        aq.id(R.id.txt_title).text(item.getString(Caodian.title));
     }
 
     private View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.btn_more:
-                    ScrollView scrollView_detial = (ScrollView) aq.id(R.id.scrollView_detial).getView();
-                    if (scrollView_detial.getVisibility() == View.GONE) {
-                        scrollView_detial.setVisibility(View.VISIBLE);
-                    } else {
-                        scrollView_detial.setVisibility(View.GONE);
-                    }
-                    break;
             }
         }
     };

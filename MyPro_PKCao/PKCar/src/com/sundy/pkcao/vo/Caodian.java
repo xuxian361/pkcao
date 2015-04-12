@@ -10,6 +10,8 @@ public class Caodian {
     public static final String title = "title";
     public static final String content = "content";
     public static final String caodian_video = "caodian_video";
+    public static final String caodian_video_thumbnail = "caodian_video_thumbnail";
+
     public static final String creater_id = "creater_id";   //创建该槽点的人ID
     public static final String caodian_id = "caodian_id";   //槽点ID
 

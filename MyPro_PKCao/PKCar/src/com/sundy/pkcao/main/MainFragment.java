@@ -3,6 +3,7 @@ package com.sundy.pkcao.main;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,13 +15,22 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.androidquery.util.Common;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
 import com.sundy.pkcao.caodian.AddCaoDianFragment;
 import com.sundy.pkcao.caodian.CaoDetailFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.xlistview.XListView;
+import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sundy on 15/3/21.
@@ -30,11 +40,18 @@ public class MainFragment extends _AbstractFragment {
     private final String TAG = "MainFragment";
     private Fragment fragment;
     private View v;
-    private ListView lv_main;
+    private XListView lv_main;
     private CaoListAdapter adapter;
     private LinearLayout linear_filter;
     private boolean isFilterLeftVisible = false;
     private boolean isFilterRightVisible = false;
+
+    private List list = new ArrayList();
+    private int curPage = 1;
+    private int pageNum = 10;
+    private boolean ishasMore = true;
+    private boolean isRefreshing = false;
+    private String last_updated_time = "";
 
     public MainFragment() {
     }
@@ -59,16 +76,95 @@ public class MainFragment extends _AbstractFragment {
     }
 
     private void init() {
-        lv_main = aq.id(R.id.lv_main).getListView();
+        last_updated_time = getString(R.string.just_now);
+        lv_main = (XListView) aq.id(R.id.lv_main).getListView();
         adapter = new CaoListAdapter(context, inflater);
         lv_main.setAdapter(adapter);
         lv_main.setOnItemClickListener(onItemClickListener);
+        lv_main.setPullLoadEnable(true);
+        lv_main.setPullRefreshEnable(true);
+        lv_main.setXListViewListener(ixListViewListener);
 
         linear_filter = (LinearLayout) aq.id(R.id.linear_filter).getView();
 
         aq.id(R.id.btn_filter_left).clicked(onClick);
         aq.id(R.id.btn_filter_right).clicked(onClick);
         aq.id(R.id.btnAdd).clicked(onClick);
+
+        if (list != null)
+            list.clear();
+
+        getCaodians();
+    }
+
+    private void onLoad() {
+        lv_main.stopRefresh();
+        lv_main.stopLoadMore();
+        lv_main.setRefreshTime(last_updated_time);
+    }
+
+    private XListView.IXListViewListener ixListViewListener = new XListView.IXListViewListener() {
+        @Override
+        public void onRefresh() {
+            ishasMore = true;
+            if (isRefreshing)
+                return;
+            if (list != null)
+                list.clear();
+            lv_main.setAdapter(adapter);
+            curPage = 1;
+            last_updated_time = CommonUtility.getLastUpdatedTime();
+            getCaodians();
+            onLoad();
+        }
+
+        @Override
+        public void onLoadMore() {
+            isRefreshing = false;
+            if (ishasMore) {
+                if (list.size() / pageNum == curPage - 1)
+                    return;
+                curPage++;
+                getCaodians();
+            }
+            onLoad();
+        }
+    };
+
+    private void getCaodians() {
+        mCallback.onLoading();
+        AVQuery<AVObject> query = new AVQuery<AVObject>(Caodian.table_name);
+        query.setLimit(pageNum);
+        query.orderByDescending(Caodian.createdAt);
+
+        if (curPage > 1) {
+            query.setSkip((curPage - 1) * pageNum);
+        }
+        isRefreshing = true;
+        query.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> objects, AVException e) {
+                mCallback.finishLoading();
+                isRefreshing = false;
+                onLoad();
+                if (objects != null && objects.size() != 0) {
+                    for (int i = 0; i < objects.size(); i++) {
+                        AVObject item = objects.get(i);
+                        if (item != null) {
+                            list.add(item);
+                        }
+                    }
+                    if (list.size() % pageNum != 0) {
+                        ishasMore = false;
+                    }
+                    adapter.setData(list);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    ishasMore = false;
+                    lv_main.setFooterViewText(getString(R.string.no_result));
+                }
+            }
+        });
     }
 
     private View.OnClickListener onClick = new View.OnClickListener() {
@@ -153,7 +249,10 @@ public class MainFragment extends _AbstractFragment {
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            mCallback.addContent(new CaoDetailFragment());
+            if (list != null && list.size() != 0) {
+                AVObject item = (AVObject) list.get(i - 1);
+                mCallback.addContent(new CaoDetailFragment(MainFragment.this, item));
+            }
         }
     };
 

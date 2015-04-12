@@ -15,13 +15,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.text.Layout;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.AVException;
@@ -30,7 +28,6 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.SaveCallback;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
-import com.sundy.pkcao.adapters.CaoListAdapter;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.vo.Caodian;
@@ -45,7 +42,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Timer;
 
 /**
  * Created by sundy on 15/3/21.
@@ -60,6 +56,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private String caodian_id;
     private int count = 0;
     private String videoPath = null;  //视频路径
+    private String video_thumbnail_path; //视频缩略图路径
 
 
     public AddCaoDianFragment() {
@@ -184,6 +181,15 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
                 AVFile video = AVFile.withAbsoluteLocalPath(Caodian.caodian_video + suffix, videoPath);
                 avObject.put(Caodian.caodian_video, video);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
+            try {
+                AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(Caodian.caodian_video_thumbnail + ".jpg", video_thumbnail_path);
+                avObject.put(Caodian.caodian_video_thumbnail, thumbnail_file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -358,6 +364,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
             Bitmap thumbnail =
                     CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
             if (thumbnail != null) {
+                video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
                 aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -391,6 +398,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
             Bitmap thumbnail =
                     CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
             if (thumbnail != null) {
+                video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
                 aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

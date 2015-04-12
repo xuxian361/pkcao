@@ -26,4 +26,14 @@
     <string name="local">本地视频</string>
     <string name="take_video">拍摄</string>
     <string name="upload_caodian_video">上传视频</string>
+
+    <!--自定義ListView-->
+    <string name="xlistview_header_hint_normal">更多信息</string>
+    <string name="xlistview_header_hint_ready">松开以重新整理</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">最后更新:</string>
+    <string name="xlistview_footer_hint_normal"></string>
+    <string name="xlistview_footer_hint_ready">更多信息</string>
+    <string name="just_now">刚刚</string>
+    <string name="no_result">没有更多结果!</string>
 </resources>

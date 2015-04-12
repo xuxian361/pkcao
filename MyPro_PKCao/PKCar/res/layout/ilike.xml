@@ -15,7 +15,8 @@
             android:layout_height="match_parent"
             android:id="@+id/lv_ilike"
             android:padding="10dp"
-            android:scrollbars="none"/>
+            android:scrollbars="none"
+            android:divider="@null"/>
 
 
 </LinearLayout>

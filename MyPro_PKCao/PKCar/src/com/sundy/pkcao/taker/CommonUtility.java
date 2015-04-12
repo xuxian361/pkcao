@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ExifInterface;
+import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
@@ -28,6 +29,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 /**
@@ -306,6 +308,51 @@ public class CommonUtility {
         bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
                 ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
         return bitmap;
+    }
+
+    public static String getLastUpdatedTime() {
+        String str = null;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            //获取当前时间
+            Date curDate = new Date(System.currentTimeMillis());
+            str = formatter.format(curDate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
+
+    /**
+     * 保存缩略图
+     */
+    public static String saveThumbnail(Bitmap thumbnail) {
+        String path = null;
+        try {
+            if (thumbnail != null) {
+                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+                if (!file.exists())
+                    file.mkdirs();
+                try {
+                    File imageFile = new File(file, "thumbnail");
+                    if (imageFile.exists()) {
+                        imageFile.delete();
+                    }
+                    imageFile.createNewFile();
+                    FileOutputStream fos = new FileOutputStream(imageFile);
+                    path = imageFile.getPath();
+                    thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                    fos.flush();
+                    fos.close();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return path;
     }
 
 }
