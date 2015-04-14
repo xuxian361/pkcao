@@ -87,9 +87,8 @@ public class CaoListAdapter extends BaseAdapter {
                 AQuery aq_img_play = new AQuery(holder.img_play);
                 AVFile imgpath = caodian_img.getAVFile(Caodian_Img.caodian_img);
 
-                Log.e("sundy", "--------->img = " + imgpath.getUrl());
-                Log.e("sundy", "--------->caodian_img = " + caodian_img.toString());
-
+//                Log.e("sundy", "--------->img = " + imgpath.getUrl());
+//                Log.e("sundy", "--------->caodian_img = " + caodian_img.toString());
 
                 AVFile video = caodian.getAVFile(Caodian.caodian_video);
                 if (video != null) {
