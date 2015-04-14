@@ -57,6 +57,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private int count = 0;
     private String videoPath = null;  //视频路径
     private String video_thumbnail_path; //视频缩略图路径
+    private String photoPath = null;  //图片路径
 
 
     public AddCaoDianFragment() {
@@ -97,9 +98,11 @@ public class AddCaoDianFragment extends _AbstractFragment {
                     addCaodian();
                     break;
                 case R.id.btn_photo:
+                    photoPath = "";
                     selectPhoto();
                     break;
                 case R.id.btn_video:
+                    videoPath = "";
                     selectVideo();
                     break;
             }
@@ -170,38 +173,40 @@ public class AddCaoDianFragment extends _AbstractFragment {
         Date date = new Date();
         caodian_id = sdf.format(date);
 
-        AVObject avObject = new AVObject(Caodian.table_name);
-        avObject.put(Caodian.title, title);
-        avObject.put(Caodian.content, content);
-        avObject.put(Caodian.creater_id, creater_id);
-        avObject.put(Caodian.caodian_id, caodian_id);
+        final AVObject caodian = new AVObject(Caodian.table_name);
+        caodian.put(Caodian.title, title);
+        caodian.put(Caodian.content, content);
+        caodian.put(Caodian.creater_id, creater_id);
+        caodian.put(Caodian.caodian_id, caodian_id);
 
+        //保存视频文件
         if (videoPath != null && videoPath.length() != 0) {
             try {
                 String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
                 AVFile video = AVFile.withAbsoluteLocalPath(Caodian.caodian_video + suffix, videoPath);
-                avObject.put(Caodian.caodian_video, video);
+                caodian.put(Caodian.caodian_video, video);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
+        //保存视频缩略图
         if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
             try {
                 AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(Caodian.caodian_video_thumbnail + ".jpg", video_thumbnail_path);
-                avObject.put(Caodian.caodian_video_thumbnail, thumbnail_file);
+                caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         mCallback.onLoading();
-        avObject.saveInBackground(new SaveCallback() {
+        caodian.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
                 if (e == null) {
                     if (photoList != null && photoList.size() != 0) {
-                        saveCaoDianImgs();
+                        saveCaoDianImgs(caodian);
                     } else {
                         mCallback.finishLoading();
                         Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
@@ -215,17 +220,19 @@ public class AddCaoDianFragment extends _AbstractFragment {
         });
     }
 
-    private void saveCaoDianImgs() {
+    private void saveCaoDianImgs(AVObject caodian) {
         try {
             for (int i = 0; i < photoList.size(); i++) {
                 String path = photoList.get(i);
                 if (path != null && path.length() != 0) {
-                    AVObject object = new AVObject(Caodian_Img.table_name);
-                    object.put(Caodian_Img.caodian_id, caodian_id);
+                    AVObject photo = new AVObject(Caodian_Img.table_name);
+                    photo.put(Caodian_Img.caodian_id, caodian_id);
 
                     AVFile file = AVFile.withAbsoluteLocalPath(Caodian_Img.caodian_id + "_" + i + ".jsp", path);
-                    object.put(Caodian_Img.caodian_img, file);
-                    object.saveInBackground(new SaveCallback() {
+                    photo.put(Caodian_Img.caodian_img, file);
+                    photo.put(Caodian_Img.caodian, caodian);
+
+                    photo.saveInBackground(new SaveCallback() {
                         @Override
                         public void done(AVException e) {
                             if (count == photoList.size() - 1) {
@@ -255,8 +262,6 @@ public class AddCaoDianFragment extends _AbstractFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Bitmap bitmap = null; //图片Bitmap
-        String photoPath = null;  //图片路径
-        videoPath = "";
         if (requestCode == CommonUtility.CONSULT_DOC_PICTURE) {
             if (data == null) {
                 return;
@@ -269,57 +274,27 @@ public class AddCaoDianFragment extends _AbstractFragment {
                     null);
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             cursor.moveToFirst();
-            photoPath = cursor.getString(column_index);
+            String path = cursor.getString(column_index);
             if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
                 bitmap.recycle();
-            bitmap = CommonUtility.compressImageFromFile(photoPath);
-            if (bitmap != null) {
-                int angle = CommonUtility.getRotate(photoPath);
-                if (angle != 0) {
-                    Matrix m = new Matrix();
-                    int width = bitmap.getWidth();
-                    int height = bitmap.getHeight();
-                    m.setRotate(angle);
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                int options = 100;
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                while (baos.toByteArray().length / 1024 > 100) {
-                    baos.reset();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                    options -= 10;
-                }
-            }
-            showImgs(photoPath, bitmap);
+            //压缩并旋转Bitmap
+            bitmap = CommonUtility.compressImageFromFile(path);
+            bitmap = CommonUtility.compressBitmap(path, bitmap);
+            photoPath = CommonUtility.savePhoto(bitmap);
+            showImgs(bitmap);
         } else if (requestCode == CommonUtility.CONSULT_DOC_PICTURE_1) {
             if (data == null) {
                 return;
             }
             Uri uri = data.getData();
-            photoPath = CommonUtility.getImagePath3(context, uri);
+            String path = CommonUtility.getImagePath3(context, uri);
             if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
                 bitmap.recycle();
-            bitmap = CommonUtility.compressImageFromFile(photoPath);
-            if (bitmap != null) {
-                int angle = CommonUtility.getRotate(photoPath);
-                if (angle != 0) {
-                    Matrix m = new Matrix();
-                    int width = bitmap.getWidth();
-                    int height = bitmap.getHeight();
-                    m.setRotate(angle);
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                int options = 100;
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                while (baos.toByteArray().length / 1024 > 100) {
-                    baos.reset();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                    options -= 10;
-                }
-            }
-            showImgs(photoPath, bitmap);
+            //压缩并旋转Bitmap
+            bitmap = CommonUtility.compressImageFromFile(path);
+            bitmap = CommonUtility.compressBitmap(path, bitmap);
+            photoPath = CommonUtility.savePhoto(bitmap);
+            showImgs(bitmap);
         } else if (CommonUtility.IMAGE_CAPTURE_OK == requestCode) {
             Bundle bundle = data.getExtras();
             bitmap = (Bitmap) bundle.get("data");
@@ -354,7 +329,11 @@ public class AddCaoDianFragment extends _AbstractFragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            showImgs(photoPath, bitmap);
+            //压缩并旋转Bitmap
+            bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
+            photoPath = CommonUtility.savePhoto(bitmap);
+            bitmap = CommonUtility.compressImageFromFile(photoPath);
+            showImgs(bitmap);
         } else if (CommonUtility.VIDEO_LOCAL == requestCode) {
             if (data == null) {
                 return;
@@ -426,7 +405,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
         }
     }
 
-    private void showImgs(String photoPath, Bitmap bitmap) {
+    private void showImgs(Bitmap bitmap) {
         if (photoPath != null && photoPath.length() != 0) {
             if (photoList.contains(photoPath)) {
                 return;

@@ -17,6 +17,7 @@ import com.avos.avoscloud.AVObject;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.vo.Caodian;
+import com.sundy.pkcao.vo.Caodian_Img;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,39 +76,48 @@ public class CaoListAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        AVObject item = (AVObject) list.get(i);
-        if (item != null) {
-            holder.txt_title.setText(item.getString(Caodian.title));
+        AVObject caodian_img = (AVObject) list.get(i);
+        if (caodian_img != null) {
+            AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
 
-            AQuery aq_img = new AQuery(holder.img);
-            AQuery aq_img_play = new AQuery(holder.img_play);
+            if (caodian != null) {
+                holder.txt_title.setText(caodian.getString(Caodian.title));
 
-            AVFile video = item.getAVFile(Caodian.caodian_video);
-            if (video != null) {
-                final String video_path = video.getUrl();
-                AVFile video_thumbnail = item.getAVFile(Caodian.caodian_video_thumbnail);
-                if (video_thumbnail != null) {
-                    String video_thumbnail_img = video_thumbnail.getUrl();
-                    if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
-                        aq_img.visible().image(video_thumbnail_img).clicked(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                String type = "video/mp4";
-                                Uri uri = Uri.parse(video_path);
-                                intent.setDataAndType(uri, type);
-                                context.startActivity(intent);
-                            }
-                        });
-                        aq_img_play.visible();
-                    } else {
-                        aq_img.gone();
-                        aq_img_play.gone();
+                AQuery aq_img = new AQuery(holder.img);
+                AQuery aq_img_play = new AQuery(holder.img_play);
+                AVFile imgpath = caodian_img.getAVFile(Caodian_Img.caodian_img);
+
+                Log.e("sundy", "--------->img = " + imgpath.getUrl());
+                Log.e("sundy", "--------->caodian_img = " + caodian_img.toString());
+
+
+                AVFile video = caodian.getAVFile(Caodian.caodian_video);
+                if (video != null) {
+                    final String video_path = video.getUrl();
+                    AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
+                    if (video_thumbnail != null) {
+                        String video_thumbnail_img = video_thumbnail.getUrl();
+                        if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
+                            aq_img.visible().image(video_thumbnail_img).clicked(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    String type = "video/mp4";
+                                    Uri uri = Uri.parse(video_path);
+                                    intent.setDataAndType(uri, type);
+                                    context.startActivity(intent);
+                                }
+                            });
+                            aq_img_play.visible();
+                        } else {
+                            aq_img.gone();
+                            aq_img_play.gone();
+                        }
                     }
+                } else {
+                    aq_img.gone();
+                    aq_img_play.gone();
                 }
-            } else {
-                aq_img.gone();
-                aq_img_play.gone();
             }
         }
         return view;

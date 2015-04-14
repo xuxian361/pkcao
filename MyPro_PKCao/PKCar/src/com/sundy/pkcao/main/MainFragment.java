@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,10 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.androidquery.util.Common;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
@@ -27,6 +25,7 @@ import com.sundy.pkcao.caodian.CaoDetailFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.xlistview.XListView;
 import com.sundy.pkcao.vo.Caodian;
+import com.sundy.pkcao.vo.Caodian_Img;
 import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
@@ -133,35 +132,73 @@ public class MainFragment extends _AbstractFragment {
 
     private void getCaodians() {
         mCallback.onLoading();
-        AVQuery<AVObject> query = new AVQuery<AVObject>(Caodian.table_name);
-        query.setLimit(pageNum);
-        query.orderByDescending(Caodian.createdAt);
-
+//        AVQuery<AVObject> query = new AVQuery<AVObject>(Caodian.table_name);
+//        query.setLimit(pageNum);
+//        query.orderByDescending(Caodian.createdAt);
+//
+//        if (curPage > 1) {
+//            query.setSkip((curPage - 1) * pageNum);
+//        }
+//        isRefreshing = true;
+//        query.findInBackground(new FindCallback<AVObject>() {
+//            @Override
+//            public void done(List<AVObject> objects, AVException e) {
+//        mCallback.finishLoading();
+//        isRefreshing = false;
+//        onLoad();
+//        if (objects != null && objects.size() != 0) {
+//            for (int i = 0; i < objects.size(); i++) {
+//                AVObject item = objects.get(i);
+//                if (item != null) {
+//                    list.add(item);         ////----来到这里了，加油啊，你妹
+//                }
+//            }
+//            if (list.size() % pageNum != 0) {
+//                ishasMore = false;
+//            }
+//            adapter.setData(list);
+//            adapter.notifyDataSetChanged();
+//        } else {
+//            ishasMore = false;
+//            lv_main.setFooterViewText(getString(R.string.no_result));
+//        }
+//            }
+//        });
+        final AVQuery<AVObject> caoidan_img = AVQuery.getQuery(Caodian_Img.table_name);
+        caoidan_img.orderByDescending(Caodian_Img.createdAt);
+        caoidan_img.setLimit(pageNum);
+        caoidan_img.include(Caodian_Img.caodian);
         if (curPage > 1) {
-            query.setSkip((curPage - 1) * pageNum);
+            caoidan_img.setSkip((curPage - 1) * pageNum);
         }
-        isRefreshing = true;
-        query.findInBackground(new FindCallback<AVObject>() {
-            @Override
-            public void done(List<AVObject> objects, AVException e) {
+        caoidan_img.findInBackground(new FindCallback<AVObject>() {
+            public void done(List<AVObject> avObjectList, AVException e) {
                 mCallback.finishLoading();
                 isRefreshing = false;
                 onLoad();
-                if (objects != null && objects.size() != 0) {
-                    for (int i = 0; i < objects.size(); i++) {
-                        AVObject item = objects.get(i);
-                        if (item != null) {
-                            list.add(item);
+                try {
+                    if (e == null) {
+                        if (avObjectList != null && avObjectList.size() != 0) {
+                            for (AVObject item : avObjectList) {
+                                if (item != null) {
+                                    AVObject caodian = item.getAVObject(Caodian_Img.caodian);
+                                    if (caodian != null) {
+                                        list.add(item);
+                                    }
+                                }
+                            }
+                            if (list.size() % pageNum != 0) {
+                                ishasMore = false;
+                            }
+                            adapter.setData(list);
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            ishasMore = false;
+                            lv_main.setFooterViewText(getString(R.string.no_result));
                         }
                     }
-                    if (list.size() % pageNum != 0) {
-                        ishasMore = false;
-                    }
-                    adapter.setData(list);
-                    adapter.notifyDataSetChanged();
-                } else {
-                    ishasMore = false;
-                    lv_main.setFooterViewText(getString(R.string.no_result));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
         });

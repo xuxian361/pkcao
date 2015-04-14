@@ -9,6 +9,8 @@ public class Caodian_Img {
 
     public static final String caodian_id = "caodian_id";
     public static final String caodian_img = "caodian_img";
+    public static final String caodian = "caodian";
+
 
     public static final String objectId = "objectId";
     public static final String updatedAt = "updatedAt";

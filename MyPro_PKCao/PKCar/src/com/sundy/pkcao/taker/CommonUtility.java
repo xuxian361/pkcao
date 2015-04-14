@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.vo.User;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -341,7 +343,7 @@ public class CommonUtility {
                     imageFile.createNewFile();
                     FileOutputStream fos = new FileOutputStream(imageFile);
                     path = imageFile.getPath();
-                    thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                    thumbnail.compress(Bitmap.CompressFormat.JPEG, 70, fos);
                     fos.flush();
                     fos.close();
 
@@ -354,5 +356,65 @@ public class CommonUtility {
         }
         return path;
     }
+
+    /**
+     * 保存槽点图片
+     */
+    public static String savePhoto(Bitmap bitmap) {
+        String path = null;
+        try {
+            if (bitmap != null) {
+                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao/Caodian_Imgs");
+                if (!file.exists())
+                    file.mkdirs();
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                    Date date = new Date();
+                    File imageFile = new File(file, "caodian_img_" + sdf.format(date) + ".jpg");
+                    if (!imageFile.exists()) {
+                        imageFile.createNewFile();
+                    }
+                    FileOutputStream fos = new FileOutputStream(imageFile);
+                    path = imageFile.getPath();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 70, fos);
+                    fos.flush();
+                    fos.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return path;
+    }
+
+    //压缩Bitmap
+    public static Bitmap compressBitmap(String path, Bitmap bitmap) {
+        try {
+            if (bitmap != null) {
+                int angle = CommonUtility.getRotate(path);
+                if (angle != 0) {
+                    Matrix m = new Matrix();
+                    int width = bitmap.getWidth();
+                    int height = bitmap.getHeight();
+                    m.setRotate(angle);
+                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
+                }
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                int options = 100;
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                while (baos.toByteArray().length / 1024 > 100) {
+                    baos.reset();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
+                    options -= 10;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
 
 }
