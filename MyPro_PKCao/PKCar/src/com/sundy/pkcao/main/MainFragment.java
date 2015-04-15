@@ -110,6 +110,8 @@ public class MainFragment extends _AbstractFragment {
             ishasMore = true;
             if (isRefreshing)
                 return;
+            if (tempList != null)
+                tempList.clear();
             if (list != null)
                 list.clear();
             lv_main.setAdapter(adapter);
@@ -133,7 +135,6 @@ public class MainFragment extends _AbstractFragment {
     };
 
     private void getCaodians() {
-        mCallback.onLoading();
         final AVQuery<AVObject> caoidan_img = AVQuery.getQuery(Caodian_Img.table_name);
         caoidan_img.orderByDescending(Caodian_Img.createdAt);
         caoidan_img.setLimit(pageNum);
@@ -143,7 +144,6 @@ public class MainFragment extends _AbstractFragment {
         }
         caoidan_img.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> avObjectList, AVException e) {
-                mCallback.finishLoading();
                 isRefreshing = false;
                 onLoad();
                 try {

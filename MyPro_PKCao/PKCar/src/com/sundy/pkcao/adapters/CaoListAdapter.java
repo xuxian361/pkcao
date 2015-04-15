@@ -85,10 +85,8 @@ public class CaoListAdapter extends BaseAdapter {
 
                 AQuery aq_img = new AQuery(holder.img);
                 AQuery aq_img_play = new AQuery(holder.img_play);
-                AVFile imgpath = caodian_img.getAVFile(Caodian_Img.caodian_img);
+                AVFile imgFile = caodian_img.getAVFile(Caodian_Img.caodian_img);
 
-//                Log.e("sundy", "--------->img = " + imgpath.getUrl());
-//                Log.e("sundy", "--------->caodian_img = " + caodian_img.toString());
 
                 AVFile video = caodian.getAVFile(Caodian.caodian_video);
                 if (video != null) {
@@ -114,8 +112,19 @@ public class CaoListAdapter extends BaseAdapter {
                         }
                     }
                 } else {
-                    aq_img.gone();
-                    aq_img_play.gone();
+                    if (imgFile != null) {
+                        String imgPath = imgFile.getUrl();
+                        aq_img.visible().image(imgPath).clicked(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                            }
+                        });
+                        aq_img_play.gone();
+                    } else {
+                        aq_img.gone();
+                        aq_img_play.gone();
+                    }
                 }
             }
         }
