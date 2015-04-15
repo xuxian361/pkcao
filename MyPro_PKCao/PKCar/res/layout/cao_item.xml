@@ -23,7 +23,6 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Apple婊12万谁会买？估计要自己器官都不够了！！！ "
                     android:id="@+id/txt_title"
                     style="@style/txt_font_14_black"
                     android:maxLines="2"

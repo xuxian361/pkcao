@@ -71,6 +71,9 @@ public class CaoListAdapter extends BaseAdapter {
             holder.txt_count = aq.id(R.id.txt_count).getTextView();
             holder.img = aq.id(R.id.img).getImageView();
             holder.img_play = aq.id(R.id.img_play).getImageView();
+            holder.btn_add = aq.id(R.id.btn_add).getTextView();
+            holder.btn_share = aq.id(R.id.btn_share).getTextView();
+
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -124,6 +127,19 @@ public class CaoListAdapter extends BaseAdapter {
                         aq_img_play.gone();
                     }
                 }
+
+                holder.btn_add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.e("sundy", "------------->btn_add");
+                    }
+                });
+                holder.btn_share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.e("sundy", "------------->btn_share");
+                    }
+                });
             }
         }
         return view;
@@ -132,5 +148,6 @@ public class CaoListAdapter extends BaseAdapter {
     class ViewHolder {
         TextView txt_title, txt_count;
         ImageView img, img_play;
+        TextView btn_add, btn_share;
     }
 }

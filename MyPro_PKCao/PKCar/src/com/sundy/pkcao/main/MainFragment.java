@@ -92,6 +92,8 @@ public class MainFragment extends _AbstractFragment {
         aq.id(R.id.btn_filter_right).clicked(onClick);
         aq.id(R.id.btnAdd).clicked(onClick);
 
+        if (tempList != null)
+            tempList.clear();
         if (list != null)
             list.clear();
 
