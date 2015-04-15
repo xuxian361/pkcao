@@ -3,92 +3,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="5dp">
+              android:layout_height="wrap_content"
+              android:background="@color/white2">
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/corner_all_light_blue_strok">
+            >
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                />
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                >
+                android:layout_height="55dp"
+                android:background="@color/white"
+                android:padding="5dp">
             <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:text="+1"
-                    android:id="@+id/btn_add"
-                    style="@style/txt_font_14_black"
-                    android:gravity="center"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"/>
-            <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:layout_toRightOf="@+id/btn_add"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="5dp"
-                    android:id="@+id/txt_1"/>
-            <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toRightOf="@+id/txt_1"
-                    android:layout_toLeftOf="@+id/txt_2"
-                    android:gravity="center">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Apple婊12万谁会买？估计要自己器官都不够了！！！ "
-                        android:id="@+id/txt_title"
-                        style="@style/txt_font_14_black"
-                        android:maxLines="2"
-                        android:padding="3dp"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="（12.3万+） "
-                        android:id="@+id/txt_count"
-                        style="@style/txt_font_12_black"
-                        android:textStyle="italic"/>
-            </LinearLayout>
-            <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/btn_share"
-                    android:layout_margin="5dp"
-                    android:id="@+id/txt_2"/>
-            <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:text="分享"
-                    android:id="@+id/btn_share"
+                    android:layout_height="wrap_content"
+                    android:text="Apple婊12万谁会买？估计要自己器官都不够了！！！ "
+                    android:id="@+id/txt_title"
                     style="@style/txt_font_14_black"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center"
+                    android:maxLines="2"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"/>
+                    android:textStyle="bold"
+                    android:layout_toLeftOf="@+id/txt_count"
+                    android:padding="2dp"
+                    android:gravity="left"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="（12.3万+） "
+                    android:id="@+id/txt_count"
+                    style="@style/txt_font_12_black"
+                    android:textStyle="italic"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
         </RelativeLayout>
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                >
+                android:gravity="center">
             <ImageView
-                    android:layout_width="240dp"
-                    android:layout_height="120dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
                     android:id="@+id/img"
                     android:scaleType="centerCrop"
-                    android:padding="5dp"
                     android:layout_centerInParent="true"
-                    android:visibility="gone"/>
+                    android:visibility="visible"
+                    />
             <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -96,6 +61,40 @@
                     android:layout_centerInParent="true"
                     android:src="@drawable/icon_play"
                     android:visibility="gone"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                >
+            <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="+1"
+                    android:id="@+id/btn_add"
+                    android:background="@drawable/corner_all_white2_strok"
+                    android:gravity="center"
+                    style="@style/txt_font_14_grey"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_share"
+                    android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="分享"
+                    android:id="@+id/btn_share"
+                    android:gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/corner_all_white2_strok"
+                    style="@style/txt_font_14_grey"
+                    android:layout_centerVertical="true"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:id="@+id/textView"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/white2"/>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

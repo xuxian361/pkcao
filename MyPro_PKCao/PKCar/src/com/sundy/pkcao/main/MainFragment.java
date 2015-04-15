@@ -142,9 +142,11 @@ public class MainFragment extends _AbstractFragment {
         if (curPage > 1) {
             caoidan_img.setSkip((curPage - 1) * pageNum);
         }
+        mCallback.onLoading();
         caoidan_img.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> avObjectList, AVException e) {
                 isRefreshing = false;
+                mCallback.finishLoading();
                 onLoad();
                 try {
                     if (e == null) {
@@ -177,6 +179,16 @@ public class MainFragment extends _AbstractFragment {
             }
         });
     }
+
+    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            if (list != null && list.size() != 0) {
+                AVObject item = (AVObject) list.get(i - 1);
+                mCallback.addContent(new CaoDetailFragment(MainFragment.this, item));
+            }
+        }
+    };
 
     private View.OnClickListener onClick = new View.OnClickListener() {
         @Override
@@ -253,16 +265,6 @@ public class MainFragment extends _AbstractFragment {
                         Toast.makeText(context, getString(R.string.please_login), Toast.LENGTH_SHORT).show();
                     }
                     break;
-            }
-        }
-    };
-
-    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            if (list != null && list.size() != 0) {
-                AVObject item = (AVObject) list.get(i - 1);
-                mCallback.addContent(new CaoDetailFragment(MainFragment.this, item));
             }
         }
     };
