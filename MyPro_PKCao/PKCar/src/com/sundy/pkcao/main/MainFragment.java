@@ -29,6 +29,7 @@ import com.sundy.pkcao.vo.Caodian_Img;
 import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -46,6 +47,7 @@ public class MainFragment extends _AbstractFragment {
     private boolean isFilterRightVisible = false;
 
     private List list = new ArrayList();
+    private List tempList = new ArrayList();
     private int curPage = 1;
     private int pageNum = 10;
     private boolean ishasMore = true;
@@ -132,39 +134,6 @@ public class MainFragment extends _AbstractFragment {
 
     private void getCaodians() {
         mCallback.onLoading();
-//        AVQuery<AVObject> query = new AVQuery<AVObject>(Caodian.table_name);
-//        query.setLimit(pageNum);
-//        query.orderByDescending(Caodian.createdAt);
-//
-//        if (curPage > 1) {
-//            query.setSkip((curPage - 1) * pageNum);
-//        }
-//        isRefreshing = true;
-//        query.findInBackground(new FindCallback<AVObject>() {
-//            @Override
-//            public void done(List<AVObject> objects, AVException e) {
-//        mCallback.finishLoading();
-//        isRefreshing = false;
-//        onLoad();
-//        if (objects != null && objects.size() != 0) {
-//            for (int i = 0; i < objects.size(); i++) {
-//                AVObject item = objects.get(i);
-//                if (item != null) {
-//                    list.add(item);         ////----来到这里了，加油啊，你妹
-//                }
-//            }
-//            if (list.size() % pageNum != 0) {
-//                ishasMore = false;
-//            }
-//            adapter.setData(list);
-//            adapter.notifyDataSetChanged();
-//        } else {
-//            ishasMore = false;
-//            lv_main.setFooterViewText(getString(R.string.no_result));
-//        }
-//            }
-//        });
-        //-------
         final AVQuery<AVObject> caoidan_img = AVQuery.getQuery(Caodian_Img.table_name);
         caoidan_img.orderByDescending(Caodian_Img.createdAt);
         caoidan_img.setLimit(pageNum);
@@ -180,37 +149,15 @@ public class MainFragment extends _AbstractFragment {
                 try {
                     if (e == null) {
                         if (avObjectList != null && avObjectList.size() != 0) {
-                            for (AVObject item : avObjectList) {
-                                if (item != null) {
-                                    AVObject caodian = item.getAVObject(Caodian_Img.caodian);
+                            for (AVObject caodian_img : avObjectList) {
+                                if (caodian_img != null) {
+                                    AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
                                     if (caodian != null) {
-                                        rtLog(TAG, "----------->caodiao = " + caodian);
-
-                                        //
-                                        04-14 18:10:11.066  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@4194e498, caodian_id=com.avos.avoscloud.AVKeyValues@4194f6f0, title=com.avos.avoscloud.AVKeyValues@41950048, creater_id=com.avos.avoscloud.AVKeyValues@419509a0, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@4195f548, caodian_video=com.avos.avoscloud.AVKeyValues@41957778}]
-                                        04-14 18:10:11.067  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41969308, caodian_id=com.avos.avoscloud.AVKeyValues@4196a560, title=com.avos.avoscloud.AVKeyValues@4196aeb8, creater_id=com.avos.avoscloud.AVKeyValues@4196b810, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419798f0, caodian_video=com.avos.avoscloud.AVKeyValues@41971b20}]
-                                        04-14 18:10:11.068  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@419836b0, caodian_id=com.avos.avoscloud.AVKeyValues@41984908, title=com.avos.avoscloud.AVKeyValues@41985260, creater_id=com.avos.avoscloud.AVKeyValues@41985bb8, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41993c98, caodian_video=com.avos.avoscloud.AVKeyValues@4198bec8}]
-                                        04-14 18:10:11.068  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@4199da58, caodian_id=com.avos.avoscloud.AVKeyValues@4199ecb0, title=com.avos.avoscloud.AVKeyValues@4199f608, creater_id=com.avos.avoscloud.AVKeyValues@4199ff60, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419ae040, caodian_video=com.avos.avoscloud.AVKeyValues@419a6270}]
-                                        04-14 18:10:11.069  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd5f1e4b01e374fa96970, updatedAt=2015-04-14T08:55:13.530Z, createdAt=2015-04-14T08:55:13.530Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@419b7e00, caodian_id=com.avos.avoscloud.AVKeyValues@419b9058, title=com.avos.avoscloud.AVKeyValues@419b99b0, creater_id=com.avos.avoscloud.AVKeyValues@419ba308, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419c83e8, caodian_video=com.avos.avoscloud.AVKeyValues@419c0618}]
-                                        04-14 18:10:11.069  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd5f1e4b01e374fa96970, updatedAt=2015-04-14T08:55:13.530Z, createdAt=2015-04-14T08:55:13.530Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@419d21a8, caodian_id=com.avos.avoscloud.AVKeyValues@419d3400, title=com.avos.avoscloud.AVKeyValues@419d3d58, creater_id=com.avos.avoscloud.AVKeyValues@419d46b0, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419e2790, caodian_video=com.avos.avoscloud.AVKeyValues@419da9c0}]
-                                        04-14 18:10:11.070  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd40fe4b01e374fa95268, updatedAt=2015-04-14T08:47:11.929Z, createdAt=2015-04-14T08:47:11.929Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@419ec550, caodian_id=com.avos.avoscloud.AVKeyValues@419ed7a8, title=com.avos.avoscloud.AVKeyValues@419ee100, creater_id=com.avos.avoscloud.AVKeyValues@419eea58, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419fcb38, caodian_video=com.avos.avoscloud.AVKeyValues@419f4d68}]
-                                        04-14 18:10:11.070  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd393e4b01e374fa94eb3, updatedAt=2015-04-14T08:45:07.629Z, createdAt=2015-04-14T08:45:07.629Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a068f8, caodian_id=com.avos.avoscloud.AVKeyValues@41a07b50, title=com.avos.avoscloud.AVKeyValues@41a084a8, creater_id=com.avos.avoscloud.AVKeyValues@41a08e00, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41a10b98}]
-                                        04-14 18:10:11.071  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd375e4b01e374fa94dca, updatedAt=2015-04-14T08:44:37.445Z, createdAt=2015-04-14T08:44:37.445Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a1a990, caodian_id=com.avos.avoscloud.AVKeyValues@41a1bbe8, title=com.avos.avoscloud.AVKeyValues@41a1c540, creater_id=com.avos.avoscloud.AVKeyValues@41a1ce98, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41a2af78, caodian_video=com.avos.avoscloud.AVKeyValues@41a231a8}]
-                                        04-14 18:10:11.071  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd258e4b01e374fa9459d, updatedAt=2015-04-14T08:39:52.620Z, createdAt=2015-04-14T08:39:52.620Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a34d38, caodian_id=com.avos.avoscloud.AVKeyValues@41948e28, title=com.avos.avoscloud.AVKeyValues@41946918, creater_id=com.avos.avoscloud.AVKeyValues@419444d0, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@418d7630}]
-                                        04-14 18:10:18.452  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@419869b8, caodian_id=com.avos.avoscloud.AVKeyValues@41987bf8, title=com.avos.avoscloud.AVKeyValues@41988550, creater_id=com.avos.avoscloud.AVKeyValues@41988ea8, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419a0a68, caodian_video=com.avos.avoscloud.AVKeyValues@41991740}]
-                                        04-14 18:10:18.453  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@419acdb0, caodian_id=com.avos.avoscloud.AVKeyValues@419b0688, title=com.avos.avoscloud.AVKeyValues@419b0fe0, creater_id=com.avos.avoscloud.AVKeyValues@419b1938, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419c6e78, caodian_video=com.avos.avoscloud.AVKeyValues@419bcb20}]
-                                        04-14 18:10:18.453  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@419d8180, caodian_id=com.avos.avoscloud.AVKeyValues@419d93d8, title=com.avos.avoscloud.AVKeyValues@419d9d30, creater_id=com.avos.avoscloud.AVKeyValues@419da688, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@419f2240, caodian_video=com.avos.avoscloud.AVKeyValues@419e55a0}]
-                                        04-14 18:10:18.454  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552ce1fee4b01e374fa9e68c, updatedAt=2015-04-14T09:46:38.308Z, createdAt=2015-04-14T09:46:38.308Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a00c00, caodian_id=com.avos.avoscloud.AVKeyValues@41a01e58, title=com.avos.avoscloud.AVKeyValues@41a027b0, creater_id=com.avos.avoscloud.AVKeyValues@41a03108, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41a1f0c0, caodian_video=com.avos.avoscloud.AVKeyValues@41a0fd70}]
-                                        04-14 18:10:18.454  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd5f1e4b01e374fa96970, updatedAt=2015-04-14T08:55:13.530Z, createdAt=2015-04-14T08:55:13.530Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a2da98, caodian_id=com.avos.avoscloud.AVKeyValues@41a2ecf0, title=com.avos.avoscloud.AVKeyValues@41a2f648, creater_id=com.avos.avoscloud.AVKeyValues@41a2ffa0, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41a49190, caodian_video=com.avos.avoscloud.AVKeyValues@41a413c0}]
-                                        04-14 18:10:18.455  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd5f1e4b01e374fa96970, updatedAt=2015-04-14T08:55:13.530Z, createdAt=2015-04-14T08:55:13.530Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a52f50, caodian_id=com.avos.avoscloud.AVKeyValues@41a541a8, title=com.avos.avoscloud.AVKeyValues@41a54b00, creater_id=com.avos.avoscloud.AVKeyValues@41a55458, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41a63538, caodian_video=com.avos.avoscloud.AVKeyValues@41a5b768}]
-                                        04-14 18:10:18.455  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd40fe4b01e374fa95268, updatedAt=2015-04-14T08:47:11.929Z, createdAt=2015-04-14T08:47:11.929Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a6d2f8, caodian_id=com.avos.avoscloud.AVKeyValues@41a6e550, title=com.avos.avoscloud.AVKeyValues@41a6eea8, creater_id=com.avos.avoscloud.AVKeyValues@41a6f800, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41a7d8e0, caodian_video=com.avos.avoscloud.AVKeyValues@41a75b10}]
-                                        04-14 18:10:18.456  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd393e4b01e374fa94eb3, updatedAt=2015-04-14T08:45:07.629Z, createdAt=2015-04-14T08:45:07.629Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41a876a0, caodian_id=com.avos.avoscloud.AVKeyValues@41a888f8, title=com.avos.avoscloud.AVKeyValues@41a89250, creater_id=com.avos.avoscloud.AVKeyValues@41a89ba8, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@41a91940}]
-                                        04-14 18:10:18.456  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd375e4b01e374fa94dca, updatedAt=2015-04-14T08:44:37.445Z, createdAt=2015-04-14T08:44:37.445Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41978db0, caodian_id=com.avos.avoscloud.AVKeyValues@41974c40, title=com.avos.avoscloud.AVKeyValues@4196fe10, creater_id=com.avos.avoscloud.AVKeyValues@4196d980, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@418c5b70, caodian_video=com.avos.avoscloud.AVKeyValues@418db678}]
-                                        04-14 18:10:18.457  24009-24009/com.sundy.pkcao I/MainFragment﹕ ----------->caodiao = AVObject [className=PkCaoDian, objectId=552cd258e4b01e374fa9459d, updatedAt=2015-04-14T08:39:52.620Z, createdAt=2015-04-14T08:39:52.620Z, uuid=null, fetchWhenSave=false, keyValues={content=com.avos.avoscloud.AVKeyValues@41901ed8, caodian_id=com.avos.avoscloud.AVKeyValues@41767900, title=com.avos.avoscloud.AVKeyValues@419748c8, creater_id=com.avos.avoscloud.AVKeyValues@417ddab0, caodian_video_thumbnail=com.avos.avoscloud.AVKeyValues@417bfab8}]
-
-
-
-                                        list.add(item);
+                                        String oid = caodian.getObjectId();
+                                        if (!tempList.contains(oid)) {
+                                            tempList.add(oid);
+                                            list.add(caodian_img);
+                                        }
                                     }
                                 }
                             }
