@@ -90,44 +90,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CaoListAdapter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CaoListAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1966" max-vertical-offset="3638">
-              <caret line="174" column="33" selection-start-line="174" selection-start-column="32" selection-end-line="174" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.93543756" vertical-offset="1303" max-vertical-offset="3349">
+              <caret line="154" column="47" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
               <folding>
-                <element signature="e#5408#5596#0" expanded="true" />
-                <element signature="e#5595#5596#0" expanded="true" />
-                <element signature="e#5884#5917#0" expanded="true" />
-                <element signature="e#6396#6432#0" expanded="true" />
-                <element signature="e#7541#10068#0" expanded="true" />
-                <element signature="e#10067#10068#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oks_strings.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/values/oks_strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43098593" vertical-offset="0" max-vertical-offset="710">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OnekeyShare.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/OnekeyShare.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.923077" vertical-offset="1242" max-vertical-offset="10421">
-              <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#23213#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#3022#3057#0" expanded="true" />
-                <element signature="e#22947#22948#0" expanded="true" />
-                <element signature="e#23019#23020#0" expanded="true" />
+                <element signature="e#5434#5947#0" expanded="true" />
+                <element signature="e#5612#5628#0" expanded="true" />
+                <element signature="e#5946#5947#0" expanded="true" />
+                <element signature="e#7056#9583#0" expanded="true" />
+                <element signature="e#9582#9583#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,7 +154,6 @@
         <option value="$PROJECT_DIR$/res/layout/topbar_back.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Caodian_Img.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" />
         <option value="$PROJECT_DIR$/res/drawable/corner_all_white2_strok.xml" />
         <option value="$PROJECT_DIR$/res/values/style.xml" />
         <option value="$PROJECT_DIR$/res/values/colors.xml" />
@@ -199,8 +171,9 @@
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/../SlidingMenu/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java" />
         <option value="$PROJECT_DIR$/assets/ShareSDK.xml" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" />
       </list>
     </option>
   </component>
@@ -269,6 +242,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pkcao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pkcao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PKCar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pkcao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taker" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -747,14 +742,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5882" max-vertical-offset="6698">
-          <caret line="391" column="14" selection-start-line="391" selection-start-column="14" selection-end-line="391" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/tools/xlistview/XListView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2949" max-vertical-offset="6035">
@@ -1084,26 +1071,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/res/values/oks_strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1966" max-vertical-offset="3638">
-          <caret line="174" column="33" selection-start-line="174" selection-start-column="32" selection-end-line="174" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.2633803" vertical-offset="0" max-vertical-offset="710">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35352114" vertical-offset="6345" max-vertical-offset="7072">
+          <caret line="422" column="0" selection-start-line="422" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
           <folding>
-            <element signature="e#5408#5596#0" expanded="true" />
-            <element signature="e#5595#5596#0" expanded="true" />
-            <element signature="e#5884#5917#0" expanded="true" />
-            <element signature="e#6396#6432#0" expanded="true" />
-            <element signature="e#7541#10068#0" expanded="true" />
-            <element signature="e#10067#10068#0" expanded="true" />
+            <element signature="e#4991#5033#0" expanded="true" />
+            <element signature="e#15516#15549#0" expanded="true" />
+            <element signature="e#15952#15988#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/oks_strings.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43098593" vertical-offset="0" max-vertical-offset="710">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding />
+        <state vertical-scroll-proportion="0.93543756" vertical-offset="1303" max-vertical-offset="3349">
+          <caret line="154" column="47" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
+          <folding>
+            <element signature="e#5434#5947#0" expanded="true" />
+            <element signature="e#5612#5628#0" expanded="true" />
+            <element signature="e#5946#5947#0" expanded="true" />
+            <element signature="e#7056#9583#0" expanded="true" />
+            <element signature="e#9582#9583#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
