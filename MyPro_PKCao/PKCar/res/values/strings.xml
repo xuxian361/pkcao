@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">pkcao</string>
+    <string name="app_name">pk槽</string>
     <string name="register">注册</string>
     <string name="login_failed">该用户已存在，请重新注册!</string>
     <string name="confirm_pwd_not_equal_pwd">确认密码与密码不一致，请重新输入!</string>
@@ -40,4 +40,5 @@
     <string name="cannot_add_repeat">已+1，不用重复+1!</string>
     <string name="add_1_failed">+1 失败，请稍后再试!</string>
     <string name="exit_confirm">按多一次登出</string>
+    <string name="share_success">分享成功!</string>
 </resources>
