@@ -12,7 +12,7 @@ public class Caodian {
     public static final String caodian_video = "caodian_video";
     public static final String caodian_video_thumbnail = "caodian_video_thumbnail";
 
-    public static final String creater_id = "creater_id";   //创建该槽点的人ID
+    public static final String creater = "creater";   //创建该槽点的人
     public static final String caodian_id = "caodian_id";   //槽点ID
 
     public static final String objectId = "objectId";

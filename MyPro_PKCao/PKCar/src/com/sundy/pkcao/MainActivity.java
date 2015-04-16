@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.slidingmenu.lib.SlidingMenu;
@@ -25,6 +26,7 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     private MenuFragment menuFragment;
     private Fragment mContent;
     private ProgressDialog loadingDailog;
+    private int exit_count = 1;
 
     public MainActivity() {
     }
@@ -174,9 +176,13 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
                     mContent = getSupportFragmentManager().findFragmentById(R.id.content_frame);
                 }
             }, 350);
-        } else if (mContent instanceof MainFragment) {
         } else {
-//            menuFragment.MenuCallBack.showSlidingMenu();
+            if (exit_count == 2) {
+                android.os.Process.killProcess(android.os.Process.myPid());
+                exit_count = 1;
+            }
+            exit_count++;
+            Toast.makeText(this, getString(R.string.exit_confirm), Toast.LENGTH_SHORT).show();
         }
     }
 

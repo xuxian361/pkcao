@@ -16,16 +16,14 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.androidquery.AQuery;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.SaveCallback;
+import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
@@ -150,10 +148,10 @@ public class AddCaoDianFragment extends _AbstractFragment {
     }
 
     private void addCaodian() {
-        String title = aq.id(R.id.edt_title).getEditText().getText().toString().trim();
-        String content = aq.id(R.id.edt_content).getEditText().getText().toString().trim();
+        final String title = aq.id(R.id.edt_title).getEditText().getText().toString().trim();
+        final String content = aq.id(R.id.edt_content).getEditText().getText().toString().trim();
         SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
-        String creater_id = preferences.getString(User.objectId, "");
+        String user_id = preferences.getString(User.objectId, "");
 
         if (TextUtils.isEmpty(title)) {
             Toast.makeText(context, getString(R.string.input_empty), Toast.LENGTH_SHORT).show();
@@ -163,58 +161,75 @@ public class AddCaoDianFragment extends _AbstractFragment {
             Toast.makeText(context, getString(R.string.input_empty), Toast.LENGTH_SHORT).show();
             return;
         }
-        if (TextUtils.isEmpty(creater_id)) {
+        if (TextUtils.isEmpty(user_id)) {
             Toast.makeText(context, getString(R.string.account_exception), Toast.LENGTH_SHORT).show();
             clearUserInfo();
             mCallback.switchContent(new MainFragment());
             return;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-        Date date = new Date();
-        caodian_id = sdf.format(date);
 
-        final AVObject caodian = new AVObject(Caodian.table_name);
-        caodian.put(Caodian.title, title);
-        caodian.put(Caodian.content, content);
-        caodian.put(Caodian.creater_id, creater_id);
-        caodian.put(Caodian.caodian_id, caodian_id);
-
-        //保存视频文件
-        if (videoPath != null && videoPath.length() != 0) {
-            try {
-                String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
-                AVFile video = AVFile.withAbsoluteLocalPath(Caodian.caodian_video + suffix, videoPath);
-                caodian.put(Caodian.caodian_video, video);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        //保存视频缩略图
-        if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
-            try {
-                AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(Caodian.caodian_video_thumbnail + ".jpg", video_thumbnail_path);
-                caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        mCallback.onLoading();
-        caodian.saveInBackground(new SaveCallback() {
+        AVQuery<AVObject> query_user = new AVQuery<AVObject>(User.table_name);
+        query_user.whereEqualTo(User.objectId, user_id);
+        query_user.findInBackground(new FindCallback<AVObject>() {
             @Override
-            public void done(AVException e) {
+            public void done(List<AVObject> list, AVException e) {
                 if (e == null) {
-                    if (photoList != null && photoList.size() != 0) {
-                        saveCaoDianImgs(caodian);
-                    } else {
-                        mCallback.finishLoading();
-                        Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
-                        mCallback.switchContent(new MainFragment());
+                    if (list != null && list.size() != 0) {
+                        AVObject user = list.get(0);
+                        if (user != null) {
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                            Date date = new Date();
+                            caodian_id = sdf.format(date);
+
+                            final AVObject caodian = new AVObject(Caodian.table_name);
+                            caodian.put(Caodian.title, title);
+                            caodian.put(Caodian.content, content);
+                            caodian.put(Caodian.creater, user);
+                            caodian.put(Caodian.caodian_id, caodian_id);
+
+                            //保存视频文件
+                            if (videoPath != null && videoPath.length() != 0) {
+                                try {
+                                    String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
+                                    AVFile video = AVFile.withAbsoluteLocalPath(Caodian.caodian_video + suffix, videoPath);
+                                    caodian.put(Caodian.caodian_video, video);
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                            }
+
+                            //保存视频缩略图
+                            if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
+                                try {
+                                    AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(Caodian.caodian_video_thumbnail + ".jpg", video_thumbnail_path);
+                                    caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+                            mCallback.onLoading();
+                            caodian.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(AVException e) {
+                                    if (e == null) {
+                                        if (photoList != null && photoList.size() != 0) {
+                                            saveCaoDianImgs(caodian);
+                                        } else {
+                                            mCallback.finishLoading();
+                                            Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
+                                            mCallback.switchContent(new MainFragment());
+                                        }
+                                    } else {
+                                        mCallback.finishLoading();
+                                        Toast.makeText(context, getString(R.string.add_failed), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
                     }
                 } else {
-                    mCallback.finishLoading();
-                    Toast.makeText(context, getString(R.string.add_failed), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                 }
             }
         });

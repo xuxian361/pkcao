@@ -1,7 +1,9 @@
 package com.sundy.pkcao.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.Log;
@@ -11,13 +13,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.androidquery.AQuery;
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
+import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.Caodian_Img;
+import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +85,7 @@ public class CaoListAdapter extends BaseAdapter {
 
         AVObject caodian_img = (AVObject) list.get(i);
         if (caodian_img != null) {
-            AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
+            final AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
 
             if (caodian != null) {
                 holder.txt_title.setText(caodian.getString(Caodian.title));
@@ -131,7 +135,11 @@ public class CaoListAdapter extends BaseAdapter {
                 holder.btn_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.e("sundy", "------------->btn_add");
+                        if (CommonUtility.isLogin((Activity) context)) {
+                            likeCaodian(caodian, view);
+                        } else {
+                            Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
                 holder.btn_share.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +151,72 @@ public class CaoListAdapter extends BaseAdapter {
             }
         }
         return view;
+    }
+
+    public void likeCaodian(final AVObject caodian, View view) {
+        final AQuery aQuery = new AQuery(view);
+        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+        String user_id = preferences.getString(User.objectId, "");
+        final String caodian_id = caodian.getObjectId();
+
+        //查询User
+        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
+        query.whereEqualTo(User.objectId, user_id);
+        query.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                if (e == null) {
+                    if (list != null && list.size() != 0) {
+                        final AVObject user = list.get(0);
+                        if (user != null) {
+                            //先找到改user 是否 已经+1 过
+                            final AVRelation<AVObject> relation = user.getRelation(User.like);
+                            relation.getQuery().findInBackground(new FindCallback<AVObject>() {
+                                @Override
+                                public void done(List<AVObject> arr, AVException e) {
+                                    if (e == null) {
+                                        boolean isAdded = false;
+                                        for (int i = 0; i < arr.size(); i++) {
+                                            AVObject caodian_rel = arr.get(i);
+                                            if (caodian.equals(caodian_rel)) {
+                                                isAdded = true;
+                                            } else {
+                                                isAdded = false;
+                                            }
+                                        }
+                                        if (isAdded) {
+                                            //点过 +1
+                                            aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                                        } else {
+                                            //未点过 +1
+                                            aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+                                            relation.add(caodian);
+                                            user.saveInBackground(new SaveCallback() {
+                                                @Override
+                                                public void done(AVException e) {
+                                                    if (e == null) {
+                                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                                                    } else {
+                                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+                                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    } else {
+                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     class ViewHolder {
