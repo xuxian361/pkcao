@@ -137,68 +137,68 @@ public class MainFragment extends _AbstractFragment {
     };
 
     private void getCaodians() {
-//        final AVQuery<AVObject> caoidan_img = AVQuery.getQuery(Caodian_Img.table_name);
-//        caoidan_img.orderByDescending(Caodian_Img.createdAt);
-//        caoidan_img.setLimit(pageNum);
-//        caoidan_img.include(Caodian_Img.caodian);
-//        if (curPage > 1) {
-//            caoidan_img.setSkip((curPage - 1) * pageNum);
-//        }
-//        mCallback.onLoading();
-//        caoidan_img.findInBackground(new FindCallback<AVObject>() {
-//            public void done(List<AVObject> avObjectList, AVException e) {
-//                isRefreshing = false;
-//                mCallback.finishLoading();
-//                onLoad();
-//                try {
-//                    if (e == null) {
-//                        if (avObjectList != null && avObjectList.size() != 0) {
-//                            for (AVObject caodian_img : avObjectList) {
-//                                if (caodian_img != null) {
-//                                    AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
-//                                    if (caodian != null) {
-//                                        String oid = caodian.getObjectId();
-//                                        if (!tempList.contains(oid)) {
-//                                            tempList.add(oid);
-//                                            list.add(caodian_img);
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                            if (list.size() % pageNum != 0) {
-//                                ishasMore = false;
-//                            }
-//                            adapter.setData(list);
-//                            adapter.notifyDataSetChanged();
-//                        } else {
-//                            ishasMore = false;
-//                            lv_main.setFooterViewText(getString(R.string.no_result));
-//                        }
-//                    }
-//                } catch (Exception ex) {
-//                    ex.printStackTrace();
-//                }
-//            }
-//        });
-
-        AVQuery.doCloudQueryInBackground("select include PKCaoDian_Img,* from PkCaoDian", new CloudQueryCallback<AVCloudQueryResult>() {
-            @Override
-            public void done(AVCloudQueryResult result, AVException e) {
-
-                if (e == null) {
-                    result.getCount();//这里你就可以得到符合条件的count]
-                    List<AVObject> objects = (List<AVObject>) result.getResults();
-                    for (int i = 0; i < objects.size(); i++) {
-                        AVObject caodian_img = objects.get(i);
-                        if (caodian_img != null) {
-                            rtLog(TAG, "----------> 3 = " + caodian_img);
-
+        final AVQuery<AVObject> caoidan_img = AVQuery.getQuery(Caodian_Img.table_name);
+        caoidan_img.orderByDescending(Caodian_Img.createdAt);
+        caoidan_img.setLimit(pageNum);
+        caoidan_img.include(Caodian_Img.caodian);
+        if (curPage > 1) {
+            caoidan_img.setSkip((curPage - 1) * pageNum);
+        }
+        mCallback.onLoading();
+        caoidan_img.findInBackground(new FindCallback<AVObject>() {
+            public void done(List<AVObject> avObjectList, AVException e) {
+                isRefreshing = false;
+                mCallback.finishLoading();
+                onLoad();
+                try {
+                    if (e == null) {
+                        if (avObjectList != null && avObjectList.size() != 0) {
+                            for (AVObject caodian_img : avObjectList) {
+                                if (caodian_img != null) {
+                                    AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
+                                    if (caodian != null) {
+                                        String oid = caodian.getObjectId();
+                                        if (!tempList.contains(oid)) {
+                                            tempList.add(oid);
+                                            list.add(caodian_img);
+                                        }
+                                    }
+                                }
+                            }
+                            if (list.size() % pageNum != 0) {
+                                ishasMore = false;
+                            }
+                            adapter.setData(list);
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            ishasMore = false;
+                            lv_main.setFooterViewText(getString(R.string.no_result));
                         }
                     }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
-
         });
+
+//        AVQuery.doCloudQueryInBackground("select include PKCaoDian_Img,* from PkCaoDian", new CloudQueryCallback<AVCloudQueryResult>() {
+//            @Override
+//            public void done(AVCloudQueryResult result, AVException e) {
+//
+//                if (e == null) {
+//                    result.getCount();//这里你就可以得到符合条件的count]
+//                    List<AVObject> objects = (List<AVObject>) result.getResults();
+//                    for (int i = 0; i < objects.size(); i++) {
+//                        AVObject caodian_img = objects.get(i);
+//                        if (caodian_img != null) {
+//                            rtLog(TAG, "----------> 3 = " + caodian_img);
+//
+//                        }
+//                    }
+//                }
+//            }
+//
+//        });
 
 
     }

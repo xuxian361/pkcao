@@ -8,8 +8,6 @@
       <root url="jar://$PROJECT_DIR$/libs/fastjson.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/httpmime-4.2.4.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/Java-WebSocket-1.2.0-leancloud.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/qq.sdk.1.6.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/weibo.sdk.android.sso.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
