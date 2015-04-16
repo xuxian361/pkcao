@@ -16,6 +16,7 @@ import com.androidquery.util.Common;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.ilike.ILikeFragment;
+import com.sundy.pkcao.login.EditUserFragment;
 import com.sundy.pkcao.login.LoginFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.record.RecordFragment;
@@ -107,7 +108,12 @@ public class MenuFragment extends Fragment {
         aq.id(R.id.btn_logout).gone();
         aq.id(R.id.btn_login).visible();
         aq.id(R.id.txt_name).invisible();
-        aq.id(R.id.img_profile).image(R.drawable.icon_profile);
+        aq.id(R.id.img_profile).image(R.drawable.icon_profile).clicked(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCallback.addContent(new LoginFragment());
+            }
+        });
     }
 
     private void showUserInfo() {
@@ -120,10 +126,31 @@ public class MenuFragment extends Fragment {
         else
             aq.id(R.id.txt_name).invisible();
         String user_img = preferences.getString(User.user_img, "");
-        if (user_img != null && user_img.length() != 0)
-            aq.id(R.id.img_profile).image(user_img);
-        else
-            aq.id(R.id.img_profile).image(R.drawable.icon_profile);
+        String user_id = preferences.getString(User.objectId, "");
+        if (user_id != null && user_id.length() != 0) {
+            if (user_img != null && user_img.length() != 0)
+                aq.id(R.id.img_profile).image(user_img).clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mCallback.addContent(new EditUserFragment());
+                    }
+                });
+            else {
+                aq.id(R.id.img_profile).image(R.drawable.icon_profile).clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mCallback.addContent(new LoginFragment());
+                    }
+                });
+            }
+        } else {
+            aq.id(R.id.img_profile).image(R.drawable.icon_profile).clicked(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mCallback.addContent(new LoginFragment());
+                }
+            });
+        }
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
