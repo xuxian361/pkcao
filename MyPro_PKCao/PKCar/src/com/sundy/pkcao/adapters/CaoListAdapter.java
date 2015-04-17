@@ -153,7 +153,7 @@ public class CaoListAdapter extends BaseAdapter {
                         data.put("content", "content");
                         data.put("img_url", "img_url");
                         data.put("url", "url");
-                        CommonUtility.showShare(context, null);
+                        CommonUtility.showShare(context, data);
                     }
                 });
             }
