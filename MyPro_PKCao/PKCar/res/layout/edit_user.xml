@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -105,5 +106,19 @@
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
+
+        <com.sundy.pkcao.tools.ProgressWheel
+                android:id="@+id/progressbar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                ProgressWheel:rimColor="@color/white2"
+                ProgressWheel:barLength="60dp"
+                ProgressWheel:barColor="@color/light_blue"
+                ProgressWheel:barWidth="5dp"
+                ProgressWheel:rimWidth="5dp"
+                ProgressWheel:spinSpeed="8dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
     </RelativeLayout>
 </LinearLayout>

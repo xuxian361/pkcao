@@ -16,6 +16,7 @@ import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.register.RegisterFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.User;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class LoginFragment extends _AbstractFragment {
     private Fragment fragment;
     private View v;
     private String username;
+    private ProgressWheel progressbar;
 
 
     public LoginFragment() {
@@ -56,7 +58,10 @@ public class LoginFragment extends _AbstractFragment {
     private void init() {
         aq.id(R.id.btn_register).clicked(onClick);
         aq.id(R.id.btn_login).clicked(onClick);
+
+        progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
     }
+
 
     private View.OnClickListener onClick = new View.OnClickListener() {
         @Override
@@ -105,11 +110,11 @@ public class LoginFragment extends _AbstractFragment {
         AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
         query.whereEqualTo(User.username, username);
         query.whereEqualTo(User.password, password);
-        mCallback.onLoading();
+        showProgress(progressbar);
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                mCallback.finishLoading();
+                stoProgress(progressbar);
                 if (e == null) {
                     if (list != null && list.size() != 0) {
                         if (list.get(0) != null) {
@@ -170,6 +175,8 @@ public class LoginFragment extends _AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (progressbar != null)
+            progressbar = null;
     }
 
     @Override

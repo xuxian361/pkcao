@@ -28,6 +28,7 @@ import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.Caodian_Img;
 import com.sundy.pkcao.vo.User;
@@ -56,6 +57,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private String videoPath = null;  //视频路径
     private String video_thumbnail_path; //视频缩略图路径
     private String photoPath = null;  //图片路径
+    private ProgressWheel progressbar;
 
 
     public AddCaoDianFragment() {
@@ -82,6 +84,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
 
     private void init() {
         linear_imgs = (LinearLayout) aq.id(R.id.linear_imgs).getView();
+        progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
 
         aq.id(R.id.txt_confirm).clicked(onClick);
         aq.id(R.id.btn_photo).clicked(onClick);
@@ -208,7 +211,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                                 }
                             }
 
-                            mCallback.onLoading();
+                            showProgress(progressbar);
                             caodian.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(AVException e) {
@@ -216,12 +219,12 @@ public class AddCaoDianFragment extends _AbstractFragment {
                                         if (photoList != null && photoList.size() != 0) {
                                             saveCaoDianImgs(caodian);
                                         } else {
-                                            mCallback.finishLoading();
+                                            stoProgress(progressbar);
                                             Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
                                             mCallback.switchContent(new MainFragment());
                                         }
                                     } else {
-                                        mCallback.finishLoading();
+                                        stoProgress(progressbar);
                                         Toast.makeText(context, getString(R.string.add_failed), Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -251,7 +254,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                         @Override
                         public void done(AVException e) {
                             if (count == photoList.size() - 1) {
-                                mCallback.finishLoading();
+                                stoProgress(progressbar);
                                 Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
                                 mCallback.switchContent(new MainFragment());
                             } else {
@@ -471,6 +474,8 @@ public class AddCaoDianFragment extends _AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (progressbar != null)
+            progressbar = null;
     }
 
     @Override

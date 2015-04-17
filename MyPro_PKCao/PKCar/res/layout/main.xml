@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -73,10 +74,25 @@
                     android:id="@+id/btn_filter_right"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/corner_all_light_blue" style="@style/txt_font_14_white"
+                    android:background="@drawable/corner_all_light_blue"
+                    style="@style/txt_font_14_white"
                     android:textStyle="bold"
                     android:layout_weight="1"/>
         </LinearLayout>
+
+        <com.sundy.pkcao.tools.ProgressWheel
+                android:id="@+id/progressbar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                ProgressWheel:rimColor="@color/white2"
+                ProgressWheel:barLength="60dp"
+                ProgressWheel:barColor="@color/light_blue"
+                ProgressWheel:barWidth="5dp"
+                ProgressWheel:rimWidth="5dp"
+                ProgressWheel:spinSpeed="8dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
     </RelativeLayout>
 </LinearLayout>
 

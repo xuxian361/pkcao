@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -24,115 +25,135 @@
                 android:layout_marginRight="5dp"
                 android:gravity="center"/>
     </RelativeLayout>
-    <ScrollView
+
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/scrollView">
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:padding="10dp">
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/edit_height"
-                    android:id="@+id/edt_title"
-                    android:background="@drawable/corner_all_light_blue_strok"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:hint="标题"
-                    android:gravity="center|left"
-                    android:padding="5dp"
-                    android:maxLines="1"
-                    android:textSize="14dp"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="240dp"
-                    android:id="@+id/edt_content"
-                    android:background="@drawable/corner_all_light_blue_strok"
-                    android:layout_margin="10dp"
-                    android:gravity="left|top"
-                    android:padding="5dp"
-                    android:hint="内容"
-                    android:textSize="14dp"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="上传图片（每张图片不超过100Kb,最多上传5张）"
-                    style="@style/txt_font_12_black"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+            android:layout_height="match_parent">
 
-            <LinearLayout android:layout_width="200dp"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/linear_imgs"
-                          android:orientation="vertical"
-                          android:layout_marginTop="5dp"
-                          android:layout_marginBottom="5dp"
-                          android:layout_marginLeft="10dp"
-                          android:layout_marginRight="10dp"/>
-            <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/btn_photo"
-                    android:src="@drawable/icon_add_big"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="上传视频（视频不超过3Mb）"
-                    style="@style/txt_font_12_black"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
-
-            <RelativeLayout
-                    android:layout_width="200dp"
-                    android:layout_height="120dp"
-                    android:id="@+id/relative_video"
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView">
+            <LinearLayout
                     android:orientation="vertical"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:visibility="gone">
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:padding="10dp">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_height"
+                        android:id="@+id/edt_title"
+                        android:background="@drawable/corner_all_light_blue_strok"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:hint="标题"
+                        android:gravity="center|left"
+                        android:padding="5dp"
+                        android:maxLines="1"
+                        android:textSize="14dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"
+                        android:id="@+id/edt_content"
+                        android:background="@drawable/corner_all_light_blue_strok"
+                        android:layout_margin="10dp"
+                        android:gravity="left|top"
+                        android:padding="5dp"
+                        android:hint="内容"
+                        android:textSize="14dp"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上传图片（每张图片不超过100Kb,最多上传5张）"
+                        style="@style/txt_font_12_black"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                <LinearLayout android:layout_width="200dp"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/linear_imgs"
+                              android:orientation="vertical"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginBottom="5dp"
+                              android:layout_marginLeft="10dp"
+                              android:layout_marginRight="10dp"/>
                 <ImageView
-                        android:orientation="horizontal"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/btn_photo"
+                        android:src="@drawable/icon_add_big"
+                        android:scaleType="fitCenter"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上传视频（视频不超过3Mb）"
+                        style="@style/txt_font_12_black"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                <RelativeLayout
                         android:layout_width="200dp"
                         android:layout_height="120dp"
-                        android:id="@+id/img_video"
-                        android:scaleType="centerCrop"/>
+                        android:id="@+id/relative_video"
+                        android:orientation="vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone">
+                    <ImageView
+                            android:orientation="horizontal"
+                            android:layout_width="200dp"
+                            android:layout_height="120dp"
+                            android:id="@+id/img_video"
+                            android:scaleType="centerCrop"/>
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/imageView" android:layout_centerInParent="true"
+                            android:src="@drawable/icon_play" android:scaleType="fitCenter"/>
+                    <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/img_delete_video"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/red_delete"
+                            android:scaleType="fitCenter"
+                            android:padding="5dp"/>
+
+                </RelativeLayout>
+
                 <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/imageView" android:layout_centerInParent="true"
-                        android:src="@drawable/icon_play" android:scaleType="fitCenter"/>
-                <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:id="@+id/img_delete_video"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/red_delete"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/btn_video"
+                        android:src="@drawable/icon_add_big"
                         android:scaleType="fitCenter"
-                        android:padding="5dp"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"/>
 
-            </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
 
-            <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/btn_video"
-                    android:src="@drawable/icon_add_big"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"/>
+        <com.sundy.pkcao.tools.ProgressWheel
+                android:id="@+id/progressbar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                ProgressWheel:rimColor="@color/white2"
+                ProgressWheel:barLength="60dp"
+                ProgressWheel:barColor="@color/light_blue"
+                ProgressWheel:barWidth="5dp"
+                ProgressWheel:rimWidth="5dp"
+                ProgressWheel:spinSpeed="8dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
 
-        </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 </LinearLayout>

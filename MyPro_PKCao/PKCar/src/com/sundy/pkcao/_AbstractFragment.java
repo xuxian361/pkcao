@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.androidquery.AQuery;
 import com.sundy.pkcao.taker.ResourceTaker;
+import com.sundy.pkcao.tools.ProgressWheel;
 
 /**
  * Created by sundy on 15/3/21.
@@ -115,6 +116,23 @@ public class _AbstractFragment extends Fragment implements View.OnClickListener 
                 Log.i(TAG, "---------->btnBack");
                 mCallback.onBack();
                 break;
+        }
+    }
+
+    public void showProgress(ProgressWheel progressWheel) {
+        if (progressWheel != null) {
+            progressWheel.setVisibility(View.VISIBLE);
+            if (progressWheel.isSpinning) {
+                progressWheel.stopSpinning();
+            }
+            progressWheel.spin();
+        }
+    }
+
+    public void stoProgress(ProgressWheel progressWheel) {
+        if (progressWheel != null) {
+            progressWheel.setVisibility(View.GONE);
+            progressWheel.stopSpinning();
         }
     }
 

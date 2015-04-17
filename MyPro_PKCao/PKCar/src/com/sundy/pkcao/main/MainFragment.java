@@ -23,6 +23,7 @@ import com.sundy.pkcao.adapters.CaoListAdapter;
 import com.sundy.pkcao.caodian.AddCaoDianFragment;
 import com.sundy.pkcao.caodian.CaoDetailFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.tools.xlistview.XListView;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.Caodian_Img;
@@ -53,6 +54,8 @@ public class MainFragment extends _AbstractFragment {
     private boolean ishasMore = true;
     private boolean isRefreshing = false;
     private String last_updated_time = "";
+    private ProgressWheel progressbar;
+
 
     public MainFragment() {
     }
@@ -77,6 +80,8 @@ public class MainFragment extends _AbstractFragment {
     }
 
     private void init() {
+        progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
+
         last_updated_time = getString(R.string.just_now);
         lv_main = (XListView) aq.id(R.id.lv_main).getListView();
         adapter = new CaoListAdapter(context, inflater);
@@ -144,11 +149,11 @@ public class MainFragment extends _AbstractFragment {
         if (curPage > 1) {
             caoidan_img.setSkip((curPage - 1) * pageNum);
         }
-        mCallback.onLoading();
+        showProgress(progressbar);
         caoidan_img.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> avObjectList, AVException e) {
                 isRefreshing = false;
-                mCallback.finishLoading();
+                stoProgress(progressbar);
                 onLoad();
                 try {
                     if (e == null) {
@@ -310,6 +315,8 @@ public class MainFragment extends _AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (progressbar != null)
+            progressbar = null;
     }
 
     @Override

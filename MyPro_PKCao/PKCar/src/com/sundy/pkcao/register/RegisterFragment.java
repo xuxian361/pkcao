@@ -27,6 +27,7 @@ import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.User;
 
 import java.io.ByteArrayOutputStream;
@@ -48,6 +49,8 @@ public class RegisterFragment extends _AbstractFragment {
     private Bitmap bitmap; //头像Bitmap
     private String photoPath;  //头像路径
     private String username;
+    private ProgressWheel progressbar;
+
 
 
     public RegisterFragment() {
@@ -76,6 +79,9 @@ public class RegisterFragment extends _AbstractFragment {
         aq.id(R.id.txt_title).text(R.string.register);
         aq.id(R.id.btn_register).clicked(onClick);
         aq.id(R.id.relative_upload_photo).clicked(onClick);
+
+        progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
+
     }
 
     private View.OnClickListener onClick = new View.OnClickListener() {
@@ -256,13 +262,13 @@ public class RegisterFragment extends _AbstractFragment {
         query.whereEqualTo(User.username, username);
         query.whereEqualTo(User.password, password);
 
-        mCallback.onLoading();
+        showProgress(progressbar);
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 if (e == null) {
                     if (list != null && list.size() != 0) {
-                        mCallback.finishLoading();
+                        stoProgress(progressbar);
                         Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
                     } else {
                         AVObject user = new AVObject(User.table_name);
@@ -276,7 +282,7 @@ public class RegisterFragment extends _AbstractFragment {
                             user.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(AVException e) {
-                                    mCallback.finishLoading();
+                                    stoProgress(progressbar);
                                     if (e == null) {
                                         findUserInfo(username, password);
                                     } else {
@@ -289,7 +295,7 @@ public class RegisterFragment extends _AbstractFragment {
                         }
                     }
                 } else {
-                    mCallback.finishLoading();
+                    stoProgress(progressbar);
                     Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -300,11 +306,11 @@ public class RegisterFragment extends _AbstractFragment {
         AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
         query.whereEqualTo(User.username, username);
         query.whereEqualTo(User.password, password);
-        mCallback.onLoading();
+        showProgress(progressbar);
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                mCallback.finishLoading();
+                stoProgress(progressbar);
                 if (e == null) {
                     if (list != null && list.size() != 0) {
                         if (list.get(0) != null) {

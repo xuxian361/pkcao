@@ -28,6 +28,7 @@ import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.User;
 
 import java.io.*;
@@ -46,6 +47,8 @@ public class EditUserFragment extends _AbstractFragment {
     private SharedPreferences preferences;
     private String username;
     private String user_img;
+    private ProgressWheel progressbar;
+
 
     public EditUserFragment() {
     }
@@ -71,6 +74,9 @@ public class EditUserFragment extends _AbstractFragment {
 
     private void init() {
         aq.id(R.id.txt_title).text(R.string.register);
+        progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
+
+
         aq.id(R.id.btn_edit).clicked(onClick);
         aq.id(R.id.relative_upload_photo).clicked(onClick);
 
@@ -242,7 +248,7 @@ public class EditUserFragment extends _AbstractFragment {
             return;
         }
 
-        mCallback.onLoading();
+        showProgress(progressbar);
         String user_id = preferences.getString(User.objectId, "");
         //先查询Server是否存在这个User
         AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
@@ -262,7 +268,7 @@ public class EditUserFragment extends _AbstractFragment {
                                 user.saveInBackground(new SaveCallback() {
                                     @Override
                                     public void done(AVException e) {
-                                        mCallback.finishLoading();
+                                        stoProgress(progressbar);
                                         if (e == null) {
                                             findUserInfo(username, password);
                                         } else {
@@ -286,11 +292,11 @@ public class EditUserFragment extends _AbstractFragment {
         AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
         query.whereEqualTo(User.username, username);
         query.whereEqualTo(User.password, password);
-        mCallback.onLoading();
+        showProgress(progressbar);
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                mCallback.finishLoading();
+                stoProgress(progressbar);
                 if (e == null) {
                     if (list != null && list.size() != 0) {
                         if (list.get(0) != null) {
@@ -387,6 +393,8 @@ public class EditUserFragment extends _AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (progressbar != null)
+            progressbar = null;
     }
 
     @Override
