@@ -40,6 +40,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -52,13 +53,13 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private View v;
     private List<String> photoList = new ArrayList<String>();
     private LinearLayout linear_imgs;
-    private String caodian_id;
     private int count = 0;
     private String videoPath = null;  //视频路径
     private String video_thumbnail_path; //视频缩略图路径
     private String photoPath = null;  //图片路径
     private ProgressWheel progressbar;
-
+    private SharedPreferences preferences;
+    private String caodian_id;
 
     public AddCaoDianFragment() {
     }
@@ -86,6 +87,8 @@ public class AddCaoDianFragment extends _AbstractFragment {
         aq.id(R.id.txt_header_title).text(getString(R.string.add_caodian));
         linear_imgs = (LinearLayout) aq.id(R.id.linear_imgs).getView();
         progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
+
+        preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
 
         aq.id(R.id.txt_confirm).clicked(onClick);
         aq.id(R.id.btn_photo).clicked(onClick);
@@ -154,7 +157,6 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private void addCaodian() {
         final String title = aq.id(R.id.edt_title).getEditText().getText().toString().trim();
         final String content = aq.id(R.id.edt_content).getEditText().getText().toString().trim();
-        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
         String user_id = preferences.getString(User.objectId, "");
 
         if (TextUtils.isEmpty(title)) {
@@ -172,65 +174,76 @@ public class AddCaoDianFragment extends _AbstractFragment {
             return;
         }
 
-        AVQuery<AVObject> query_user = new AVQuery<AVObject>(User.table_name);
-        query_user.whereEqualTo(User.objectId, user_id);
-        query_user.findInBackground(new FindCallback<AVObject>() {
+        //先找到该用户
+        showProgress(progressbar);
+        AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
+        user_query.getInBackground(user_id, new GetCallback<AVObject>() {
             @Override
-            public void done(List<AVObject> list, AVException e) {
+            public void done(final AVObject user, AVException e) {
                 if (e == null) {
-                    if (list != null && list.size() != 0) {
-                        AVObject user = list.get(0);
-                        if (user != null) {
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-                            Date date = new Date();
-                            caodian_id = sdf.format(date);
+                    if (user != null) {
+                        //找到该用户后,创建一个槽点对象
+                        AVObject caodian = new AVObject(Caodian.table_name);
+                        caodian.put(Caodian.title, title);
+                        caodian.put(Caodian.content, content);
+                        caodian.put(Caodian.creater, user);
 
-                            final AVObject caodian = new AVObject(Caodian.table_name);
-                            caodian.put(Caodian.title, title);
-                            caodian.put(Caodian.content, content);
-                            caodian.put(Caodian.creater, user);
-                            caodian.put(Caodian.caodian_id, caodian_id);
+                        final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                        final Date date = new Date();
+                        caodian_id = Caodian.caodian_id + "_" + sdf.format(date);
+                        caodian.put(Caodian.caodian_id, caodian_id);
 
-                            //保存视频文件
-                            if (videoPath != null && videoPath.length() != 0) {
-                                try {
-                                    String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
-                                    AVFile video = AVFile.withAbsoluteLocalPath(Caodian.caodian_video + suffix, videoPath);
-                                    caodian.put(Caodian.caodian_video, video);
-                                } catch (IOException e1) {
-                                    e1.printStackTrace();
-                                }
+                        //保存视频文件
+                        if (videoPath != null && videoPath.length() != 0) {
+                            try {
+                                String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
+                                AVFile video = AVFile.withAbsoluteLocalPath(
+                                        Caodian.caodian_video + "_" + sdf.format(date) + suffix, videoPath);
+                                caodian.put(Caodian.caodian_video, video);
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
                             }
+                        }
 
-                            //保存视频缩略图
-                            if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
-                                try {
-                                    AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(Caodian.caodian_video_thumbnail + ".jpg", video_thumbnail_path);
-                                    caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
-                                }
+                        //保存视频缩略图
+                        if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
+                            try {
+                                AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(
+                                        Caodian.caodian_video_thumbnail + "_" + sdf.format(date) + ".jpg", video_thumbnail_path);
+                                caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
+                        }
 
-                            showProgress(progressbar);
-                            caodian.saveInBackground(new SaveCallback() {
-                                @Override
-                                public void done(AVException e) {
-                                    if (e == null) {
-                                        if (photoList != null && photoList.size() != 0) {
-                                            saveCaoDianImgs(caodian);
-                                        } else {
-                                            stoProgress(progressbar);
-                                            Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
-                                            mCallback.switchContent(new MainFragment());
-                                        }
-                                    } else {
-                                        stoProgress(progressbar);
-                                        Toast.makeText(context, getString(R.string.add_failed), Toast.LENGTH_SHORT).show();
+                        //添加图片数组
+                        if (photoList != null && photoList.size() != 0) {
+                            List<AVFile> imgs = new LinkedList<AVFile>();
+                            for (int i = 0; i < photoList.size(); i++) {
+                                String path = photoList.get(i);
+                                if (path != null && path.length() != 0) {
+                                    try {
+                                        AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jsp", path);
+                                        imgs.add(file);
+                                    } catch (IOException e1) {
+                                        e1.printStackTrace();
                                     }
                                 }
-                            });
+                            }
+                            caodian.addAll(Caodian.imgs, imgs);
                         }
+
+                        caodian.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if (e == null) {
+                                    Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
+                                    mCallback.switchContent(new MainFragment());
+                                } else {
+                                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }
                 } else {
                     Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
@@ -239,39 +252,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
         });
     }
 
-    private void saveCaoDianImgs(AVObject caodian) {
-        try {
-            for (int i = 0; i < photoList.size(); i++) {
-                String path = photoList.get(i);
-                if (path != null && path.length() != 0) {
-                    AVObject photo = new AVObject(Caodian_Img.table_name);
-                    photo.put(Caodian_Img.caodian_id, caodian_id);
-
-                    AVFile file = AVFile.withAbsoluteLocalPath(Caodian_Img.caodian_id + "_" + i + ".jsp", path);
-                    photo.put(Caodian_Img.caodian_img, file);
-                    photo.put(Caodian_Img.caodian, caodian);
-
-                    photo.saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(AVException e) {
-                            if (count == photoList.size() - 1) {
-                                stoProgress(progressbar);
-                                Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
-                                mCallback.switchContent(new MainFragment());
-                            } else {
-                                count = count + 1;
-                            }
-                        }
-                    });
-                }
-            }
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-    }
-
     private void clearUserInfo() {
-        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.commit();
