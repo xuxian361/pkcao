@@ -76,7 +76,7 @@ public class RegisterFragment extends _AbstractFragment {
     }
 
     private void init() {
-        aq.id(R.id.txt_title).text(R.string.register);
+        aq.id(R.id.txt_header_title).text(getString(R.string.register));
         aq.id(R.id.btn_register).clicked(onClick);
         aq.id(R.id.relative_upload_photo).clicked(onClick);
 

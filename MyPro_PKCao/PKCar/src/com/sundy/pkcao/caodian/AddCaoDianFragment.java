@@ -83,6 +83,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
     }
 
     private void init() {
+        aq.id(R.id.txt_header_title).text(getString(R.string.add_caodian));
         linear_imgs = (LinearLayout) aq.id(R.id.linear_imgs).getView();
         progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
 

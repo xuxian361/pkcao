@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.androidquery.util.Common;
+import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.ilike.ILikeFragment;
@@ -39,6 +41,7 @@ public class MenuFragment extends Fragment {
     protected FragmentActivity context;
     public int curRadioId = R.id.btn_main;
     private _AbstractFragment main, i_like, ta_like, record;
+    private SharedPreferences preferences;
 
     public MenuFragment() {
     }
@@ -89,6 +92,8 @@ public class MenuFragment extends Fragment {
             aq.id(R.id.btn_TA_like).clicked(onClickListener);
             aq.id(R.id.btn_record).clicked(onClickListener);
 
+            preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+
             refreshUserInfo();
 
         } catch (Exception e) {
@@ -98,17 +103,36 @@ public class MenuFragment extends Fragment {
 
     private void refreshUserInfo() {
         if (CommonUtility.isLogin(context)) {
-            showUserInfo();
+            getUserInfo();
         } else {
             hideUserInfo();
         }
+    }
+
+    private void getUserInfo() {
+        AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
+        String user_id = preferences.getString(User.objectId, "");
+        user.getInBackground(user_id, new GetCallback<AVObject>() {
+            @Override
+            public void done(AVObject object, AVException e) {
+                if (e == null) {
+                    if (object != null) {
+                        showUserInfo(object);
+                        saveUserInfo(object);
+                    }
+                } else {
+                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    clearUserInfo();
+                }
+            }
+        });
     }
 
     private void hideUserInfo() {
         aq.id(R.id.btn_logout).gone();
         aq.id(R.id.btn_login).visible();
         aq.id(R.id.txt_name).invisible();
-        aq.id(R.id.img_profile).image(R.drawable.icon_profile).clicked(new View.OnClickListener() {
+        aq.id(R.id.img_profile).image(R.drawable.logo).clicked(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mCallback.addContent(new LoginFragment());
@@ -116,35 +140,25 @@ public class MenuFragment extends Fragment {
         });
     }
 
-    private void showUserInfo() {
+    private void showUserInfo(AVObject user) {
         aq.id(R.id.btn_logout).visible();
         aq.id(R.id.btn_login).gone();
-        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
-        String username = preferences.getString(User.username, "");
+        String username = user.getString(User.username);
         if (username != null && username.length() != 0)
             aq.id(R.id.txt_name).visible().text(username);
         else
             aq.id(R.id.txt_name).invisible();
-        String user_img = preferences.getString(User.user_img, "");
-        String user_id = preferences.getString(User.objectId, "");
-        if (user_id != null && user_id.length() != 0) {
-            if (user_img != null && user_img.length() != 0)
-                aq.id(R.id.img_profile).image(user_img).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mCallback.addContent(new EditUserFragment());
-                    }
-                });
-            else {
-                aq.id(R.id.img_profile).image(R.drawable.icon_profile).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mCallback.addContent(new LoginFragment());
-                    }
-                });
-            }
-        } else {
-            aq.id(R.id.img_profile).image(R.drawable.icon_profile).clicked(new View.OnClickListener() {
+        AVFile img_file = user.getAVFile(User.user_img);
+        String user_img = img_file.getUrl();
+        if (user_img != null && user_img.length() != 0)
+            aq.id(R.id.img_profile).image(user_img).clicked(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mCallback.addContent(new EditUserFragment());
+                }
+            });
+        else {
+            aq.id(R.id.img_profile).image(R.drawable.logo).clicked(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     mCallback.addContent(new LoginFragment());
@@ -244,8 +258,32 @@ public class MenuFragment extends Fragment {
         dialog.show();
     }
 
+    private void saveUserInfo(AVObject user) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(User.objectId, user.getObjectId());
+        editor.putString(User.createdAt, CommonUtility.formatDate2String(user.getCreatedAt()));
+        editor.putString(User.updatedAt, CommonUtility.formatDate2String(user.getUpdatedAt()));
+        editor.putString(User.username, user.getString(User.username));
+        AVFile file = user.getAVFile(User.user_img);
+        if (file != null) {
+            String user_img = file.getUrl();
+            if (user_img != null)
+                editor.putString(User.user_img, user_img);
+            else
+                editor.putString(User.user_img, "");
+        } else {
+            editor.putString(User.user_img, "");
+        }
+        String uuid = user.getUuid();
+        if (uuid != null) {
+            editor.putString(User.uuid, uuid);
+        } else {
+            editor.putString(User.uuid, "");
+        }
+        editor.commit();
+    }
+
     private void clearUserInfo() {
-        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.commit();
@@ -287,6 +325,7 @@ public class MenuFragment extends Fragment {
                 }
                 break;
             case R.id.btnMenu:
+                rtLog(TAG, "------------>btnMenu");
                 refreshUserInfo();
                 break;
         }

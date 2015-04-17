@@ -32,6 +32,8 @@ import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.User;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,6 +47,7 @@ public class EditUserFragment extends _AbstractFragment {
     private Bitmap bitmap; //头像Bitmap
     private String photoPath;  //头像路径
     private SharedPreferences preferences;
+    private String user_id;
     private String username;
     private String user_img;
     private ProgressWheel progressbar;
@@ -73,7 +76,7 @@ public class EditUserFragment extends _AbstractFragment {
     }
 
     private void init() {
-        aq.id(R.id.txt_title).text(R.string.register);
+        aq.id(R.id.txt_header_title).text(getString(R.string.user_edit));
         progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
 
 
@@ -81,6 +84,7 @@ public class EditUserFragment extends _AbstractFragment {
         aq.id(R.id.relative_upload_photo).clicked(onClick);
 
         preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+        user_id = preferences.getString(User.objectId, "");
         username = preferences.getString(User.username, "");
         user_img = preferences.getString(User.user_img, "");
 
@@ -94,7 +98,7 @@ public class EditUserFragment extends _AbstractFragment {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btn_edit:
-                    new DownloadImage().execute(user_img);
+                    editUser();
                     break;
                 case R.id.relative_upload_photo:
                     CharSequence[] items = {getString(R.string.gallery), getString(R.string.camera)};
@@ -139,26 +143,9 @@ public class EditUserFragment extends _AbstractFragment {
             photoPath = cursor.getString(column_index);
             if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
                 bitmap.recycle();
+            //压缩并旋转Bitmap
             bitmap = CommonUtility.compressImageFromFile(photoPath);
-            if (bitmap != null) {
-                int angle = CommonUtility.getRotate(photoPath);
-                if (angle != 0) {
-                    Matrix m = new Matrix();
-                    int width = bitmap.getWidth();
-                    int height = bitmap.getHeight();
-                    m.setRotate(angle);
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                int options = 100;
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                while (baos.toByteArray().length / 1024 > 100) {
-                    baos.reset();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                    options -= 10;
-                }
-            }
-            aq.id(R.id.img_user).image(bitmap);
+            bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
         } else if (requestCode == CommonUtility.CONSULT_DOC_PICTURE_1) {
             if (data == null) {
                 return;
@@ -167,29 +154,13 @@ public class EditUserFragment extends _AbstractFragment {
             photoPath = CommonUtility.getImagePath3(context, uri);
             if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
                 bitmap.recycle();
+            //压缩并旋转Bitmap
+            photoPath = CommonUtility.savePhoto(bitmap);
             bitmap = CommonUtility.compressImageFromFile(photoPath);
-            if (bitmap != null) {
-                int angle = CommonUtility.getRotate(photoPath);
-                if (angle != 0) {
-                    Matrix m = new Matrix();
-                    int width = bitmap.getWidth();
-                    int height = bitmap.getHeight();
-                    m.setRotate(angle);
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                int options = 100;
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                while (baos.toByteArray().length / 1024 > 100) {
-                    baos.reset();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                    options -= 10;
-                }
-            }
-            aq.id(R.id.img_user).image(bitmap);
+            bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
         } else if (CommonUtility.IMAGE_CAPTURE_OK == requestCode) {
             Bundle bundle = data.getExtras();
-            Bitmap bitmap = (Bitmap) bundle.get("data");
+            bitmap = (Bitmap) bundle.get("data");
             String sdcardStaus = Environment.getExternalStorageState();
             if (!sdcardStaus.equals(Environment.MEDIA_MOUNTED)) {
                 Toast.makeText(context, getString(R.string.sdk_not_exist), Toast.LENGTH_SHORT).show();
@@ -207,15 +178,10 @@ public class EditUserFragment extends _AbstractFragment {
                 photoPath = imageFile.getPath();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
                 if (bitmap != null) {
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    int options = 100;
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                    while (baos.toByteArray().length / 1024 > 100) {
-                        baos.reset();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                        options -= 10;
-                    }
-                    aq.id(R.id.img_user).image(bitmap);
+                    //压缩并旋转Bitmap
+                    photoPath = CommonUtility.savePhoto(bitmap);
+                    bitmap = CommonUtility.compressImageFromFile(photoPath);
+                    bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
                 } else {
                     Toast.makeText(context, getString(R.string.selete_photo_again), Toast.LENGTH_SHORT).show();
                 }
@@ -223,56 +189,32 @@ public class EditUserFragment extends _AbstractFragment {
                 e.printStackTrace();
             }
         }
+        //更新用户头像
+        updateUserPhoto();
     }
 
-    private void editUser() {
-        final String password = aq.id(R.id.edt_password).getEditText().getText().toString().trim();
-        String confirm_pwd = aq.id(R.id.edt_confirm_pwd).getEditText().getText().toString().trim();
-
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (password.length() > 16) {
-            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (password.length() < 6) {
-            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!password.equals(confirm_pwd)) {
-            Toast.makeText(context, getString(R.string.confirm_pwd_not_equal_pwd), Toast.LENGTH_SHORT).show();
-            aq.id(R.id.edt_confirm_pwd).getEditText().setText("");
-            return;
-        }
-
-        showProgress(progressbar);
-        String user_id = preferences.getString(User.objectId, "");
-        //先查询Server是否存在这个User
-        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
-        query.whereEqualTo(User.objectId, user_id);
-        query.findInBackground(new FindCallback<AVObject>() {
-            @Override
-            public void done(List<AVObject> list, AVException e) {
-                if (e == null) {
-                    if (list != null && list.size() != 0) {
-                        AVObject user = list.get(0);
+    private void updateUserPhoto() {
+        try {
+            showProgress(progressbar);
+            AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
+            user.getInBackground(user_id, new GetCallback<AVObject>() {
+                @Override
+                public void done(AVObject user, AVException e) {
+                    if (e == null) {
                         if (user != null) {
-                            user.put(User.password, password);
                             try {
-                                AVFile file = AVFile.withAbsoluteLocalPath(username + "_img.jsp", photoPath);
+                                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                                Date date = new Date();
+                                AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jsp", photoPath);
                                 user.put(User.user_img, file);
-
                                 user.saveInBackground(new SaveCallback() {
                                     @Override
                                     public void done(AVException e) {
                                         stoProgress(progressbar);
                                         if (e == null) {
-                                            findUserInfo(username, password);
+                                            aq.id(R.id.img_user).image(bitmap);
                                         } else {
-                                            Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT).show();
+                                            aq.id(R.id.img_user).image(user_img);
                                         }
                                     }
                                 });
@@ -281,33 +223,103 @@ public class EditUserFragment extends _AbstractFragment {
                             }
                         }
                     }
-                } else {
-                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private void findUserInfo(String username, String password) {
-        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
-        query.whereEqualTo(User.username, username);
-        query.whereEqualTo(User.password, password);
+    private void editUser() {
+        String password_old = aq.id(R.id.edt_password_old).getEditText().getText().toString().trim();
+        final String password_new = aq.id(R.id.edt_password_new).getEditText().getText().toString().trim();
+        String confirm_pwd = aq.id(R.id.edt_confirm_pwd).getEditText().getText().toString().trim();
+
+        if (TextUtils.isEmpty(password_old)) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password_old.length() > 16) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password_old.length() < 6) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password_new)) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password_new.length() > 16) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password_new.length() < 6) {
+            Toast.makeText(context, getString(R.string.fill_password), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!password_new.equals(confirm_pwd)) {
+            Toast.makeText(context, getString(R.string.confirm_pwd_not_equal_pwd), Toast.LENGTH_SHORT).show();
+            aq.id(R.id.edt_confirm_pwd).getEditText().setText("");
+            return;
+        }
+
         showProgress(progressbar);
-        query.findInBackground(new FindCallback<AVObject>() {
+        //先查询Server是否存在这个User
+        AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
+        user.whereEqualTo(User.username, username);
+        user.whereEqualTo(User.password, password_old);
+        user.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 stoProgress(progressbar);
                 if (e == null) {
                     if (list != null && list.size() != 0) {
-                        if (list.get(0) != null) {
-                            saveUserInfo(list.get(0));
-                            Toast.makeText(context, getString(R.string.update_success), Toast.LENGTH_SHORT).show();
+                        AVObject user = list.get(0);
+                        if (user != null) {
+                            user.put(User.password, password_new);
+                            user.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(AVException e) {
+                                    if (e == null) {
+                                        findUserInfo();
+                                    } else {
+                                        Toast.makeText(context, getString(R.string.update_fail), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        } else {
+                            Toast.makeText(context, getString(R.string.old_password_wrong), Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, getString(R.string.old_password_wrong), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getString(R.string.old_password_wrong), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void findUserInfo() {
+        showProgress(progressbar);
+        AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
+        user.getInBackground(user_id, new GetCallback<AVObject>() {
+            @Override
+            public void done(AVObject user, AVException e) {
+                stoProgress(progressbar);
+                if (e == null) {
+                    if (user != null) {
+                        saveUserInfo(user);
+                        aq.id(R.id.edt_password_old).text("");
+                        aq.id(R.id.edt_password_new).text("");
+                        aq.id(R.id.edt_confirm_pwd).text("");
+                        Toast.makeText(context, getString(R.string.update_success), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(context, getString(R.string.update_fail), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -337,42 +349,6 @@ public class EditUserFragment extends _AbstractFragment {
             editor.putString(User.uuid, "");
         }
         editor.commit();
-    }
-
-    private class DownloadImage extends AsyncTask<String, Void, Bitmap> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Bitmap doInBackground(String... URL) {
-            String imageURL = URL[0];
-            Bitmap bitmap = null;
-            try {
-                // Download Image from URL
-                InputStream input = new java.net.URL(imageURL).openStream();
-                // Decode Bitmap
-                bitmap = BitmapFactory.decodeStream(input);
-                photoPath = CommonUtility.savePhoto(bitmap);
-                //压缩并旋转Bitmap
-                bitmap = CommonUtility.compressImageFromFile(photoPath);
-                bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
-                photoPath = CommonUtility.savePhoto(bitmap);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return bitmap;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            // Set the bitmap into ImageView
-            if (result != null) {
-                editUser();
-            }
-        }
     }
 
     @Override

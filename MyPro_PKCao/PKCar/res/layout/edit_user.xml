@@ -45,24 +45,67 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="20dp">
-                <TextView
+                <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txt_name"
-                        android:textSize="14dp"
+                        android:layout_height="wrap_content">
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txt_name"
+                            android:textSize="20dp"
+                            android:padding="5dp"
+                            android:maxLines="1"
+                            style="@style/txt_font_16_black"
+                            android:textStyle="bold"
+                            android:layout_toLeftOf="@+id/relative_upload_photo"
+                            android:layout_marginRight="10dp" android:layout_alignParentBottom="true"
+                            />
+                    <RelativeLayout
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:id="@+id/relative_upload_photo" android:layout_alignParentRight="true">
+
+                        <com.sundy.pkcao.tools.CircleImageView
+                                app:border_color="@color/transparent"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:id="@+id/img_user"
+                                android:src="@drawable/icon_profile"
+                                />
+
+                        <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:src="@drawable/icon_edit"
+                                android:scaleType="fitCenter"
+                                android:layout_marginBottom="2dp"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_height"
+                        android:id="@+id/edt_password_old"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/corner_all_light_blue_strok"
+                        android:hint="@string/fill_password_old"
+                        android:inputType="textPassword"
                         android:padding="5dp"
+                        android:textSize="14dp"
                         android:maxLines="1"
-                        style="@style/txt_font_16_black"
-                        android:textStyle="bold"
                         />
 
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_height"
-                        android:id="@+id/edt_password"
+                        android:id="@+id/edt_password_new"
                         android:layout_marginTop="15dp"
                         android:background="@drawable/corner_all_light_blue_strok"
-                        android:hint="@string/fill_password"
+                        android:hint="@string/fill_password_new"
                         android:inputType="textPassword"
                         android:padding="5dp"
                         android:textSize="14dp"
@@ -80,30 +123,6 @@
                         android:padding="5dp"
                         android:textSize="14dp"
                         android:maxLines="1"/>
-                <RelativeLayout
-                        android:layout_width="65dp"
-                        android:layout_height="65dp"
-                        android:layout_marginTop="15dp"
-                        android:gravity="center"
-                        android:id="@+id/relative_upload_photo">
-
-                    <com.sundy.pkcao.tools.CircleImageView
-                            app:border_color="@color/transparent"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:id="@+id/img_user"
-                            android:src="@drawable/icon_profile"
-                            />
-
-                    <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/icon_edit"
-                            android:scaleType="fitCenter"
-                            android:layout_marginBottom="2dp"/>
-                </RelativeLayout>
             </LinearLayout>
         </ScrollView>
 

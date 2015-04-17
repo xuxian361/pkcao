@@ -49,6 +49,7 @@ public class CaoDetailFragment extends _AbstractFragment {
     }
 
     private void init() {
+        aq.id(R.id.txt_header_title).text(getString(R.string.detail));
         showCaodian();
     }
 

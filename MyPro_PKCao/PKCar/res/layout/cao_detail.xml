@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:id="@+id/scrollView_detial"
             android:paddingBottom="5dp"
-            android:paddingTop="5dp">
+            >
 
         <LinearLayout
                 android:orientation="vertical"

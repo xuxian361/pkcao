@@ -51,6 +51,8 @@ public class ILikeFragment extends _AbstractFragment {
     }
 
     private void init() {
+        aq.id(R.id.txt_header_title).text(getString(R.string.i_like));
+
         lv_ilike = aq.id(R.id.lv_ilike).getListView();
         adapter = new CaoListAdapter(context, inflater);
         lv_ilike.setAdapter(adapter);

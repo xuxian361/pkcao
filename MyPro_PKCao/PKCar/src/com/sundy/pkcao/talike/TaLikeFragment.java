@@ -48,6 +48,8 @@ public class TaLikeFragment extends _AbstractFragment {
     }
 
     private void init() {
+        aq.id(R.id.txt_header_title).text(getString(R.string.ta_like));
+
         lv_talike = aq.id(R.id.lv_talike).getListView();
         adapter = new CaoListAdapter(context, inflater);
         lv_talike.setAdapter(adapter);

@@ -32,7 +32,6 @@ public class LoginFragment extends _AbstractFragment {
     private String username;
     private ProgressWheel progressbar;
 
-
     public LoginFragment() {
     }
 
@@ -56,6 +55,7 @@ public class LoginFragment extends _AbstractFragment {
     }
 
     private void init() {
+        aq.id(R.id.txt_header_title).text(getString(R.string.user_login));
         aq.id(R.id.btn_register).clicked(onClick);
         aq.id(R.id.btn_login).clicked(onClick);
 
@@ -139,7 +139,7 @@ public class LoginFragment extends _AbstractFragment {
         editor.putString(User.updatedAt, CommonUtility.formatDate2String(user.getUpdatedAt()));
         editor.putString(User.username, username);
         AVFile file = user.getAVFile(User.user_img);
-        if (username != null) {
+        if (file != null) {
             String user_img = file.getUrl();
             if (user_img != null)
                 editor.putString(User.user_img, user_img);

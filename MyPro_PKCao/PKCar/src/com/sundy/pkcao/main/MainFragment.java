@@ -22,6 +22,7 @@ import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
 import com.sundy.pkcao.caodian.AddCaoDianFragment;
 import com.sundy.pkcao.caodian.CaoDetailFragment;
+import com.sundy.pkcao.login.LoginFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.tools.xlistview.XListView;
@@ -291,6 +292,7 @@ public class MainFragment extends _AbstractFragment {
                         mCallback.addContent(new AddCaoDianFragment(MainFragment.this));
                     } else {
                         Toast.makeText(context, getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                        mCallback.addContent(new LoginFragment());
                     }
                     break;
             }
