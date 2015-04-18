@@ -1,5 +1,6 @@
 package com.sundy.pkcao.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,8 @@ import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -79,12 +82,12 @@ public class CaoListAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        AVObject caodian = (AVObject) list.get(i);
+        final AVObject caodian = (AVObject) list.get(i);
         if (caodian != null) {
             holder.txt_title.setText(caodian.getString(Caodian.title));
             AQuery aq_img = new AQuery(holder.img);
             AQuery aq_img_play = new AQuery(holder.img_play);
-            AVFile video = caodian.getAVFile(Caodian.caodian_video);
+            final AVFile video = caodian.getAVFile(Caodian.caodian_video);
             if (video != null) {
                 final String video_path = video.getUrl();
                 AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
@@ -121,30 +124,42 @@ public class CaoListAdapter extends BaseAdapter {
                     }
                 }
             }
-//            holder.btn_add.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    if (CommonUtility.isLogin((Activity) context)) {
-//                        likeCaodian(caodian, view);
-//                    } else {
-//                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            });
-//            holder.btn_share.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    HashMap<String, String> data = new HashMap<String, String>();
-//                    data.put("title", "title");
-//                    data.put("content", "content");
-//                    data.put("img_url", "img_url");
+
+            holder.btn_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (CommonUtility.isLogin((Activity) context)) {
+                        likeCaodian(caodian, view);
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            holder.btn_share.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    HashMap<String, String> data = new HashMap<String, String>();
+                    data.put("title", caodian.getString(Caodian.title));
+                    data.put("content", caodian.getString(Caodian.content));
+                    if (video != null) {
+                        AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
+                        if (video_thumbnail != null) {
+                            String video_thumbnail_img = video_thumbnail.getUrl();
+                            if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
+                                data.put("img_url", video_thumbnail_img);
+                            } else {
+                                AVFile img1 = caodian.getAVFile(Caodian.img1);
+                                if (img1 != null) {
+                                    data.put("img_url", img1.getUrl());
+                                }
+                            }
+                        }
+                    }
 //                    data.put("url", "url");
-//                    CommonUtility.showShare(context, data);
-//                }
-//            });
-
+                    CommonUtility.showShare(context, data);
+                }
+            });
         }
-
         return view;
     }
 
@@ -153,60 +168,56 @@ public class CaoListAdapter extends BaseAdapter {
         final AQuery aQuery = new AQuery(view);
         SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
         String user_id = preferences.getString(User.objectId, "");
-        final String caodian_id = caodian.getObjectId();
-
         //查询User
-        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
-        query.whereEqualTo(User.objectId, user_id);
-        query.findInBackground(new FindCallback<AVObject>() {
+        AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
+        user_query.getInBackground(user_id, new GetCallback<AVObject>() {
             @Override
-            public void done(List<AVObject> list, AVException e) {
+            public void done(final AVObject user, AVException e) {
                 if (e == null) {
-                    if (list != null && list.size() != 0) {
-                        final AVObject user = list.get(0);
-                        if (user != null) {
-                            //先找到改user 是否 已经+1 过
-//                            final AVRelation<AVObject> relation = user.getRelation(User.like);
-//                            relation.getQuery().findInBackground(new FindCallback<AVObject>() {
-//                                @Override
-//                                public void done(List<AVObject> arr, AVException e) {
-//                                    if (e == null) {
-//                                        boolean isAdded = false;
-//                                        for (int i = 0; i < arr.size(); i++) {
-//                                            AVObject caodian_rel = arr.get(i);
-//                                            if (caodian.equals(caodian_rel)) {
-//                                                isAdded = true;
-//                                            } else {
-//                                                isAdded = false;
-//                                            }
-//                                        }
-//                                        if (isAdded) {
-//                                            //点过 +1
-//                                            aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-//                                        } else {
-//                                            //未点过 +1
-//                                            aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-//                                            relation.add(caodian);
-//                                            user.saveInBackground(new SaveCallback() {
-//                                                @Override
-//                                                public void done(AVException e) {
-//                                                    if (e == null) {
-//                                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-//                                                    } else {
-//                                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-//                                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-//                                                    }
-//                                                }
-//                                            });
-//                                        }
-//                                    } else {
-//                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-//                                    }
-//                                }
-//                            });
-                        }
-                    } else {
-                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    if (user != null) {
+                        //先找到改user 是否 已经+1 过
+                        final AVRelation<AVObject> relation = caodian.getRelation(Caodian.like);
+                        relation.getQuery().findInBackground(new FindCallback<AVObject>() {
+                            @Override
+                            public void done(List<AVObject> userlist, AVException e) {
+                                if (e == null) {
+                                    boolean isAdded = false;
+                                    if (userlist != null && userlist.size() != 0) {
+                                        for (int i = 0; i < userlist.size(); i++) {
+                                            AVObject user2 = userlist.get(i);
+                                            if (user.equals(user2)) {
+                                                isAdded = true;
+                                            } else {
+                                                isAdded = false;
+                                            }
+                                        }
+                                    } else {
+                                        isAdded = false;
+                                    }
+                                    if (isAdded) {
+                                        //点过 +1
+                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                                    } else {
+                                        //未点过 +1
+                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+                                        relation.add(user);
+                                        caodian.saveInBackground(new SaveCallback() {
+                                            @Override
+                                            public void done(AVException e) {
+                                                if (e == null) {
+                                                    aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                                                } else {
+                                                    aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+                                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }
                 } else {
                     Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();

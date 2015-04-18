@@ -238,7 +238,6 @@ public class AddCaoDianFragment extends _AbstractFragment {
                             caodian.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(AVException e) {
-                                    rtLog(TAG, "-------> e 2= " + e);
                                     if (e == null) {
                                         Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
                                         mCallback.switchContent(new MainFragment());
