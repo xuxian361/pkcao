@@ -10,7 +10,6 @@ public class User {
     public static final String username = "username";
     public static final String password = "password";
     public static final String user_img = "user_img";
-    public static final String like = "like";
 
 
     public static final String objectId = "objectId";

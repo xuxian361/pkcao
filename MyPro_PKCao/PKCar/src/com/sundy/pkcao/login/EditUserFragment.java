@@ -205,7 +205,7 @@ public class EditUserFragment extends _AbstractFragment {
                             try {
                                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
                                 Date date = new Date();
-                                AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jsp", photoPath);
+                                AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jpg", photoPath);
                                 user.put(User.user_img, file);
                                 user.saveInBackground(new SaveCallback() {
                                     @Override

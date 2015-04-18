@@ -9,7 +9,10 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.androidquery.AQuery;
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
@@ -19,6 +22,7 @@ import com.sundy.pkcao.login.LoginFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.tools.xlistview.XListView;
+import com.sundy.pkcao.vo.Caodian;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +42,6 @@ public class MainFragment extends _AbstractFragment {
     private boolean isFilterRightVisible = false;
 
     private List list = new ArrayList();
-    private List tempList = new ArrayList();
     private int curPage = 1;
     private int pageNum = 10;
     private boolean ishasMore = true;
@@ -87,8 +90,6 @@ public class MainFragment extends _AbstractFragment {
         aq.id(R.id.btn_filter_right).clicked(onClick);
         aq.id(R.id.btnAdd).clicked(onClick);
 
-        if (tempList != null)
-            tempList.clear();
         if (list != null)
             list.clear();
 
@@ -107,8 +108,6 @@ public class MainFragment extends _AbstractFragment {
             ishasMore = true;
             if (isRefreshing)
                 return;
-            if (tempList != null)
-                tempList.clear();
             if (list != null)
                 list.clear();
             lv_main.setAdapter(adapter);
@@ -132,64 +131,43 @@ public class MainFragment extends _AbstractFragment {
     };
 
     private void getCaodians() {
-//        if (curPage > 1) {
-//            caoidan_img.setSkip((curPage - 1) * pageNum);
-//        }
-//        showProgress(progressbar);
-//        caoidan_img.findInBackground(new FindCallback<AVObject>() {
-//            public void done(List<AVObject> avObjectList, AVException e) {
-//                isRefreshing = false;
-//                stoProgress(progressbar);
-//                onLoad();
-//                try {
-//                    if (e == null) {
-//                        if (avObjectList != null && avObjectList.size() != 0) {
-//                            for (AVObject caodian_img : avObjectList) {
-//                                if (caodian_img != null) {
-//                                    if (caodian != null) {
-//                                        String oid = caodian.getObjectId();
-//                                        if (!tempList.contains(oid)) {
-//                                            tempList.add(oid);
-//                                            list.add(caodian_img);
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                            if (list.size() % pageNum != 0) {
-//                                ishasMore = false;
-//                            }
-//                            adapter.setData(list);
-//                            adapter.notifyDataSetChanged();
-//                        } else {
-//                            ishasMore = false;
-//                            lv_main.setFooterViewText(getString(R.string.no_result));
-//                        }
-//                    }
-//                } catch (Exception ex) {
-//                    ex.printStackTrace();
-//                }
-//            }
-//        });
-
-//        AVQuery.doCloudQueryInBackground("select include PKCaoDian_Img,* from PkCaoDian", new CloudQueryCallback<AVCloudQueryResult>() {
-//            @Override
-//            public void done(AVCloudQueryResult result, AVException e) {
-//
-//                if (e == null) {
-//                    result.getCount();//这里你就可以得到符合条件的count]
-//                    List<AVObject> objects = (List<AVObject>) result.getResults();
-//                    for (int i = 0; i < objects.size(); i++) {
-//                        AVObject caodian_img = objects.get(i);
-//                        if (caodian_img != null) {
-//                            rtLog(TAG, "----------> 3 = " + caodian_img);
-//
-//                        }
-//                    }
-//                }
-//            }
-//
-//        });
-
+        AVQuery<AVObject> caodian_query = AVQuery.getQuery(Caodian.table_name);
+        caodian_query.orderByDescending(Caodian.createdAt);
+        if (curPage > 1) {
+            caodian_query.setSkip((curPage - 1) * pageNum);
+        }
+        caodian_query.setLimit(10);
+        showProgress(progressbar);
+        caodian_query.findInBackground(new FindCallback<AVObject>() {
+            public void done(List<AVObject> caodianlist, AVException e) {
+                isRefreshing = false;
+                stoProgress(progressbar);
+                onLoad();
+                try {
+                    if (e == null) {
+                        if (caodianlist != null && caodianlist.size() != 0) {
+                            for (AVObject caodian : caodianlist) {
+                                if (caodian != null) {
+                                    list.add(caodian);
+                                }
+                            }
+                            if (list.size() % pageNum != 0) {
+                                ishasMore = false;
+                            }
+                            adapter.setData(list);
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            ishasMore = false;
+                            lv_main.setFooterViewText(getString(R.string.no_result));
+                        }
+                    } else {
+                        Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {

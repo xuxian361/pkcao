@@ -276,7 +276,7 @@ public class RegisterFragment extends _AbstractFragment {
                         user.put(User.password, password);
 
                         try {
-                            AVFile file = AVFile.withAbsoluteLocalPath(username + "_img.jsp", photoPath);
+                            AVFile file = AVFile.withAbsoluteLocalPath(username + "_img.jpg", photoPath);
                             user.put(User.user_img, file);
 
                             user.saveInBackground(new SaveCallback() {

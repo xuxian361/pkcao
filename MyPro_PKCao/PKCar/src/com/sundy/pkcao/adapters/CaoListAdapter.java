@@ -1,7 +1,10 @@
 package com.sundy.pkcao.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
@@ -75,76 +79,72 @@ public class CaoListAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        AVObject caodian_img = (AVObject) list.get(i);
-        if (caodian_img != null) {
-//
-//            if (caodian != null) {
-//                holder.txt_title.setText(caodian.getString(Caodian.title));
-//
-//                AQuery aq_img = new AQuery(holder.img);
-//                AQuery aq_img_play = new AQuery(holder.img_play);
-//                AVFile video = caodian.getAVFile(Caodian.caodian_video);
-//                if (video != null) {
-//                    final String video_path = video.getUrl();
-//                    AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
-//                    if (video_thumbnail != null) {
-//                        String video_thumbnail_img = video_thumbnail.getUrl();
-//                        if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
-//                            aq_img.visible().image(video_thumbnail_img).clicked(new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View view) {
-//                                    Intent intent = new Intent(Intent.ACTION_VIEW);
-//                                    String type = "video/mp4";
-//                                    Uri uri = Uri.parse(video_path);
-//                                    intent.setDataAndType(uri, type);
-//                                    context.startActivity(intent);
-//                                }
-//                            });
-//                            aq_img_play.visible();
-//                        } else {
-//                            aq_img.gone();
-//                            aq_img_play.gone();
-//                        }
-//                    }
-//                } else {
-//                    if (imgFile != null) {
-//                        String imgPath = imgFile.getUrl();
-//                        aq_img.visible().image(imgPath).clicked(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//
-//                            }
-//                        });
-//                        aq_img_play.gone();
+        AVObject caodian = (AVObject) list.get(i);
+        if (caodian != null) {
+            holder.txt_title.setText(caodian.getString(Caodian.title));
+            AQuery aq_img = new AQuery(holder.img);
+            AQuery aq_img_play = new AQuery(holder.img_play);
+            AVFile video = caodian.getAVFile(Caodian.caodian_video);
+            if (video != null) {
+                final String video_path = video.getUrl();
+                AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
+                if (video_thumbnail != null) {
+                    String video_thumbnail_img = video_thumbnail.getUrl();
+                    if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
+                        aq_img.visible().image(video_thumbnail_img);
+                    } else {
+                        aq_img.visible().image(R.drawable.logo);
+                    }
+                } else {
+                    aq_img.visible().image(R.drawable.logo);
+                }
+
+                aq_img_play.clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        String type = "video/mp4";
+                        Uri uri = Uri.parse(video_path);
+                        intent.setDataAndType(uri, type);
+                        context.startActivity(intent);
+                    }
+                });
+            } else {
+                aq_img_play.gone();
+                AVFile img1 = caodian.getAVFile(Caodian.img1);
+                if (img1 != null) {
+                    String img1Url = img1.getUrl();
+                    if (img1Url != null && img1Url.length() != 0) {
+                        aq_img.visible().image(img1Url);
+                    } else {
+                        aq_img.gone();
+                    }
+                }
+            }
+//            holder.btn_add.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    if (CommonUtility.isLogin((Activity) context)) {
+//                        likeCaodian(caodian, view);
 //                    } else {
-//                        aq_img.gone();
-//                        aq_img_play.gone();
+//                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
 //                    }
 //                }
-//
-//                holder.btn_add.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        if (CommonUtility.isLogin((Activity) context)) {
-//                            likeCaodian(caodian, view);
-//                        } else {
-//                            Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//                holder.btn_share.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        HashMap<String, String> data = new HashMap<String, String>();
-//                        data.put("title", "title");
-//                        data.put("content", "content");
-//                        data.put("img_url", "img_url");
-//                        data.put("url", "url");
-//                        CommonUtility.showShare(context, data);
-//                    }
-//                });
-//            }
+//            });
+//            holder.btn_share.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    HashMap<String, String> data = new HashMap<String, String>();
+//                    data.put("title", "title");
+//                    data.put("content", "content");
+//                    data.put("img_url", "img_url");
+//                    data.put("url", "url");
+//                    CommonUtility.showShare(context, data);
+//                }
+//            });
+
         }
+
         return view;
     }
 
@@ -166,44 +166,44 @@ public class CaoListAdapter extends BaseAdapter {
                         final AVObject user = list.get(0);
                         if (user != null) {
                             //先找到改user 是否 已经+1 过
-                            final AVRelation<AVObject> relation = user.getRelation(User.like);
-                            relation.getQuery().findInBackground(new FindCallback<AVObject>() {
-                                @Override
-                                public void done(List<AVObject> arr, AVException e) {
-                                    if (e == null) {
-                                        boolean isAdded = false;
-                                        for (int i = 0; i < arr.size(); i++) {
-                                            AVObject caodian_rel = arr.get(i);
-                                            if (caodian.equals(caodian_rel)) {
-                                                isAdded = true;
-                                            } else {
-                                                isAdded = false;
-                                            }
-                                        }
-                                        if (isAdded) {
-                                            //点过 +1
-                                            aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-                                        } else {
-                                            //未点过 +1
-                                            aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-                                            relation.add(caodian);
-                                            user.saveInBackground(new SaveCallback() {
-                                                @Override
-                                                public void done(AVException e) {
-                                                    if (e == null) {
-                                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-                                                    } else {
-                                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-                                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    } else {
-                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+//                            final AVRelation<AVObject> relation = user.getRelation(User.like);
+//                            relation.getQuery().findInBackground(new FindCallback<AVObject>() {
+//                                @Override
+//                                public void done(List<AVObject> arr, AVException e) {
+//                                    if (e == null) {
+//                                        boolean isAdded = false;
+//                                        for (int i = 0; i < arr.size(); i++) {
+//                                            AVObject caodian_rel = arr.get(i);
+//                                            if (caodian.equals(caodian_rel)) {
+//                                                isAdded = true;
+//                                            } else {
+//                                                isAdded = false;
+//                                            }
+//                                        }
+//                                        if (isAdded) {
+//                                            //点过 +1
+//                                            aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+//                                        } else {
+//                                            //未点过 +1
+//                                            aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+//                                            relation.add(caodian);
+//                                            user.saveInBackground(new SaveCallback() {
+//                                                @Override
+//                                                public void done(AVException e) {
+//                                                    if (e == null) {
+//                                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+//                                                    } else {
+//                                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+//                                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+//                                                    }
+//                                                }
+//                                            });
+//                                        }
+//                                    } else {
+//                                        Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                }
+//                            });
                         }
                     } else {
                         Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();

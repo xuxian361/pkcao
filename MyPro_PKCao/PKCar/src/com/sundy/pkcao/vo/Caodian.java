@@ -14,8 +14,13 @@ public class Caodian {
 
     public static final String creater = "creater";   //创建该槽点的人
     public static final String caodian_id = "caodian_id";   //创建该槽点的人
-    public static final String imgs = "imgs";           //该槽点的图片
+    public static final String like = "like";
 
+    public static final String img1 = "img1";           //该槽点的图片1
+    public static final String img2 = "img2";           //该槽点的图片2
+    public static final String img3 = "img3";           //该槽点的图片3
+    public static final String img4 = "img4";           //该槽点的图片4
+    public static final String img5 = "img5";           //该槽点的图片5
 
     public static final String objectId = "objectId";
     public static final String updatedAt = "updatedAt";

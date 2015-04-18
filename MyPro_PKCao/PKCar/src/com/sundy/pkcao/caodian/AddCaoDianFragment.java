@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +37,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -182,7 +179,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 if (e == null) {
                     if (user != null) {
                         //找到该用户后,创建一个槽点对象
-                        AVObject caodian = new AVObject(Caodian.table_name);
+                        final AVObject caodian = new AVObject(Caodian.table_name);
                         caodian.put(Caodian.title, title);
                         caodian.put(Caodian.content, content);
                         caodian.put(Caodian.creater, user);
@@ -217,32 +214,40 @@ public class AddCaoDianFragment extends _AbstractFragment {
 
                         //添加图片数组
                         if (photoList != null && photoList.size() != 0) {
-                            List<AVFile> imgs = new LinkedList<AVFile>();
                             for (int i = 0; i < photoList.size(); i++) {
                                 String path = photoList.get(i);
                                 if (path != null && path.length() != 0) {
                                     try {
-                                        AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jsp", path);
-                                        imgs.add(file);
+                                        AVFile file = AVFile.withAbsoluteLocalPath(Caodian.table_name + "_" + sdf.format(date) + ".jpg", path);
+                                        if (i == 0) {
+                                            caodian.put(Caodian.img1, file);
+                                        } else if (i == 1) {
+                                            caodian.put(Caodian.img2, file);
+                                        } else if (i == 2) {
+                                            caodian.put(Caodian.img3, file);
+                                        } else if (i == 3) {
+                                            caodian.put(Caodian.img4, file);
+                                        } else if (i == 4) {
+                                            caodian.put(Caodian.img5, file);
+                                        }
                                     } catch (IOException e1) {
                                         e1.printStackTrace();
                                     }
                                 }
                             }
-                            caodian.addAll(Caodian.imgs, imgs);
-                        }
-
-                        caodian.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(AVException e) {
-                                if (e == null) {
-                                    Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
-                                    mCallback.switchContent(new MainFragment());
-                                } else {
-                                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                            caodian.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(AVException e) {
+                                    rtLog(TAG, "-------> e 2= " + e);
+                                    if (e == null) {
+                                        Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
+                                        mCallback.switchContent(new MainFragment());
+                                    } else {
+                                        Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 } else {
                     Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
