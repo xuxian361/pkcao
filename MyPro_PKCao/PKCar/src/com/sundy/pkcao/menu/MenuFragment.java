@@ -141,29 +141,33 @@ public class MenuFragment extends Fragment {
     }
 
     private void showUserInfo(AVObject user) {
-        aq.id(R.id.btn_logout).visible();
-        aq.id(R.id.btn_login).gone();
-        String username = user.getString(User.username);
-        if (username != null && username.length() != 0)
-            aq.id(R.id.txt_name).visible().text(username);
-        else
-            aq.id(R.id.txt_name).invisible();
-        AVFile img_file = user.getAVFile(User.user_img);
-        String user_img = img_file.getUrl();
-        if (user_img != null && user_img.length() != 0)
-            aq.id(R.id.img_profile).image(user_img).clicked(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mCallback.addContent(new EditUserFragment());
-                }
-            });
-        else {
-            aq.id(R.id.img_profile).image(R.drawable.logo).clicked(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mCallback.addContent(new LoginFragment());
-                }
-            });
+        try {
+            aq.id(R.id.btn_logout).visible();
+            aq.id(R.id.btn_login).gone();
+            String username = user.getString(User.username);
+            if (username != null && username.length() != 0)
+                aq.id(R.id.txt_name).visible().text(username);
+            else
+                aq.id(R.id.txt_name).invisible();
+            AVFile img_file = user.getAVFile(User.user_img);
+            String user_img = img_file.getUrl();
+            if (user_img != null && user_img.length() != 0)
+                aq.id(R.id.img_profile).image(user_img).clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mCallback.addContent(new EditUserFragment());
+                    }
+                });
+            else {
+                aq.id(R.id.img_profile).image(R.drawable.logo).clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mCallback.addContent(new LoginFragment());
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

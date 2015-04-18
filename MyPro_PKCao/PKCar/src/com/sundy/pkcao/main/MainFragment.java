@@ -1,10 +1,5 @@
 package com.sundy.pkcao.main;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,11 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
-import com.androidquery.util.Common;
-import com.avos.avoscloud.*;
+import com.avos.avoscloud.AVObject;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
@@ -26,12 +19,8 @@ import com.sundy.pkcao.login.LoginFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.tools.xlistview.XListView;
-import com.sundy.pkcao.vo.Caodian;
-import com.sundy.pkcao.vo.Caodian_Img;
-import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -143,10 +132,6 @@ public class MainFragment extends _AbstractFragment {
     };
 
     private void getCaodians() {
-//        final AVQuery<AVObject> caoidan_img = AVQuery.getQuery(Caodian_Img.table_name);
-//        caoidan_img.orderByDescending(Caodian_Img.createdAt);
-//        caoidan_img.setLimit(pageNum);
-//        caoidan_img.include(Caodian_Img.caodian);
 //        if (curPage > 1) {
 //            caoidan_img.setSkip((curPage - 1) * pageNum);
 //        }
@@ -161,7 +146,6 @@ public class MainFragment extends _AbstractFragment {
 //                        if (avObjectList != null && avObjectList.size() != 0) {
 //                            for (AVObject caodian_img : avObjectList) {
 //                                if (caodian_img != null) {
-//                                    AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
 //                                    if (caodian != null) {
 //                                        String oid = caodian.getObjectId();
 //                                        if (!tempList.contains(oid)) {

@@ -1,12 +1,7 @@
 package com.sundy.pkcao.adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +9,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
-import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
-import com.sundy.pkcao.vo.Caodian;
-import com.sundy.pkcao.vo.Caodian_Img;
 import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -88,14 +77,12 @@ public class CaoListAdapter extends BaseAdapter {
 
         AVObject caodian_img = (AVObject) list.get(i);
         if (caodian_img != null) {
-//            final AVObject caodian = caodian_img.getAVObject(Caodian_Img.caodian);
 //
 //            if (caodian != null) {
 //                holder.txt_title.setText(caodian.getString(Caodian.title));
 //
 //                AQuery aq_img = new AQuery(holder.img);
 //                AQuery aq_img_play = new AQuery(holder.img_play);
-//                AVFile imgFile = caodian_img.getAVFile(Caodian_Img.caodian_img);
 //                AVFile video = caodian.getAVFile(Caodian.caodian_video);
 //                if (video != null) {
 //                    final String video_path = video.getUrl();

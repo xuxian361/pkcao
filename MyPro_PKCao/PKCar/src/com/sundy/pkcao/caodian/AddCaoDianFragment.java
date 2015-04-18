@@ -30,7 +30,6 @@ import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.Caodian;
-import com.sundy.pkcao.vo.Caodian_Img;
 import com.sundy.pkcao.vo.User;
 
 import java.io.ByteArrayOutputStream;
