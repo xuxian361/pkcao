@@ -23,7 +23,6 @@ import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.tools.xlistview.XListView;
 import com.sundy.pkcao.vo.Caodian;
-import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +137,6 @@ public class MainFragment extends _AbstractFragment {
             caodian_query.setSkip((curPage - 1) * pageNum);
         }
         caodian_query.setLimit(10);
-        caodian_query.include(Caodian.like);
         showProgress(progressbar);
         caodian_query.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> caodianlist, AVException e) {

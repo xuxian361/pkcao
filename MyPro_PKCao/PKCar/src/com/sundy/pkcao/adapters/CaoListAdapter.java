@@ -176,48 +176,48 @@ public class CaoListAdapter extends BaseAdapter {
                 if (e == null) {
                     if (user != null) {
                         //先找到改user 是否 已经+1 过
-                        final AVRelation<AVObject> relation = caodian.getRelation(Caodian.like);
-                        relation.getQuery().findInBackground(new FindCallback<AVObject>() {
-                            @Override
-                            public void done(List<AVObject> userlist, AVException e) {
-                                if (e == null) {
-                                    boolean isAdded = false;
-                                    if (userlist != null && userlist.size() != 0) {
-                                        for (int i = 0; i < userlist.size(); i++) {
-                                            AVObject user2 = userlist.get(i);
-                                            if (user.equals(user2)) {
-                                                isAdded = true;
-                                            } else {
-                                                isAdded = false;
-                                            }
-                                        }
-                                    } else {
-                                        isAdded = false;
-                                    }
-                                    if (isAdded) {
-                                        //点过 +1
-                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-                                    } else {
-                                        //未点过 +1
-                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-                                        relation.add(user);
-                                        caodian.saveInBackground(new SaveCallback() {
-                                            @Override
-                                            public void done(AVException e) {
-                                                if (e == null) {
-                                                    aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-                                                } else {
-                                                    aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-                                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
-                                    }
-                                } else {
-                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+//                        final AVRelation<AVObject> relation = caodian.getRelation(Caodian.like);
+//                        relation.getQuery().findInBackground(new FindCallback<AVObject>() {
+//                            @Override
+//                            public void done(List<AVObject> userlist, AVException e) {
+//                                if (e == null) {
+//                                    boolean isAdded = false;
+//                                    if (userlist != null && userlist.size() != 0) {
+//                                        for (int i = 0; i < userlist.size(); i++) {
+//                                            AVObject user2 = userlist.get(i);
+//                                            if (user.equals(user2)) {
+//                                                isAdded = true;
+//                                            } else {
+//                                                isAdded = false;
+//                                            }
+//                                        }
+//                                    } else {
+//                                        isAdded = false;
+//                                    }
+//                                    if (isAdded) {
+//                                        //点过 +1
+//                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+//                                    } else {
+//                                        //未点过 +1
+//                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+//                                        relation.add(user);
+//                                        caodian.saveInBackground(new SaveCallback() {
+//                                            @Override
+//                                            public void done(AVException e) {
+//                                                if (e == null) {
+//                                                    aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
+//                                                } else {
+//                                                    aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
+//                                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        });
+//                                    }
+//                                } else {
+//                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
                     }
                 } else {
                     Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
