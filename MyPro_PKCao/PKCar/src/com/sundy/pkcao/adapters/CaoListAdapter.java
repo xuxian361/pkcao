@@ -76,7 +76,7 @@ public class CaoListAdapter extends BaseAdapter {
             holder.img_play = aq.id(R.id.img_play).getImageView();
             holder.btn_add = aq.id(R.id.btn_add).getTextView();
             holder.btn_share = aq.id(R.id.btn_share).getTextView();
-
+            holder.txt_content = aq.id(R.id.txt_content).getTextView();
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -85,10 +85,13 @@ public class CaoListAdapter extends BaseAdapter {
         final AVObject caodian = (AVObject) list.get(i);
         if (caodian != null) {
             holder.txt_title.setText(caodian.getString(Caodian.title));
+            holder.txt_content.setText(caodian.getString(Caodian.content));
+            holder.txt_count.setText("( " + caodian.getInt(Caodian.like_num) + "+ )");
             AQuery aq_img = new AQuery(holder.img);
             AQuery aq_img_play = new AQuery(holder.img_play);
             final AVFile video = caodian.getAVFile(Caodian.caodian_video);
             if (video != null) {
+                aq_img_play.visible();
                 final String video_path = video.getUrl();
                 AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
                 if (video_thumbnail != null) {
@@ -122,6 +125,8 @@ public class CaoListAdapter extends BaseAdapter {
                     } else {
                         aq_img.gone();
                     }
+                } else {
+                    aq_img.gone();
                 }
             }
 
@@ -129,7 +134,6 @@ public class CaoListAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
                     if (CommonUtility.isLogin((Activity) context)) {
-                        likeCaodian(caodian, view);
                     } else {
                         Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
                     }
@@ -163,71 +167,8 @@ public class CaoListAdapter extends BaseAdapter {
         return view;
     }
 
-
-    public void likeCaodian(final AVObject caodian, View view) {
-        final AQuery aQuery = new AQuery(view);
-        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
-        String user_id = preferences.getString(User.objectId, "");
-        //查询User
-        AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
-        user_query.getInBackground(user_id, new GetCallback<AVObject>() {
-            @Override
-            public void done(final AVObject user, AVException e) {
-                if (e == null) {
-                    if (user != null) {
-                        //先找到改user 是否 已经+1 过
-//                        final AVRelation<AVObject> relation = caodian.getRelation(Caodian.like);
-//                        relation.getQuery().findInBackground(new FindCallback<AVObject>() {
-//                            @Override
-//                            public void done(List<AVObject> userlist, AVException e) {
-//                                if (e == null) {
-//                                    boolean isAdded = false;
-//                                    if (userlist != null && userlist.size() != 0) {
-//                                        for (int i = 0; i < userlist.size(); i++) {
-//                                            AVObject user2 = userlist.get(i);
-//                                            if (user.equals(user2)) {
-//                                                isAdded = true;
-//                                            } else {
-//                                                isAdded = false;
-//                                            }
-//                                        }
-//                                    } else {
-//                                        isAdded = false;
-//                                    }
-//                                    if (isAdded) {
-//                                        //点过 +1
-//                                        aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-//                                    } else {
-//                                        //未点过 +1
-//                                        aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-//                                        relation.add(user);
-//                                        caodian.saveInBackground(new SaveCallback() {
-//                                            @Override
-//                                            public void done(AVException e) {
-//                                                if (e == null) {
-//                                                    aQuery.background(R.drawable.corner_all_light_blue_strok).enabled(false);
-//                                                } else {
-//                                                    aQuery.background(R.drawable.corner_all_white2_strok).enabled(true);
-//                                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-//                                                }
-//                                            }
-//                                        });
-//                                    }
-//                                } else {
-//                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        });
-                    }
-                } else {
-                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
     class ViewHolder {
-        TextView txt_title, txt_count;
+        TextView txt_title, txt_count, txt_content;
         ImageView img, img_play;
         TextView btn_add, btn_share;
     }

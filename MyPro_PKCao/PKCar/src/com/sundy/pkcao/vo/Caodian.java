@@ -21,6 +21,8 @@ public class Caodian {
     public static final String img4 = "img4";           //该槽点的图片4
     public static final String img5 = "img5";           //该槽点的图片5
 
+    public static final String like_num = "like_num";   //创建该槽点的人
+
     public static final String objectId = "objectId";
     public static final String updatedAt = "updatedAt";
     public static final String createdAt = "createdAt";

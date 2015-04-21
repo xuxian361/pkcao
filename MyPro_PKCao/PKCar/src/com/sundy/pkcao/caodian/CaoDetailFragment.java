@@ -1,6 +1,9 @@
 package com.sundy.pkcao.caodian;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,17 +13,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 import com.androidquery.AQuery;
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.ImageHListAdapter;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.vo.Caodian;
+import com.sundy.pkcao.vo.User;
 import it.sephiroth.android.library.widget.HListView;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by sundy on 15/3/22.
@@ -32,6 +37,7 @@ public class CaoDetailFragment extends _AbstractFragment {
     private Fragment fragment;
     private View v;
     private ImageHListAdapter adapter;
+    private SharedPreferences preferences;
 
     public CaoDetailFragment() {
     }
@@ -60,7 +66,46 @@ public class CaoDetailFragment extends _AbstractFragment {
         aq.id(R.id.txt_header_title).text(getString(R.string.detail));
 
         aq.id(R.id.btn_share).clicked(onClick);
+        aq.id(R.id.btn_add).clicked(onClick);
+        preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+
+        getLikesCount();
         showCaodian();
+    }
+
+    private void getLikesCount() {
+        AVQuery<AVObject> userQuery = AVRelation.reverseQuery(User.table_name, User.likes, item);
+        userQuery.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(final List<AVObject> users, AVException e) {
+                if (e == null) {
+                    if (users != null) {
+                        aq.id(R.id.txt_count).text("( " + item.getInt(Caodian.like_num) + "" + "+ )");
+                        if (users.size() != 0) {
+                            String user_id = preferences.getString(User.objectId, "");
+                            //查询User
+                            AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
+                            user_query.getInBackground(user_id, new GetCallback<AVObject>() {
+                                @Override
+                                public void done(AVObject user, AVException e) {
+                                    if (e == null) {
+                                        if (users.contains(user)) {
+                                            aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                                        } else {
+                                            aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
+                                        }
+                                    } else {
+                                        aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
+                }
+            }
+        });
     }
 
     private void showCaodian() {
@@ -91,7 +136,7 @@ public class CaoDetailFragment extends _AbstractFragment {
             }
         }
 
-        LinearLayout linear_img = (LinearLayout) aq.id(R.id.linear_img).getView();
+        final LinearLayout linear_img = (LinearLayout) aq.id(R.id.linear_img).getView();
         linear_img.removeAllViews();
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -173,9 +218,57 @@ public class CaoDetailFragment extends _AbstractFragment {
                 case R.id.btn_share:
                     share();
                     break;
+                case R.id.btn_add:
+                    if (CommonUtility.isLogin(context)) {
+                        likeCaodian();
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                    }
+                    break;
             }
         }
     };
+
+    public void likeCaodian() {
+        String user_id = preferences.getString(User.objectId, "");
+        //查询User
+        AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
+        user_query.getInBackground(user_id, new GetCallback<AVObject>() {
+            @Override
+            public void done(final AVObject user, AVException e) {
+                if (e == null) {
+                    if (user != null) {
+                        AVRelation<AVObject> relation = user.getRelation(User.likes);
+                        relation.add(item);
+                        user.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if (e == null) {
+                                    AVQuery<AVObject> userQuery = AVRelation.reverseQuery(User.table_name, User.likes, item);
+                                    userQuery.findInBackground(new FindCallback<AVObject>() {
+                                        @Override
+                                        public void done(final List<AVObject> users, AVException e) {
+                                            if (e == null) {
+                                                item.put(Caodian.like_num, users.size());
+                                                item.saveInBackground();
+                                            } else {
+                                            }
+                                        }
+                                    });
+                                    aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                                } else {
+                                    aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
+                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
     private void share() {
         HashMap<String, String> data = new HashMap<String, String>();

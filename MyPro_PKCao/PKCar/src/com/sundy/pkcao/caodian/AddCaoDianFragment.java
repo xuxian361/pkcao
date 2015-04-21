@@ -104,6 +104,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                     break;
                 case R.id.btn_video:
                     videoPath = "";
+                    video_thumbnail_path = "";
                     selectVideo();
                     break;
             }
@@ -153,7 +154,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private void addCaodian() {
         final String title = aq.id(R.id.edt_title).getEditText().getText().toString().trim();
         final String content = aq.id(R.id.edt_content).getEditText().getText().toString().trim();
-        String user_id = preferences.getString(User.objectId, "");
+        final String user_id = preferences.getString(User.objectId, "");
 
         if (TextUtils.isEmpty(title)) {
             Toast.makeText(context, getString(R.string.input_empty), Toast.LENGTH_SHORT).show();
@@ -182,7 +183,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                         final AVObject caodian = new AVObject(Caodian.table_name);
                         caodian.put(Caodian.title, title);
                         caodian.put(Caodian.content, content);
-                        caodian.put(Caodian.creater, user);
+                        caodian.put(Caodian.creater, user_id);
 
                         final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
                         final Date date = new Date();
@@ -235,18 +236,18 @@ public class AddCaoDianFragment extends _AbstractFragment {
                                     }
                                 }
                             }
-                            caodian.saveInBackground(new SaveCallback() {
-                                @Override
-                                public void done(AVException e) {
-                                    if (e == null) {
-                                        Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
-                                        mCallback.switchContent(new MainFragment());
-                                    } else {
-                                        Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
                         }
+                        caodian.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if (e == null) {
+                                    Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
+                                    mCallback.switchContent(new MainFragment());
+                                } else {
+                                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }
                 } else {
                     Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
@@ -363,6 +364,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                     @Override
                     public void onClick(View view) {
                         videoPath = "";
+                        video_thumbnail_path = "";
                         aq.id(R.id.relative_video).gone();
                         aq.id(R.id.btn_video).visible();
                     }
@@ -397,6 +399,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                     @Override
                     public void onClick(View view) {
                         videoPath = "";
+                        video_thumbnail_path = "";
                         aq.id(R.id.relative_video).gone();
                         aq.id(R.id.btn_video).visible();
                     }

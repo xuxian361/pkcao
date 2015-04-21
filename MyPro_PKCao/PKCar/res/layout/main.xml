@@ -42,13 +42,6 @@
                 />
 
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/linear_main_bottom"
-                android:id="@+id/linear_filter">
-        </LinearLayout>
-        <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
@@ -60,24 +53,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="全部"
-                    android:id="@+id/btn_filter_left"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:id="@+id/btn_filter_all"
                     android:background="@drawable/corner_all_light_blue"
                     style="@style/txt_font_14_white"
                     android:textStyle="bold"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    />
+
             <Button
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="最新"
-                    android:id="@+id/btn_filter_right"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp"
+                    android:text="我的"
+                    android:id="@+id/btn_filter_mine"
                     android:background="@drawable/corner_all_light_blue"
                     style="@style/txt_font_14_white"
                     android:textStyle="bold"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    />
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="其他人"
+                    android:id="@+id/btn_filter_other"
+                    android:background="@drawable/corner_all_light_blue"
+                    style="@style/txt_font_14_white"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    />
+
         </LinearLayout>
 
         <com.sundy.pkcao.tools.ProgressWheel

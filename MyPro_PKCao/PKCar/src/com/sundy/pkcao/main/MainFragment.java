@@ -1,5 +1,7 @@
 package com.sundy.pkcao.main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,8 +25,10 @@ import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.tools.xlistview.XListView;
 import com.sundy.pkcao.vo.Caodian;
+import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -37,9 +41,6 @@ public class MainFragment extends _AbstractFragment {
     private View v;
     private XListView lv_main;
     private CaoListAdapter adapter;
-    private LinearLayout linear_filter;
-    private boolean isFilterLeftVisible = false;
-    private boolean isFilterRightVisible = false;
 
     private List list = new ArrayList();
     private int curPage = 1;
@@ -48,7 +49,9 @@ public class MainFragment extends _AbstractFragment {
     private boolean isRefreshing = false;
     private String last_updated_time = "";
     private ProgressWheel progressbar;
-
+    private AVQuery<AVObject> caodian_query;
+    private SharedPreferences sharedPreferences;
+    private String user_id;
 
     public MainFragment() {
     }
@@ -84,15 +87,16 @@ public class MainFragment extends _AbstractFragment {
         lv_main.setPullRefreshEnable(true);
         lv_main.setXListViewListener(ixListViewListener);
 
-        linear_filter = (LinearLayout) aq.id(R.id.linear_filter).getView();
-
-        aq.id(R.id.btn_filter_left).clicked(onClick);
-        aq.id(R.id.btn_filter_right).clicked(onClick);
         aq.id(R.id.btnAdd).clicked(onClick);
+        aq.id(R.id.btn_filter_mine).clicked(onClick);
+        aq.id(R.id.btn_filter_other).clicked(onClick);
+        aq.id(R.id.btn_filter_all).clicked(onClick);
 
         if (list != null)
             list.clear();
 
+        caodian_query = AVQuery.getQuery(Caodian.table_name);
+        sharedPreferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
         getCaodians();
     }
 
@@ -113,6 +117,7 @@ public class MainFragment extends _AbstractFragment {
             lv_main.setAdapter(adapter);
             curPage = 1;
             last_updated_time = CommonUtility.getLastUpdatedTime();
+
             getCaodians();
             onLoad();
         }
@@ -131,13 +136,12 @@ public class MainFragment extends _AbstractFragment {
     };
 
     private void getCaodians() {
-        AVQuery<AVObject> caodian_query = AVQuery.getQuery(Caodian.table_name);
+        showProgress(progressbar);
         caodian_query.orderByDescending(Caodian.createdAt);
         if (curPage > 1) {
             caodian_query.setSkip((curPage - 1) * pageNum);
         }
         caodian_query.setLimit(10);
-        showProgress(progressbar);
         caodian_query.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> caodianlist, AVException e) {
                 isRefreshing = false;
@@ -154,6 +158,7 @@ public class MainFragment extends _AbstractFragment {
                             if (list.size() % pageNum != 0) {
                                 ishasMore = false;
                             }
+                            rtLog(TAG, "--------->list = " + list.size());
                             adapter.setData(list);
                             adapter.notifyDataSetChanged();
                         } else {
@@ -184,69 +189,62 @@ public class MainFragment extends _AbstractFragment {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.btn_filter_left:
-                    if (linear_filter != null)
-                        linear_filter.removeAllViews();
-                    if (isFilterLeftVisible == false) {
-                        View filter_left = inflater.inflate(R.layout.view_filter_left, null);
-                        AQuery aq1 = new AQuery(filter_left);
-                        aq1.id(R.id.btn_filter_mine).clicked(onClick);
-                        aq1.id(R.id.btn_filter_other).clicked(onClick);
-                        aq1.id(R.id.btn_filter_all).clicked(onClick);
-                        linear_filter.addView(filter_left);
-                        isFilterLeftVisible = true;
-                    } else {
-                        isFilterLeftVisible = false;
-                    }
-                    isFilterRightVisible = false;
-                    break;
-                case R.id.btn_filter_right:
-                    if (linear_filter != null)
-                        linear_filter.removeAllViews();
-                    if (isFilterRightVisible == false) {
-                        View filter_right = inflater.inflate(R.layout.view_filter_right, null);
-                        AQuery aq1 = new AQuery(filter_right);
-                        aq1.id(R.id.btn_filter_latest).clicked(onClick);
-                        aq1.id(R.id.btn_filter_hot).clicked(onClick);
-                        linear_filter.addView(filter_right);
-                        isFilterRightVisible = true;
-                    } else {
-                        isFilterRightVisible = false;
-                    }
-                    isFilterLeftVisible = false;
-                    break;
                 case R.id.btn_filter_all:
-                    if (linear_filter != null)
-                        linear_filter.removeAllViews();
-                    isFilterLeftVisible = false;
-                    aq.id(R.id.btn_filter_left).text("全部");
+                    ishasMore = true;
+                    if (isRefreshing)
+                        return;
+                    if (list != null)
+                        list.clear();
+                    lv_main.setAdapter(adapter);
+                    curPage = 1;
+                    last_updated_time = CommonUtility.getLastUpdatedTime();
 
+                    if (caodian_query != null)
+                        caodian_query = null;
+                    caodian_query = AVQuery.getQuery(Caodian.table_name);
+                    getCaodians();
                     break;
                 case R.id.btn_filter_mine:
-                    if (linear_filter != null)
-                        linear_filter.removeAllViews();
-                    isFilterLeftVisible = false;
-                    aq.id(R.id.btn_filter_left).text("我的");
+                    if (CommonUtility.isLogin(context)) {
+                        ishasMore = true;
+                        if (isRefreshing)
+                            return;
+                        if (list != null)
+                            list.clear();
+                        lv_main.setAdapter(adapter);
+                        curPage = 1;
+                        last_updated_time = CommonUtility.getLastUpdatedTime();
 
+                        user_id = sharedPreferences.getString(User.objectId, "");
+                        if (caodian_query != null)
+                            caodian_query = null;
+                        caodian_query = AVQuery.getQuery(Caodian.table_name);
+                        caodian_query.whereContains(Caodian.creater, user_id);
+                        getCaodians();
+                    } else {
+                        mCallback.addContent(new LoginFragment());
+                    }
                     break;
                 case R.id.btn_filter_other:
-                    if (linear_filter != null)
-                        linear_filter.removeAllViews();
-                    isFilterLeftVisible = false;
-                    aq.id(R.id.btn_filter_left).text("其他人");
+                    if (CommonUtility.isLogin(context)) {
+                        ishasMore = true;
+                        if (isRefreshing)
+                            return;
+                        if (list != null)
+                            list.clear();
+                        lv_main.setAdapter(adapter);
+                        curPage = 1;
+                        last_updated_time = CommonUtility.getLastUpdatedTime();
 
-                    break;
-                case R.id.btn_filter_hot:
-                    if (linear_filter != null)
-                        linear_filter.removeAllViews();
-                    isFilterRightVisible = false;
-                    aq.id(R.id.btn_filter_right).text("最热");
-                    break;
-                case R.id.btn_filter_latest:
-                    if (linear_filter != null)
-                        linear_filter.removeAllViews();
-                    isFilterRightVisible = false;
-                    aq.id(R.id.btn_filter_right).text("最新");
+                        user_id = sharedPreferences.getString(User.objectId, "");
+                        if (caodian_query != null)
+                            caodian_query = null;
+                        caodian_query = AVQuery.getQuery(Caodian.table_name);
+                        caodian_query.whereNotEqualTo(Caodian.creater, user_id);
+                        getCaodians();
+                    } else {
+                        mCallback.addContent(new LoginFragment());
+                    }
                     break;
                 case R.id.btnAdd:
                     if (CommonUtility.isLogin(context)) {

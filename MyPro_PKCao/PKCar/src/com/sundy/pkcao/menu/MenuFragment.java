@@ -257,6 +257,9 @@ public class MenuFragment extends Fragment {
                 dialog.cancel();
                 clearUserInfo();
                 hideUserInfo();
+                main = new MainFragment(MenuFragment.this);
+                curRadioId = R.id.btn_main;
+                mCallback.switchContent(main);
             }
         });
         dialog.show();
