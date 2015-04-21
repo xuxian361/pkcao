@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.AVException;
@@ -28,7 +27,6 @@ import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -180,7 +178,14 @@ public class MainFragment extends _AbstractFragment {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             if (list != null && list.size() != 0) {
                 AVObject item = (AVObject) list.get(i - 1);
-                mCallback.addContent(new CaoDetailFragment(MainFragment.this, item));
+                String create_id = item.getString(Caodian.creater);
+                user_id = sharedPreferences.getString(User.objectId, "");
+                String type = "1";
+                if (user_id.equals(create_id)) {
+                    type = "2";
+                }
+                mCallback.addContent(new CaoDetailFragment(MainFragment.this, item, type));
+                user_id = "";
             }
         }
     };

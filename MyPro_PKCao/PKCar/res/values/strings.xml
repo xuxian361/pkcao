@@ -53,4 +53,5 @@
     <string name="fill_password_new">新密码 (6~16个英文字或者数字)</string>
     <string name="old_password_wrong">旧密码输入错误</string>
     <string name="update_fail">更新失败</string>
+    <string name="delete_caodian">危险操作！确认删除？</string>
 </resources>

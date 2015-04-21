@@ -7,9 +7,25 @@
               android:background="@color/white"
               android:onClick="onClick">
 
-    <include android:layout_width="match_parent"
-             android:layout_height="60dp"
-             layout="@layout/topbar_back"/>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <include android:layout_width="match_parent"
+                 android:layout_height="60dp"
+                 layout="@layout/topbar_back"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:id="@+id/btn_delete"
+                android:scaleType="fitCenter"
+                android:padding="7dp"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:text="删除"/>
+    </RelativeLayout>
 
     <ScrollView
             android:layout_width="match_parent"

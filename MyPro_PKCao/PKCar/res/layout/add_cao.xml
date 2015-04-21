@@ -51,7 +51,8 @@
                         android:gravity="center|left"
                         android:padding="5dp"
                         android:maxLines="1"
-                        android:textSize="14dp"/>
+                        android:textSize="14dp"
+                        android:maxLength="1"/>
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="240dp"

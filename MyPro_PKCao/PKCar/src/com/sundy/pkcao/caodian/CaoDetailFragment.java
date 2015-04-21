@@ -1,6 +1,7 @@
 package com.sundy.pkcao.caodian;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,7 @@ import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.ImageHListAdapter;
+import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
@@ -38,13 +40,15 @@ public class CaoDetailFragment extends _AbstractFragment {
     private View v;
     private ImageHListAdapter adapter;
     private SharedPreferences preferences;
+    private String type;
 
     public CaoDetailFragment() {
     }
 
-    public CaoDetailFragment(Fragment fragment, AVObject item) {
+    public CaoDetailFragment(Fragment fragment, AVObject item, String type) {
         this.fragment = fragment;
         this.item = item;
+        this.type = type;
     }
 
     @Override
@@ -67,6 +71,12 @@ public class CaoDetailFragment extends _AbstractFragment {
 
         aq.id(R.id.btn_share).clicked(onClick);
         aq.id(R.id.btn_add).clicked(onClick);
+        aq.id(R.id.btn_delete).clicked(onClick);
+
+        if (type.equals("2"))
+            aq.id(R.id.btn_delete).visible();
+        else
+            aq.id(R.id.btn_delete).gone();
         preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
 
         getLikesCount();
@@ -225,9 +235,49 @@ public class CaoDetailFragment extends _AbstractFragment {
                         Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
                     }
                     break;
+                case R.id.btn_delete:
+                    delete();
+                    break;
             }
         }
     };
+
+    private void delete() {
+        View view = inflater.inflate(R.layout.dialog_ok_cancel, null);
+        final Dialog dialog = new Dialog(context, R.style.dialog);
+        dialog.setContentView(view);
+        AQuery aq = new AQuery(view);
+        aq.id(R.id.txt_msg).text(getString(R.string.delete_caodian));
+        aq.id(R.id.btn_done).clicked(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                dialog.cancel();
+            }
+        });
+        aq.id(R.id.btn_ok).clicked(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                dialog.cancel();
+                deleteCaodian();
+            }
+        });
+        dialog.show();
+    }
+
+    private void deleteCaodian() {
+        item.deleteInBackground(new DeleteCallback() {
+            @Override
+            public void done(AVException e) {
+                if (e == null) {
+                    mCallback.switchContent(new MainFragment());
+                } else {
+
+                }
+            }
+        });
+    }
 
     public void likeCaodian() {
         String user_id = preferences.getString(User.objectId, "");
