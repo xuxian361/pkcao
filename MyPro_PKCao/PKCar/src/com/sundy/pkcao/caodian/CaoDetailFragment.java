@@ -84,31 +84,17 @@ public class CaoDetailFragment extends _AbstractFragment {
     }
 
     private void getLikesCount() {
-        AVQuery<AVObject> userQuery = AVRelation.reverseQuery(User.table_name, User.likes, item);
-        userQuery.findInBackground(new FindCallback<AVObject>() {
+        AVRelation<AVObject> relation = item.getRelation(Caodian.likes);
+        relation.getQuery().findInBackground(new FindCallback<AVObject>() {
             @Override
-            public void done(final List<AVObject> users, AVException e) {
+            public void done(List<AVObject> userlist, AVException e) {
                 if (e == null) {
-                    if (users != null) {
-                        aq.id(R.id.txt_count).text("( " + item.getInt(Caodian.like_num) + "" + "+ )");
-                        if (users.size() != 0) {
-                            String user_id = preferences.getString(User.objectId, "");
-                            //查询User
-                            AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
-                            user_query.getInBackground(user_id, new GetCallback<AVObject>() {
-                                @Override
-                                public void done(AVObject user, AVException e) {
-                                    if (e == null) {
-                                        if (users.contains(user)) {
-                                            aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
-                                        } else {
-                                            aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
-                                        }
-                                    } else {
-                                        aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
-                                    }
-                                }
-                            });
+                    aq.id(R.id.txt_count).text("( " + userlist.size() + "" + "+ )");
+                    for (AVObject user : userlist) {
+                        String objectId = user.getObjectId();
+                        String user_id = preferences.getString(User.objectId, "");
+                        if (objectId.equals(user_id)) {
+                            aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
                         }
                     }
                 } else {
@@ -116,6 +102,7 @@ public class CaoDetailFragment extends _AbstractFragment {
                 }
             }
         });
+
     }
 
     private void showCaodian() {
@@ -280,41 +267,27 @@ public class CaoDetailFragment extends _AbstractFragment {
     }
 
     public void likeCaodian() {
+        //通过user_id 查找该User
         String user_id = preferences.getString(User.objectId, "");
-        //查询User
         AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
         user_query.getInBackground(user_id, new GetCallback<AVObject>() {
             @Override
-            public void done(final AVObject user, AVException e) {
+            public void done(AVObject user, AVException e) {
                 if (e == null) {
-                    if (user != null) {
-                        AVRelation<AVObject> relation = user.getRelation(User.likes);
-                        relation.add(item);
-                        user.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(AVException e) {
-                                if (e == null) {
-                                    AVQuery<AVObject> userQuery = AVRelation.reverseQuery(User.table_name, User.likes, item);
-                                    userQuery.findInBackground(new FindCallback<AVObject>() {
-                                        @Override
-                                        public void done(final List<AVObject> users, AVException e) {
-                                            if (e == null) {
-                                                item.put(Caodian.like_num, users.size());
-                                                item.saveInBackground();
-                                            } else {
-                                            }
-                                        }
-                                    });
-                                    aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
-                                } else {
-                                    aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
-                                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                }
+                    AVRelation<AVObject> relation = item.getRelation(Caodian.likes);
+                    relation.add(user);
+                    item.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(AVException e) {
+                            if (e == null) {
+                                aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                            } else {
+                                aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
                             }
-                        });
-                    }
+                        }
+                    });
                 } else {
-                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
                 }
             }
         });

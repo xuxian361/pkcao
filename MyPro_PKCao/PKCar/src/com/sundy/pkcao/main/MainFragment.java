@@ -4,16 +4,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.CaoListAdapter;
@@ -140,6 +138,7 @@ public class MainFragment extends _AbstractFragment {
             caodian_query.setSkip((curPage - 1) * pageNum);
         }
         caodian_query.setLimit(10);
+
         caodian_query.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> caodianlist, AVException e) {
                 isRefreshing = false;
@@ -156,7 +155,7 @@ public class MainFragment extends _AbstractFragment {
                             if (list.size() % pageNum != 0) {
                                 ishasMore = false;
                             }
-                            rtLog(TAG, "--------->list = " + list.size());
+
                             adapter.setData(list);
                             adapter.notifyDataSetChanged();
                         } else {
@@ -171,6 +170,7 @@ public class MainFragment extends _AbstractFragment {
                 }
             }
         });
+
     }
 
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {

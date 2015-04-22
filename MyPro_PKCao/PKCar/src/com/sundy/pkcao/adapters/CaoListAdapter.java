@@ -86,7 +86,17 @@ public class CaoListAdapter extends BaseAdapter {
         if (caodian != null) {
             holder.txt_title.setText(caodian.getString(Caodian.title));
             holder.txt_content.setText(caodian.getString(Caodian.content));
-            holder.txt_count.setText("( " + caodian.getInt(Caodian.like_num) + "+ )");
+
+            AVRelation relation = caodian.getRelation(Caodian.likes);
+            AVQuery<AVObject> query = relation.getQuery();
+            final ViewHolder finalHolder = holder;
+            query.findInBackground(new FindCallback<AVObject>() {
+                @Override
+                public void done(List<AVObject> nums, AVException e) {
+                    finalHolder.txt_count.setText("( " + nums.size() + "+ )");
+                }
+            });
+
             AQuery aq_img = new AQuery(holder.img);
             AQuery aq_img_play = new AQuery(holder.img_play);
             final AVFile video = caodian.getAVFile(Caodian.caodian_video);
