@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import com.androidquery.AQuery;
 import com.androidquery.util.AQUtility;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
+import com.sundy.pkcao.baidupush.Utils;
 import com.sundy.pkcao.taker.ResourceTaker;
 
 /**
@@ -51,6 +54,18 @@ public class _AbstractActivity extends Activity {
         if (isTaskRoot()) {
             AQUtility.cleanCacheAsync(this);
         }
+    }
+
+    // 以apikey的方式绑定(baidu push)
+    public void startBaiduPush(Activity context) {
+        PushManager.startWork(context,
+                PushConstants.LOGIN_TYPE_API_KEY,
+                Utils.getMetaValue(context, "api_key"));
+    }
+
+    //停止Baidu 推送
+    public void stopBaiduPush(Activity context) {
+        PushManager.stopWork(context);
     }
 
     public void rtLog(String tag, String msg) {

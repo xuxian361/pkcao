@@ -17,6 +17,8 @@ public class MainApplication extends FrontiaApplication {
 
     @Override
     public void onCreate() {
+        super.onCreate();
+
         Log.e(TAG, "------------>onCreate");
         //set the max number of concurrent network connections, default is 4
         AjaxCallback.setNetworkLimit(8);
@@ -37,8 +39,6 @@ public class MainApplication extends FrontiaApplication {
                 "f20bpd0qsoqvkjj79otbh09i5mk70gesw2kl5d7gv738jkon",
                 "31hhp1ykz4czouw626n7asjmd5uvonsg0fx3p49wcbqq6no4");
 
-        super.onCreate();
-        FrontiaApplication.initFrontiaApplication(this);
     }
 
     @Override
