@@ -21,5 +21,6 @@
     <orderEntry type="module" module-name="HorizontalVariableListView" />
     <orderEntry type="library" name="leancloud" level="project" />
     <orderEntry type="library" name="sharesdk" level="project" />
+    <orderEntry type="library" name="baidupush" level="project" />
   </component>
 </module>

@@ -35,7 +35,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -152,25 +154,10 @@ public class RegisterFragment extends _AbstractFragment {
             photoPath = cursor.getString(column_index);
             if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
                 bitmap.recycle();
+            //压缩并旋转Bitmap
             bitmap = CommonUtility.compressImageFromFile(photoPath);
-            if (bitmap != null) {
-                int angle = CommonUtility.getRotate(photoPath);
-                if (angle != 0) {
-                    Matrix m = new Matrix();
-                    int width = bitmap.getWidth();
-                    int height = bitmap.getHeight();
-                    m.setRotate(angle);
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                int options = 100;
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                while (baos.toByteArray().length / 1024 > 100) {
-                    baos.reset();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                    options -= 10;
-                }
-            }
+            bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
+            photoPath = CommonUtility.savePhoto(bitmap);
             aq.id(R.id.img_user).image(bitmap);
         } else if (requestCode == CommonUtility.CONSULT_DOC_PICTURE_1) {
             if (data == null) {
@@ -180,25 +167,10 @@ public class RegisterFragment extends _AbstractFragment {
             photoPath = CommonUtility.getImagePath3(context, uri);
             if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
                 bitmap.recycle();
+            //压缩并旋转Bitmap
             bitmap = CommonUtility.compressImageFromFile(photoPath);
-            if (bitmap != null) {
-                int angle = CommonUtility.getRotate(photoPath);
-                if (angle != 0) {
-                    Matrix m = new Matrix();
-                    int width = bitmap.getWidth();
-                    int height = bitmap.getHeight();
-                    m.setRotate(angle);
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                int options = 100;
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                while (baos.toByteArray().length / 1024 > 100) {
-                    baos.reset();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                    options -= 10;
-                }
-            }
+            bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
+            photoPath = CommonUtility.savePhoto(bitmap);
             aq.id(R.id.img_user).image(bitmap);
         } else if (CommonUtility.IMAGE_CAPTURE_OK == requestCode) {
             Bundle bundle = data.getExtras();
@@ -220,14 +192,11 @@ public class RegisterFragment extends _AbstractFragment {
                 photoPath = imageFile.getPath();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
                 if (bitmap != null) {
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    int options = 100;
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                    while (baos.toByteArray().length / 1024 > 100) {
-                        baos.reset();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                        options -= 10;
-                    }
+                    //压缩并旋转Bitmap
+                    photoPath = CommonUtility.savePhoto(bitmap);
+                    bitmap = CommonUtility.compressImageFromFile(photoPath);
+                    bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
+                    photoPath = CommonUtility.savePhoto(bitmap);
                     aq.id(R.id.img_user).image(bitmap);
                 } else {
                     Toast.makeText(context, getString(R.string.selete_photo_again), Toast.LENGTH_SHORT).show();
@@ -275,6 +244,11 @@ public class RegisterFragment extends _AbstractFragment {
             return;
         }
 
+        if (TextUtils.isEmpty(photoPath)) {
+            Toast.makeText(context, getString(R.string.selete_photo), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         //先查询Server是否存在这个User
         AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
         query.whereEqualTo(User.username, username);
@@ -294,9 +268,12 @@ public class RegisterFragment extends _AbstractFragment {
                         user.put(User.password, password);
 
                         try {
-                            AVFile file = AVFile.withAbsoluteLocalPath(username + "_img.jpg", photoPath);
-                            user.put(User.user_img, file);
-
+                            if (photoPath != null && photoPath.length() != 0) {
+                                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                                Date date = new Date();
+                                AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jpg", photoPath);
+                                user.put(User.user_img, file);
+                            }
                             user.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(AVException e) {
@@ -314,7 +291,6 @@ public class RegisterFragment extends _AbstractFragment {
                     }
                 } else {
                     stoProgress(progressbar);
-                    Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
                 }
             }
         });

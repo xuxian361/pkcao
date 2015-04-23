@@ -6,11 +6,12 @@ import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.BitmapAjaxCallback;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVOSCloud;
+import com.baidu.frontia.FrontiaApplication;
 
 /**
  * Created by sundy on 15/3/21.
  */
-public class MainApplication extends Application {
+public class MainApplication extends FrontiaApplication {
 
     private final String TAG = "MainApplication";
 
@@ -37,6 +38,7 @@ public class MainApplication extends Application {
                 "31hhp1ykz4czouw626n7asjmd5uvonsg0fx3p49wcbqq6no4");
 
         super.onCreate();
+        FrontiaApplication.initFrontiaApplication(this);
     }
 
     @Override
