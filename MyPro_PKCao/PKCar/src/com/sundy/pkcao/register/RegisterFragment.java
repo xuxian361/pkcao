@@ -2,6 +2,7 @@ package com.sundy.pkcao.register;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,12 +16,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.*;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
@@ -50,7 +51,8 @@ public class RegisterFragment extends _AbstractFragment {
     private String photoPath;  //头像路径
     private String username;
     private ProgressWheel progressbar;
-
+    private CheckBox checkBox;
+    private boolean isAgreed = false;
 
 
     public RegisterFragment() {
@@ -82,6 +84,23 @@ public class RegisterFragment extends _AbstractFragment {
 
         progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
 
+        checkBox = aq.id(R.id.checkbox).getCheckBox();
+        aq.id(R.id.txt_term).text((Html.fromHtml("我同意 <font color='#878774'><u>PK槽点条款与制约</u></font>"))).clicked(onClick);
+        checkBox.setChecked(false);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    isAgreed = true;
+                    aq.id(R.id.btn_register).enabled(true);
+                    aq.id(R.id.btn_register).background(R.drawable.corner_all_light_blue);
+                } else {
+                    isAgreed = false;
+                    aq.id(R.id.btn_register).enabled(false);
+                    aq.id(R.id.btn_register).background(R.drawable.corner_all_gray);
+                }
+            }
+        });
     }
 
     private View.OnClickListener onClick = new View.OnClickListener() {
@@ -111,6 +130,9 @@ public class RegisterFragment extends _AbstractFragment {
                             }
                         }
                     }).create().show();
+                    break;
+                case R.id.txt_term:
+                    showTermDialog();
                     break;
             }
         }
@@ -325,6 +347,23 @@ public class RegisterFragment extends _AbstractFragment {
                 }
             }
         });
+    }
+
+    private void showTermDialog() {
+        LayoutInflater inflater = context.getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_ok, null);
+        final Dialog dialog = new Dialog(context, R.style.dialog);
+        dialog.setContentView(view);
+        AQuery aq = new AQuery(view);
+        aq.id(R.id.btn_ok).text(getString(R.string.confrim));
+        aq.id(R.id.btn_ok).clicked(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                dialog.cancel();
+            }
+        });
+        dialog.show();
     }
 
     private void saveUserInfo(AVObject user) {

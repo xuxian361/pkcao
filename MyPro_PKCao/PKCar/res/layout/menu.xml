@@ -81,9 +81,11 @@
                         android:id="@+id/btn_record"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:background="@drawable/corner_all_light_blue" style="@style/txt_font_14_white"
+                        android:background="@drawable/corner_all_light_blue"
+                        style="@style/txt_font_14_white"
                         android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"/>
 
             </LinearLayout>
         </ScrollView>
