@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.OperationFileHelper;
+
+import java.io.File;
 
 /**
  * Created by sundy on 15/4/23.
@@ -53,6 +57,13 @@ public class LoadingActivity extends _AbstractActivity {
         CommonUtility.SCREEN_WIDTH = metrics.widthPixels;
         CommonUtility.SCREEN_HEIGHT = metrics.heightPixels;
         CommonUtility.SCREEN_DENSITY = metrics.density;
+
+        try {
+            File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+            OperationFileHelper.RecursionDeleteFile(file);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
         handler.sendEmptyMessageDelayed(GO_MAIN, SPLASH_DELAY_MILLIS);
 

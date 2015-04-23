@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/transparent4"
+              android:onClick="onClick">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/btnBack"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:src="@drawable/icon_back"
+                android:scaleType="fitCenter"
+                android:padding="10dp"/>
+        <TextView
+                android:id="@+id/txt_title"
+                android:layout_centerInParent="true"
+                style="@style/txt_font_14_white"
+                android:maxLines="1"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="7dp"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/relative_bottom"
+                android:layout_marginBottom="50dp"
+                android:visibility="gone">
+            <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/btn_perious"
+                    android:src="@drawable/arrow_perious_white"
+                    android:scaleType="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_toLeftOf="@+id/txt_count"
+                    />
+            <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_count"
+                    style="@style/txt_font_12_white"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"/>
+            <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/btn_next"
+                    android:layout_toRightOf="@+id/txt_count"
+                    android:src="@drawable/arrow_next_white"
+                    android:scaleType="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/relative_bottom">
+            <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -27,6 +27,7 @@ import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.OperationFileHelper;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
@@ -254,6 +255,12 @@ public class AddCaoDianFragment extends _AbstractFragment {
                                     @Override
                                     public void done(AVException e) {
                                         if (e == null) {
+                                            try {
+                                                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+                                                OperationFileHelper.RecursionDeleteFile(file);
+                                            } catch (Exception ex) {
+                                                ex.printStackTrace();
+                                            }
                                             Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
                                             mCallback.switchContent(new MainFragment());
                                         } else {

@@ -1,0 +1,222 @@
+package com.sundy.pkcao.tools.draganddropphotos;
+
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.widget.ImageView;
+
+public class ImageDraggableView extends ImageView implements RotationGestureDetector.OnRotationGestureListener, OnLongClickListener {
+
+
+    private ScaleGestureDetector mScaleDetector;
+    private RotationGestureDetector rotationDetector;
+    private float angle = 0;
+
+    private DraggableLayout parentLayout;
+    private MotionEvent parentEvent;
+    private String imagePath;
+    private Bitmap bitmap;
+    private float mScaleFactor = 1.f;
+    private float imgX;
+    private float imgY;
+    private float iX;
+    private float iY;
+    private float origScaleFactor;
+    private float origImgX;
+    private float origImgY;
+    private float dx;
+    private float dy;
+    private int pointerCount;
+    private int prevCount;
+    View v;
+
+
+    private DraggableLayout.OnInterceptToutchEventListener onInterceptToutchEventListener = new DraggableLayout.OnInterceptToutchEventListener() {
+
+        @Override
+        public void onTouchEvent(MotionEvent e) {
+            parentEvent = e;
+        }
+    };
+
+
+    public ImageDraggableView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mScaleDetector = new ScaleGestureDetector(context, new ScaleListener());
+        rotationDetector = new RotationGestureDetector(this);
+        setOnLongClickListener(this);
+    }
+
+    @Override
+    public boolean onLongClick(View arg0) {
+        if (parentLayout != null) {
+            parentLayout.bringChildToFront(this);
+            parentLayout.invalidate();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent e) {
+        if (parentEvent != null) {
+            if (checkActiveView(parentEvent)) {
+                mScaleDetector.onTouchEvent(parentEvent);
+                rotationDetector.onTouchEvent(parentEvent);
+                onDragging(parentEvent);
+            }
+        }
+        return super.onTouchEvent(e);
+    }
+
+    //check dragging view
+    private boolean checkActiveView(MotionEvent e) {
+        if (e.getAction() == MotionEvent.ACTION_DOWN && !parentLayout.isDragging()) {
+            parentLayout.setActiveView(this);
+            parentLayout.setDragging(true);
+        } else if (e.getAction() == MotionEvent.ACTION_UP && e.getPointerCount() == 1) {
+            parentLayout.setDragging(false);
+        }
+        return parentLayout.getActiveView() == this;
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void onDragging(MotionEvent event) {
+
+        pointerCount = event.getPointerCount();
+        if (prevCount > 1 && pointerCount == 1) {
+            imgX = getSizedX(getX());
+            imgY = getSizedY(getY());
+            dx = event.getX();
+            dy = event.getY();
+        }
+        prevCount = pointerCount;
+
+        if (pointerCount == 1) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    dx = event.getX();
+                    dy = event.getY();
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    float x = event.getX();
+                    float y = event.getY();
+                    iX = imgX + x - getSizedX(dx);
+                    iY = imgY + y - getSizedY(dy);
+                    setX(iX);
+                    setY(iY);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    imgX = getSizedX(getX());
+                    imgY = getSizedY(getY());
+                    break;
+            }
+        }
+    }
+
+    private float getSizedX(float x) {
+        return x + (mScaleFactor * getWidth() - getWidth()) / 2;
+    }
+
+    private float getSizedY(float y) {
+        return y + (mScaleFactor * getHeight() - getHeight()) / 2;
+    }
+
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector detector) {
+            mScaleFactor *= detector.getScaleFactor();
+            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 5.0f));
+
+            setScaleX(mScaleFactor);
+            setScaleY(mScaleFactor);
+            return true;
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public void scaleView(float scaleFactor) {
+        origImgX = iX;
+        origImgY = iY;
+        origScaleFactor = mScaleFactor;
+
+        setX(iX * scaleFactor);
+        setY(iY * scaleFactor);
+        setScaleX(mScaleFactor * scaleFactor);
+        setScaleY(mScaleFactor * scaleFactor);
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public void restoreView() {
+        iX = origImgX;
+        iY = origImgY;
+        mScaleFactor = origScaleFactor;
+
+        setX(iX);
+        setY(iY);
+        setScaleX(mScaleFactor);
+        setScaleY(mScaleFactor);
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    public boolean onRotation(RotationGestureDetector rotationDetector) {
+        angle += rotationDetector.getAngle();
+
+        setRotation(-angle);
+        return true;
+    }
+
+    public DraggableLayout getParentLayout() {
+        return parentLayout;
+    }
+
+    public void setParentLayout(DraggableLayout parentLayout) {
+        this.parentLayout = parentLayout;
+        parentLayout.addOnInterceptToutchEventListener(onInterceptToutchEventListener);
+    }
+
+    public DraggableLayout.OnInterceptToutchEventListener getOnInterceptToutchEventListener() {
+        return onInterceptToutchEventListener;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+
+    public float getAngle() {
+        return angle;
+    }
+
+    public float getiX() {
+        return iX;
+    }
+
+    public float getiY() {
+        return iY;
+    }
+
+    public float getmScaleFactor() {
+        return mScaleFactor;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+}

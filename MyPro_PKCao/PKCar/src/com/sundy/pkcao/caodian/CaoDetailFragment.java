@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
+import com.sundy.pkcao.ScaleImageActivity;
+import com.sundy.pkcao.ScaleImageViewActivity;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.ImageHListAdapter;
 import com.sundy.pkcao.main.MainFragment;
@@ -26,6 +28,7 @@ import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
 import it.sephiroth.android.library.widget.HListView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -146,13 +149,25 @@ public class CaoDetailFragment extends _AbstractFragment {
         AVFile img4 = item.getAVFile(Caodian.img4);
         AVFile img5 = item.getAVFile(Caodian.img5);
 
+        final List<String> images = new ArrayList<String>();
         if (img1 != null) {
-            String img1_url = img1.getUrl();
+            final String img1_url = img1.getUrl();
             if (img1_url != null && img1_url.length() != 0) {
                 ImageView v1 = new ImageView(context);
                 AQuery aq_v1 = new AQuery(v1);
-                aq_v1.image(img1_url);
-                v1.setScaleType(ImageView.ScaleType.FIT_XY);
+                images.add(img1_url);
+                aq_v1.image(img1_url).clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+//                        Intent intent = new Intent(getActivity(), ScaleImageActivity.class);
+//                        intent.putStringArrayListExtra("images", (ArrayList<String>) images);
+//                        startActivity(intent);
+                        Intent intent = new Intent(getActivity(), ScaleImageViewActivity.class);
+                        intent.putExtra("image", img1_url);
+                        startActivity(intent);
+                    }
+                });
+                v1.setScaleType(ImageView.ScaleType.FIT_START);
                 v1.setLayoutParams(params);
                 linear_img.addView(v1);
                 linear_img.setVisibility(View.VISIBLE);
@@ -163,8 +178,9 @@ public class CaoDetailFragment extends _AbstractFragment {
             if (img2_url != null && img2_url.length() != 0) {
                 ImageView v2 = new ImageView(context);
                 AQuery aq_v2 = new AQuery(v2);
-                aq_v2.image(img2_url);
-                v2.setScaleType(ImageView.ScaleType.FIT_XY);
+                images.add(img2_url);
+                aq_v2.image(img2_url).clicked(onClick);
+                v2.setScaleType(ImageView.ScaleType.FIT_START);
                 v2.setLayoutParams(params);
                 linear_img.addView(v2);
                 linear_img.setVisibility(View.VISIBLE);
@@ -175,8 +191,9 @@ public class CaoDetailFragment extends _AbstractFragment {
             if (img3_url != null && img3_url.length() != 0) {
                 ImageView v3 = new ImageView(context);
                 AQuery aq_v3 = new AQuery(v3);
-                aq_v3.image(img3_url);
-                v3.setScaleType(ImageView.ScaleType.FIT_XY);
+                images.add(img3_url);
+                aq_v3.image(img3_url).clicked(onClick);
+                v3.setScaleType(ImageView.ScaleType.FIT_START);
                 v3.setLayoutParams(params);
                 linear_img.addView(v3);
                 linear_img.setVisibility(View.VISIBLE);
@@ -187,8 +204,9 @@ public class CaoDetailFragment extends _AbstractFragment {
             if (img4_url != null && img4_url.length() != 0) {
                 ImageView v4 = new ImageView(context);
                 AQuery aq_v4 = new AQuery(v4);
-                aq_v4.image(img4_url);
-                v4.setScaleType(ImageView.ScaleType.FIT_XY);
+                images.add(img4_url);
+                aq_v4.image(img4_url).clicked(onClick);
+                v4.setScaleType(ImageView.ScaleType.FIT_START);
                 v4.setLayoutParams(params);
                 linear_img.addView(v4);
                 linear_img.setVisibility(View.VISIBLE);
@@ -199,13 +217,16 @@ public class CaoDetailFragment extends _AbstractFragment {
             if (img5_url != null && img5_url.length() != 0) {
                 ImageView v5 = new ImageView(context);
                 AQuery aq_v5 = new AQuery(v5);
-                aq_v5.image(img5_url);
-                v5.setScaleType(ImageView.ScaleType.FIT_XY);
+                images.add(img5_url);
+                aq_v5.image(img5_url).clicked(onClick);
+                v5.setScaleType(ImageView.ScaleType.FIT_START);
                 v5.setLayoutParams(params);
                 linear_img.addView(v5);
                 linear_img.setVisibility(View.VISIBLE);
             }
         }
+
+
     }
 
     private View.OnClickListener onClick = new View.OnClickListener() {
