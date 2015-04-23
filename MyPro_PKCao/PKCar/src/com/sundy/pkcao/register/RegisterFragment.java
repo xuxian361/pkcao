@@ -52,8 +52,6 @@ public class RegisterFragment extends _AbstractFragment {
     private String username;
     private ProgressWheel progressbar;
     private CheckBox checkBox;
-    private boolean isAgreed = false;
-
 
     public RegisterFragment() {
     }
@@ -91,11 +89,9 @@ public class RegisterFragment extends _AbstractFragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    isAgreed = true;
                     aq.id(R.id.btn_register).enabled(true);
                     aq.id(R.id.btn_register).background(R.drawable.corner_all_light_blue);
                 } else {
-                    isAgreed = false;
                     aq.id(R.id.btn_register).enabled(false);
                     aq.id(R.id.btn_register).background(R.drawable.corner_all_gray);
                 }
