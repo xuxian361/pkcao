@@ -55,6 +55,7 @@ public class LoadingActivity extends _AbstractActivity {
         CommonUtility.SCREEN_DENSITY = metrics.density;
 
         handler.sendEmptyMessageDelayed(GO_MAIN, SPLASH_DELAY_MILLIS);
+
     }
 
     private void goMain() {
