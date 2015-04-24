@@ -32,7 +32,7 @@ public class ScaleImageViewActivity extends _AbstractActivity {
         imageTView.setLayoutParams(params);
         AQuery image_aq = new AQuery(imageTView);
         image_aq.image(image);
-        imageTView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageTView.setScaleType(ImageView.ScaleType.CENTER);
         dragableLayout.addView(imageTView);
         imageTView.setParentLayout(dragableLayout);
         dragableLayout.setBackground();

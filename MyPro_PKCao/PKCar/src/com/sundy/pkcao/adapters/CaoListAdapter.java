@@ -169,7 +169,6 @@ public class CaoListAdapter extends BaseAdapter {
                             }
                         }
                     }
-//                    data.put("url", "url");
                     CommonUtility.showShare(context, data);
                 }
             });
