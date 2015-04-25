@@ -54,7 +54,7 @@ public class CommonUtility {
     public final static int CONSULT_DOC_PICTURE_1 = 111;
     public final static int VIDEO_LOCAL = 2;
     public final static int VIDEO_TAKE_VIDEO = 22;
-
+    public static final int IMAGE_EDIT = 3;
 
     public static Date parseString2Date(String dateStr) {
         Date date = null;
@@ -420,6 +420,32 @@ public class CommonUtility {
         }
         return bitmap;
     }
+
+    public static boolean isLargeImage(String path, Bitmap bitmap) {
+        boolean isLarge = false;
+        try {
+            if (bitmap != null) {
+                int angle = CommonUtility.getRotate(path);
+                if (angle != 0) {
+                    Matrix m = new Matrix();
+                    int width = bitmap.getWidth();
+                    int height = bitmap.getHeight();
+                    m.setRotate(angle);
+                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, m, true);
+                }
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                int options = 100;
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                if (baos.toByteArray().length / 1024 > 100) {
+                    isLarge = true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isLarge;
+    }
+
 
     //分享
     public static void showShare(Context context, HashMap<String, String> data) {

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -18,6 +19,9 @@ import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.menu.MenuFragment;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.taker.ResourceTaker;
+import com.sundy.pkcao.tools.OperationFileHelper;
+
+import java.io.File;
 
 public class MainActivity extends SlidingFragmentActivity implements MainFragment.OnListListener, MenuFragment.OnListListener {
 
@@ -185,6 +189,12 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
                 exit_count = 1;
             }
             exit_count++;
+            try {
+                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+                OperationFileHelper.RecursionDeleteFile(file);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             Toast.makeText(this, getString(R.string.exit_confirm), Toast.LENGTH_SHORT).show();
         }
     }
@@ -225,6 +235,8 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
         } else if (requestCode == CommonUtility.VIDEO_LOCAL) {
             mContent.onActivityResult(requestCode, resultCode, data);
         } else if (requestCode == CommonUtility.VIDEO_TAKE_VIDEO) {
+            mContent.onActivityResult(requestCode, resultCode, data);
+        } else if (requestCode == CommonUtility.IMAGE_EDIT) {
             mContent.onActivityResult(requestCode, resultCode, data);
         }
     }

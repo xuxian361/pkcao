@@ -67,5 +67,6 @@
         \n10、本网站相关声明版权及其修改权、更新权和最终解释权均属APP手机APP所有。
     </string>
     <string name="selete_photo">请上传头像</string>
+    <string name="save_failed">保存失败,请稍后再试</string>
 
 </resources>

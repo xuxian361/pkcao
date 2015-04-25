@@ -42,12 +42,16 @@
 
         <activity android:name=".MainActivity"
                   android:screenOrientation="portrait"
+                  android:launchMode="singleTask"
                 />
 
         <activity android:name=".ScaleImageActivity"
                   android:screenOrientation="portrait"/>
 
         <activity android:name=".ScaleImageViewActivity"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".EditImageActivity"
                   android:screenOrientation="portrait"/>
 
         <activity

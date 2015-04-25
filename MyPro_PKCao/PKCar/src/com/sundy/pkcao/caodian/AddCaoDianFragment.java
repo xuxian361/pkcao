@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
+import com.sundy.pkcao.EditImageActivity;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.main.MainFragment;
@@ -290,41 +291,49 @@ public class AddCaoDianFragment extends _AbstractFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Bitmap bitmap = null; //图片Bitmap
         if (requestCode == CommonUtility.CONSULT_DOC_PICTURE) {
-            if (data == null) {
-                return;
+            try {
+                if (data == null) {
+                    return;
+                }
+                Uri uri = data.getData();
+                String[] proj = {MediaStore.Images.Media.DATA};
+                Cursor cursor = context.managedQuery(uri, proj,
+                        null,
+                        null,
+                        null);
+                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                cursor.moveToFirst();
+                String path = cursor.getString(column_index);
+                //编辑图片
+                Intent intent = new Intent(context, EditImageActivity.class);
+                intent.putExtra("image", path);
+                context.startActivityForResult(intent, CommonUtility.IMAGE_EDIT);
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            Uri uri = data.getData();
-            String[] proj = {MediaStore.Images.Media.DATA};
-            Cursor cursor = context.managedQuery(uri, proj,
-                    null,
-                    null,
-                    null);
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            String path = cursor.getString(column_index);
-            if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
-                bitmap.recycle();
-            //压缩并旋转Bitmap
-            bitmap = CommonUtility.compressImageFromFile(path);
-            bitmap = CommonUtility.compressBitmap(path, bitmap);
-            photoPath = CommonUtility.savePhoto(bitmap);
-            showImgs(bitmap);
         } else if (requestCode == CommonUtility.CONSULT_DOC_PICTURE_1) {
-            if (data == null) {
-                return;
+            try {
+                if (data == null) {
+                    return;
+                }
+                Uri uri = data.getData();
+                String path = CommonUtility.getImagePath3(context, uri);
+                //编辑图片
+                Intent intent = new Intent(context, EditImageActivity.class);
+                intent.putExtra("image", path);
+                context.startActivityForResult(intent, CommonUtility.IMAGE_EDIT);
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            Uri uri = data.getData();
-            String path = CommonUtility.getImagePath3(context, uri);
-            if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
-                bitmap.recycle();
-            //压缩并旋转Bitmap
-            bitmap = CommonUtility.compressImageFromFile(path);
-            bitmap = CommonUtility.compressBitmap(path, bitmap);
-            photoPath = CommonUtility.savePhoto(bitmap);
-            showImgs(bitmap);
         } else if (CommonUtility.IMAGE_CAPTURE_OK == requestCode) {
+            if (data == null)
+                return;
             Bundle bundle = data.getExtras();
             bitmap = (Bitmap) bundle.get("data");
+            if (bitmap == null)
+                return;
             String sdcardStaus = Environment.getExternalStorageState();
             if (!sdcardStaus.equals(Environment.MEDIA_MOUNTED)) {
                 Toast.makeText(context, getString(R.string.sdk_not_exist), Toast.LENGTH_SHORT).show();
@@ -353,83 +362,109 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 } else {
                     Toast.makeText(context, getString(R.string.selete_photo_again), Toast.LENGTH_SHORT).show();
                 }
+
+                //编辑图片
+                Intent intent = new Intent(context, EditImageActivity.class);
+                intent.putExtra("image", photoPath);
+                context.startActivityForResult(intent, CommonUtility.IMAGE_EDIT);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //压缩并旋转Bitmap
-            bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
-            photoPath = CommonUtility.savePhoto(bitmap);
-            bitmap = CommonUtility.compressImageFromFile(photoPath);
-            showImgs(bitmap);
         } else if (CommonUtility.VIDEO_LOCAL == requestCode) {
-            if (data == null) {
-                return;
-            }
-            Uri uri = data.getData();
-            videoPath = CommonUtility.getImagePath3(context, uri);
-            Bitmap thumbnail =
-                    CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
-            if (thumbnail != null) {
-                video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
-                aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        String type = "video/mp4";
-                        Uri uri = Uri.parse(videoPath);
-                        intent.setDataAndType(uri, type);
-                        startActivity(intent);
-                    }
-                });
-                aq.id(R.id.img_video).image(thumbnail);
-                aq.id(R.id.btn_video).gone();
-                aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        videoPath = "";
-                        video_thumbnail_path = "";
-                        aq.id(R.id.relative_video).gone();
-                        aq.id(R.id.btn_video).visible();
-                    }
-                });
-            } else {
-                aq.id(R.id.relative_video).gone();
-                aq.id(R.id.btn_video).visible();
+            try {
+                if (data == null) {
+                    return;
+                }
+                Uri uri = data.getData();
+                videoPath = CommonUtility.getImagePath3(context, uri);
+                Bitmap thumbnail =
+                        CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
+                if (thumbnail != null) {
+                    video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
+                    aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            String type = "video/mp4";
+                            Uri uri = Uri.parse(videoPath);
+                            intent.setDataAndType(uri, type);
+                            startActivity(intent);
+                        }
+                    });
+                    aq.id(R.id.img_video).image(thumbnail);
+                    aq.id(R.id.btn_video).gone();
+                    aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            videoPath = "";
+                            video_thumbnail_path = "";
+                            aq.id(R.id.relative_video).gone();
+                            aq.id(R.id.btn_video).visible();
+                        }
+                    });
+                } else {
+                    aq.id(R.id.relative_video).gone();
+                    aq.id(R.id.btn_video).visible();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } else if (CommonUtility.VIDEO_TAKE_VIDEO == requestCode) {
-            if (data == null) {
-                return;
+            try {
+                if (data == null) {
+                    return;
+                }
+                Uri uri = data.getData();
+                videoPath = CommonUtility.getImagePath3(context, uri);
+                Bitmap thumbnail =
+                        CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
+                if (thumbnail != null) {
+                    video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
+                    aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            String type = "video/mp4";
+                            Uri uri = Uri.parse(videoPath);
+                            intent.setDataAndType(uri, type);
+                            startActivity(intent);
+                        }
+                    });
+                    aq.id(R.id.img_video).image(thumbnail);
+                    aq.id(R.id.btn_video).gone();
+                    aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            videoPath = "";
+                            video_thumbnail_path = "";
+                            aq.id(R.id.relative_video).gone();
+                            aq.id(R.id.btn_video).visible();
+                        }
+                    });
+                } else {
+                    aq.id(R.id.relative_video).gone();
+                    aq.id(R.id.btn_video).visible();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            Uri uri = data.getData();
-            videoPath = CommonUtility.getImagePath3(context, uri);
-            Bitmap thumbnail =
-                    CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
-            if (thumbnail != null) {
-                video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
-                aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        String type = "video/mp4";
-                        Uri uri = Uri.parse(videoPath);
-                        intent.setDataAndType(uri, type);
-                        startActivity(intent);
-                    }
-                });
-                aq.id(R.id.img_video).image(thumbnail);
-                aq.id(R.id.btn_video).gone();
-                aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        videoPath = "";
-                        video_thumbnail_path = "";
-                        aq.id(R.id.relative_video).gone();
-                        aq.id(R.id.btn_video).visible();
-                    }
-                });
-            } else {
-                aq.id(R.id.relative_video).gone();
-                aq.id(R.id.btn_video).visible();
+        } else if (CommonUtility.IMAGE_EDIT == requestCode) {
+            try {
+                if (data == null)
+                    return;
+                Bundle bundle = data.getExtras();
+                if (bundle == null)
+                    return;
+                photoPath = bundle.getString("imagePath");
+                if (bitmap != null)// 如果不释放的话，不断取图片，将会内存不够
+                    bitmap.recycle();
+                //压缩并旋转Bitmap
+                bitmap = CommonUtility.compressImageFromFile(photoPath);
+                bitmap = CommonUtility.compressBitmap(photoPath, bitmap);
+                showImgs(bitmap);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
