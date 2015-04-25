@@ -35,9 +35,6 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     public void onCreate(Bundle savedInstanceState) {
         try {
             super.onCreate(savedInstanceState);
-
-            AVAnalytics.trackAppOpened(getIntent());
-
             initeFragment();
         } catch (Exception e) {
             e.printStackTrace();

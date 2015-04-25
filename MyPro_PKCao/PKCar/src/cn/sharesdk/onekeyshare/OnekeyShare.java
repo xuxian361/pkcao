@@ -553,12 +553,16 @@ public class OnekeyShare implements PlatformActionListener, Callback {
     }
 
     public void onCancel(Platform platform, int action) {
-        Message msg = new Message();
-        msg.what = MSG_ACTION_CCALLBACK;
-        msg.arg1 = 3;
-        msg.arg2 = action;
-        msg.obj = platform;
-        UIHandler.sendMessage(msg, this);
+        try {
+            Message msg = new Message();
+            msg.what = MSG_ACTION_CCALLBACK;
+            msg.arg1 = 3;
+            msg.arg2 = action;
+            msg.obj = platform;
+            UIHandler.sendMessage(msg, this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean handleMessage(Message msg) {

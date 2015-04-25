@@ -4,7 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +22,14 @@ import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.OperationFileHelper;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
 
+import java.io.File;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -33,6 +43,32 @@ public class CaoListAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     private List list = new ArrayList();
+    private String image_url;
+    private AVObject current_item;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            try {
+                if (current_item == null)
+                    return;
+                HashMap<String, String> data = new HashMap<String, String>();
+                data.put("title", current_item.getString(Caodian.title));
+                data.put("content", current_item.getString(Caodian.content));
+                if (image_url != null && image_url.length() != 0)
+                    data.put("img_url", image_url);
+                CommonUtility.showShare(context, data);
+                try {
+                    File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+                    OperationFileHelper.RecursionDeleteFile(file);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
 
     public CaoListAdapter() {
     }
@@ -152,28 +188,82 @@ public class CaoListAdapter extends BaseAdapter {
             holder.btn_share.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    HashMap<String, String> data = new HashMap<String, String>();
-                    data.put("title", caodian.getString(Caodian.title));
-                    data.put("content", caodian.getString(Caodian.content));
-                    if (video != null) {
-                        AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
+                    current_item = caodian;
+//                    HashMap<String, String> data = new HashMap<String, String>();
+//                    data.put("title", caodian.getString(Caodian.title));
+//                    data.put("content", caodian.getString(Caodian.content));
+//                    if (video != null) {
+//                        AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
+//                        if (video_thumbnail != null) {
+//                            String video_thumbnail_img = video_thumbnail.getUrl();
+//                            if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
+//                                data.put("img_url", video_thumbnail_img);
+//                            } else {
+//                                AVFile img1 = caodian.getAVFile(Caodian.img1);
+//                                if (img1 != null) {
+//                                    data.put("img_url", img1.getUrl());
+//                                }
+//                            }
+//                        }
+//                    }
+//                    CommonUtility.showShare(context, data);
+
+                    AVFile caodian_video = current_item.getAVFile(Caodian.caodian_video);
+                    if (caodian_video != null) {
+                        AVFile video_thumbnail = current_item.getAVFile(Caodian.caodian_video_thumbnail);
                         if (video_thumbnail != null) {
-                            String video_thumbnail_img = video_thumbnail.getUrl();
+                            final String video_thumbnail_img = video_thumbnail.getUrl();
                             if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
-                                data.put("img_url", video_thumbnail_img);
-                            } else {
-                                AVFile img1 = caodian.getAVFile(Caodian.img1);
-                                if (img1 != null) {
-                                    data.put("img_url", img1.getUrl());
-                                }
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(video_thumbnail_img));
+                                            image_url = CommonUtility.savePhoto(bitmap);
+                                            bitmap = CommonUtility.compressBitmap(image_url, bitmap);
+                                            image_url = CommonUtility.savePhoto(bitmap);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                        handler.sendMessage(handler.obtainMessage());
+                                    }
+                                }).start();
                             }
                         }
+                    } else {
+                        final AVFile img1 = current_item.getAVFile(Caodian.img1);
+                        if (img1 != null) {
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(img1.getUrl()));
+                                        image_url = CommonUtility.savePhoto(bitmap);
+                                        bitmap = CommonUtility.compressBitmap(image_url, bitmap);
+                                        image_url = CommonUtility.savePhoto(bitmap);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                    handler.sendMessage(handler.obtainMessage());
+                                }
+                            }).start();
+                        }
                     }
-                    CommonUtility.showShare(context, data);
                 }
             });
         }
         return view;
+    }
+
+    public InputStream getImageStream(String path) throws Exception {
+        URL url = new URL(path);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setConnectTimeout(5 * 1000);
+        conn.setRequestMethod("GET");
+        if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            return conn.getInputStream();
+        }
+        return null;
     }
 
     class ViewHolder {

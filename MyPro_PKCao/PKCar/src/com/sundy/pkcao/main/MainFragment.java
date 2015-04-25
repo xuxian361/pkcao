@@ -66,6 +66,7 @@ public class MainFragment extends _AbstractFragment {
         this.inflater = inflater;
         v = inflater.inflate(R.layout.main, container, false);
         aq = new AQuery(v);
+        curPage = 1;
 
         init();
         return v;
@@ -132,13 +133,15 @@ public class MainFragment extends _AbstractFragment {
     };
 
     private void getCaodians() {
+        if (caodian_query != null)
+            caodian_query = null;
+        caodian_query = AVQuery.getQuery(Caodian.table_name);
         showProgress(progressbar);
         caodian_query.orderByDescending(Caodian.createdAt);
-        if (curPage > 1) {
-            caodian_query.setSkip((curPage - 1) * pageNum);
-        }
+        int skip = (curPage - 1) * pageNum;
+        caodian_query.setSkip(skip);
         caodian_query.setLimit(10);
-
+        isRefreshing = true;
         caodian_query.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> caodianlist, AVException e) {
                 isRefreshing = false;
@@ -163,6 +166,7 @@ public class MainFragment extends _AbstractFragment {
                             lv_main.setFooterViewText(getString(R.string.no_result));
                         }
                     } else {
+                        ishasMore = false;
                         Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception ex) {
@@ -204,9 +208,6 @@ public class MainFragment extends _AbstractFragment {
                     curPage = 1;
                     last_updated_time = CommonUtility.getLastUpdatedTime();
 
-                    if (caodian_query != null)
-                        caodian_query = null;
-                    caodian_query = AVQuery.getQuery(Caodian.table_name);
                     getCaodians();
                     break;
                 case R.id.btn_filter_mine:
@@ -221,9 +222,6 @@ public class MainFragment extends _AbstractFragment {
                         last_updated_time = CommonUtility.getLastUpdatedTime();
 
                         user_id = sharedPreferences.getString(User.objectId, "");
-                        if (caodian_query != null)
-                            caodian_query = null;
-                        caodian_query = AVQuery.getQuery(Caodian.table_name);
                         caodian_query.whereContains(Caodian.creater, user_id);
                         getCaodians();
                     } else {
@@ -242,9 +240,6 @@ public class MainFragment extends _AbstractFragment {
                         last_updated_time = CommonUtility.getLastUpdatedTime();
 
                         user_id = sharedPreferences.getString(User.objectId, "");
-                        if (caodian_query != null)
-                            caodian_query = null;
-                        caodian_query = AVQuery.getQuery(Caodian.table_name);
                         caodian_query.whereNotEqualTo(Caodian.creater, user_id);
                         getCaodians();
                     } else {

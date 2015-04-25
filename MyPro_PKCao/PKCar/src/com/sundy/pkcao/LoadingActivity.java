@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import com.avos.avoscloud.AVAnalytics;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.OperationFileHelper;
 
@@ -42,6 +43,7 @@ public class LoadingActivity extends _AbstractActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading);
+        AVAnalytics.trackAppOpened(getIntent());
 
         //启动百度推送Service
         startBaiduPush(this);

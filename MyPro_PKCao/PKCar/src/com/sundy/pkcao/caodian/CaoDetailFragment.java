@@ -5,8 +5,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,11 +29,20 @@ import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.ImageHListAdapter;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.OperationFileHelper;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
 import it.sephiroth.android.library.widget.HListView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,6 +58,25 @@ public class CaoDetailFragment extends _AbstractFragment {
     private ImageHListAdapter adapter;
     private SharedPreferences preferences;
     private String type;
+    private String image_url;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            HashMap<String, String> data = new HashMap<String, String>();
+            data.put("title", item.getString(Caodian.title));
+            data.put("content", item.getString(Caodian.content));
+            rtLog(TAG, "--------->image_url 1= " + image_url);
+            if (image_url != null && image_url.length() != 0)
+                data.put("img_url", image_url);
+            CommonUtility.showShare(context, data);
+            try {
+                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+                OperationFileHelper.RecursionDeleteFile(file);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    };
 
     public CaoDetailFragment() {
     }
@@ -159,9 +192,6 @@ public class CaoDetailFragment extends _AbstractFragment {
                 aq_v1.image(img1_url).clicked(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        Intent intent = new Intent(getActivity(), ScaleImageActivity.class);
-//                        intent.putStringArrayListExtra("images", (ArrayList<String>) images);
-//                        startActivity(intent);
                         Intent intent = new Intent(getActivity(), ScaleImageViewActivity.class);
                         intent.putExtra("image", img1_url);
                         startActivity(intent);
@@ -343,25 +373,58 @@ public class CaoDetailFragment extends _AbstractFragment {
     }
 
     private void share() {
-        HashMap<String, String> data = new HashMap<String, String>();
-        data.put("title", item.getString(Caodian.title));
-        data.put("content", item.getString(Caodian.content));
         AVFile caodian_video = item.getAVFile(Caodian.caodian_video);
         if (caodian_video != null) {
             AVFile video_thumbnail = item.getAVFile(Caodian.caodian_video_thumbnail);
             if (video_thumbnail != null) {
-                String video_thumbnail_img = video_thumbnail.getUrl();
+                final String video_thumbnail_img = video_thumbnail.getUrl();
                 if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
-                    data.put("img_url", video_thumbnail_img);
-                } else {
-                    AVFile img1 = item.getAVFile(Caodian.img1);
-                    if (img1 != null) {
-                        data.put("img_url", img1.getUrl());
-                    }
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(video_thumbnail_img));
+                                image_url = CommonUtility.savePhoto(bitmap);
+                                bitmap = CommonUtility.compressBitmap(image_url, bitmap);
+                                image_url = CommonUtility.savePhoto(bitmap);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            handler.sendMessage(handler.obtainMessage());
+                        }
+                    }).start();
                 }
             }
+        } else {
+            final AVFile img1 = item.getAVFile(Caodian.img1);
+            if (img1 != null) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(img1.getUrl()));
+                            image_url = CommonUtility.savePhoto(bitmap);
+                            bitmap = CommonUtility.compressBitmap(image_url, bitmap);
+                            image_url = CommonUtility.savePhoto(bitmap);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        handler.sendMessage(handler.obtainMessage());
+                    }
+                }).start();
+            }
         }
-        CommonUtility.showShare(context, data);
+    }
+
+    public InputStream getImageStream(String path) throws Exception {
+        URL url = new URL(path);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setConnectTimeout(5 * 1000);
+        conn.setRequestMethod("GET");
+        if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            return conn.getInputStream();
+        }
+        return null;
     }
 
     @Override
