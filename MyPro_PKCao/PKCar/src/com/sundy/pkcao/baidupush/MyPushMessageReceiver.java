@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.frontia.api.FrontiaPushMessageReceiver;
-import com.sundy.pkcao.LoadingActivity;
+import com.sundy.pkcao.MainActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -234,7 +234,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
         Utils.logStringCache = logText;
 
         Intent intent = new Intent();
-        intent.setClass(context.getApplicationContext(), LoadingActivity.class);
+        intent.setClass(context.getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.getApplicationContext().startActivity(intent);
     }

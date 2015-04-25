@@ -11,8 +11,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
-import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVOSCloud;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.sundy.pkcao.main.MainFragment;
@@ -35,6 +34,12 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     public void onCreate(Bundle savedInstanceState) {
         try {
             super.onCreate(savedInstanceState);
+
+            AVOSCloud.initialize(this,
+                    "f20bpd0qsoqvkjj79otbh09i5mk70gesw2kl5d7gv738jkon",
+                    "31hhp1ykz4czouw626n7asjmd5uvonsg0fx3p49wcbqq6no4");
+
+
             initeFragment();
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,6 +82,7 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     protected void onResume() {
         rtLog(TAG, "------------------------onResume");
         super.onResume();
+
     }
 
     public void onClick(View v) {

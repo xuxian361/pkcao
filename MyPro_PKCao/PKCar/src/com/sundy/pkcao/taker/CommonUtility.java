@@ -24,7 +24,10 @@ import android.util.DisplayMetrics;
 import android.widget.Toast;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.sundy.pkcao.R;
+import com.sundy.pkcao.baidupush.Utils;
 import com.sundy.pkcao.vo.User;
 
 import java.io.ByteArrayOutputStream;
@@ -443,4 +446,17 @@ public class CommonUtility {
             e.printStackTrace();
         }
     }
+
+    // 以apikey的方式绑定(baidu push)
+    public static void startBaiduPush(Activity context) {
+        PushManager.startWork(context,
+                PushConstants.LOGIN_TYPE_API_KEY,
+                Utils.getMetaValue(context, "api_key"));
+    }
+
+    //停止Baidu 推送
+    public static void stopBaiduPush(Activity context) {
+        PushManager.stopWork(context);
+    }
+
 }

@@ -30,6 +30,8 @@ public class LoadingActivity extends _AbstractActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case GO_MAIN:
+                    //启动百度推送Service
+                    CommonUtility.startBaiduPush(LoadingActivity.this);
                     goMain();
                     break;
             }
@@ -41,14 +43,11 @@ public class LoadingActivity extends _AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        rtLog(TAG, "------------>onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading);
         AVAnalytics.trackAppOpened(getIntent());
 
-        //启动百度推送Service
-        startBaiduPush(this);
-
-        rtLog(TAG, "------------>onCreate");
         init();
     }
 
@@ -79,6 +78,7 @@ public class LoadingActivity extends _AbstractActivity {
 
     @Override
     protected void onStart() {
+        rtLog(TAG, "------------>onStart");
         super.onStart();
     }
 

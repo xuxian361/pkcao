@@ -56,18 +56,6 @@ public class _AbstractActivity extends Activity {
         }
     }
 
-    // 以apikey的方式绑定(baidu push)
-    public void startBaiduPush(Activity context) {
-        PushManager.startWork(context,
-                PushConstants.LOGIN_TYPE_API_KEY,
-                Utils.getMetaValue(context, "api_key"));
-    }
-
-    //停止Baidu 推送
-    public void stopBaiduPush(Activity context) {
-        PushManager.stopWork(context);
-    }
-
     public void rtLog(String tag, String msg) {
         if (ResourceTaker.isDebug)
             Log.i(tag, msg);

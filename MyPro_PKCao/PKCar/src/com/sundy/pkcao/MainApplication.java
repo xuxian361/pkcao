@@ -1,11 +1,8 @@
 package com.sundy.pkcao;
 
-import android.app.Application;
 import android.util.Log;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.BitmapAjaxCallback;
-import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVOSCloud;
 import com.baidu.frontia.FrontiaApplication;
 
 /**
@@ -35,9 +32,6 @@ public class MainApplication extends FrontiaApplication {
         //set the max size of the memory cache, default is 1M pixels (4MB)
         BitmapAjaxCallback.setMaxPixelLimit(2000000);
 
-        AVOSCloud.initialize(this,
-                "f20bpd0qsoqvkjj79otbh09i5mk70gesw2kl5d7gv738jkon",
-                "31hhp1ykz4czouw626n7asjmd5uvonsg0fx3p49wcbqq6no4");
 
     }
 
