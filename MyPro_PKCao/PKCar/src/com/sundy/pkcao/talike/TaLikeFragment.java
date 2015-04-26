@@ -128,11 +128,12 @@ public class TaLikeFragment extends _AbstractFragment {
 
     private void getCaodianTalike() {
         showProgress(progressbar);
+        if (caodian_query != null)
+            caodian_query = null;
         caodian_query = AVQuery.getQuery(Caodian.table_name);
         caodian_query.orderByDescending(Caodian.createdAt);
-        if (curPage > 1) {
-            caodian_query.setSkip((curPage - 1) * pageNum);
-        }
+        int skip = (curPage - 1) * pageNum;
+        caodian_query.setSkip(skip);
         caodian_query.setLimit(10);
         caodian_query.whereEqualTo(Caodian.creater, user_id);
         caodian_query.findInBackground(new FindCallback<AVObject>() {
@@ -150,23 +151,29 @@ public class TaLikeFragment extends _AbstractFragment {
                                     avQuery.findInBackground(new FindCallback<AVObject>() {
                                         @Override
                                         public void done(List<AVObject> userlist, AVException e) {
-                                            List<String> users = new ArrayList<String>();
-                                            for (AVObject user : userlist) {
-                                                users.add(user.getObjectId());
-                                            }
-
-                                            for (AVObject user : userlist) {
-                                                if (!users.contains(user_id)) {
-                                                    if (!users.contains(user_id)) {
-                                                        list.add(caodian);
+                                            if (e == null) {
+                                                if (userlist != null) {
+                                                    List<String> users = new ArrayList<String>();
+                                                    for (AVObject user : userlist) {
+                                                        users.add(user.getObjectId());
                                                     }
+
+                                                    for (AVObject user : userlist) {
+                                                        if (!users.contains(user_id)) {
+                                                            if (!users.contains(user_id)) {
+                                                                list.add(caodian);
+                                                            }
+                                                        }
+                                                    }
+                                                    if (list.size() % pageNum != 0) {
+                                                        ishasMore = false;
+                                                    }
+                                                    adapter.setData(list);
+                                                    adapter.notifyDataSetChanged();
                                                 }
+                                            } else {
+                                                Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                                             }
-                                            if (list.size() % pageNum != 0) {
-                                                ishasMore = false;
-                                            }
-                                            adapter.setData(list);
-                                            adapter.notifyDataSetChanged();
                                         }
                                     });
                                 }

@@ -134,11 +134,12 @@ public class ILikeFragment extends _AbstractFragment {
             @Override
             public void done(AVObject user, AVException e) {
                 if (e == null) {
+                    if (caodian_query != null)
+                        caodian_query = null;
                     caodian_query = AVRelation.reverseQuery(Caodian.table_name, Caodian.likes, user);
                     caodian_query.orderByDescending(Caodian.createdAt);
-                    if (curPage > 1) {
-                        caodian_query.setSkip((curPage - 1) * pageNum);
-                    }
+                    int skip = (curPage - 1) * pageNum;
+                    caodian_query.setSkip(skip);
                     caodian_query.setLimit(10);
                     caodian_query.findInBackground(new FindCallback<AVObject>() {
                         @Override

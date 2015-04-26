@@ -65,7 +65,6 @@ public class CaoDetailFragment extends _AbstractFragment {
             HashMap<String, String> data = new HashMap<String, String>();
             data.put("title", item.getString(Caodian.title));
             data.put("content", item.getString(Caodian.content));
-            rtLog(TAG, "--------->image_url 1= " + image_url);
             if (image_url != null && image_url.length() != 0)
                 data.put("img_url", image_url);
             CommonUtility.showShare(context, data);
