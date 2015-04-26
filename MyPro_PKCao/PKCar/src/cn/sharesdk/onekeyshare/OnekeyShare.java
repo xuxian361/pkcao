@@ -539,17 +539,21 @@ public class OnekeyShare implements PlatformActionListener, Callback {
     }
 
     public void onError(Platform platform, int action, Throwable t) {
-        t.printStackTrace();
+        try {
+            t.printStackTrace();
 
-        Message msg = new Message();
-        msg.what = MSG_ACTION_CCALLBACK;
-        msg.arg1 = 2;
-        msg.arg2 = action;
-        msg.obj = t;
-        UIHandler.sendMessage(msg, this);
+            Message msg = new Message();
+            msg.what = MSG_ACTION_CCALLBACK;
+            msg.arg1 = 2;
+            msg.arg2 = action;
+            msg.obj = t;
+            UIHandler.sendMessage(msg, this);
 
-        // 分享失败的统计
-        ShareSDK.logDemoEvent(4, platform);
+            // 分享失败的统计
+            ShareSDK.logDemoEvent(4, platform);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void onCancel(Platform platform, int action) {

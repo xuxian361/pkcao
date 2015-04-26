@@ -187,14 +187,14 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
             if (exit_count == 2) {
                 android.os.Process.killProcess(android.os.Process.myPid());
                 exit_count = 1;
+                try {
+                    File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+                    OperationFileHelper.RecursionDeleteFile(file);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
             exit_count++;
-            try {
-                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
-                OperationFileHelper.RecursionDeleteFile(file);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
             Toast.makeText(this, getString(R.string.exit_confirm), Toast.LENGTH_SHORT).show();
         }
     }

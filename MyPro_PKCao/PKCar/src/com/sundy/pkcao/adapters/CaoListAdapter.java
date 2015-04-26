@@ -57,12 +57,6 @@ public class CaoListAdapter extends BaseAdapter {
                 if (image_url != null && image_url.length() != 0)
                     data.put("img_url", image_url);
                 CommonUtility.showShare(context, data);
-                try {
-                    File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
-                    OperationFileHelper.RecursionDeleteFile(file);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
             } catch (Exception e) {
                 e.printStackTrace();
             }

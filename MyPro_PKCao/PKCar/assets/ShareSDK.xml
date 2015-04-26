@@ -141,7 +141,7 @@
             ConsumerKey="TKantJ5z9s7P82pAjzSWLe5cy"
             ConsumerSecret="Eq6g48dFwURskGlAFCq5Y4WqTwl7kfW3aFYKQ6KwG82trbSBwD"
             CallbackUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
-            Enable="true"/>
+            Enable="false"/>
 
     <Renren
             Id="10"

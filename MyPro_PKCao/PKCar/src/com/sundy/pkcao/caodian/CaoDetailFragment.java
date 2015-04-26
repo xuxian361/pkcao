@@ -68,12 +68,6 @@ public class CaoDetailFragment extends _AbstractFragment {
             if (image_url != null && image_url.length() != 0)
                 data.put("img_url", image_url);
             CommonUtility.showShare(context, data);
-            try {
-                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
-                OperationFileHelper.RecursionDeleteFile(file);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     };
 
@@ -107,6 +101,7 @@ public class CaoDetailFragment extends _AbstractFragment {
         aq.id(R.id.btn_share).clicked(onClick);
         aq.id(R.id.btn_add).clicked(onClick);
         aq.id(R.id.btn_delete).clicked(onClick);
+        aq.id(R.id.btn_chat).clicked(onClick);
 
         if (type.equals("2"))
             aq.id(R.id.btn_delete).visible();
@@ -302,6 +297,9 @@ public class CaoDetailFragment extends _AbstractFragment {
                     break;
                 case R.id.btn_delete:
                     delete();
+                    break;
+                case R.id.btn_chat:
+
                     break;
             }
         }

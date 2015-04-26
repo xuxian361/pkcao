@@ -21,6 +21,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.widget.Toast;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -457,13 +458,13 @@ public class CommonUtility {
             // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
             oks.setTitle(context.getString(R.string.share));
             // text是分享文本，所有平台都需要这个字段
-            oks.setText(data.get("title"));
+            oks.setText("《pk槽点》Android APP : " + data.get("title"));
             // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
             oks.setImagePath(data.get("img_url"));//确保SDcard下面存在此张图片
             // url仅在微信（包括好友和朋友圈）中使用
             oks.setUrl("http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html");
             // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-            oks.setComment(data.get("content"));
+            oks.setComment("《pk槽点》Android APP : " + data.get("content"));
             // site是分享此内容的网站名称，仅在QQ空间使用
             oks.setSite("http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html");
             // 启动分享GUI

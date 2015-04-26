@@ -256,12 +256,6 @@ public class AddCaoDianFragment extends _AbstractFragment {
                                     @Override
                                     public void done(AVException e) {
                                         if (e == null) {
-                                            try {
-                                                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
-                                                OperationFileHelper.RecursionDeleteFile(file);
-                                            } catch (Exception ex) {
-                                                ex.printStackTrace();
-                                            }
                                             Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
                                             mCallback.switchContent(new MainFragment());
                                         } else {
