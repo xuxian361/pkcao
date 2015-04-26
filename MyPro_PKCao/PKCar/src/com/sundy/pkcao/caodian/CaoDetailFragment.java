@@ -57,7 +57,7 @@ public class CaoDetailFragment extends _AbstractFragment {
     private View v;
     private ImageHListAdapter adapter;
     private SharedPreferences preferences;
-    private String type;
+    private String type = "1";
     private String image_url;
     private Handler handler = new Handler() {
         @Override
@@ -103,12 +103,15 @@ public class CaoDetailFragment extends _AbstractFragment {
         aq.id(R.id.btn_delete).clicked(onClick);
         aq.id(R.id.btn_chat).clicked(onClick);
 
-        if (type.equals("2"))
-            aq.id(R.id.btn_delete).visible();
-        else
-            aq.id(R.id.btn_delete).gone();
-        preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
-
+        try {
+            if (type.equals("2"))
+                aq.id(R.id.btn_delete).visible();
+            else
+                aq.id(R.id.btn_delete).gone();
+            preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         getLikesCount();
         showCaodian();
     }
