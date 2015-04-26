@@ -434,32 +434,36 @@ public class MosaicView extends ViewGroup {
     }
 
     private void onPathEvent(int action, int x, int y) {
-        if (mImageWidth <= 0 || mImageHeight <= 0) {
-            return;
-        }
-
-        if (x < mImageRect.left || x > mImageRect.right || y < mImageRect.top
-                || y > mImageRect.bottom) {
-            return;
-        }
-
-        float ratio = (mImageRect.right - mImageRect.left)
-                / (float) mImageWidth;
-        x = (int) ((x - mImageRect.left) / ratio);
-        y = (int) ((y - mImageRect.top) / ratio);
-
-        if (action == MotionEvent.ACTION_DOWN) {
-            mTouchPath = new Path();
-            mTouchPath.moveTo(x, y);
-            if (mMosaic) {
-                mTouchPaths.add(mTouchPath);
-            } else {
-                mErasePaths.add(mTouchPath);
+        try {
+            if (mImageWidth <= 0 || mImageHeight <= 0) {
+                return;
             }
-        } else if (action == MotionEvent.ACTION_MOVE) {
-            mTouchPath.lineTo(x, y);
-            updatePathMosaic();
-            invalidate();
+
+            if (x < mImageRect.left || x > mImageRect.right || y < mImageRect.top
+                    || y > mImageRect.bottom) {
+                return;
+            }
+
+            float ratio = (mImageRect.right - mImageRect.left)
+                    / (float) mImageWidth;
+            x = (int) ((x - mImageRect.left) / ratio);
+            y = (int) ((y - mImageRect.top) / ratio);
+
+            if (action == MotionEvent.ACTION_DOWN) {
+                mTouchPath = new Path();
+                mTouchPath.moveTo(x, y);
+                if (mMosaic) {
+                    mTouchPaths.add(mTouchPath);
+                } else {
+                    mErasePaths.add(mTouchPath);
+                }
+            } else if (action == MotionEvent.ACTION_MOVE) {
+                mTouchPath.lineTo(x, y);
+                updatePathMosaic();
+                invalidate();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
