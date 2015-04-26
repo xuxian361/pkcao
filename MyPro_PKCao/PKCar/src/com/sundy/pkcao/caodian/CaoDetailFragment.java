@@ -22,10 +22,8 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
+import com.sundy.pkcao.*;
 import com.sundy.pkcao.R;
-import com.sundy.pkcao.ScaleImageActivity;
-import com.sundy.pkcao.ScaleImageViewActivity;
-import com.sundy.pkcao._AbstractFragment;
 import com.sundy.pkcao.adapters.ImageHListAdapter;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.taker.CommonUtility;
@@ -301,7 +299,9 @@ public class CaoDetailFragment extends _AbstractFragment {
                     delete();
                     break;
                 case R.id.btn_chat:
-
+                    rtLog(TAG, "------>btn_chat");
+                    Intent intent = new Intent(context, ChatActivity.class);
+                    startActivity(intent);
                     break;
             }
         }

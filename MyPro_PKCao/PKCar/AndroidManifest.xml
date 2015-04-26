@@ -59,6 +59,9 @@
         <activity android:name=".EditImageActivity"
                   android:screenOrientation="portrait"/>
 
+        <activity android:name=".ChatActivity"
+                  android:screenOrientation="portrait"/>
+
         <activity
                 android:name="cn.sharesdk.framework.ShareSDKUIShell"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"
