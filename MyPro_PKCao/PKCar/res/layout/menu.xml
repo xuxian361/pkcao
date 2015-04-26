@@ -72,7 +72,8 @@
                         android:layout_marginRight="20dp"
                         android:background="@drawable/corner_all_light_blue" style="@style/txt_font_14_white"
                         android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"/>
 
                 <Button
                         android:layout_width="match_parent"

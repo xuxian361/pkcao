@@ -249,68 +249,52 @@ public class RegisterFragment extends _AbstractFragment {
             return;
         }
 
-        //先查询Server是否存在这个User
-        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
-        query.whereEqualTo(User.username, username);
-        query.whereEqualTo(User.password, password);
-
         showProgress(progressbar);
-        query.findInBackground(new FindCallback<AVObject>() {
+        AVUser.logInInBackground(username, password, new LogInCallback<AVUser>() {
             @Override
-            public void done(List<AVObject> list, AVException e) {
-                if (e == null) {
-                    if (list != null && list.size() != 0) {
-                        stoProgress(progressbar);
-                        Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
-                    } else {
-                        AVObject user = new AVObject(User.table_name);
-                        user.put(User.username, username);
-                        user.put(User.password, password);
-
-                        try {
-                            if (photoPath != null && photoPath.length() != 0) {
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-                                Date date = new Date();
-                                AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jpg", photoPath);
-                                user.put(User.user_img, file);
-                            }
-                            user.saveInBackground(new SaveCallback() {
-                                @Override
-                                public void done(AVException e) {
-                                    stoProgress(progressbar);
-                                    if (e == null) {
-                                        findUserInfo(username, password);
-                                    } else {
-                                        Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
+            public void done(AVUser avUser, AVException e) {
+                if (avUser != null) {
+                    stoProgress(progressbar);
+                    Toast.makeText(context, getString(R.string.user_exit), Toast.LENGTH_SHORT).show();
                 } else {
                     stoProgress(progressbar);
+                    AVUser user = new AVUser();
+                    user.setUsername(username);
+                    user.setPassword(password);
+                    try {
+                        if (photoPath != null && photoPath.length() != 0) {
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                            Date date = new Date();
+                            AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jpg", photoPath);
+                            user.put(User.user_img, file);
+                        }
+                        user.signUpInBackground(new SignUpCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if (e == null) {
+                                    findUserInfo(username, password);
+                                } else {
+                                    Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
     }
 
     private void findUserInfo(String username, String password) {
-        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
-        query.whereEqualTo(User.username, username);
-        query.whereEqualTo(User.password, password);
-        showProgress(progressbar);
-        query.findInBackground(new FindCallback<AVObject>() {
+        AVUser.logInInBackground(username, password, new LogInCallback<AVUser>() {
             @Override
-            public void done(List<AVObject> list, AVException e) {
+            public void done(AVUser avUser, AVException e) {
                 stoProgress(progressbar);
                 if (e == null) {
-                    if (list != null && list.size() != 0) {
-                        if (list.get(0) != null) {
-                            saveUserInfo(list.get(0));
-                            mCallback.switchContent(new MainFragment());
-                        }
+                    if (avUser != null) {
+                        saveUserInfo(avUser);
+                        mCallback.switchContent(new MainFragment());
                     } else {
                         Toast.makeText(context, getString(R.string.register_faid), Toast.LENGTH_SHORT).show();
                     }
@@ -319,6 +303,32 @@ public class RegisterFragment extends _AbstractFragment {
                 }
             }
         });
+    }
+
+    private void saveUserInfo(AVObject user) {
+        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(User.objectId, user.getObjectId());
+        editor.putString(User.createdAt, CommonUtility.formatDate2String(user.getCreatedAt()));
+        editor.putString(User.updatedAt, CommonUtility.formatDate2String(user.getUpdatedAt()));
+        editor.putString(User.username, username);
+        AVFile file = user.getAVFile(User.user_img);
+        if (file != null) {
+            String user_img = file.getUrl();
+            if (user_img != null)
+                editor.putString(User.user_img, user_img);
+            else
+                editor.putString(User.user_img, "");
+        } else {
+            editor.putString(User.user_img, "");
+        }
+        String uuid = user.getUuid();
+        if (uuid != null) {
+            editor.putString(User.uuid, uuid);
+        } else {
+            editor.putString(User.uuid, "");
+        }
+        editor.commit();
     }
 
     private void showTermDialog() {
@@ -336,32 +346,6 @@ public class RegisterFragment extends _AbstractFragment {
             }
         });
         dialog.show();
-    }
-
-    private void saveUserInfo(AVObject user) {
-        SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(User.objectId, user.getObjectId());
-        editor.putString(User.createdAt, CommonUtility.formatDate2String(user.getCreatedAt()));
-        editor.putString(User.updatedAt, CommonUtility.formatDate2String(user.getUpdatedAt()));
-        editor.putString(User.username, username);
-        AVFile file = user.getAVFile(User.user_img);
-        if (username != null) {
-            String user_img = file.getUrl();
-            if (user_img != null)
-                editor.putString(User.user_img, user_img);
-            else
-                editor.putString(User.user_img, "");
-        } else {
-            editor.putString(User.user_img, "");
-        }
-        String uuid = user.getUuid();
-        if (uuid != null) {
-            editor.putString(User.uuid, uuid);
-        } else {
-            editor.putString(User.uuid, "");
-        }
-        editor.commit();
     }
 
     @Override

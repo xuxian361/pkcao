@@ -25,6 +25,7 @@ import android.util.Log;
 import android.widget.Toast;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import com.avos.avoscloud.AVUser;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
 import com.sundy.pkcao.R;
@@ -80,11 +81,20 @@ public class CommonUtility {
     }
 
     public static boolean isLogin(Activity context) {
+        /* 1.0版本
         boolean isLogin = false;
         SharedPreferences preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
         String objectId = preferences.getString(User.objectId, "");
         if (objectId != null && objectId.length() != 0)
             isLogin = true;
+        return isLogin;
+        */
+        boolean isLogin = false;
+        AVUser currentUser = AVUser.getCurrentUser();
+        if (currentUser != null)
+            isLogin = true;
+        else
+            isLogin = false;
         return isLogin;
     }
 

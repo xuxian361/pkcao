@@ -47,7 +47,6 @@ public class EditUserFragment extends _AbstractFragment {
     private Bitmap bitmap; //头像Bitmap
     private String photoPath;  //头像路径
     private SharedPreferences preferences;
-    private String user_id;
     private String username;
     private String user_img;
     private ProgressWheel progressbar;
@@ -84,7 +83,6 @@ public class EditUserFragment extends _AbstractFragment {
         aq.id(R.id.relative_upload_photo).clicked(onClick);
 
         preferences = context.getSharedPreferences(CommonUtility.APP_NAME, Context.MODE_PRIVATE);
-        user_id = preferences.getString(User.objectId, "");
         username = preferences.getString(User.username, "");
         user_img = preferences.getString(User.user_img, "");
 
@@ -196,42 +194,33 @@ public class EditUserFragment extends _AbstractFragment {
     private void updateUserPhoto() {
         try {
             showProgress(progressbar);
-            AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
-            user.getInBackground(user_id, new GetCallback<AVObject>() {
-                @Override
-                public void done(AVObject user, AVException e) {
-                    if (e == null) {
-                        if (user != null) {
-                            try {
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-                                Date date = new Date();
-                                AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jpg", photoPath);
-                                user.put(User.user_img, file);
-                                user.saveInBackground(new SaveCallback() {
-                                    @Override
-                                    public void done(AVException e) {
-                                        stoProgress(progressbar);
-                                        if (e == null) {
-                                            aq.id(R.id.img_user).image(bitmap);
-                                        } else {
-                                            aq.id(R.id.img_user).image(user_img);
-                                        }
-                                    }
-                                });
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
+            AVUser currentUser = AVUser.getCurrentUser();
+            if (currentUser != null) {
+                if (currentUser != null) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                    Date date = new Date();
+                    AVFile file = AVFile.withAbsoluteLocalPath(sdf.format(date) + "_img.jpg", photoPath);
+                    currentUser.put(User.user_img, file);
+                    currentUser.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(AVException e) {
+                            stoProgress(progressbar);
+                            if (e == null) {
+                                aq.id(R.id.img_user).image(bitmap);
+                            } else {
+                                aq.id(R.id.img_user).image(user_img);
                             }
                         }
-                    }
+                    });
                 }
-            });
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void editUser() {
-        String password_old = aq.id(R.id.edt_password_old).getEditText().getText().toString().trim();
+        final String password_old = aq.id(R.id.edt_password_old).getEditText().getText().toString().trim();
         final String password_new = aq.id(R.id.edt_password_new).getEditText().getText().toString().trim();
         String confirm_pwd = aq.id(R.id.edt_confirm_pwd).getEditText().getText().toString().trim();
 
@@ -267,59 +256,46 @@ public class EditUserFragment extends _AbstractFragment {
         }
 
         showProgress(progressbar);
-        //先查询Server是否存在这个User
-        AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
-        user.whereEqualTo(User.username, username);
-        user.whereEqualTo(User.password, password_old);
-        user.findInBackground(new FindCallback<AVObject>() {
+        AVUser.logInInBackground(username, password_old, new LogInCallback<AVUser>() {
             @Override
-            public void done(List<AVObject> list, AVException e) {
+            public void done(AVUser avUser, AVException e) {
                 stoProgress(progressbar);
-                if (e == null) {
-                    if (list != null && list.size() != 0) {
-                        AVObject user = list.get(0);
-                        if (user != null) {
-                            user.put(User.password, password_new);
-                            user.saveInBackground(new SaveCallback() {
-                                @Override
-                                public void done(AVException e) {
-                                    if (e == null) {
-                                        findUserInfo();
-                                    } else {
-                                        Toast.makeText(context, getString(R.string.update_fail), Toast.LENGTH_SHORT).show();
-                                    }
+                try {
+                    if (avUser != null) {
+                        avUser.updatePasswordInBackground(password_old, password_new, new UpdatePasswordCallback() {
+                            @Override
+                            public void done(AVException e) {
+                                if (e == null) {
+                                    findUserInfo(username, password_new);
+                                } else {
+                                    Toast.makeText(context, getString(R.string.update_fail), Toast.LENGTH_SHORT).show();
                                 }
-                            });
-                        } else {
-                            Toast.makeText(context, getString(R.string.old_password_wrong), Toast.LENGTH_SHORT).show();
-                        }
+                            }
+                        });
                     } else {
-                        Toast.makeText(context, getString(R.string.old_password_wrong), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, getString(R.string.update_fail), Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(context, getString(R.string.old_password_wrong), Toast.LENGTH_SHORT).show();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
             }
         });
     }
 
-    private void findUserInfo() {
+    private void findUserInfo(String username, String password) {
         showProgress(progressbar);
-        AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
-        user.getInBackground(user_id, new GetCallback<AVObject>() {
+        AVUser.logInInBackground(username, password, new LogInCallback<AVUser>() {
             @Override
-            public void done(AVObject user, AVException e) {
+            public void done(AVUser avUser, AVException e) {
                 stoProgress(progressbar);
-                if (e == null) {
-                    if (user != null) {
-                        saveUserInfo(user);
-                        aq.id(R.id.edt_password_old).text("");
-                        aq.id(R.id.edt_password_new).text("");
-                        aq.id(R.id.edt_confirm_pwd).text("");
-                        Toast.makeText(context, getString(R.string.update_success), Toast.LENGTH_SHORT).show();
-                    }
+                if (avUser != null) {
+                    saveUserInfo(avUser);
+                    aq.id(R.id.edt_password_old).text("");
+                    aq.id(R.id.edt_password_new).text("");
+                    aq.id(R.id.edt_confirm_pwd).text("");
+                    Toast.makeText(context, getString(R.string.update_success), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, getString(R.string.update_fail), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -333,7 +309,7 @@ public class EditUserFragment extends _AbstractFragment {
         editor.putString(User.updatedAt, CommonUtility.formatDate2String(user.getUpdatedAt()));
         editor.putString(User.username, username);
         AVFile file = user.getAVFile(User.user_img);
-        if (username != null) {
+        if (file != null) {
             String user_img = file.getUrl();
             if (user_img != null)
                 editor.putString(User.user_img, user_img);

@@ -3,14 +3,11 @@ package com.sundy.pkcao.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,17 +19,13 @@ import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
-import com.sundy.pkcao.tools.OperationFileHelper;
 import com.sundy.pkcao.vo.Caodian;
-import com.sundy.pkcao.vo.User;
 
-import java.io.File;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -123,7 +116,11 @@ public class CaoListAdapter extends BaseAdapter {
             query.findInBackground(new FindCallback<AVObject>() {
                 @Override
                 public void done(List<AVObject> nums, AVException e) {
-                    finalHolder.txt_count.setText("( " + nums.size() + "+ )");
+                    try {
+                        finalHolder.txt_count.setText("( " + nums.size() + "+ )");
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
                 }
             });
 
@@ -183,25 +180,6 @@ public class CaoListAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
                     current_item = caodian;
-//                    HashMap<String, String> data = new HashMap<String, String>();
-//                    data.put("title", caodian.getString(Caodian.title));
-//                    data.put("content", caodian.getString(Caodian.content));
-//                    if (video != null) {
-//                        AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
-//                        if (video_thumbnail != null) {
-//                            String video_thumbnail_img = video_thumbnail.getUrl();
-//                            if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
-//                                data.put("img_url", video_thumbnail_img);
-//                            } else {
-//                                AVFile img1 = caodian.getAVFile(Caodian.img1);
-//                                if (img1 != null) {
-//                                    data.put("img_url", img1.getUrl());
-//                                }
-//                            }
-//                        }
-//                    }
-//                    CommonUtility.showShare(context, data);
-
                     AVFile caodian_video = current_item.getAVFile(Caodian.caodian_video);
                     if (caodian_video != null) {
                         AVFile video_thumbnail = current_item.getAVFile(Caodian.caodian_video_thumbnail);

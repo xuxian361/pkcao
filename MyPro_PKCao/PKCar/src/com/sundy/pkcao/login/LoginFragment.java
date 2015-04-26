@@ -107,25 +107,16 @@ public class LoginFragment extends _AbstractFragment {
             return;
         }
 
-        AVQuery<AVObject> query = new AVQuery<AVObject>(User.table_name);
-        query.whereEqualTo(User.username, username);
-        query.whereEqualTo(User.password, password);
         showProgress(progressbar);
-        query.findInBackground(new FindCallback<AVObject>() {
+        AVUser.logInInBackground(username, password, new LogInCallback<AVUser>() {
             @Override
-            public void done(List<AVObject> list, AVException e) {
+            public void done(AVUser avUser, AVException e) {
                 stoProgress(progressbar);
-                if (e == null) {
-                    if (list != null && list.size() != 0) {
-                        if (list.get(0) != null) {
-                            saveUserInfo(list.get(0));
-                            mCallback.switchContent(new MainFragment());
-                        }
-                    } else {
-                        Toast.makeText(context, getString(R.string.user_not_exit), Toast.LENGTH_SHORT).show();
-                    }
+                if (avUser != null) {
+                    saveUserInfo(avUser);
+                    mCallback.switchContent(new MainFragment());
                 } else {
-                    Toast.makeText(context, getString(R.string.user_not_exit), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
                 }
             }
         });

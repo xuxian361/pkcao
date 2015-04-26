@@ -110,22 +110,11 @@ public class MenuFragment extends Fragment {
     }
 
     private void getUserInfo() {
-        AVQuery<AVObject> user = new AVQuery<AVObject>(User.table_name);
-        String user_id = preferences.getString(User.objectId, "");
-        user.getInBackground(user_id, new GetCallback<AVObject>() {
-            @Override
-            public void done(AVObject object, AVException e) {
-                if (e == null) {
-                    if (object != null) {
-                        showUserInfo(object);
-                        saveUserInfo(object);
-                    }
-                } else {
-                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                    clearUserInfo();
-                }
-            }
-        });
+        AVUser currentUser = AVUser.getCurrentUser();
+        if (currentUser != null) {
+            showUserInfo(currentUser);
+            saveUserInfo(currentUser);
+        }
     }
 
     private void hideUserInfo() {
@@ -294,6 +283,7 @@ public class MenuFragment extends Fragment {
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.commit();
+        AVUser.logOut();
     }
 
     @Override

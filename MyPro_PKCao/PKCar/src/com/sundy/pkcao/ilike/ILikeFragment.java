@@ -128,55 +128,49 @@ public class ILikeFragment extends _AbstractFragment {
 
     private void getCaodianIlike() {
         showProgress(progressbar);
-        user_id = sharedPreferences.getString(User.objectId, "");
-        AVQuery<AVObject> user_query = AVQuery.getQuery(User.table_name);
-        user_query.getInBackground(user_id, new GetCallback<AVObject>() {
-            @Override
-            public void done(AVObject user, AVException e) {
-                if (e == null) {
-                    if (caodian_query != null)
-                        caodian_query = null;
-                    caodian_query = AVRelation.reverseQuery(Caodian.table_name, Caodian.likes, user);
-                    caodian_query.orderByDescending(Caodian.createdAt);
-                    int skip = (curPage - 1) * pageNum;
-                    caodian_query.setSkip(skip);
-                    caodian_query.setLimit(10);
-                    caodian_query.findInBackground(new FindCallback<AVObject>() {
-                        @Override
-                        public void done(List<AVObject> caodianlist, AVException e) {
-                            isRefreshing = false;
-                            stoProgress(progressbar);
-                            onLoad();
-                            try {
-                                if (e == null) {
-                                    if (caodianlist != null && caodianlist.size() != 0) {
-                                        for (AVObject caodian : caodianlist) {
-                                            if (caodian != null) {
-                                                list.add(caodian);
-                                            }
-                                        }
-                                        if (list.size() % pageNum != 0) {
-                                            ishasMore = false;
-                                        }
-                                        adapter.setData(list);
-                                        adapter.notifyDataSetChanged();
-                                    } else {
-                                        ishasMore = false;
-                                        lv_ilike.setFooterViewText(getString(R.string.no_result));
+        AVUser currentUser = AVUser.getCurrentUser();
+        if (currentUser != null) {
+            if (caodian_query != null)
+                caodian_query = null;
+            caodian_query = AVRelation.reverseQuery(Caodian.table_name, Caodian.likes, currentUser);
+            caodian_query.orderByDescending(Caodian.createdAt);
+            int skip = (curPage - 1) * pageNum;
+            caodian_query.setSkip(skip);
+            caodian_query.setLimit(10);
+            caodian_query.findInBackground(new FindCallback<AVObject>() {
+                @Override
+                public void done(List<AVObject> caodianlist, AVException e) {
+                    isRefreshing = false;
+                    stoProgress(progressbar);
+                    onLoad();
+                    try {
+                        if (e == null) {
+                            if (caodianlist != null && caodianlist.size() != 0) {
+                                for (AVObject caodian : caodianlist) {
+                                    if (caodian != null) {
+                                        list.add(caodian);
                                     }
-                                } else {
-                                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                                 }
-                            } catch (Exception ex) {
-                                ex.printStackTrace();
+                                if (list.size() % pageNum != 0) {
+                                    ishasMore = false;
+                                }
+                                adapter.setData(list);
+                                adapter.notifyDataSetChanged();
+                            } else {
+                                ishasMore = false;
+                                lv_ilike.setFooterViewText(getString(R.string.no_result));
                             }
+                        } else {
+                            ishasMore = false;
+                            lv_ilike.setFooterViewText(getString(R.string.no_result));
+                            Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                         }
-                    });
-                } else {
-                    Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {

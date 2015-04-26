@@ -135,7 +135,6 @@ public class CaoDetailFragment extends _AbstractFragment {
                 }
             }
         });
-
     }
 
     private void showCaodian() {
@@ -346,30 +345,21 @@ public class CaoDetailFragment extends _AbstractFragment {
     }
 
     public void likeCaodian() {
-        //通过user_id 查找该User
-        String user_id = preferences.getString(User.objectId, "");
-        AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
-        user_query.getInBackground(user_id, new GetCallback<AVObject>() {
-            @Override
-            public void done(AVObject user, AVException e) {
-                if (e == null) {
-                    AVRelation<AVObject> relation = item.getRelation(Caodian.likes);
-                    relation.add(user);
-                    item.saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(AVException e) {
-                            if (e == null) {
-                                aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
-                            } else {
-                                aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
-                            }
-                        }
-                    });
-                } else {
-                    aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
+        AVUser currentUser = AVUser.getCurrentUser();
+        if (currentUser != null) {
+            AVRelation<AVObject> relation = item.getRelation(Caodian.likes);
+            relation.add(currentUser);
+            item.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(AVException e) {
+                    if (e == null) {
+                        aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
+                    } else {
+                        aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     private void share() {

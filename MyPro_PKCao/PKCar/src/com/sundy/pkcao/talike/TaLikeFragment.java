@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,6 +102,8 @@ public class TaLikeFragment extends _AbstractFragment {
     private XListView.IXListViewListener ixListViewListener = new XListView.IXListViewListener() {
         @Override
         public void onRefresh() {
+            rtLog(TAG, "------->isRefreshing = " + isRefreshing);
+
             ishasMore = true;
             if (isRefreshing)
                 return;
@@ -126,13 +130,35 @@ public class TaLikeFragment extends _AbstractFragment {
         }
     };
 
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            context.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (list.size() % pageNum != 0) {
+                        ishasMore = false;
+                    }
+                    adapter.setData(list);
+                    adapter.notifyDataSetChanged();
+                }
+            });
+        }
+    };
+
     private void getCaodianTalike() {
+        rtLog(TAG, "-------->getCaodianTalike ");
         showProgress(progressbar);
         if (caodian_query != null)
             caodian_query = null;
         caodian_query = AVQuery.getQuery(Caodian.table_name);
         caodian_query.orderByDescending(Caodian.createdAt);
         int skip = (curPage - 1) * pageNum;
+        rtLog(TAG, "-------->curPage = " + curPage);
+        rtLog(TAG, "-------->skip = " + skip);
+        rtLog(TAG, "-------->user_id = " + user_id);
+
         caodian_query.setSkip(skip);
         caodian_query.setLimit(10);
         caodian_query.whereEqualTo(Caodian.creater, user_id);
@@ -142,9 +168,13 @@ public class TaLikeFragment extends _AbstractFragment {
                 stoProgress(progressbar);
                 onLoad();
                 try {
+                    rtLog(TAG, "-------->e = " + e);
+                    rtLog(TAG, "-------->caodianlist = " + caodianlist.size());
+
                     if (e == null) {
                         if (caodianlist != null && caodianlist.size() != 0) {
-                            for (final AVObject caodian : caodianlist) {
+                            for (int k = 0; k < caodianlist.size(); k++) {
+                                final AVObject caodian = caodianlist.get(k);
                                 if (caodian != null) {
                                     AVRelation<AVObject> relation = caodian.getRelation(Caodian.likes);
                                     AVQuery<AVObject> avQuery = relation.getQuery();
@@ -152,27 +182,22 @@ public class TaLikeFragment extends _AbstractFragment {
                                         @Override
                                         public void done(List<AVObject> userlist, AVException e) {
                                             if (e == null) {
-                                                if (userlist != null) {
+                                                if (userlist != null && userlist.size() != 0) {
                                                     List<String> users = new ArrayList<String>();
                                                     for (AVObject user : userlist) {
-                                                        users.add(user.getObjectId());
+                                                        String oid = user.getObjectId();
+                                                        users.add(oid);
                                                     }
-
-                                                    for (AVObject user : userlist) {
-                                                        if (!users.contains(user_id)) {
-                                                            if (!users.contains(user_id)) {
+                                                    for (int i = 0; i < users.size(); i++) {
+                                                        if (!users.equals(user_id)) {
+                                                            if (!list.contains(caodian))
                                                                 list.add(caodian);
-                                                            }
                                                         }
                                                     }
-                                                    if (list.size() % pageNum != 0) {
-                                                        ishasMore = false;
-                                                    }
-                                                    adapter.setData(list);
-                                                    adapter.notifyDataSetChanged();
+                                                    rtLog(TAG, "-------->list = " + list.size());
+
+                                                    handler.sendEmptyMessage(0);
                                                 }
-                                            } else {
-                                                Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
@@ -183,6 +208,8 @@ public class TaLikeFragment extends _AbstractFragment {
                             lv_talike.setFooterViewText(getString(R.string.no_result));
                         }
                     } else {
+                        ishasMore = false;
+                        lv_talike.setFooterViewText(getString(R.string.no_result));
                         Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception ex) {
@@ -198,13 +225,12 @@ public class TaLikeFragment extends _AbstractFragment {
             if (list != null && list.size() != 0) {
                 AVObject item = (AVObject) list.get(i - 1);
                 String create_id = item.getString(Caodian.creater);
-                user_id = sharedPreferences.getString(User.objectId, "");
                 String type = "1";
-                if (user_id.equals(create_id)) {
+                String uid = sharedPreferences.getString(User.objectId, "");
+                if (uid.equals(create_id)) {
                     type = "2";
                 }
                 mCallback.addContent(new CaoDetailFragment(TaLikeFragment.this, item, type));
-                user_id = "";
             }
         }
     };
@@ -236,6 +262,9 @@ public class TaLikeFragment extends _AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (progressbar != null) {
+            progressbar = null;
+        }
     }
 
     @Override

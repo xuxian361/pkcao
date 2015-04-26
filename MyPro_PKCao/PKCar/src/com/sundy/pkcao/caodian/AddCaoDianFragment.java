@@ -186,89 +186,80 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 dialog.dismiss();
                 dialog.cancel();
 
-                //先找到该用户
                 showProgress(progressbar);
-                AVQuery<AVObject> user_query = new AVQuery<AVObject>(User.table_name);
-                user_query.getInBackground(user_id, new GetCallback<AVObject>() {
-                    @Override
-                    public void done(final AVObject user, AVException e) {
-                        if (e == null) {
-                            if (user != null) {
-                                //找到该用户后,创建一个槽点对象
-                                final AVObject caodian = new AVObject(Caodian.table_name);
-                                caodian.put(Caodian.title, title);
-                                caodian.put(Caodian.content, content);
-                                caodian.put(Caodian.creater, user_id);
+                AVUser currentUser = AVUser.getCurrentUser();
+                if (currentUser != null) {
+                    //找到该用户后,创建一个槽点对象
+                    final AVObject caodian = new AVObject(Caodian.table_name);
+                    caodian.put(Caodian.title, title);
+                    caodian.put(Caodian.content, content);
+                    caodian.put(Caodian.creater, user_id);
 
-                                final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-                                final Date date = new Date();
-                                caodian_id = Caodian.caodian_id + "_" + sdf.format(date);
-                                caodian.put(Caodian.caodian_id, caodian_id);
+                    final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                    final Date date = new Date();
+                    caodian_id = Caodian.caodian_id + "_" + sdf.format(date);
+                    caodian.put(Caodian.caodian_id, caodian_id);
 
-                                //保存视频文件
-                                if (videoPath != null && videoPath.length() != 0) {
-                                    try {
-                                        String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
-                                        AVFile video = AVFile.withAbsoluteLocalPath(
-                                                Caodian.caodian_video + "_" + sdf.format(date) + suffix, videoPath);
-                                        caodian.put(Caodian.caodian_video, video);
-                                    } catch (IOException e1) {
-                                        e1.printStackTrace();
-                                    }
-                                }
-
-                                //保存视频缩略图
-                                if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
-                                    try {
-                                        AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(
-                                                Caodian.caodian_video_thumbnail + "_" + sdf.format(date) + ".jpg", video_thumbnail_path);
-                                        caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                    }
-                                }
-
-                                //添加图片数组
-                                if (photoList != null && photoList.size() != 0) {
-                                    for (int i = 0; i < photoList.size(); i++) {
-                                        String path = photoList.get(i);
-                                        if (path != null && path.length() != 0) {
-                                            try {
-                                                AVFile file = AVFile.withAbsoluteLocalPath(Caodian.table_name + "_" + sdf.format(date) + ".jpg", path);
-                                                if (i == 0) {
-                                                    caodian.put(Caodian.img1, file);
-                                                } else if (i == 1) {
-                                                    caodian.put(Caodian.img2, file);
-                                                } else if (i == 2) {
-                                                    caodian.put(Caodian.img3, file);
-                                                } else if (i == 3) {
-                                                    caodian.put(Caodian.img4, file);
-                                                } else if (i == 4) {
-                                                    caodian.put(Caodian.img5, file);
-                                                }
-                                            } catch (IOException e1) {
-                                                e1.printStackTrace();
-                                            }
-                                        }
-                                    }
-                                }
-                                caodian.saveInBackground(new SaveCallback() {
-                                    @Override
-                                    public void done(AVException e) {
-                                        if (e == null) {
-                                            Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
-                                            mCallback.switchContent(new MainFragment());
-                                        } else {
-                                            Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-                            }
-                        } else {
-                            Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    //保存视频文件
+                    if (videoPath != null && videoPath.length() != 0) {
+                        try {
+                            String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
+                            AVFile video = AVFile.withAbsoluteLocalPath(
+                                    Caodian.caodian_video + "_" + sdf.format(date) + suffix, videoPath);
+                            caodian.put(Caodian.caodian_video, video);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
                         }
                     }
-                });
+
+                    //保存视频缩略图
+                    if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
+                        try {
+                            AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(
+                                    Caodian.caodian_video_thumbnail + "_" + sdf.format(date) + ".jpg", video_thumbnail_path);
+                            caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+
+                    //添加图片数组
+                    if (photoList != null && photoList.size() != 0) {
+                        for (int i = 0; i < photoList.size(); i++) {
+                            String path = photoList.get(i);
+                            if (path != null && path.length() != 0) {
+                                try {
+                                    AVFile file = AVFile.withAbsoluteLocalPath(Caodian.table_name + "_" + sdf.format(date) + ".jpg", path);
+                                    if (i == 0) {
+                                        caodian.put(Caodian.img1, file);
+                                    } else if (i == 1) {
+                                        caodian.put(Caodian.img2, file);
+                                    } else if (i == 2) {
+                                        caodian.put(Caodian.img3, file);
+                                    } else if (i == 3) {
+                                        caodian.put(Caodian.img4, file);
+                                    } else if (i == 4) {
+                                        caodian.put(Caodian.img5, file);
+                                    }
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    caodian.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(AVException e) {
+                            stoProgress(progressbar);
+                            if (e == null) {
+                                Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
+                                mCallback.switchContent(new MainFragment());
+                            } else {
+                                Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
             }
         });
         dialog.show();
