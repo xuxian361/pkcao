@@ -466,9 +466,9 @@ public class CommonUtility {
             //关闭sso授权
             oks.disableSSOWhenAuthorize();
             // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-            oks.setTitle(context.getString(R.string.share));
+            oks.setTitle("《pk槽点》" + context.getString(R.string.share));
             // text是分享文本，所有平台都需要这个字段
-            oks.setText("《pk槽点》Android APP : " + data.get("title"));
+            oks.setText("《pk槽点》Android APP : " + data.get("title") + "http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html");
             // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
             oks.setImagePath(data.get("img_url"));//确保SDcard下面存在此张图片
             // url仅在微信（包括好友和朋友圈）中使用
