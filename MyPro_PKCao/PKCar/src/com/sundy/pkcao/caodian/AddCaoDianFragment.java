@@ -313,46 +313,50 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 e.printStackTrace();
             }
         } else if (CommonUtility.IMAGE_CAPTURE_OK == requestCode) {
-            if (data == null)
-                return;
-            Bundle bundle = data.getExtras();
-            bitmap = (Bitmap) bundle.get("data");
-            if (bitmap == null)
-                return;
-            String sdcardStaus = Environment.getExternalStorageState();
-            if (!sdcardStaus.equals(Environment.MEDIA_MOUNTED)) {
-                Toast.makeText(context, getString(R.string.sdk_not_exist), Toast.LENGTH_SHORT).show();
-            }
-            File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
-            if (!file.exists())
-                file.mkdirs();
-            String imageName = "caodian_img.jpg";
             try {
-                File imageFile = new File(file, imageName);
-                if (!imageFile.exists()) {
-                    imageFile.createNewFile();
+                if (data == null)
+                    return;
+                Bundle bundle = data.getExtras();
+                bitmap = (Bitmap) bundle.get("data");
+                if (bitmap == null)
+                    return;
+                String sdcardStaus = Environment.getExternalStorageState();
+                if (!sdcardStaus.equals(Environment.MEDIA_MOUNTED)) {
+                    Toast.makeText(context, getString(R.string.sdk_not_exist), Toast.LENGTH_SHORT).show();
                 }
-                FileOutputStream fos = new FileOutputStream(imageFile);
-                photoPath = imageFile.getPath();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-                if (bitmap != null) {
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    int options = 100;
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                    while (baos.toByteArray().length / 1024 > 100) {
-                        baos.reset();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                        options -= 10;
+                File file = new File(Environment.getExternalStorageDirectory() + "/PKCao");
+                if (!file.exists())
+                    file.mkdirs();
+                String imageName = "caodian_img.jpg";
+                try {
+                    File imageFile = new File(file, imageName);
+                    if (!imageFile.exists()) {
+                        imageFile.createNewFile();
                     }
-                } else {
-                    Toast.makeText(context, getString(R.string.selete_photo_again), Toast.LENGTH_SHORT).show();
+                    FileOutputStream fos = new FileOutputStream(imageFile);
+                    photoPath = imageFile.getPath();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                    if (bitmap != null) {
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        int options = 100;
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                        while (baos.toByteArray().length / 1024 > 100) {
+                            baos.reset();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
+                            options -= 10;
+                        }
+                    } else {
+                        Toast.makeText(context, getString(R.string.selete_photo_again), Toast.LENGTH_SHORT).show();
+                    }
+
+                    //编辑图片
+                    Intent intent = new Intent(context, EditImageActivity.class);
+                    intent.putExtra("image", photoPath);
+                    context.startActivityForResult(intent, CommonUtility.IMAGE_EDIT);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                //编辑图片
-                Intent intent = new Intent(context, EditImageActivity.class);
-                intent.putExtra("image", photoPath);
-                context.startActivityForResult(intent, CommonUtility.IMAGE_EDIT);
-
             } catch (Exception e) {
                 e.printStackTrace();
             }

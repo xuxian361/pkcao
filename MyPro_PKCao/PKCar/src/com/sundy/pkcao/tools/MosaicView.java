@@ -360,8 +360,10 @@ public class MosaicView extends ViewGroup {
             Bitmap bitmap = Bitmap.createBitmap(mImageWidth, mImageHeight,
                     Config.ARGB_8888);
             Canvas canvas = new Canvas(bitmap);
-            canvas.drawBitmap(bmBaseLayer, 0, 0, null);
-            canvas.drawBitmap(bmMosaicLayer, 0, 0, null);
+            if (bmBaseLayer != null)
+                canvas.drawBitmap(bmBaseLayer, 0, 0, null);
+            if (bmMosaicLayer != null)
+                canvas.drawBitmap(bmMosaicLayer, 0, 0, null);
             canvas.save();
 
             try {

@@ -104,7 +104,10 @@ public class EditImageActivity extends _AbstractActivity {
                         setResult(RESULT_OK, bundle);
                         finish();
                     } else {
-                        Toast.makeText(view.getContext(), getString(R.string.save_failed), Toast.LENGTH_SHORT).show();
+                        Intent bundle = new Intent();
+                        bundle.putExtra("imagePath", imgPath);
+                        setResult(RESULT_OK, bundle);
+                        finish();
                     }
                     break;
                 case R.id.btn_reset:

@@ -88,7 +88,7 @@
                             android:id="@+id/relative_upload_photo" android:layout_alignParentRight="true">
 
                         <com.sundy.pkcao.tools.CircleImageView
-                                app:border_color="@color/transparent"
+                                app:border_color="@color/transparent2"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:id="@+id/img_user"

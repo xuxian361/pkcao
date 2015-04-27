@@ -17,6 +17,7 @@
     <color name="blue">#ff1454ea</color>
     <color name="indigo">#ff065279</color>
     <color name="purple">#ffc230ff</color>
+    <color name="transparent2">#0000</color>
 
     <!--leancloud start-->
     <color name="tranparent">#0000</color>
