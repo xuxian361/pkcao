@@ -457,7 +457,6 @@ public class CommonUtility {
         return isLarge;
     }
 
-
     //分享
     public static void showShare(Context context, HashMap<String, String> data) {
         try {
@@ -466,7 +465,7 @@ public class CommonUtility {
             //关闭sso授权
             oks.disableSSOWhenAuthorize();
             // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-            oks.setTitle("《pk槽点》" + context.getString(R.string.share));
+            oks.setTitle("《pk槽点》" + "http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html");
             // text是分享文本，所有平台都需要这个字段
             oks.setText("《pk槽点》Android APP : " + data.get("title") + "http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html");
             // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
