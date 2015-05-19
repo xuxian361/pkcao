@@ -27,4 +27,7 @@
         <attr name="contourSize" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="PlayBtn">
+        <attr name="left" format="boolean"/>
+    </declare-styleable>
 </resources>
