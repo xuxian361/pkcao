@@ -5,11 +5,32 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/white"
-              android:onClick="onClick">
+        >
 
-    <include android:layout_width="match_parent"
-             android:layout_height="60dp"
-             layout="@layout/topbar_back"/>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_header_title"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/light_blue"
+                android:gravity="center"
+                />
+        <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:id="@+id/btnBack"
+                android:src="@drawable/icon_back"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="15dp"
+                android:padding="7dp"/>
+    </RelativeLayout>
 
     <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

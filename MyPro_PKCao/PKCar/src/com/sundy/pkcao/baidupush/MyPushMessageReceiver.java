@@ -94,7 +94,6 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
                     myvalue = customJson.getString("mykey");
                 }
             } catch (JSONException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -128,7 +127,6 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
                     myvalue = customJson.getString("mykey");
                 }
             } catch (JSONException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -220,23 +218,27 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
     }
 
     private void updateContent(Context context, String content) {
-        Log.d(TAG, "updateContent");
-        String logText = "" + Utils.logStringCache;
+        try {
+            Log.d(TAG, "updateContent");
+            String logText = "" + Utils.logStringCache;
 
-        if (!logText.equals("")) {
-            logText += "\n";
+            if (!logText.equals("")) {
+                logText += "\n";
+            }
+
+            SimpleDateFormat sDateFormat = new SimpleDateFormat("HH-mm-ss");
+            logText += sDateFormat.format(new Date()) + ": ";
+            logText += content;
+
+            Utils.logStringCache = logText;
+
+            Intent intent = new Intent();
+            intent.setClass(context.getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.getApplicationContext().startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        SimpleDateFormat sDateFormat = new SimpleDateFormat("HH-mm-ss");
-        logText += sDateFormat.format(new Date()) + ": ";
-        logText += content;
-
-        Utils.logStringCache = logText;
-
-        Intent intent = new Intent();
-        intent.setClass(context.getApplicationContext(), MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.getApplicationContext().startActivity(intent);
     }
 
 }

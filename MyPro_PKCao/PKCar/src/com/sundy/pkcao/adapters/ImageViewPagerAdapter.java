@@ -50,17 +50,21 @@ public class ImageViewPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(final ViewGroup container, int position) {
-        if (views.size() == 4) {
-            View view = views.remove(0);
-            container.removeView(view);
-        }
         ImageView view = new ImageView(context);
         try {
-            view.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            AQuery aq1 = new AQuery(view);
-            aq1.image((String) list.get(position));
-            views.add(view);
-            container.addView(view);
+            if (views.size() == 4) {
+                View v = views.remove(0);
+                container.removeView(v);
+            }
+            try {
+                view.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                AQuery aq1 = new AQuery(view);
+                aq1.image((String) list.get(position));
+                views.add(view);
+                container.addView(view);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.View;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.AVAnalytics;
 import com.sundy.pkcao.taker.CommonUtility;
@@ -34,8 +35,19 @@ public class ChatActivity extends _AbstractActivity {
     }
 
     private void init() {
-
+        aq.id(R.id.btnBack).clicked(onClick);
     }
+
+    private View.OnClickListener onClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btnBack:
+
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onStart() {

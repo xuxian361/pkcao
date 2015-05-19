@@ -105,92 +105,112 @@ public class CaoListAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        final AVObject caodian = (AVObject) list.get(i);
-        if (caodian != null) {
-            holder.txt_title.setText(caodian.getString(Caodian.title));
-            holder.txt_content.setText(caodian.getString(Caodian.content));
+        try {
+            final AVObject caodian = (AVObject) list.get(i);
+            if (caodian != null) {
+                holder.txt_title.setText(caodian.getString(Caodian.title));
+                holder.txt_content.setText(caodian.getString(Caodian.content));
 
-            AVRelation relation = caodian.getRelation(Caodian.likes);
-            AVQuery<AVObject> query = relation.getQuery();
-            final ViewHolder finalHolder = holder;
-            query.findInBackground(new FindCallback<AVObject>() {
-                @Override
-                public void done(List<AVObject> nums, AVException e) {
-                    try {
-                        finalHolder.txt_count.setText("( " + nums.size() + "+ )");
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
+                AVRelation relation = caodian.getRelation(Caodian.likes);
+                AVQuery<AVObject> query = relation.getQuery();
+                final ViewHolder finalHolder = holder;
+                query.findInBackground(new FindCallback<AVObject>() {
+                    @Override
+                    public void done(List<AVObject> nums, AVException e) {
+                        try {
+                            finalHolder.txt_count.setText("( " + nums.size() + "+ )");
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
                     }
-                }
-            });
+                });
 
-            AQuery aq_img = new AQuery(holder.img);
-            AQuery aq_img_play = new AQuery(holder.img_play);
-            final AVFile video = caodian.getAVFile(Caodian.caodian_video);
-            if (video != null) {
-                aq_img_play.visible();
-                final String video_path = video.getUrl();
-                AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
-                if (video_thumbnail != null) {
-                    String video_thumbnail_img = video_thumbnail.getUrl();
-                    if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
-                        aq_img.visible().image(video_thumbnail_img);
+                AQuery aq_img = new AQuery(holder.img);
+                AQuery aq_img_play = new AQuery(holder.img_play);
+                final AVFile video = caodian.getAVFile(Caodian.caodian_video);
+                if (video != null) {
+                    aq_img_play.visible();
+                    final String video_path = video.getUrl();
+                    AVFile video_thumbnail = caodian.getAVFile(Caodian.caodian_video_thumbnail);
+                    if (video_thumbnail != null) {
+                        String video_thumbnail_img = video_thumbnail.getUrl();
+                        if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
+                            aq_img.visible().image(video_thumbnail_img);
+                        } else {
+                            aq_img.visible().image(R.drawable.logo);
+                        }
                     } else {
                         aq_img.visible().image(R.drawable.logo);
                     }
-                } else {
-                    aq_img.visible().image(R.drawable.logo);
-                }
 
-                aq_img_play.clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        String type = "video/mp4";
-                        Uri uri = Uri.parse(video_path);
-                        intent.setDataAndType(uri, type);
-                        context.startActivity(intent);
-                    }
-                });
-            } else {
-                aq_img_play.gone();
-                AVFile img1 = caodian.getAVFile(Caodian.img1);
-                if (img1 != null) {
-                    String img1Url = img1.getUrl();
-                    if (img1Url != null && img1Url.length() != 0) {
-                        aq_img.visible().image(img1Url);
+                    aq_img_play.clicked(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            String type = "video/mp4";
+                            Uri uri = Uri.parse(video_path);
+                            intent.setDataAndType(uri, type);
+                            context.startActivity(intent);
+                        }
+                    });
+                } else {
+                    aq_img_play.gone();
+                    AVFile img1 = caodian.getAVFile(Caodian.img1);
+                    if (img1 != null) {
+                        String img1Url = img1.getUrl();
+                        if (img1Url != null && img1Url.length() != 0) {
+                            aq_img.visible().image(img1Url);
+                        } else {
+                            aq_img.gone();
+                        }
                     } else {
                         aq_img.gone();
                     }
-                } else {
-                    aq_img.gone();
                 }
-            }
 
-            holder.btn_add.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (CommonUtility.isLogin((Activity) context)) {
-                    } else {
-                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                holder.btn_add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (CommonUtility.isLogin((Activity) context)) {
+                        } else {
+                            Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
-            });
-            holder.btn_share.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    current_item = caodian;
-                    AVFile caodian_video = current_item.getAVFile(Caodian.caodian_video);
-                    if (caodian_video != null) {
-                        AVFile video_thumbnail = current_item.getAVFile(Caodian.caodian_video_thumbnail);
-                        if (video_thumbnail != null) {
-                            final String video_thumbnail_img = video_thumbnail.getUrl();
-                            if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
+                });
+                holder.btn_share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        current_item = caodian;
+                        AVFile caodian_video = current_item.getAVFile(Caodian.caodian_video);
+                        if (caodian_video != null) {
+                            AVFile video_thumbnail = current_item.getAVFile(Caodian.caodian_video_thumbnail);
+                            if (video_thumbnail != null) {
+                                final String video_thumbnail_img = video_thumbnail.getUrl();
+                                if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(video_thumbnail_img));
+                                                image_url = CommonUtility.savePhoto(bitmap);
+                                                bitmap = CommonUtility.compressBitmap(image_url, bitmap);
+                                                image_url = CommonUtility.savePhoto(bitmap);
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                            handler.sendMessage(handler.obtainMessage());
+                                        }
+                                    }).start();
+                                }
+                            }
+                        } else {
+                            final AVFile img1 = current_item.getAVFile(Caodian.img1);
+                            if (img1 != null) {
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         try {
-                                            Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(video_thumbnail_img));
+                                            Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(img1.getUrl()));
                                             image_url = CommonUtility.savePhoto(bitmap);
                                             bitmap = CommonUtility.compressBitmap(image_url, bitmap);
                                             image_url = CommonUtility.savePhoto(bitmap);
@@ -202,28 +222,13 @@ public class CaoListAdapter extends BaseAdapter {
                                 }).start();
                             }
                         }
-                    } else {
-                        final AVFile img1 = current_item.getAVFile(Caodian.img1);
-                        if (img1 != null) {
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(img1.getUrl()));
-                                        image_url = CommonUtility.savePhoto(bitmap);
-                                        bitmap = CommonUtility.compressBitmap(image_url, bitmap);
-                                        image_url = CommonUtility.savePhoto(bitmap);
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                    handler.sendMessage(handler.obtainMessage());
-                                }
-                            }).start();
-                        }
                     }
-                }
-            });
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
         return view;
     }
 
