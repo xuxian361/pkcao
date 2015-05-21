@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +20,17 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
+import com.avos.avoscloud.im.v2.AVIMClient;
+import com.avos.avoscloud.im.v2.AVIMConversation;
+import com.avos.avoscloud.im.v2.callback.AVIMClientCallback;
+import com.avos.avoscloud.im.v2.callback.AVIMConversationCreatedCallback;
 import com.sundy.pkcao.ChatActivity;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.ScaleImageViewActivity;
 import com.sundy.pkcao._AbstractFragment;
+import com.sundy.pkcao.login.LoginFragment;
 import com.sundy.pkcao.main.MainFragment;
+import com.sundy.pkcao.service.CacheService;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
@@ -31,9 +38,7 @@ import com.sundy.pkcao.vo.User;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by sundy on 15/3/22.
@@ -289,9 +294,43 @@ public class CaoDetailFragment extends _AbstractFragment {
                     delete();
                     break;
                 case R.id.btn_chat:
-                    rtLog(TAG, "------>btn_chat");
-                    Intent intent = new Intent(context, ChatActivity.class);
-                    startActivity(intent);
+                    //登陆LeanCloud 进行及时聊天
+                    if (CommonUtility.isLogin(getActivity())) {
+                        final AVUser currentUser = AVUser.getCurrentUser();
+                        if (currentUser != null) {
+                            AVIMClient avimClient = AVIMClient.getInstance(currentUser.getObjectId());
+                            avimClient.open(new AVIMClientCallback() {
+                                @Override
+                                public void done(AVIMClient avimClient, AVException e) {
+                                    if (e != null) {
+                                        Toast.makeText(getActivity(), getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        List<String> clientIds = new ArrayList<String>();
+                                        clientIds.add(currentUser.getObjectId());
+                                        clientIds.add("553ccb56e4b06b192e8f620a");
+                                        Map<String, Object> attr = new HashMap<String, Object>();
+                                        attr.put("type", 1);
+                                        avimClient.createConversation(clientIds, "Test", attr, true, new AVIMConversationCreatedCallback() {
+                                            @Override
+                                            public void done(AVIMConversation avimConversation, AVException e) {
+                                                if (null != avimConversation) {
+                                                    // 成功了，进入聊天室
+                                                    CacheService.registerConv(avimConversation);
+                                                    Intent intent = new Intent(context, ChatActivity.class);
+                                                    intent.putExtra("avimConversationID", avimConversation.getConversationId() + "");
+                                                    startActivity(intent);
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        } else {
+                            mCallback.addContent(new LoginFragment());
+                        }
+                    } else {
+                        mCallback.addContent(new LoginFragment());
+                    }
                     break;
             }
         }

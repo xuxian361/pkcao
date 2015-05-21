@@ -23,6 +23,6 @@
             android:onClick="onClick"
             android:src="@drawable/icon_back"
             android:scaleType="fitCenter"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:padding="7dp"/>
 </RelativeLayout>

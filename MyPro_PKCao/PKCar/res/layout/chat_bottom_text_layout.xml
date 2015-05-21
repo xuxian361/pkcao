@@ -34,7 +34,7 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="#000"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
         <Button
                 android:id="@+id/turnToAudioBtn"
@@ -44,7 +44,7 @@
                 android:layout_margin="@dimen/chatBottomBtnMargin"
                 android:background="@drawable/btn_chat_voice_selector"
                 android:textColor="@color/base_color_text_black"
-                android:visibility="visible"/>
+                android:visibility="gone"/>
     </LinearLayout>
 
 

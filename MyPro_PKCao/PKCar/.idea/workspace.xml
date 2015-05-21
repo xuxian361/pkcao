@@ -18,7 +18,7 @@
         <devices>
           <device id="Nexus 5" />
         </devices>
-        <target>android-21</target>
+        <target>android-19</target>
       </config>
     </shared>
     <layouts>
@@ -38,11 +38,6 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/res/layout/chat_bottom_text_layout.xml">
-        <config>
-          <theme>@android:style/Theme.Light.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/res/layout/chat_image_brower_layout.xml">
         <config>
           <theme>@android:style/Theme.Light.NoTitleBar</theme>
         </config>
@@ -90,76 +85,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53487273-d380-42de-b9c2-73f86343589c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/bools.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/chat_ativity_menu.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/group_list_menu.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/xml/pref.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/update_content_menu.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/base_common_header.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/base_common_header_right_btn.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/base_common_header_right_image_btn.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_client_state_view.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_emotion_gridview.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_emotion_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_image_brower_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_item_base_left.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_item_base_right.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_item_base_status.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_item_base_time.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_item_image.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_item_location.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_item_text.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_location_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/chat_user_row.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/contact_add_friend_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/contact_add_friend_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/contact_fragment.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/contact_include_new_friend.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/contact_new_friend_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/contact_person_info_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/conversation_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/discover_fragment.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/discover_near_people_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/divider.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/entry_login_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/entry_register_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/entry_splash_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/group_add_members_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/group_add_members_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/group_detail_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/group_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/group_list_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/group_user_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/image_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/item_user_friend.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/message_fragment.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/my_space_fragment.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/my_space_setting_notify_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/pull_to_refresh_header.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/skyblue_editpage.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/skyblue_editpage_at_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/skyblue_editpage_inc_image_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/skyblue_share_actionbar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/skyblue_share_platform_list.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/skyblue_share_platform_list_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/update_content_layout.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$4$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$4$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$7.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$9.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/BitmapUtil$Size.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/BitmapUtil$Size.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/BitmapUtil.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/BitmapUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/BuildConfig.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/BuildConfig.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/BuildConfig.class" afterPath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/BuildConfig.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/service/CacheService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$10.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$11.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$11.class" />
@@ -176,206 +102,22 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$9.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$ViewHolder.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$ViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/vo/Caodian.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/vo/Caodian.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/CircleImageView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/CircleImageView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/CommonUtility.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/CommonUtility.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/CustomerLogo.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/CustomerLogo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/DraggableLayout$OnInterceptToutchEventListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/DraggableLayout$OnInterceptToutchEventListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/DraggableLayout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/DraggableLayout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$7.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageInfo.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageListResultsCallback.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageListResultsCallback.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$1$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$3$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/EmotionEditText.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/EmotionEditText.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/emoji/EmotionUtils.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/emoji/EmotionUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowListItem.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowListItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowListItem.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowListItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$PRTHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$PRTHeader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$PRTHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$PRTHeader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$RotateImageView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$RotateImageView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$RotateImageView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$RotateImageView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity$FollowersResult.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity$FollowersResult.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity$Following.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity$Following.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/ImageDraggableView$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/ImageDraggableView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/ImageDraggableView$ScaleListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/ImageDraggableView$ScaleListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/ImageDraggableView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/ImageDraggableView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/ImageViewPagerAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/ImageViewPagerAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/LoadingActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/LoadingActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/LoadingActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/LoadingActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainApplication.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$OnListListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$OnListListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/MosaicView$Effect.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/MosaicView$Effect.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/MosaicView$Mode.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/MosaicView$Mode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/MosaicView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/MosaicView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/baidupush/MyPushMessageReceiver.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/baidupush/MyPushMessageReceiver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShareTheme.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShareTheme.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/OperationFileHelper.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/OperationFileHelper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PicViewer.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PicViewer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$GridView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$GridView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$PlatformAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$PlatformAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter$ViewHolder.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter$ViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity$OnShareButtonClickListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity$OnShareButtonClickListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/ProgressWheel.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/ProgressWheel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$anim.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$anim.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$attr.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$attr.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$attr.class" afterPath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$color.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$color.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$dimen.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$dimen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$layout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$string.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$styleable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$styleable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R.class" afterPath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$ObtainDecibelThread.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$ObtainDecibelThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$RecordEventListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$RecordEventListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$ShowVolumeHandler.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton$ShowVolumeHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/record/RecordFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/record/RecordFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/record/RecordFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/record/RecordFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$2$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$3$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/ResourceTaker.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/ResourceTaker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/RotationGestureDetector$OnRotationGestureListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/RotationGestureDetector$OnRotationGestureListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/RotationGestureDetector.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/draganddropphotos/RotationGestureDetector.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/Shake2Share$OnShakeListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/Shake2Share$OnShakeListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/Shake2Share.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/Shake2Share.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ShareContentCustomizeCallback.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ShareContentCustomizeCallback.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ShareCore.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ShareCore.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$2$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$3$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ThemeShareCallback.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ThemeShareCallback.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/vo/User.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/vo/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/baidupush/Utils.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/baidupush/Utils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/demo/wxapi/WXEntryActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/demo/wxapi/WXEntryActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$IXListViewListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$IXListViewListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$OnXScrollListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView$OnXScrollListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractFragment$OnListListener.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractFragment$OnListListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PKCao.iml" afterPath="$PROJECT_DIR$/PKCao.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/anim/anim_chat_voice_left.xml" afterPath="$PROJECT_DIR$/res/anim/anim_chat_voice_left.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/attrs.xml" afterPath="$PROJECT_DIR$/res/values/attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/base_header_layout.xml" afterPath="$PROJECT_DIR$/res/layout/base_header_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractActivity.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/cao_item.xml" afterPath="$PROJECT_DIR$/res/layout/cao_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/chat_bottom_add_layout.xml" afterPath="$PROJECT_DIR$/res/layout/chat_bottom_add_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/chat_bottom_more_layout.xml" afterPath="$PROJECT_DIR$/res/layout/chat_bottom_more_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/content_frame.xml" afterPath="$PROJECT_DIR$/res/layout/content_frame.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/chat_bottom_text_layout.xml" afterPath="$PROJECT_DIR$/res/layout/chat_bottom_text_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/topbar_back.xml" afterPath="$PROJECT_DIR$/res/layout/topbar_back.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/topbar_menu.xml" afterPath="$PROJECT_DIR$/res/layout/topbar_menu.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pkcao.iws" />
@@ -400,7 +142,50 @@
     <favorites_list name="pkcao" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="CaoDetailFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="2329">
+              <caret line="319" column="87" selection-start-line="319" selection-start-column="69" selection-end-line="319" selection-end-column="87" />
+              <folding>
+                <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.37226278" vertical-offset="221" max-vertical-offset="4828">
+              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="2465">
+              <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+              <folding>
+                <element signature="method#hideBottomLayoutAndScrollToLast#0;class#ChatActivity#0" expanded="false" />
+                <element signature="method#hideBottomLayout#0;class#ChatActivity#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="GenerateSignedApkSettings">
     <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/pkcao.jks" />
@@ -1134,16 +919,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/PlayButton.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/EmotionGridAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/ChatActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/GroupAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/GroupAddMembersAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/GroupUsersAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/NearPeopleAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/NewFriendAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/RoomAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/UserAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/avoscloud/chat/adapter/UserFriendAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/avoscloud/chat/avobject/User.java" />
         <option value="$PROJECT_DIR$/src/com/avoscloud/chat/base/App.java" />
@@ -1185,6 +960,16 @@
         <option value="$PROJECT_DIR$/src/com/avoscloud/chat/util/PhotoUtils.java" />
         <option value="$PROJECT_DIR$/src/com/avoscloud/chat/util/Utils.java" />
         <option value="$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/LocationActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/service/CacheService.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" />
+        <option value="$PROJECT_DIR$/res/layout/topbar_back.xml" />
+        <option value="$PROJECT_DIR$/res/layout/topbar_menu.xml" />
+        <option value="$PROJECT_DIR$/res/layout/chat_bottom_text_layout.xml" />
+        <option value="$PROJECT_DIR$/res/layout/chat_bottom_more_layout.xml" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/cao_item.xml" />
       </list>
     </option>
   </component>
@@ -1192,10 +977,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1387" />
-    <option name="y" value="25" />
-    <option name="width" value="1420" />
-    <option name="height" value="1057" />
+    <option name="x" value="1348" />
+    <option name="y" value="28" />
+    <option name="width" value="1289" />
+    <option name="height" value="1109" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1271,18 +1056,12 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
+              <option name="myItemId" value="pkcao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1296,11 +1075,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1420,19 +1195,6 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1459,6 +1221,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1524,7 +1299,7 @@
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -1562,8 +1337,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1387" y="25" width="1420" height="1057" extended-state="0" />
-    <editor active="false" />
+    <frame x="1348" y="28" width="1289" height="1109" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1571,28 +1346,28 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44621938" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31335953" sideWeight="0.50042266" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35569754" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920536" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35555556" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28052473" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907718" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25616837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22668004" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19005613" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22539683" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35387886" sideWeight="0.50033134" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3156749" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35884476" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26243386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1623,342 +1398,189 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/GroupAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4980315" vertical-offset="121" max-vertical-offset="629">
-          <caret line="24" column="68" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="2329">
+          <caret line="319" column="87" selection-start-line="319" selection-start-column="69" selection-end-line="319" selection-end-column="87" />
+          <folding>
+            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/GroupAddMembersAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43110237" vertical-offset="189" max-vertical-offset="697">
-          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/BasePagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06692913" vertical-offset="0" max-vertical-offset="714">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/GroupUsersAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63582677" vertical-offset="17" max-vertical-offset="561">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/NearPeopleAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.10433071" vertical-offset="1294" max-vertical-offset="1802">
-          <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/NewFriendAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.33858266" vertical-offset="682" max-vertical-offset="1190">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/RoomAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1156">
-          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/UserAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2972441" vertical-offset="614" max-vertical-offset="1122">
-          <caret line="55" column="66" selection-start-line="55" selection-start-column="66" selection-end-line="55" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/adapter/UserFriendAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23228346" vertical-offset="851" max-vertical-offset="1904">
-          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/avobject/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56889766" vertical-offset="17" max-vertical-offset="1445">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/service/CloudService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.004040404" vertical-offset="321" max-vertical-offset="816">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/service/PreferenceMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19685039" vertical-offset="2025" max-vertical-offset="2533">
-          <caret line="125" column="38" selection-start-line="125" selection-start-column="38" selection-end-line="125" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/service/UpdateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3353535" vertical-offset="3398" max-vertical-offset="3893">
-          <caret line="161" column="43" selection-start-line="161" selection-start-column="43" selection-end-line="161" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/service/chat/MsgUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43503937" vertical-offset="476" max-vertical-offset="1700">
-          <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/AddFriendActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1939394" vertical-offset="1681" max-vertical-offset="2176">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/service/AddRequestService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="2023">
-          <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/ChatActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2262" max-vertical-offset="10489">
-          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="4828">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/ConvAddMembersActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1396" max-vertical-offset="2091">
-          <caret line="84" column="37" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/EntryLoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.47244096" vertical-offset="665" max-vertical-offset="1462">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/EntryRegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36811024" vertical-offset="238" max-vertical-offset="1632">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/EntrySplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4980315" vertical-offset="291" max-vertical-offset="799">
-          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/GroupConvListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8242424" vertical-offset="17" max-vertical-offset="1445">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/ImageBrowserActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53149605" vertical-offset="189" max-vertical-offset="697">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/ConvDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="664" max-vertical-offset="3519">
-          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2908" max-vertical-offset="3468">
-          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="3468">
+          <caret line="92" column="49" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/NewFriendActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/cao_item.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="2040">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="766" max-vertical-offset="1853">
-          <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="2465">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding>
+            <element signature="method#hideBottomLayoutAndScrollToLast#0;class#ChatActivity#0" expanded="false" />
+            <element signature="method#hideBottomLayout#0;class#ChatActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/NotifySettingActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1649" max-vertical-offset="2533">
+          <caret line="319" column="87" selection-start-line="319" selection-start-column="69" selection-end-line="319" selection-end-column="87" />
+          <folding>
+            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/NotifySettingFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1003">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/UpdateContentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17125984" vertical-offset="903" max-vertical-offset="1411">
-          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/PersonInfoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26574802" vertical-offset="970" max-vertical-offset="2091">
-          <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/fragment/BaseFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53543305" vertical-offset="0" max-vertical-offset="508">
-          <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/fragment/ContactFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43636364" vertical-offset="804" max-vertical-offset="4896">
-          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/fragment/MySpaceFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8011811" vertical-offset="460" max-vertical-offset="3468">
-          <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/BaseListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="1280" max-vertical-offset="2584">
-          <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/ClearEditText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43307087" vertical-offset="528" max-vertical-offset="2142">
-          <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/EnLetterView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33267716" vertical-offset="1106" max-vertical-offset="1904">
-          <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/fragment/DiscoverFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8996063" vertical-offset="801" max-vertical-offset="1785">
-          <caret line="74" column="67" selection-start-line="74" selection-start-column="67" selection-end-line="74" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/HeaderLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3681102" vertical-offset="512" max-vertical-offset="1564">
-          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/RecordButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53346455" vertical-offset="171" max-vertical-offset="4539">
-          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/RefreshableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06692913" vertical-offset="629" max-vertical-offset="4947">
-          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/xlist/XListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2992126" vertical-offset="1140" max-vertical-offset="6239">
-          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/xlist/XListViewFooter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72121215" vertical-offset="289" max-vertical-offset="1887">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/view/xlist/XListViewHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6003937" vertical-offset="392" max-vertical-offset="1955">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/util/ChatUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4121212" vertical-offset="391" max-vertical-offset="1479">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/util/PhotoUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85858583" vertical-offset="17" max-vertical-offset="7140">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/util/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="9151" max-vertical-offset="12801">
-          <caret line="548" column="65" selection-start-line="548" selection-start-column="65" selection-end-line="548" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="4964">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/fragment/ConvFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1043307" vertical-offset="0" max-vertical-offset="1785">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3825">
+          <caret line="92" column="49" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/base/App.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/cao_item.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="2040">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.007874" vertical-offset="0" max-vertical-offset="2448">
-          <caret line="60" column="102" selection-start-line="60" selection-start-column="102" selection-end-line="60" selection-end-column="102" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="2618">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding>
+            <element signature="method#hideBottomLayoutAndScrollToLast#0;class#ChatActivity#0" expanded="false" />
+            <element signature="method#hideBottomLayout#0;class#ChatActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1649" max-vertical-offset="2703">
+          <caret line="319" column="87" selection-start-line="319" selection-start-column="69" selection-end-line="319" selection-end-column="87" />
+          <folding>
+            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2618">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#hideBottomLayoutAndScrollToLast#0;class#ChatActivity#0" expanded="false" />
+            <element signature="method#hideBottomLayout#0;class#ChatActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4318">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="7871">
+          <caret line="94" column="27" selection-start-line="93" selection-start-column="8" selection-end-line="94" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4318">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="7871">
+          <caret line="94" column="27" selection-start-line="93" selection-start-column="8" selection-end-line="94" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1966,7 +1588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="580">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1977,10 +1598,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avoscloud/chat/ui/activity/LocationActivity.java">
+    <entry file="jar://$PROJECT_DIR$/libs/avoscloud-push-v3.0.4.jar!/com/avos/avoscloud/PushService.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2118551" vertical-offset="11" max-vertical-offset="4131">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.1629393" vertical-offset="0" max-vertical-offset="7225">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/record/RecordFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73656845" vertical-offset="306" max-vertical-offset="1139">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="7871">
+          <caret line="94" column="27" selection-start-line="93" selection-start-column="8" selection-end-line="94" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/avoscloud-push-v3.0.4.jar!/com/avos/avoscloud/im/v2/AVIMConversation.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1814744" vertical-offset="1785" max-vertical-offset="5797">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/service/CacheService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4797179" vertical-offset="623" max-vertical-offset="1598">
+          <caret line="86" column="4" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/topbar_back.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6967213" vertical-offset="0" max-vertical-offset="610">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/topbar_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.752459" vertical-offset="0" max-vertical-offset="610">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_record_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_text_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35473517" vertical-offset="0" max-vertical-offset="952">
+          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70735526" vertical-offset="1146" max-vertical-offset="1785">
+          <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_more_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74491394" vertical-offset="0" max-vertical-offset="639">
+          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_add_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8" vertical-offset="0" max-vertical-offset="799">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10164425" vertical-offset="0" max-vertical-offset="4131">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5054773" vertical-offset="0" max-vertical-offset="833">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.405321" vertical-offset="1894" max-vertical-offset="2533">
+          <caret line="21" column="79" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="2465">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding>
+            <element signature="method#hideBottomLayoutAndScrollToLast#0;class#ChatActivity#0" expanded="false" />
+            <element signature="method#hideBottomLayout#0;class#ChatActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1279" max-vertical-offset="2652">
+          <caret line="319" column="87" selection-start-line="319" selection-start-column="69" selection-end-line="319" selection-end-column="87" />
+          <folding>
+            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/cao_item.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="2040">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="3468">
+          <caret line="92" column="49" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37226278" vertical-offset="221" max-vertical-offset="4828">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
           <folding />
         </state>
       </provider>

@@ -25,6 +25,6 @@
             android:id="@+id/btnMenu"
             android:onClick="onClick"
             android:src="@drawable/logo"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             />
 </RelativeLayout>

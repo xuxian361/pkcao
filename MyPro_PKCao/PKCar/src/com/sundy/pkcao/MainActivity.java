@@ -39,11 +39,6 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
         try {
             super.onCreate(savedInstanceState);
 
-            AVOSCloud.initialize(this,
-                    "f20bpd0qsoqvkjj79otbh09i5mk70gesw2kl5d7gv738jkon",
-                    "31hhp1ykz4czouw626n7asjmd5uvonsg0fx3p49wcbqq6no4");
-
-
             initeFragment();
         } catch (Exception e) {
             e.printStackTrace();
