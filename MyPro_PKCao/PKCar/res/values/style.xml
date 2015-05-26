@@ -9,6 +9,14 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="txt_font_12_grey">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
     <style name="txt_font_12_black">
         <item name="android:ellipsize">marquee</item>
         <item name="android:layout_width">wrap_content</item>

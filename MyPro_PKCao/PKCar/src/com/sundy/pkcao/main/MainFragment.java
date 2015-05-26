@@ -162,7 +162,7 @@ public class MainFragment extends _AbstractFragment {
         caodian_query.orderByDescending(Caodian.createdAt);
         int skip = (curPage - 1) * pageNum;
         caodian_query.setSkip(skip);
-        caodian_query.setLimit(10);
+        caodian_query.setLimit(pageNum);
         isRefreshing = true;
         caodian_query.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> caodianlist, AVException e) {

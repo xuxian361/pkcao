@@ -168,16 +168,13 @@
                 >
 
             <com.sundy.pkcao.tools.xlistview.XListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:id="@+id/listview"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_above="@+id/bottomLayout"
-                    android:layout_below="@+id/headerLayout"
-                    android:background="#fff"
-                    android:cacheColorHint="#0000"
-                    android:divider="@null"
-                    android:dividerHeight="5dp"
-                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="none"
+                    android:divider="#00000000"
+                    android:layout_above="@+id/linear_main_bottom"
+                    android:listSelector="@android:color/transparent"
                     android:stackFromBottom="true"/>
 
             <LinearLayout

@@ -207,6 +207,7 @@
     <string name="conv_detail_title">详情</string>
     <string name="show_comments"><![CDATA[评论>>]]></string>
     <string name="show_content"><![CDATA[<<详情]]></string>
+    <string name="send_success">发送成功</string>
     <!--leancloud end-->
 
 </resources>
