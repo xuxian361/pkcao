@@ -4,6 +4,20 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../LeanCloud" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../../gradle-2.2.1" />
+        <option name="gradleJvm" value="1.7" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../LeanCloud" />
+            <option value="$PROJECT_DIR$/../LeanCloud/leanchat" />
+            <option value="$PROJECT_DIR$/../LeanCloud/leanchatlib" />
+            <option value="$PROJECT_DIR$/../LeanCloud/leanchatlib-demo" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/../leanchat-android-master" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-2.2.1" />
         <option name="modules">

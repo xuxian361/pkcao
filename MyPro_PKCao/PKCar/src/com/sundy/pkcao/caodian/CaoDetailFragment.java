@@ -15,9 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.*;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.avos.avoscloud.im.v2.AVIMClient;
@@ -32,6 +30,9 @@ import com.sundy.pkcao.login.LoginFragment;
 import com.sundy.pkcao.main.MainFragment;
 import com.sundy.pkcao.service.CacheService;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.EmotionEditText;
+import com.sundy.pkcao.tools.SimpleTextWatcher;
+import com.sundy.pkcao.tools.xlistview.XListView;
 import com.sundy.pkcao.vo.Caodian;
 import com.sundy.pkcao.vo.User;
 
@@ -64,6 +65,9 @@ public class CaoDetailFragment extends _AbstractFragment {
         }
     };
 
+    private EmotionEditText contentEdit;
+    private XListView xListView;
+
     public CaoDetailFragment() {
     }
 
@@ -95,7 +99,21 @@ public class CaoDetailFragment extends _AbstractFragment {
         aq.id(R.id.btn_add).clicked(onClick);
         aq.id(R.id.btn_delete).clicked(onClick);
         aq.id(R.id.btn_chat).clicked(onClick);
+        aq.id(R.id.sendBtn).clicked(onClick);
 
+        contentEdit = (EmotionEditText) aq.id(R.id.textEdit).getView();
+        contentEdit.setOnClickListener(onClick);
+        contentEdit.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 0) {
+                    aq.id(R.id.sendBtn).enabled(true);
+                } else {
+                    aq.id(R.id.sendBtn).enabled(false);
+                }
+                super.onTextChanged(s, start, before, count);
+            }
+        });
         try {
             if (type.equals("2"))
                 aq.id(R.id.btn_delete).visible();
@@ -107,7 +125,24 @@ public class CaoDetailFragment extends _AbstractFragment {
         }
         getLikesCount();
         showCaodian();
+
+        xListView = (XListView) aq.id(R.id.listview).getView();
+        xListView.setPullRefreshEnable(true);
+        xListView.setPullLoadEnable(false);
+        xListView.setXListViewListener(ixListViewListener);
     }
+
+    XListView.IXListViewListener ixListViewListener = new XListView.IXListViewListener() {
+        @Override
+        public void onRefresh() {
+
+        }
+
+        @Override
+        public void onLoadMore() {
+
+        }
+    };
 
     private void getLikesCount() {
         AVRelation<AVObject> relation = item.getRelation(Caodian.likes);
@@ -294,47 +329,44 @@ public class CaoDetailFragment extends _AbstractFragment {
                     delete();
                     break;
                 case R.id.btn_chat:
-                    //登陆LeanCloud 进行及时聊天
-                    if (CommonUtility.isLogin(getActivity())) {
-                        final AVUser currentUser = AVUser.getCurrentUser();
-                        if (currentUser != null) {
-                            AVIMClient avimClient = AVIMClient.getInstance(currentUser.getObjectId());
-                            avimClient.open(new AVIMClientCallback() {
-                                @Override
-                                public void done(AVIMClient avimClient, AVException e) {
-                                    if (e != null) {
-                                        Toast.makeText(getActivity(), getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        List<String> clientIds = new ArrayList<String>();
-                                        clientIds.add(currentUser.getObjectId());
-                                        clientIds.add("553ccb56e4b06b192e8f620a");
-                                        Map<String, Object> attr = new HashMap<String, Object>();
-                                        attr.put("type", 1);
-                                        avimClient.createConversation(clientIds, "Test", attr, true, new AVIMConversationCreatedCallback() {
-                                            @Override
-                                            public void done(AVIMConversation avimConversation, AVException e) {
-                                                if (null != avimConversation) {
-                                                    // 成功了，进入聊天室
-                                                    CacheService.registerConv(avimConversation);
-                                                    Intent intent = new Intent(context, ChatActivity.class);
-                                                    intent.putExtra("avimConversationID", avimConversation.getConversationId() + "");
-                                                    startActivity(intent);
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                            });
-                        } else {
-                            mCallback.addContent(new LoginFragment());
-                        }
+                    ScrollView scrollView_detial = (ScrollView) aq.id(R.id.scrollView_detial).getView();
+                    RelativeLayout relative_comments = (RelativeLayout) aq.id(R.id.relative_comments).getView();
+                    int visibility = relative_comments.getVisibility();
+                    if (visibility == View.VISIBLE) {
+                        scrollView_detial.setVisibility(View.VISIBLE);
+                        relative_comments.setVisibility(View.GONE);
+                        aq.id(R.id.btn_chat).text(getString(R.string.show_comments));
                     } else {
-                        mCallback.addContent(new LoginFragment());
+                        scrollView_detial.setVisibility(View.GONE);
+                        relative_comments.setVisibility(View.VISIBLE);
+                        aq.id(R.id.btn_chat).text(getString(R.string.show_content));
+//                        getComments();
                     }
+                    break;
+                case R.id.textEdit:
+                    scrollToLast();
+                    break;
+                case R.id.sendBtn:
+                    commitComments();
                     break;
             }
         }
     };
+
+    private void commitComments() {
+        String content = contentEdit.getText().toString().trim();
+
+
+    }
+
+    private void scrollToLast() {
+        xListView.post(new Runnable() {
+            @Override
+            public void run() {
+                xListView.smoothScrollToPosition(xListView.getAdapter().getCount() - 1);
+            }
+        });
+    }
 
     private void delete() {
         View view = inflater.inflate(R.layout.dialog_ok_cancel, null);

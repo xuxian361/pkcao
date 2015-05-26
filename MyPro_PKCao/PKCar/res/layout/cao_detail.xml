@@ -32,10 +32,10 @@
             android:layout_height="match_parent">
         <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/scrollView_detial"
                 android:paddingBottom="5dp"
-                >
+                android:visibility="gone">
 
             <LinearLayout
                     android:orientation="vertical"
@@ -160,10 +160,68 @@
 
             </LinearLayout>
         </ScrollView>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/relative_comments"
+                >
+
+            <com.sundy.pkcao.tools.xlistview.XListView
+                    android:id="@+id/listview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_above="@+id/bottomLayout"
+                    android:layout_below="@+id/headerLayout"
+                    android:background="#fff"
+                    android:cacheColorHint="#0000"
+                    android:divider="@null"
+                    android:dividerHeight="5dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:stackFromBottom="true"/>
+
+            <LinearLayout
+                    android:id="@+id/bottomLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/home_bg_bottombar"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/chatBottomHeight"
+                        android:orientation="horizontal">
+
+                    <LinearLayout
+                            android:id="@+id/chatBottomLeftLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical">
+
+                        <Button
+                                android:id="@+id/showEmotionBtn"
+                                android:layout_width="@dimen/chatBottomBtnSize"
+                                android:layout_height="@dimen/chatBottomBtnSize"
+                                android:layout_marginLeft="3dp"
+                                android:background="@drawable/btn_chat_emo_selector"
+                                android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <include layout="@layout/chat_bottom_text_layout"/>
+
+                    <include layout="@layout/chat_bottom_record_layout"/>
+                </LinearLayout>
+
+                <include layout="@layout/chat_bottom_more_layout"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
         <Button
                 android:layout_width="65dp"
                 android:layout_height="@dimen/button_height"
-                android:text="&lt;聊天室"
                 android:id="@+id/btn_chat"
                 style="@style/txt_font_12_white"
                 android:background="@drawable/corner_all_light_blue"
@@ -171,7 +229,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="-10dp"
                 android:paddingRight="5dp"
-                />
+                android:text="评论>>"/>
     </RelativeLayout>
 
 </LinearLayout>
