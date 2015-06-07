@@ -382,6 +382,8 @@ public class CaoDetailFragment extends _AbstractFragment {
                         scrollView_detial.setVisibility(View.GONE);
                         relative_comments.setVisibility(View.VISIBLE);
                         aq.id(R.id.btn_chat).text(getString(R.string.show_content));
+                        if (commentsList != null)
+                            commentsList.clear();
                         getComments();
                     }
                     break;
@@ -405,6 +407,7 @@ public class CaoDetailFragment extends _AbstractFragment {
         query.setSkip(skip);
         query.setLimit(pageNum);
         isRefreshing = true;
+
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> comments, AVException e) {

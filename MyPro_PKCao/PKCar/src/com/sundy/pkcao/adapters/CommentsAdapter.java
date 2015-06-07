@@ -1,5 +1,6 @@
 package com.sundy.pkcao.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -65,16 +66,17 @@ public class CommentsAdapter extends BaseAdapter {
             ViewHolder holder = null;
             AVObject comment = (AVObject) list.get(i);
             AVObject user = comment.getAVObject(Comment.author);
+            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             if (view == null) {
                 AVUser currentUser = AVUser.getCurrentUser();
                 if (currentUser != null) {
                     if (currentUser.equals(user)) {
-                        view = inflater.inflate(R.layout.comments_to_item, viewGroup, false);
+                        view = inflater.inflate(R.layout.comments_to_item, null);
                     } else {
-                        view = inflater.inflate(R.layout.comments_from_item, viewGroup, false);
+                        view = inflater.inflate(R.layout.comments_from_item, null);
                     }
                 } else {
-                    view = inflater.inflate(R.layout.comments_from_item, viewGroup, false);
+                    view = inflater.inflate(R.layout.comments_from_item, null);
                 }
                 holder = new ViewHolder();
                 AQuery aq = new AQuery(view);

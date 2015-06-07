@@ -11,14 +11,14 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
     </content>
-    <orderEntry type="jdk" jdkName="Android 5.0 Google APIs 1.7" jdkType="Android SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="android-query-full.0.26.8" level="project" />
     <orderEntry type="module" module-name="SlidingMenu" />
     <orderEntry type="library" name="android-support-v4" level="project" />
-    <orderEntry type="module" module-name="HorizontalVariableListView" />
     <orderEntry type="library" name="leancloud" level="project" />
     <orderEntry type="library" name="sharesdk" level="project" />
     <orderEntry type="library" name="baidupush" level="project" />
+    <orderEntry type="module" module-name="HorizontalVariableListView" />
   </component>
 </module>

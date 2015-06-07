@@ -15,10 +15,7 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
-        <devices>
-          <device id="Nexus 5" />
-        </devices>
-        <target>android-19</target>
+        <target>android-L</target>
       </config>
     </shared>
     <layouts>
@@ -85,31 +82,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53487273-d380-42de-b9c2-73f86343589c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/chatfrom_bg_focused.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/chatfrom_bg_normal.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/chatto_bg_normal.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/comments_from_item.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/comments_to_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/AddCaoDianFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$10.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$11.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$11.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$12.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$12.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$13.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$14.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$15.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$15.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$16.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$16.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$17.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$18.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$19.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$19.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$7.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$9.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$20.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment$20.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/caodian/CaoDetailFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ChatActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlidingMenu/com/slidingmenu/lib/CustomViewAbove.class" afterPath="$PROJECT_DIR$/out/production/SlidingMenu/com/slidingmenu/lib/CustomViewAbove.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CommentsAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CommentsAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/EditImageActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$1.class" />
@@ -117,30 +104,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/EditUserFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ilike/ILikeFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/LoadingActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/LoadingActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/login/LoginFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/main/MainFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment$6.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/menu/MenuFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/it/sephiroth/android/library/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$layout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$menu.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$xml.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/record/RecordFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/record/RecordFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/register/RegisterFragment$2.class" />
@@ -150,17 +122,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/ScaleImageViewActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/talike/TaLikeFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/_AbstractFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Comment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Comment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlidingMenu/src/com/slidingmenu/lib/CustomViewAbove.java" afterPath="$PROJECT_DIR$/../SlidingMenu/src/com/slidingmenu/lib/CustomViewAbove.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../HorizontalVariableListView/HorizontalVariableListView.iml" afterPath="$PROJECT_DIR$/../HorizontalVariableListView/HorizontalVariableListView.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PKCao.iml" afterPath="$PROJECT_DIR$/PKCao.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlidingMenu/SlidingMenu.iml" afterPath="$PROJECT_DIR$/../SlidingMenu/SlidingMenu.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/cao_detail.xml" afterPath="$PROJECT_DIR$/res/layout/cao_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/style.xml" afterPath="$PROJECT_DIR$/res/values/style.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/cao_item.xml" afterPath="$PROJECT_DIR$/res/layout/cao_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pkcao.iws" />
@@ -193,33 +163,19 @@
       <file leaf-file-name="CaoDetailFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.028239202">
-              <caret line="472" column="3" selection-start-line="472" selection-start-column="3" selection-end-line="472" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.5425532">
+              <caret line="427" column="59" selection-start-line="427" selection-start-column="59" selection-end-line="427" selection-end-column="59" />
               <folding>
                 <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#3534#3560#0" expanded="true" />
-                <element signature="e#3664#3692#0" expanded="true" />
+                <element signature="method#onLoad#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="class#5509:6270" expanded="false" />
                 <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#14353#14393#0" expanded="true" />
-                <element signature="e#15136#15169#0" expanded="true" />
-                <element signature="e#15390#15422#0" expanded="true" />
-                <element signature="e#16189#17556#0" expanded="true" />
-                <element signature="e#17170#17199#0" expanded="true" />
-                <element signature="e#17348#17380#0" expanded="true" />
-                <element signature="e#17555#17556#0" expanded="true" />
-                <element signature="e#18184#19265#0" expanded="true" />
-                <element signature="e#18432#18464#0" expanded="true" />
-                <element signature="e#19138#19170#0" expanded="true" />
-                <element signature="e#19264#19265#0" expanded="true" />
-                <element signature="e#19439#19642#0" expanded="true" />
-                <element signature="e#19641#19642#0" expanded="true" />
+                <element signature="method#commitComments#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#scrollToLast#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#20001#20035#0" expanded="true" />
                 <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#21183#21652#0" expanded="true" />
-                <element signature="e#21651#21652#0" expanded="true" />
                 <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#onDestroyView#0;class#CaoDetailFragment#0" expanded="false" />
@@ -228,26 +184,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java">
+      <file leaf-file-name="CommentsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.888889">
-              <caret line="115" column="29" selection-start-line="114" selection-start-column="11" selection-end-line="115" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="78" column="77" selection-start-line="78" selection-start-column="77" selection-end-line="78" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.586206">
-              <caret line="41" column="18" selection-start-line="33" selection-start-column="8" selection-end-line="41" selection-end-column="18" />
+      <file leaf-file-name="cao_detail.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/cao_detail.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="174" column="30" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
               <folding />
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -2060,7 +2018,6 @@
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractActivity.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/cao_item.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/tools/SimpleTextWatcher.java" />
         <option value="$PROJECT_DIR$/res/values/style.xml" />
         <option value="$PROJECT_DIR$/res/layout/comments_item.xml" />
@@ -2069,9 +2026,10 @@
         <option value="$PROJECT_DIR$/res/layout/comments_from_item.xml" />
         <option value="$PROJECT_DIR$/../SlidingMenu/src/com/slidingmenu/lib/CustomViewAbove.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java" />
+        <option value="$PROJECT_DIR$/res/layout/cao_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/cao_detail.xml" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" />
       </list>
     </option>
   </component>
@@ -2089,10 +2047,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1300" />
-    <option name="y" value="29" />
-    <option name="width" value="1639" />
-    <option name="height" value="1086" />
+    <option name="x" value="1322" />
+    <option name="y" value="30" />
+    <option name="width" value="1401" />
+    <option name="height" value="1141" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -2105,7 +2063,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -2116,129 +2074,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -2250,8 +2086,8 @@
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="W8CIAM4HBECEEAYS" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_6_4_Sony_by_User" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../_3rdLibrary/Android_Easemod_Git/Easemod/ChatDemoUI" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HorizontalVariableListView" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1546875" />
     <property name="project.structure.side.proportion" value="0.20406905" />
     <property name="OverrideImplement.combined" value="true" />
@@ -2454,7 +2290,7 @@
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -2474,11 +2310,6 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SliceManager">
-    <option name="analysisUIOptions">
-      <AnalysisUIOptions />
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -2492,39 +2323,70 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1300" y="29" width="1639" height="1086" extended-state="0" />
-    <editor active="true" />
+    <frame x="1322" y="30" width="1401" height="1141" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25923607" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2603306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31335953" sideWeight="0.50042266" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3533058" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.321281" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3504367" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32942328" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907718" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17971195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16838843" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18021794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16593887" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35387886" sideWeight="0.50033134" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38033396" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2603306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31335953" sideWeight="0.50042266" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18021794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16691957" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35387886" sideWeight="0.50033134" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938856" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38055322" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2603306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3505311" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21396054" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907718" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -2548,42 +2410,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="319" column="87" selection-start-line="319" selection-start-column="69" selection-end-line="319" selection-end-column="87" />
-          <folding>
-            <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#3534#3560#0" expanded="true" />
-            <element signature="e#3664#3692#0" expanded="true" />
-            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#14353#14393#0" expanded="true" />
-            <element signature="e#15136#15169#0" expanded="true" />
-            <element signature="e#15390#15422#0" expanded="true" />
-            <element signature="e#16189#17556#0" expanded="true" />
-            <element signature="e#17170#17199#0" expanded="true" />
-            <element signature="e#17348#17380#0" expanded="true" />
-            <element signature="e#17555#17556#0" expanded="true" />
-            <element signature="e#18184#19265#0" expanded="true" />
-            <element signature="e#18432#18464#0" expanded="true" />
-            <element signature="e#19138#19170#0" expanded="true" />
-            <element signature="e#19264#19265#0" expanded="true" />
-            <element signature="e#19439#19642#0" expanded="true" />
-            <element signature="e#19641#19642#0" expanded="true" />
-            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#20001#20035#0" expanded="true" />
-            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#21183#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
-            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#onDestroyView#0;class#CaoDetailFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2601,29 +2427,15 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#3534#3560#0" expanded="true" />
-            <element signature="e#3664#3692#0" expanded="true" />
+            <element signature="method#onLoad#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="class#5509:6270" expanded="false" />
             <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#14353#14393#0" expanded="true" />
-            <element signature="e#15136#15169#0" expanded="true" />
-            <element signature="e#15390#15422#0" expanded="true" />
-            <element signature="e#16189#17556#0" expanded="true" />
-            <element signature="e#17170#17199#0" expanded="true" />
-            <element signature="e#17348#17380#0" expanded="true" />
-            <element signature="e#17555#17556#0" expanded="true" />
-            <element signature="e#18184#19265#0" expanded="true" />
-            <element signature="e#18432#18464#0" expanded="true" />
-            <element signature="e#19138#19170#0" expanded="true" />
-            <element signature="e#19264#19265#0" expanded="true" />
-            <element signature="e#19439#19642#0" expanded="true" />
-            <element signature="e#19641#19642#0" expanded="true" />
+            <element signature="method#commitComments#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#scrollToLast#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#20001#20035#0" expanded="true" />
             <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#21183#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
             <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#onDestroyView#0;class#CaoDetailFragment#0" expanded="false" />
@@ -2644,29 +2456,15 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#3534#3560#0" expanded="true" />
-            <element signature="e#3664#3692#0" expanded="true" />
+            <element signature="method#onLoad#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="class#5509:6270" expanded="false" />
             <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#14353#14393#0" expanded="true" />
-            <element signature="e#15136#15169#0" expanded="true" />
-            <element signature="e#15390#15422#0" expanded="true" />
-            <element signature="e#16189#17556#0" expanded="true" />
-            <element signature="e#17170#17199#0" expanded="true" />
-            <element signature="e#17348#17380#0" expanded="true" />
-            <element signature="e#17555#17556#0" expanded="true" />
-            <element signature="e#18184#19265#0" expanded="true" />
-            <element signature="e#18432#18464#0" expanded="true" />
-            <element signature="e#19138#19170#0" expanded="true" />
-            <element signature="e#19264#19265#0" expanded="true" />
-            <element signature="e#19439#19642#0" expanded="true" />
-            <element signature="e#19641#19642#0" expanded="true" />
+            <element signature="method#commitComments#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#scrollToLast#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#20001#20035#0" expanded="true" />
             <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#21183#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
             <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#onDestroyView#0;class#CaoDetailFragment#0" expanded="false" />
@@ -2724,53 +2522,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/topbar_back.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6967213">
           <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/topbar_menu.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/topbar_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.752459">
           <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_record_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_record_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_more_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_more_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.74491394">
           <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_add_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_add_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.8">
           <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/MainActivity.java">
@@ -2823,9 +2621,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/chat_view.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.79821956">
           <caret line="97" column="21" selection-start-line="34" selection-start-column="4" selection-end-line="97" selection-end-column="21" />
@@ -2834,16 +2629,19 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_text_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/chat_bottom_text_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="42" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="42" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/tools/SimpleTextWatcher.java">
@@ -2868,28 +2666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
-          <folding>
-            <element signature="method#hideBottomLayoutAndScrollToLast#0;class#ChatActivity#0" expanded="false" />
-            <element signature="method#hideBottomLayout#0;class#ChatActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/cao_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24833998">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/style.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3478261">
@@ -2899,10 +2675,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-xhdpi/chat_right_qp.9.png">
-      <provider selected="true" editor-type-id="ninepatcheditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
     </entry>
@@ -2912,10 +2688,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-xhdpi/chat_left_qp.9.png">
-      <provider selected="true" editor-type-id="ninepatcheditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
     </entry>
@@ -2923,7 +2699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16109422">
           <caret line="223" column="21" selection-start-line="223" selection-start-column="21" selection-end-line="223" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2944,89 +2719,49 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/menu.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0775076">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/menu/MenuFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63027656">
           <caret line="143" column="32" selection-start-line="143" selection-start-column="32" selection-end-line="143" selection-end-column="32" />
-          <folding>
-            <element signature="e#4625#4846#0" expanded="true" />
-            <element signature="e#4845#4846#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/comments_to_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.051671732">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/comments_from_item.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/comments_from_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.62069">
           <caret line="13" column="46" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="46" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../SlidingMenu/src/com/slidingmenu/lib/CustomViewAbove.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.52671754">
           <caret line="479" column="0" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.586206">
-          <caret line="41" column="18" selection-start-line="33" selection-start-column="8" selection-end-line="41" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/cao_detail.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.068966">
-          <caret line="177" column="52" selection-start-line="177" selection-start-column="52" selection-end-line="177" selection-end-column="52" />
-          <folding>
-            <element signature="e#9457#9482#0" expanded="true" />
-            <element signature="e#9986#10012#0" expanded="true" />
-            <element signature="e#10067#10093#0" expanded="true" />
-            <element signature="e#10742#10764#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="50" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3042,57 +2777,100 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="128" column="93" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HorizontalVariableListView/src/it/sephiroth/android/library/widget/AbsHListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/cao_item.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47341773">
+          <caret line="92" column="51" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1721519">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/ChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+          <folding>
+            <element signature="method#hideBottomLayoutAndScrollToLast#0;class#ChatActivity#0" expanded="false" />
+            <element signature="method#hideBottomLayout#0;class#ChatActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27530363">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/cao_detail.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="174" column="30" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <caret line="78" column="77" selection-start-line="78" selection-start-column="77" selection-end-line="78" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/main/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.888889">
-          <caret line="115" column="29" selection-start-line="114" selection-start-column="11" selection-end-line="115" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028239202">
-          <caret line="472" column="3" selection-start-line="472" selection-start-column="3" selection-end-line="472" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.5425532">
+          <caret line="427" column="59" selection-start-line="427" selection-start-column="59" selection-end-line="427" selection-end-column="59" />
           <folding>
             <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#3534#3560#0" expanded="true" />
-            <element signature="e#3664#3692#0" expanded="true" />
+            <element signature="method#onLoad#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="class#5509:6270" expanded="false" />
             <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#14353#14393#0" expanded="true" />
-            <element signature="e#15136#15169#0" expanded="true" />
-            <element signature="e#15390#15422#0" expanded="true" />
-            <element signature="e#16189#17556#0" expanded="true" />
-            <element signature="e#17170#17199#0" expanded="true" />
-            <element signature="e#17348#17380#0" expanded="true" />
-            <element signature="e#17555#17556#0" expanded="true" />
-            <element signature="e#18184#19265#0" expanded="true" />
-            <element signature="e#18432#18464#0" expanded="true" />
-            <element signature="e#19138#19170#0" expanded="true" />
-            <element signature="e#19264#19265#0" expanded="true" />
-            <element signature="e#19439#19642#0" expanded="true" />
-            <element signature="e#19641#19642#0" expanded="true" />
+            <element signature="method#commitComments#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#scrollToLast#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#20001#20035#0" expanded="true" />
             <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#21183#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
             <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#onDestroyView#0;class#CaoDetailFragment#0" expanded="false" />
@@ -3117,7 +2895,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited>Android</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -3140,7 +2918,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.6</last-edited>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -3152,7 +2930,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>PKCao</last-edited>
+          <last-edited>HorizontalVariableListView</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
