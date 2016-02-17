@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="light_blue">#ff0cafea</color>
+    <color name="light_blue">#660cafea</color>
     <color name="orange1">#ffeef397</color>
     <color name="orange2">#fff4dc28</color>
     <color name="orange3">#fff3b812</color>
     <color name="orange4">#fff39c0d</color>
+    <color name="golden">#bbfad700</color>
     <color name="white2">#14080a09</color>
     <color name="grey">#8a0a0a07</color>
     <color name="transparent4">#bb000000</color>
+    <color name="transparent5">#60ffffff</color>
     <color name="black">#ff000000</color>
 
     <color name="red">#ffff3243</color>
     <color name="orange">#fff39c0d</color>
     <color name="yellow">#fff3eb4d</color>
-    <color name="green">#ff0ce825</color>
+    <color name="green">#660ce825</color>
     <color name="blue">#ff1454ea</color>
     <color name="indigo">#ff065279</color>
     <color name="purple">#ffc230ff</color>

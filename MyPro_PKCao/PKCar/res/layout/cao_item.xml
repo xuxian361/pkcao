@@ -10,15 +10,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
+    >
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                />
+        />
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:background="@color/white"
+                android:background="@color/transparent5"
                 android:padding="5dp">
             <TextView
                     android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                     android:textStyle="italic"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    />
+            />
         </RelativeLayout>
         <RelativeLayout
                 android:layout_width="match_parent"
@@ -47,12 +47,12 @@
                 android:gravity="center">
             <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/img"
-                    android:scaleType="fitCenter"
+                    android:scaleType="matrix"
                     android:layout_centerInParent="true"
                     android:visibility="gone"
-                    />
+            />
             <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -65,7 +65,7 @@
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:background="@color/white"
+                android:background="@color/transparent5"
                 android:padding="5dp">
             <TextView
                     android:layout_width="match_parent"
@@ -73,14 +73,15 @@
                     android:id="@+id/txt_content"
                     style="@style/txt_font_12_black"
                     android:padding="2dp"
-                    android:layout_centerVertical="true" android:maxLines="2"
-                    />
+                    android:layout_centerVertical="true"
+                    android:maxLines="2"
+            />
         </RelativeLayout>
 
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/white"
+                android:background="@color/transparent5"
                 android:visibility="gone">
             <TextView
                     android:layout_width="60dp"

@@ -1,143 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/white"
-              android:onClick="onClick">
-
-    <include android:layout_width="match_parent"
-             android:layout_height="60dp"
-             layout="@layout/topbar_back"/>
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_alignParentBottom="true"
-                android:id="@+id/linear_register_bottom"
-                android:gravity="center">
-
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="更新"
-                    android:id="@+id/btn_edit"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/corner_all_light_blue"
-                    style="@style/txt_font_14_white"
-                    android:textStyle="bold"
-                    />
-        </LinearLayout>
-        <ScrollView
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/linear_register_bottom">
+                android:background="@color/white"
+                android:onClick="onClick">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@drawable/bg_2"
+                  android:onClick="onClick">
+
+        <include android:layout_width="match_parent"
+                 android:layout_height="60dp"
+                 layout="@layout/topbar_back"/>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
             <LinearLayout
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/linear_register_bottom"
+                    android:gravity="center">
+
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="更新"
+                        android:id="@+id/btn_edit"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/corner_all_light_blue"
+                        style="@style/txt_font_14_white"
+                        android:textStyle="bold"
+                />
+            </LinearLayout>
+            <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="20dp">
-                <RelativeLayout
+                    android:layout_above="@+id/linear_register_bottom">
+                <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/txt_name"
-                            android:textSize="20dp"
-                            android:padding="5dp"
-                            android:maxLines="1"
-                            style="@style/txt_font_16_black"
-                            android:textStyle="bold"
-                            android:layout_toLeftOf="@+id/relative_upload_photo"
-                            android:layout_marginRight="10dp" android:layout_alignParentBottom="true"
-                            />
+                        android:layout_height="match_parent"
+                        android:padding="20dp">
                     <RelativeLayout
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:layout_marginTop="15dp"
-                            android:gravity="center"
-                            android:id="@+id/relative_upload_photo" android:layout_alignParentRight="true">
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/txt_name"
+                                android:textSize="20dp"
+                                android:padding="5dp"
+                                android:maxLines="1"
+                                style="@style/txt_font_16_black"
+                                android:textStyle="bold"
+                                android:layout_toLeftOf="@+id/relative_upload_photo"
+                                android:layout_marginRight="10dp" android:layout_alignParentBottom="true"
+                        />
+                        <RelativeLayout
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_marginTop="15dp"
+                                android:gravity="center"
+                                android:id="@+id/relative_upload_photo" android:layout_alignParentRight="true">
 
-                        <com.sundy.pkcao.tools.CircleImageView
-                                app:border_color="@color/transparent2"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:id="@+id/img_user"
-                                android:src="@drawable/icon_profile"
-                                />
+                            <com.sundy.pkcao.tools.CircleImageView
+                                    app:border_color="@color/transparent2"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:id="@+id/img_user"
+                                    android:src="@drawable/icon_profile"
+                            />
 
-                        <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_alignParentBottom="true"
-                                android:layout_alignParentRight="true"
-                                android:src="@drawable/icon_edit"
-                                android:scaleType="fitCenter"
-                                android:layout_marginBottom="2dp"/>
+                            <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/icon_edit"
+                                    android:scaleType="fitCenter"
+                                    android:layout_marginBottom="2dp"/>
+                        </RelativeLayout>
                     </RelativeLayout>
-                </RelativeLayout>
 
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/edit_height"
-                        android:id="@+id/edt_password_old"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/corner_all_light_blue_strok"
-                        android:hint="@string/fill_password_old"
-                        android:inputType="textPassword"
-                        android:padding="5dp"
-                        android:textSize="14dp"
-                        android:maxLines="1"
-                        />
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_height"
+                            android:id="@+id/edt_password_old"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/corner_all_white"
+                            android:hint="@string/fill_password_old"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:textSize="14dp"
+                            android:maxLines="1"
+                    />
 
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/edit_height"
-                        android:id="@+id/edt_password_new"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/corner_all_light_blue_strok"
-                        android:hint="@string/fill_password_new"
-                        android:inputType="textPassword"
-                        android:padding="5dp"
-                        android:textSize="14dp"
-                        android:maxLines="1"
-                        />
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_height"
+                            android:id="@+id/edt_password_new"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/corner_all_white"
+                            android:hint="@string/fill_password_new"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:textSize="14dp"
+                            android:maxLines="1"
+                    />
 
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/edit_height"
-                        android:id="@+id/edt_confirm_pwd"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/corner_all_light_blue_strok"
-                        android:hint="确认密码"
-                        android:inputType="textPassword"
-                        android:padding="5dp"
-                        android:textSize="14dp"
-                        android:maxLines="1"/>
-            </LinearLayout>
-        </ScrollView>
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_height"
+                            android:id="@+id/edt_confirm_pwd"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/corner_all_white"
+                            android:hint="确认密码"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:textSize="14dp"
+                            android:maxLines="1"/>
+                </LinearLayout>
+            </ScrollView>
 
-        <com.sundy.pkcao.tools.ProgressWheel
-                android:id="@+id/progressbar"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                ProgressWheel:rimColor="@color/white2"
-                ProgressWheel:barLength="60dp"
-                ProgressWheel:barColor="@color/light_blue"
-                ProgressWheel:barWidth="5dp"
-                ProgressWheel:rimWidth="5dp"
-                ProgressWheel:spinSpeed="8dp"
-                android:layout_centerInParent="true"
-                android:visibility="gone"/>
+            <com.sundy.pkcao.tools.ProgressWheel
+                    android:id="@+id/progressbar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    ProgressWheel:rimColor="@color/white2"
+                    ProgressWheel:barLength="60dp"
+                    ProgressWheel:barColor="@color/light_blue"
+                    ProgressWheel:barWidth="5dp"
+                    ProgressWheel:rimWidth="5dp"
+                    ProgressWheel:spinSpeed="8dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"/>
 
-    </RelativeLayout>
-</LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+

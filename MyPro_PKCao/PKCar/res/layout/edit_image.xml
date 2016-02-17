@@ -4,8 +4,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/transparent4"
-              >
+              android:background="@drawable/bg_2"
+>
 
 
     <RelativeLayout
@@ -38,18 +38,17 @@
                 android:layout_alignParentRight="true"
                 android:text="保存"
                 android:gravity="center"
-                style="@style/txt_font_14_white"/>
+                style="@style/txt_font_14_grey"/>
     </RelativeLayout>
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+    >
 
         <com.sundy.pkcao.tools.MosaicView
                 android:id="@+id/iv_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent4"
                 android:layout_above="@+id/linear_bottom"/>
 
         <LinearLayout
@@ -67,7 +66,7 @@
                     android:background="@color/light_blue"
                     android:gravity="center_vertical"
                     android:id="@+id/linear_effect" android:visibility="gone">
-                <Button style="@style/txt_font_14_black"
+                <Button style="@style/txt_font_14_grey"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:text="马赛克"
@@ -75,7 +74,7 @@
                         android:background="@drawable/corner_all_white"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"/>
-                <Button style="@style/txt_font_14_black"
+                <Button style="@style/txt_font_14_grey"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:text="毛玻璃"
@@ -83,7 +82,7 @@
                         android:background="@drawable/corner_all_white"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"/>
-                <Button style="@style/txt_font_14_black"
+                <Button style="@style/txt_font_14_grey"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:text="纯颜色"
@@ -111,7 +110,7 @@
                         android:text="手指模式"
                         android:id="@+id/btn_follow_finger"
                         android:background="@drawable/corner_all_white"
-                        style="@style/txt_font_14_black"
+                        style="@style/txt_font_14_grey"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"/>
 
@@ -121,7 +120,7 @@
                         android:text="方格模式"
                         android:id="@+id/btn_square"
                         android:background="@drawable/corner_all_white"
-                        style="@style/txt_font_14_black"
+                        style="@style/txt_font_14_grey"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"/>
             </LinearLayout>
@@ -185,7 +184,7 @@
                     android:id="@+id/scrollView"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:background="@color/light_blue"
+                    android:background="@color/transparent5"
                     android:paddingTop="5dp">
                 <LinearLayout
                         android:orientation="horizontal"
@@ -198,16 +197,16 @@
                             android:layout_height="40dp"
                             android:text="模式"
                             android:id="@+id/btn_model"
-                            android:background="@drawable/corner_all_white"
-                            style="@style/txt_font_14_black"
+                            android:background="@drawable/corner_all_light_blue"
+                            style="@style/txt_font_14_white"
                             android:layout_marginRight="10dp"/>
                     <Button
                             android:layout_width="60dp"
                             android:layout_height="40dp"
                             android:text="效果"
                             android:id="@+id/btn_effect"
-                            android:background="@drawable/corner_all_white"
-                            style="@style/txt_font_14_black"
+                            android:background="@drawable/corner_all_light_blue"
+                            style="@style/txt_font_14_white"
                             android:layout_marginRight="10dp"/>
 
                     <Button
@@ -215,8 +214,8 @@
                             android:layout_height="40dp"
                             android:text="颜色"
                             android:id="@+id/btn_color"
-                            android:background="@drawable/corner_all_white"
-                            style="@style/txt_font_14_black"
+                            android:background="@drawable/corner_all_light_blue"
+                            style="@style/txt_font_14_white"
                             android:layout_marginRight="10dp" android:visibility="gone"/>
 
                     <Button
@@ -224,17 +223,17 @@
                             android:layout_height="40dp"
                             android:text="清除"
                             android:id="@+id/btn_clear"
-                            android:background="@drawable/corner_all_white"
-                            style="@style/txt_font_14_black"
+                            android:background="@drawable/corner_all_light_blue"
+                            style="@style/txt_font_14_white"
                             android:layout_marginRight="10dp"/>
                     <Button
                             android:layout_width="60dp"
                             android:layout_height="40dp"
                             android:text="重画"
                             android:id="@+id/btn_reset"
-                            android:background="@drawable/corner_all_white"
-                            style="@style/txt_font_14_black"
-                            />
+                            android:background="@drawable/corner_all_light_blue"
+                            style="@style/txt_font_14_white"
+                    />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

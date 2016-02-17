@@ -13,7 +13,7 @@
             android:textSize="18dp"
             android:textColor="@color/light_blue"
             android:gravity="center"
-            />
+    />
     <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"

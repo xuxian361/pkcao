@@ -42,6 +42,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="txt_font_14_golden">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/golden</item>
+    </style>
+
     <style name="txt_font_14_grey">
         <item name="android:ellipsize">marquee</item>
         <item name="android:layout_width">wrap_content</item>

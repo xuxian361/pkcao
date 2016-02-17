@@ -3,12 +3,20 @@ package com.sundy.pkcao.main;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
@@ -49,6 +57,9 @@ public class MainFragment extends _AbstractFragment {
     private SharedPreferences sharedPreferences;
     private String user_id;
     private String currentType = "1";
+    private final int HIDDEN = 0;
+    private final int SHOW = 1;
+    private LinearLayout linear_main_bottom;
 
     public MainFragment() {
     }
@@ -84,6 +95,25 @@ public class MainFragment extends _AbstractFragment {
         lv_main.setPullLoadEnable(true);
         lv_main.setPullRefreshEnable(true);
         lv_main.setXListViewListener(ixListViewListener);
+        lv_main.setOnScrollListener(new XListView.OnXScrollListener() {
+            @Override
+            public void onXScrolling(View view) {
+
+            }
+
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+                rtLog(TAG, "---------->onScrollStateChanged");
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+                rtLog(TAG, "---------->onScroll");
+            }
+        });
+
+        linear_main_bottom = (LinearLayout) aq.find(R.id.linear_main_bottom).getView();
+
 
         aq.id(R.id.btnAdd).clicked(onClick);
         aq.id(R.id.btn_filter_mine).clicked(onClick);

@@ -5,8 +5,7 @@
               android:layout_height="@dimen/chatBottomMoreHeight"
               android:orientation="horizontal"
               android:paddingTop="10dp"
-              android:visibility="gone"
-              android:weightSum="4">
+              android:weightSum="4" android:visibility="gone">
 
     <TextView
             android:id="@+id/addImageBtn"
