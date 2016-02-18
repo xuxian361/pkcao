@@ -1,14 +1,11 @@
 package com.sundy.pkcao.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.androidquery.AQuery;
-import com.sundy.pkcao._AbstractFragment;
 import org.json.JSONObject;
 
 import java.util.LinkedList;

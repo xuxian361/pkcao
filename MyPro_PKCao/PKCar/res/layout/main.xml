@@ -1,107 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/bg_2"
-              android:onClick="onClick"
->
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <include android:layout_width="match_parent"
-                 android:layout_height="60dp"
-                 layout="@layout/topbar_menu"/>
-
-        <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@null"
-                android:layout_centerVertical="true"
-                android:id="@+id/btnAdd"
-                android:src="@drawable/icon_add"
-                android:scaleType="fitCenter"
-                android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
-                android:padding="7dp"
-        />
-    </RelativeLayout>
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <com.sundy.pkcao.tools.xlistview.XListView
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/lv_main"
-                android:scrollbars="none"
-                android:divider="#00000000"
-                android:layout_above="@+id/linear_main_bottom"
-                android:listSelector="@android:color/transparent"
-        />
+                android:background="@color/white"
+                android:onClick="onClick">
 
-        <LinearLayout
-                android:orientation="horizontal"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@drawable/bg_2"
+                  android:onClick="onClick"
+    >
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:id="@+id/linear_main_bottom"
-                android:gravity="center">
+                android:layout_height="wrap_content">
+            <include android:layout_width="match_parent"
+                     android:layout_height="60dp"
+                     layout="@layout/topbar_menu"/>
 
-            <Button
-                    android:layout_width="match_parent"
+            <ImageButton
+                    android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:text="全部"
-                    android:id="@+id/btn_filter_all"
-                    android:background="@drawable/corner_all_light_blue"
-                    style="@style/txt_font_14_white"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:background="@null"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/btnAdd"
+                    android:src="@drawable/icon_add"
+                    android:scaleType="fitCenter"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentRight="true"
+                    android:padding="7dp"
+            />
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <com.sundy.pkcao.tools.xlistview.XListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/lv_main"
+                    android:scrollbars="none"
+                    android:divider="#00000000"
+                    android:layout_above="@+id/linear_main_bottom"
+                    android:listSelector="@android:color/transparent"
             />
 
-            <Button
+            <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="我的"
-                    android:id="@+id/btn_filter_mine"
-                    android:background="@drawable/corner_all_light_blue"
-                    style="@style/txt_font_14_white"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-            />
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="其他人"
-                    android:id="@+id/btn_filter_other"
-                    android:background="@drawable/corner_all_light_blue"
-                    style="@style/txt_font_14_white"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp"
-            />
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/linear_main_bottom"
+                    android:gravity="center">
 
-        </LinearLayout>
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="全部"
+                        android:id="@+id/btn_filter_all"
+                        android:background="@drawable/corner_all_light_blue"
+                        style="@style/txt_font_14_white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                />
 
-        <com.sundy.pkcao.tools.ProgressWheel
-                android:id="@+id/progressbar"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                ProgressWheel:rimColor="@color/white2"
-                ProgressWheel:barLength="60dp"
-                ProgressWheel:barColor="@color/light_blue"
-                ProgressWheel:barWidth="5dp"
-                ProgressWheel:rimWidth="5dp"
-                ProgressWheel:spinSpeed="8dp"
-                android:layout_centerInParent="true"
-                android:visibility="gone"/>
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="我的"
+                        android:id="@+id/btn_filter_mine"
+                        android:background="@drawable/corner_all_light_blue"
+                        style="@style/txt_font_14_white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                />
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="其他人"
+                        android:id="@+id/btn_filter_other"
+                        android:background="@drawable/corner_all_light_blue"
+                        style="@style/txt_font_14_white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                />
 
-    </RelativeLayout>
-</LinearLayout>
+            </LinearLayout>
+
+            <com.sundy.pkcao.tools.ProgressWheel
+                    android:id="@+id/progressbar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    ProgressWheel:rimColor="@color/white2"
+                    ProgressWheel:barLength="60dp"
+                    ProgressWheel:barColor="@color/light_blue"
+                    ProgressWheel:barWidth="5dp"
+                    ProgressWheel:rimWidth="5dp"
+                    ProgressWheel:spinSpeed="8dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
 

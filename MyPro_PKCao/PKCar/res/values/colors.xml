@@ -7,12 +7,12 @@
     <color name="orange4">#fff39c0d</color>
     <color name="golden">#bbfad700</color>
     <color name="white2">#14080a09</color>
-    <color name="grey">#8a0a0a07</color>
+    <color name="grey">#660a0a07</color>
     <color name="transparent4">#bb000000</color>
     <color name="transparent5">#60ffffff</color>
     <color name="black">#ff000000</color>
 
-    <color name="red">#ffff3243</color>
+    <color name="red">#aaff3243</color>
     <color name="orange">#fff39c0d</color>
     <color name="yellow">#fff3eb4d</color>
     <color name="green">#660ce825</color>

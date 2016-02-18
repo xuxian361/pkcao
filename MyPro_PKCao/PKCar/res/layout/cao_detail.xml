@@ -62,10 +62,8 @@
                         <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="55dp"
-                                android:background="@color/white"
-                                android:padding="5dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="10dp">
+                                android:background="@color/transparent5" android:paddingLeft="10dp"
+                                android:paddingTop="6dp" android:paddingRight="10dp" android:paddingBottom="6dp">
                             <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -89,7 +87,7 @@
                         <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:background="@color/white"
+                                android:background="@color/transparent5"
                         >
                             <TextView
                                     android:layout_width="60dp"

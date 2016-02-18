@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.frontia.api.FrontiaPushMessageReceiver;
-import com.sundy.pkcao.MainActivity;
+import com.sundy.pkcao.activitys.MainActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
