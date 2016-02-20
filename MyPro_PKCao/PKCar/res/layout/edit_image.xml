@@ -24,10 +24,10 @@
         <TextView
                 android:id="@+id/txt_title"
                 android:layout_centerInParent="true"
-                style="@style/txt_font_14_white"
+                style="@style/txt_font_14_grey"
                 android:maxLines="1"
                 android:layout_marginRight="50dp"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginLeft="50dp" android:text="@string/edit_image"/>
 
         <TextView
                 android:layout_width="50dp"
@@ -60,34 +60,34 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:background="@color/light_blue"
+                    android:background="@color/light_green"
                     android:gravity="center_vertical"
                     android:id="@+id/linear_effect" android:visibility="gone">
-                <Button style="@style/txt_font_14_grey"
+                <Button style="@style/txt_font_14_black"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:text="马赛克"
                         android:id="@+id/btn_mosaic"
-                        android:background="@drawable/corner_all_white"
+                        android:background="@drawable/corner_all_light_white"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"/>
-                <Button style="@style/txt_font_14_grey"
+                <Button style="@style/txt_font_14_black"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:text="毛玻璃"
                         android:id="@+id/btn_glass"
-                        android:background="@drawable/corner_all_white"
+                        android:background="@drawable/corner_all_light_white"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"/>
-                <Button style="@style/txt_font_14_grey"
+                <Button style="@style/txt_font_14_black"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:text="纯颜色"
                         android:id="@+id/btn_purecolor"
-                        android:background="@drawable/corner_all_white"
+                        android:background="@drawable/corner_all_light_white"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"/>
             </LinearLayout>
@@ -96,10 +96,10 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:background="@color/light_blue"
+                    android:background="@color/light_green"
                     android:gravity="center_vertical"
                     android:id="@+id/linear_model"
                     android:visibility="gone">
@@ -109,8 +109,8 @@
                         android:layout_height="30dp"
                         android:text="手指模式"
                         android:id="@+id/btn_follow_finger"
-                        android:background="@drawable/corner_all_white"
-                        style="@style/txt_font_14_grey"
+                        android:background="@drawable/corner_all_light_white"
+                        style="@style/txt_font_14_black"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"/>
 
@@ -119,18 +119,19 @@
                         android:layout_height="30dp"
                         android:text="方格模式"
                         android:id="@+id/btn_square"
-                        android:background="@drawable/corner_all_white"
-                        style="@style/txt_font_14_grey"
+                        android:background="@drawable/corner_all_light_white"
+                        style="@style/txt_font_14_black"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal"
                           android:layout_width="match_parent"
-                          android:layout_height="40dp"
+                          android:layout_height="50dp"
                           android:paddingLeft="5dp"
                           android:paddingRight="5dp"
-                          android:background="@color/light_blue"
-                          android:id="@+id/linear_color" android:gravity="center" android:visibility="gone">
+                          android:background="@color/light_green"
+                          android:id="@+id/linear_color"
+                          android:gravity="center" android:visibility="gone">
                 <Button
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -194,44 +195,45 @@
 
                     <Button
                             android:layout_width="60dp"
-                            android:layout_height="40dp"
+                            android:layout_height="36dp"
                             android:text="模式"
                             android:id="@+id/btn_model"
-                            android:background="@drawable/corner_all_light_blue"
+                            android:background="@drawable/corner_all_light_white"
                             style="@style/txt_font_14_white"
                             android:layout_marginRight="10dp"/>
                     <Button
                             android:layout_width="60dp"
-                            android:layout_height="40dp"
+                            android:layout_height="36dp"
                             android:text="效果"
                             android:id="@+id/btn_effect"
-                            android:background="@drawable/corner_all_light_blue"
+                            android:background="@drawable/corner_all_light_white"
                             style="@style/txt_font_14_white"
                             android:layout_marginRight="10dp"/>
 
                     <Button
                             android:layout_width="60dp"
-                            android:layout_height="40dp"
+                            android:layout_height="36dp"
                             android:text="颜色"
                             android:id="@+id/btn_color"
-                            android:background="@drawable/corner_all_light_blue"
+                            android:background="@drawable/corner_all_light_white"
                             style="@style/txt_font_14_white"
-                            android:layout_marginRight="10dp" android:visibility="gone"/>
+                            android:layout_marginRight="10dp"
+                    />
 
                     <Button
                             android:layout_width="60dp"
-                            android:layout_height="40dp"
+                            android:layout_height="36dp"
                             android:text="清除"
                             android:id="@+id/btn_clear"
-                            android:background="@drawable/corner_all_light_blue"
+                            android:background="@drawable/corner_all_light_white"
                             style="@style/txt_font_14_white"
                             android:layout_marginRight="10dp"/>
                     <Button
                             android:layout_width="60dp"
-                            android:layout_height="40dp"
+                            android:layout_height="36dp"
                             android:text="重画"
                             android:id="@+id/btn_reset"
-                            android:background="@drawable/corner_all_light_blue"
+                            android:background="@drawable/corner_all_light_white"
                             style="@style/txt_font_14_white"
                     />
                 </LinearLayout>

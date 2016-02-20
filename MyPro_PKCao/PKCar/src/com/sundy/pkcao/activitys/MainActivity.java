@@ -15,9 +15,11 @@ import android.widget.Toast;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.sundy.pkcao.R;
+import com.sundy.pkcao.fragments.AddCaoDianFragment;
 import com.sundy.pkcao.fragments.MainFragment;
 import com.sundy.pkcao.fragments.MenuFragment;
 import com.sundy.pkcao.fragments._AbstractFragment;
+import com.sundy.pkcao.service.AddCaodianService;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.taker.ResourceTaker;
 import com.sundy.pkcao.tools.OperationFileHelper;
@@ -182,6 +184,7 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
             }, 350);
         } else {
             if (exit_count == 2) {
+                stopService(new Intent(this, AddCaodianService.class));
                 android.os.Process.killProcess(android.os.Process.myPid());
                 exit_count = 1;
                 try {

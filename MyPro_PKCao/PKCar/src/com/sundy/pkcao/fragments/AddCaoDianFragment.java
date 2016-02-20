@@ -13,9 +13,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.activitys.EditImageActivity;
 import com.sundy.pkcao.R;
+import com.sundy.pkcao.service.AddCaodianService;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.vo.Caodian;
@@ -47,7 +50,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private final String TAG = "AddCaoDianFragment";
     private Fragment fragment;
     private View v;
-    private List<String> photoList = new ArrayList<String>();
+    private ArrayList<String> photoList = new ArrayList<String>();
     private LinearLayout linear_imgs;
     private int count = 0;
     private String videoPath = null;  //视频路径
@@ -56,7 +59,9 @@ public class AddCaoDianFragment extends _AbstractFragment {
     private ProgressWheel progressbar;
     private SharedPreferences preferences;
     private String caodian_id;
-    private final int VIDEO_SIZE = 10 * 1024 * 1024;
+    private final int VIDEO_SIZE = 10 * 1024 * 1024;  //视频上传大小
+    private final int VIDEO_DURATION = 10;//10秒
+    private Vibrator vibrator;
 
     public AddCaoDianFragment() {
     }
@@ -124,7 +129,7 @@ public class AddCaoDianFragment extends _AbstractFragment {
                     startActivityForResult(wrapperIntent, CommonUtility.VIDEO_LOCAL);
                 } else {
                     Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                    intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+                    intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, VIDEO_DURATION);
                     intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, VIDEO_SIZE);
                     startActivityForResult(intent, CommonUtility.VIDEO_TAKE_VIDEO);
                 }
@@ -175,67 +180,27 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 return;
             }
 
-            //找到该用户后,创建一个槽点对象
-            final AVObject caodian = new AVObject(Caodian.table_name);
-            caodian.put(Caodian.title, title);
-            caodian.put(Caodian.content, content);
-            caodian.put(Caodian.creater, user_id);
-
             final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
             final Date date = new Date();
             caodian_id = Caodian.caodian_id + "_" + sdf.format(date);
-            caodian.put(Caodian.caodian_id, caodian_id);
 
-            //保存视频文件
-            if (videoPath != null && videoPath.length() != 0) {
-                try {
-                    String suffix = videoPath.substring(videoPath.lastIndexOf("."), videoPath.length());
-                    AVFile video = AVFile.withAbsoluteLocalPath(
-                            Caodian.caodian_video + "_" + sdf.format(date) + suffix, videoPath);
-                    caodian.put(Caodian.caodian_video, video);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
+            //开启一个后台服务来上传文件
+            Intent intent = new Intent(context, AddCaodianService.class);
+            intent.putExtra(Caodian.title, title);
+            intent.putExtra(Caodian.content, content);
+            intent.putExtra(Caodian.creater, user_id);
+            intent.putExtra(Caodian.caodian_id, caodian_id);
+            intent.putExtra("videoPath", videoPath);
+            intent.putExtra("video_thumbnail_path", video_thumbnail_path);
+            intent.putStringArrayListExtra("photoList", photoList);
+            context.startService(intent);
 
-            //保存视频缩略图
-            if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
-                try {
-                    AVFile thumbnail_file = AVFile.withAbsoluteLocalPath(
-                            Caodian.caodian_video_thumbnail + "_" + sdf.format(date) + ".jpg", video_thumbnail_path);
-                    caodian.put(Caodian.caodian_video_thumbnail, thumbnail_file);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-            }
+            vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            long[] pattern = {100, 400, 100, 400};   // 停止 开启 停止 开启
+            vibrator.vibrate(pattern, 2);
 
-            //添加图片数组
-            if (photoList != null && photoList.size() != 0) {
-                for (int i = 0; i < photoList.size(); i++) {
-                    String path = photoList.get(i);
-                    if (path != null && path.length() != 0) {
-                        try {
-                            AVFile file = AVFile.withAbsoluteLocalPath(Caodian.table_name + "_" + sdf.format(date) + ".jpg", path);
-                            caodian.put("img" + (i + 1), file);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                }
-            }
-            showProgress(progressbar);
-            caodian.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(AVException e) {
-                    stopProgress(progressbar);
-                    if (e == null) {
-                        Toast.makeText(context, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
-                        mCallback.switchContent(new MainFragment());
-                    } else {
-                        Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+            mCallback.onBack();
+
         } else {
             Toast.makeText(context, getString(R.string.session_expired), Toast.LENGTH_SHORT).show();
             clearUserInfo();
@@ -347,34 +312,42 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 }
                 Uri uri = data.getData();
                 videoPath = CommonUtility.getImagePath3(context, uri);
-                Bitmap thumbnail =
-                        CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
-                if (thumbnail != null) {
-                    video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
-                    aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            String type = "video/mp4";
-                            Uri uri = Uri.parse(videoPath);
-                            intent.setDataAndType(uri, type);
-                            startActivity(intent);
-                        }
-                    });
-                    aq.id(R.id.img_video).image(thumbnail);
-                    aq.id(R.id.btn_video).gone();
-                    aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            videoPath = "";
-                            video_thumbnail_path = "";
-                            aq.id(R.id.relative_video).gone();
-                            aq.id(R.id.btn_video).visible();
-                        }
-                    });
+                long size = CommonUtility.getFileSize(videoPath);
+                if (size > VIDEO_SIZE) {
+                    Toast.makeText(context, getString(R.string.video_too_large), Toast.LENGTH_SHORT).show();
+                    videoPath = "";
+                    video_thumbnail_path = "";
+                    return;
                 } else {
-                    aq.id(R.id.relative_video).gone();
-                    aq.id(R.id.btn_video).visible();
+                    Bitmap thumbnail =
+                            CommonUtility.getVideoThumbnail(videoPath, 480, 320, MediaStore.Images.Thumbnails.FULL_SCREEN_KIND);
+                    if (thumbnail != null) {
+                        video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
+                        aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                String type = "video/mp4";
+                                Uri uri = Uri.parse(videoPath);
+                                intent.setDataAndType(uri, type);
+                                startActivity(intent);
+                            }
+                        });
+                        aq.id(R.id.img_video).image(thumbnail);
+                        aq.id(R.id.btn_video).gone();
+                        aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                videoPath = "";
+                                video_thumbnail_path = "";
+                                aq.id(R.id.relative_video).gone();
+                                aq.id(R.id.btn_video).visible();
+                            }
+                        });
+                    } else {
+                        aq.id(R.id.relative_video).gone();
+                        aq.id(R.id.btn_video).visible();
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -386,34 +359,42 @@ public class AddCaoDianFragment extends _AbstractFragment {
                 }
                 Uri uri = data.getData();
                 videoPath = CommonUtility.getImagePath3(context, uri);
-                Bitmap thumbnail =
-                        CommonUtility.getVideoThumbnail(videoPath, 200, 120, MediaStore.Images.Thumbnails.MICRO_KIND);
-                if (thumbnail != null) {
-                    video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
-                    aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            String type = "video/mp4";
-                            Uri uri = Uri.parse(videoPath);
-                            intent.setDataAndType(uri, type);
-                            startActivity(intent);
-                        }
-                    });
-                    aq.id(R.id.img_video).image(thumbnail);
-                    aq.id(R.id.btn_video).gone();
-                    aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            videoPath = "";
-                            video_thumbnail_path = "";
-                            aq.id(R.id.relative_video).gone();
-                            aq.id(R.id.btn_video).visible();
-                        }
-                    });
+                long size = CommonUtility.getFileSize(videoPath);
+                if (size > VIDEO_SIZE) {
+                    Toast.makeText(context, getString(R.string.video_too_large), Toast.LENGTH_SHORT).show();
+                    videoPath = "";
+                    video_thumbnail_path = "";
+                    return;
                 } else {
-                    aq.id(R.id.relative_video).gone();
-                    aq.id(R.id.btn_video).visible();
+                    Bitmap thumbnail =
+                            CommonUtility.getVideoThumbnail(videoPath, 480, 320, MediaStore.Images.Thumbnails.FULL_SCREEN_KIND);
+                    if (thumbnail != null) {
+                        video_thumbnail_path = CommonUtility.saveThumbnail(thumbnail);
+                        aq.id(R.id.relative_video).visible().clicked(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                String type = "video/mp4";
+                                Uri uri = Uri.parse(videoPath);
+                                intent.setDataAndType(uri, type);
+                                startActivity(intent);
+                            }
+                        });
+                        aq.id(R.id.img_video).image(thumbnail);
+                        aq.id(R.id.btn_video).gone();
+                        aq.id(R.id.img_delete_video).clicked(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                videoPath = "";
+                                video_thumbnail_path = "";
+                                aq.id(R.id.relative_video).gone();
+                                aq.id(R.id.btn_video).visible();
+                            }
+                        });
+                    } else {
+                        aq.id(R.id.relative_video).gone();
+                        aq.id(R.id.btn_video).visible();
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -483,6 +464,8 @@ public class AddCaoDianFragment extends _AbstractFragment {
     @Override
     public void onStop() {
         super.onStop();
+        if (vibrator != null)
+            vibrator.cancel();
     }
 
     @Override

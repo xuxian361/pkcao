@@ -215,6 +215,10 @@
     <string name="old_password_can_not_null">旧密码不能为空</string>
     <string name="title_cannot_empty">槽点标题不能为空</string>
     <string name="content_cannot_empty">槽点内容不能为空</string>
+    <string name="video_too_large">上传的视频太大了, 文件大小超过10MB啦!</string>
+    <string name="uploading_caodian">您的槽点正在上传中,请等待片刻!</string>
+    <string name="uploading">上传中</string>
+    <string name="edit_image">图片编辑</string>
     <!--leancloud end-->
 
 </resources>

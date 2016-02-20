@@ -102,8 +102,8 @@
                             android:layout_marginRight="10dp"/>
 
                     <RelativeLayout
-                            android:layout_width="200dp"
-                            android:layout_height="120dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/relative_video"
                             android:orientation="vertical"
                             android:layout_marginTop="5dp"
@@ -113,8 +113,8 @@
                             android:visibility="gone">
                         <ImageView
                                 android:orientation="horizontal"
-                                android:layout_width="200dp"
-                                android:layout_height="120dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:id="@+id/img_video"
                                 android:scaleType="centerCrop"/>
                         <ImageView
@@ -126,7 +126,7 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:id="@+id/img_delete_video"
-                                android:layout_alignParentRight="true"
+                                android:layout_alignParentRight="false"
                                 android:src="@drawable/red_delete"
                                 android:scaleType="fitCenter"
                                 android:padding="5dp"/>

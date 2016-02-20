@@ -38,7 +38,7 @@
         <activity android:name=".activitys.LoadingActivity"
                   android:label="@string/app_name"
                   android:launchMode="singleTask"
-                >
+        >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -48,7 +48,7 @@
         <activity android:name=".activitys.MainActivity"
                   android:screenOrientation="portrait"
                   android:launchMode="singleTask"
-                />
+        />
 
         <activity android:name=".activitys.ScaleImageActivity"
                   android:screenOrientation="portrait"/>
@@ -138,6 +138,9 @@
             </intent-filter>
         </receiver>
         <!--LeanCloud 即时聊天结束-->
+
+        <!--上传槽点Service-->
+        <service android:name=".service.AddCaodianService"/>
 
     </application>
 </manifest>

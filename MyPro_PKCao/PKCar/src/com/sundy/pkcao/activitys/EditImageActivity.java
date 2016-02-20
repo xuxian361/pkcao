@@ -104,10 +104,10 @@ public class EditImageActivity extends _AbstractActivity {
                     break;
                 case R.id.btn_reset:
                     aq.id(R.id.btn_reset).background(R.drawable.corner_all_orange);
-                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_model).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_color).background(R.drawable.corner_all_white);
+                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_model).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_color).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
@@ -115,41 +115,42 @@ public class EditImageActivity extends _AbstractActivity {
                     mvImage.setErase(false);
                     break;
                 case R.id.btn_clear:
-                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_white);
+                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.btn_clear).background(R.drawable.corner_all_orange);
-                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_model).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_color).background(R.drawable.corner_all_white);
+                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_model).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_color).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     mvImage.setErase(true);
                     break;
                 case R.id.btn_effect:
-                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_white);
+                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.btn_effect).background(R.drawable.corner_all_orange);
-                    aq.id(R.id.btn_model).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_color).background(R.drawable.corner_all_white);
+                    aq.id(R.id.btn_model).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_color).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).visible();
                     aq.id(R.id.linear_model).gone();
                     break;
                 case R.id.btn_model:
-                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_white);
+                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.btn_model).background(R.drawable.corner_all_orange);
-                    aq.id(R.id.btn_color).background(R.drawable.corner_all_white);
+                    aq.id(R.id.btn_color).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).visible();
                     break;
                 case R.id.btn_color:
-                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_white);
-                    aq.id(R.id.btn_model).background(R.drawable.corner_all_white);
+                    mvImage.setEffect(MosaicView.Effect.COLOR);
+                    aq.id(R.id.btn_reset).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_clear).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_effect).background(R.drawable.corner_all_light_white);
+                    aq.id(R.id.btn_model).background(R.drawable.corner_all_light_white);
                     aq.id(R.id.btn_color).background(R.drawable.corner_all_orange);
                     aq.id(R.id.linear_color).visible();
                     aq.id(R.id.linear_effect).gone();
@@ -160,69 +161,76 @@ public class EditImageActivity extends _AbstractActivity {
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     currentColor = R.color.red;
+                    mvImage.setMosaicColor(getResources().getColor(currentColor));
                     break;
                 case R.id.btn_orange:
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     currentColor = R.color.orange;
+                    mvImage.setMosaicColor(getResources().getColor(currentColor));
                     break;
                 case R.id.btn_yellow:
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     currentColor = R.color.yellow;
+                    mvImage.setMosaicColor(getResources().getColor(currentColor));
                     break;
                 case R.id.btn_green:
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     currentColor = R.color.green;
+                    mvImage.setMosaicColor(getResources().getColor(currentColor));
                     break;
                 case R.id.btn_blue:
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     currentColor = R.color.blue;
+                    mvImage.setMosaicColor(getResources().getColor(currentColor));
                     break;
                 case R.id.btn_indigo:
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     currentColor = R.color.indigo;
+                    mvImage.setMosaicColor(getResources().getColor(currentColor));
                     break;
                 case R.id.btn_purple:
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     currentColor = R.color.purple;
+                    mvImage.setMosaicColor(getResources().getColor(currentColor));
                     break;
-                case R.id.btn_mosaic:
+                case R.id.btn_mosaic://磨砂
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     mvImage.setEffect(MosaicView.Effect.GRID);
                     break;
-                case R.id.btn_glass:
+                case R.id.btn_glass://毛玻璃
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     mvImage.setEffect(MosaicView.Effect.BLUR);
                     break;
-                case R.id.btn_purecolor:
+                case R.id.btn_purecolor://纯颜色
                     aq.id(R.id.linear_color).visible();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     mvImage.setMosaicColor(getResources().getColor(currentColor));
                     mvImage.setEffect(MosaicView.Effect.COLOR);
                     break;
-                case R.id.btn_follow_finger:
+                case R.id.btn_follow_finger://手指模式
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();
                     mvImage.setMode(MosaicView.Mode.PATH);
                     break;
-                case R.id.btn_square:
+                case R.id.btn_square://方块模式
                     aq.id(R.id.linear_color).gone();
                     aq.id(R.id.linear_effect).gone();
                     aq.id(R.id.linear_model).gone();

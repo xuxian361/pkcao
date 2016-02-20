@@ -34,6 +34,7 @@ import com.sundy.pkcao.vo.User;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -494,5 +495,21 @@ public class CommonUtility {
     public static void stopBaiduPush(Activity context) {
         PushManager.stopWork(context);
     }
+
+    public static long getFileSize(String filePath) {
+        long size = 0;
+        try {
+            File file = new File(filePath);
+            if (file.exists()) {
+                FileInputStream fis = new FileInputStream(file);
+                size = fis.available();
+                Log.e(TAG, "---------->size =" + size);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return size;
+    }
+
 
 }

@@ -303,7 +303,6 @@ public class MainFragment extends _AbstractFragment {
                     if (CommonUtility.isLogin(context)) {
                         mCallback.addContent(new AddCaoDianFragment(MainFragment.this));
                     } else {
-                        Toast.makeText(context, getString(R.string.please_login), Toast.LENGTH_SHORT).show();
                         mCallback.addContent(new LoginFragment());
                     }
                     break;
