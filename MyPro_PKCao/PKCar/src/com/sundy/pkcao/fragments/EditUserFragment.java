@@ -299,6 +299,7 @@ public class EditUserFragment extends _AbstractFragment {
         editor.clear();
         editor.commit();
         AVUser.logOut();
+        mCallback.switchContent(new LoginFragment());
     }
 
     //登陆

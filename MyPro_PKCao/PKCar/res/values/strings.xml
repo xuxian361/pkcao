@@ -213,6 +213,8 @@
     <string name="new_password_cannot_null">新密码不能为空</string>
     <string name="session_expired">登陆过期了, 请重新登陆!</string>
     <string name="old_password_can_not_null">旧密码不能为空</string>
+    <string name="title_cannot_empty">槽点标题不能为空</string>
+    <string name="content_cannot_empty">槽点内容不能为空</string>
     <!--leancloud end-->
 
 </resources>

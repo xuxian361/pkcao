@@ -46,7 +46,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/edit_height"
                             android:id="@+id/edt_title"
-                            android:background="@drawable/corner_all_white"
+                            android:background="@drawable/corner_all_light_white"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
@@ -55,12 +55,12 @@
                             android:padding="5dp"
                             android:maxLines="1"
                             android:textSize="14dp"
-                    />
+                            android:autoText="false"/>
                     <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="240dp"
+                            android:layout_height="170dp"
                             android:id="@+id/edt_content"
-                            android:background="@drawable/corner_all_white"
+                            android:background="@drawable/corner_all_light_white"
                             android:layout_margin="10dp"
                             android:gravity="left|top"
                             android:padding="5dp"
@@ -69,12 +69,12 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="上传图片（每张图片不超过100Kb,最多上传5张）"
+                            android:text="上传图片（每张图片不超过100Kb,最多上传5张哦）"
                             style="@style/txt_font_12_grey"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"/>
 
-                    <LinearLayout android:layout_width="200dp"
+                    <LinearLayout android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
                                   android:id="@+id/linear_imgs"
                                   android:orientation="vertical"
@@ -96,7 +96,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="上传视频（视频不超过3Mb）"
+                            android:text="上传视频（视频不超过100Mb）"
                             style="@style/txt_font_12_grey"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"/>

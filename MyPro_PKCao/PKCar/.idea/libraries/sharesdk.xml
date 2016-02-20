@@ -6,11 +6,7 @@
       <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Email-2.5.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Facebook-2.5.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/ShareSDK-QQ-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-QZone-2.5.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/ShareSDK-ShortMessage-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-SinaWeibo-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-TencentWeibo-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Twitter-2.5.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-2.5.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Core-2.5.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Favorite-2.5.9.jar!/" />
