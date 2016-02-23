@@ -13,11 +13,12 @@
     >
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="4dp"
+                android:visibility="visible"
         />
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:background="@color/transparent5"
                 android:padding="5dp">
             <TextView
@@ -44,29 +45,9 @@
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
-            <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/img"
-                    android:scaleType="matrix"
-                    android:layout_centerInParent="true"
-                    android:visibility="gone"
-            />
-            <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/img_play"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/icon_play"
-                    android:visibility="gone"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
                 android:background="@color/transparent5"
-                android:padding="5dp">
+                android:paddingLeft="5dp" android:paddingRight="5dp" android:paddingBottom="2dp"
+                android:paddingTop="2dp">
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,6 +57,25 @@
                     android:layout_centerVertical="true"
                     android:maxLines="2"
             />
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        >
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/img"
+                    android:scaleType="matrix"
+                    android:visibility="gone"
+            />
+            <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/img_play"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/icon_play"
+                    android:visibility="gone"/>
         </RelativeLayout>
 
         <RelativeLayout

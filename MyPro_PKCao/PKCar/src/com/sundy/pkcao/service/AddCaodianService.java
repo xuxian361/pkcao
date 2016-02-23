@@ -31,6 +31,7 @@ public class AddCaodianService extends IntentService {
     private String caodian_id;
     private String videoPath;
     private ArrayList<String> photoList;
+    private String video_thumbnail_path;
 
     private final int UPLOAD_FILE = 10;
 
@@ -67,35 +68,59 @@ public class AddCaodianService extends IntentService {
                     @Override
                     public void done(AVException e) {
                         notificationManager.cancelAll();
-                        //添加图片数组
-                        if (photoList != null && photoList.size() != 0) {
-                            for (int i = 0; i < photoList.size(); i++) {
-                                String path = photoList.get(i);
-                                if (path != null && path.length() != 0) {
-                                    try {
-                                        //上传图片
-                                        final AVFile file = AVFile.withAbsoluteLocalPath(Caodian.table_name + "_" + sdf.format(date) + ".jpg", path);
-                                        file.saveInBackground(new SaveCallback() {
-                                            @Override
-                                            public void done(AVException e) {
-                                                notificationManager.cancelAll();
+                        if (video_thumbnail_path != null && video_thumbnail_path.length() != 0) {
+                            try {
+                                final AVFile video_thumbnail = AVFile.withAbsoluteLocalPath(Caodian.table_name + "_" + sdf.format(date) + ".jpg", video_thumbnail_path);
+                                video_thumbnail.saveInBackground(new SaveCallback() {
+                                    @Override
+                                    public void done(AVException e) {
+                                        caodian.put(Caodian.caodian_video_thumbnail, video_thumbnail);
+
+                                        //添加图片数组
+                                        if (photoList != null && photoList.size() != 0) {
+                                            for (int i = 0; i < photoList.size(); i++) {
+                                                String path = photoList.get(i);
+                                                if (path != null && path.length() != 0) {
+                                                    try {
+                                                        //上传图片
+                                                        final AVFile file = AVFile.withAbsoluteLocalPath(Caodian.table_name + "_" + sdf.format(date) + ".jpg", path);
+                                                        file.saveInBackground(new SaveCallback() {
+                                                            @Override
+                                                            public void done(AVException e) {
+                                                                notificationManager.cancelAll();
+                                                            }
+                                                        }, new ProgressCallback() {
+                                                            @Override
+                                                            public void done(Integer integer) {
+                                                                notification.contentView.setImageViewResource(R.id.img, R.drawable.logo);
+                                                                // 更改文字
+                                                                notification.contentView.setTextViewText(R.id.txtTitle, title);
+                                                                // 更改进度条
+                                                                notification.contentView.setProgressBar(R.id.noti_pd, 100, integer, false);
+                                                                notificationManager.notify(0, notification);
+                                                            }
+                                                        });
+                                                        caodian.put("img" + (i + 1), file);
+                                                    } catch (IOException e1) {
+                                                        e1.printStackTrace();
+                                                    }
+                                                }
                                             }
-                                        }, new ProgressCallback() {
-                                            @Override
-                                            public void done(Integer integer) {
-                                                notification.contentView.setImageViewResource(R.id.img, R.drawable.logo);
-                                                // 更改文字
-                                                notification.contentView.setTextViewText(R.id.txtTitle, title);
-                                                // 更改进度条
-                                                notification.contentView.setProgressBar(R.id.noti_pd, 100, integer, false);
-                                                notificationManager.notify(0, notification);
-                                            }
-                                        });
-                                        caodian.put("img" + (i + 1), file);
-                                    } catch (IOException e1) {
-                                        e1.printStackTrace();
+                                        }
                                     }
-                                }
+                                }, new ProgressCallback() {
+                                    @Override
+                                    public void done(Integer integer) {
+                                        notification.contentView.setImageViewResource(R.id.img, R.drawable.logo);
+                                        // 更改文字
+                                        notification.contentView.setTextViewText(R.id.txtTitle, title);
+                                        // 更改进度条
+                                        notification.contentView.setProgressBar(R.id.noti_pd, 100, integer, false);
+                                        notificationManager.notify(0, notification);
+                                    }
+                                });
+                            } catch (Exception e1) {
+                                e.printStackTrace();
                             }
                         }
                     }
@@ -188,6 +213,7 @@ public class AddCaodianService extends IntentService {
         caodian_id = intent.getStringExtra(Caodian.caodian_id);
         videoPath = intent.getStringExtra("videoPath");
         photoList = intent.getStringArrayListExtra("photoList");
+        video_thumbnail_path = intent.getStringExtra("video_thumbnail_path");
 
         notificationManager.notify(0, notification);
         return super.onStartCommand(intent, flags, startId);
