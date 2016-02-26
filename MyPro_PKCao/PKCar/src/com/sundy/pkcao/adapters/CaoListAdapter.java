@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
+import com.baidu.frontia.framework.IModule;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.DensityUtil;
 import com.sundy.pkcao.vo.Caodian;
 
 import java.io.InputStream;
@@ -55,7 +58,7 @@ public class CaoListAdapter extends BaseAdapter {
             }
         }
     };
-
+    private int Image_Height = CommonUtility.SCREEN_WIDTH * 16 / 9;
 
     public CaoListAdapter() {
     }
@@ -63,6 +66,8 @@ public class CaoListAdapter extends BaseAdapter {
     public CaoListAdapter(Context context, LayoutInflater inflater) {
         this.context = context;
         this.inflater = inflater;
+
+        Image_Height = DensityUtil.px2dip(context, Image_Height);
     }
 
     public void setData(List list) {
@@ -124,6 +129,10 @@ public class CaoListAdapter extends BaseAdapter {
                         }
                     }
                 });
+
+                ViewGroup.LayoutParams param = holder.img.getLayoutParams();
+                param.height = Image_Height;
+                holder.img.setLayoutParams(param);
 
                 AQuery aq_img = new AQuery(holder.img);
                 AQuery aq_img_play = new AQuery(holder.img_play);

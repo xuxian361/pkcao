@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.sundy.pkcao.R;
 import com.sundy.pkcao.activitys.ScaleImageViewActivity;
 import com.sundy.pkcao.adapters.CommentsAdapter;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.tools.DensityUtil;
 import com.sundy.pkcao.tools.EmotionEditText;
 import com.sundy.pkcao.tools.ProgressWheel;
 import com.sundy.pkcao.tools.SimpleTextWatcher;
@@ -68,6 +70,7 @@ public class CaoDetailFragment extends _AbstractFragment {
     private boolean ishasMore = true;
     private boolean isRefreshing = false;
     private String last_updated_time = "";
+    private int Video_Image_Height = CommonUtility.SCREEN_WIDTH * 16 / 9;
 
     public CaoDetailFragment() {
     }
@@ -103,6 +106,8 @@ public class CaoDetailFragment extends _AbstractFragment {
         aq.id(R.id.btn_delete).clicked(onClick);
         aq.id(R.id.btn_chat).clicked(onClick);
         aq.id(R.id.sendBtn).clicked(onClick);
+
+        Video_Image_Height = DensityUtil.px2dip(context, Video_Image_Height);
 
         contentEdit = (EmotionEditText) aq.id(R.id.textEdit).getView();
         contentEdit.setOnClickListener(onClick);
@@ -209,6 +214,12 @@ public class CaoDetailFragment extends _AbstractFragment {
                     String thumbnail_url = thumbnail.getUrl();
                     if (thumbnail_url != null && thumbnail_url.length() != 0) {
                         aq.id(R.id.relative_video).visible();
+
+                        ImageView video_img = aq.id(R.id.img).getImageView();
+                        ViewGroup.LayoutParams param = video_img.getLayoutParams();
+                        param.height = Video_Image_Height;
+                        video_img.setLayoutParams(param);
+
                         aq.id(R.id.img).image(thumbnail_url).clicked(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

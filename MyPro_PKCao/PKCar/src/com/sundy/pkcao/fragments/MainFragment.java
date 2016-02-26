@@ -76,7 +76,6 @@ public class MainFragment extends _AbstractFragment {
 
     private void init() {
         progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
-
         last_updated_time = getString(R.string.just_now);
         lv_main = (XListView) aq.id(R.id.lv_main).getListView();
         adapter = new CaoListAdapter(context, inflater);
@@ -85,25 +84,9 @@ public class MainFragment extends _AbstractFragment {
         lv_main.setPullLoadEnable(true);
         lv_main.setPullRefreshEnable(true);
         lv_main.setXListViewListener(ixListViewListener);
-        lv_main.setOnScrollListener(new XListView.OnXScrollListener() {
-            @Override
-            public void onXScrolling(View view) {
 
-            }
-
-            @Override
-            public void onScrollStateChanged(AbsListView absListView, int i) {
-            }
-
-            @Override
-            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-
-            }
-        });
 
         linear_main_bottom = (LinearLayout) aq.find(R.id.linear_main_bottom).getView();
-
-
         aq.id(R.id.btnAdd).clicked(onClick);
         aq.id(R.id.btn_filter_mine).clicked(onClick);
         aq.id(R.id.btn_filter_other).clicked(onClick);
