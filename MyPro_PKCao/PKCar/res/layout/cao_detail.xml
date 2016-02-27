@@ -106,8 +106,21 @@
                                     android:gravity="center"
                                     style="@style/txt_font_14_grey"
                                     android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/btn_comments"
+                                    android:layout_marginRight="10dp"/>
+
+                            <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="30dp"
+                                    android:text="评论"
+                                    android:id="@+id/btn_comments"
+                                    android:background="@drawable/corner_all_white2_strok"
+                                    android:gravity="center"
+                                    style="@style/txt_font_14_grey"
+                                    android:layout_centerVertical="true"
                                     android:layout_toLeftOf="@+id/btn_share"
                                     android:layout_marginRight="10dp"/>
+
                             <TextView
                                     android:layout_width="60dp"
                                     android:layout_height="30dp"
@@ -122,114 +135,89 @@
                         </RelativeLayout>
                         <TextView android:layout_width="match_parent"
                                   android:layout_height="10dp"
-                                  android:background="@color/white2"
-                                  android:id="@+id/textView"/>
-                        <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:id="@+id/relative_video"
-                                android:visibility="gone"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"
-                                android:layout_marginTop="10dp">
-                            <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="200dp"
-                                    android:id="@+id/img"
-                                    android:scaleType="centerCrop"
-                                    android:layout_centerInParent="true"
-                            />
-                            <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:id="@+id/img_play"
-                                    android:layout_centerInParent="true"
-                                    android:src="@drawable/icon_play"
-                            />
-                        </RelativeLayout>
+                                  android:background="@color/white2"/>
                         <LinearLayout
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center|top"
-                                android:id="@+id/linear_img"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp">
+                                android:layout_height="match_parent">
+                            <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:id="@+id/relative_video"
+                                    android:visibility="gone">
+                                <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="220dp"
+                                        android:id="@+id/img"
+                                        android:scaleType="fitCenter"
+                                        android:layout_centerInParent="true"
+                                />
+                                <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:id="@+id/img_play"
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/icon_play"
+                                />
+                            </RelativeLayout>
+                            <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/linear_img"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_marginBottom="16dp"
+                                    android:gravity="top|center">
+                            </LinearLayout>
+
+                            <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="top"
+                                    android:id="@+id/linear_comments"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:orientation="vertical"
+                                    android:visibility="invisible">
+
+                                <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="大家怎么说的?"
+                                            style="@style/txt_font_14_grey"
+                                            android:textSize="16sp"/>
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="查看更多>>"
+                                            style="@style/txt_font_14_black"
+                                            android:textSize="13sp"
+                                            android:layout_alignParentRight="true"
+                                            android:id="@+id/txt_check_more_comments"/>
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/linear_comments_content"
+                                />
+
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
             </ScrollView>
 
-            <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/relative_comments"
-                    android:visibility="gone">
 
-                <com.sundy.pkcao.tools.xlistview.XListView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/listview"
-                        android:scrollbars="none"
-                        android:divider="#00000000"
-                        android:layout_above="@+id/bottomLayout"
-                        android:listSelector="@android:color/transparent"
-                />
-
-                <LinearLayout
-                        android:id="@+id/bottomLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:background="@drawable/home_bg_bottombar"
-                        android:orientation="vertical">
-
-                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/chatBottomHeight"
-                            android:orientation="horizontal">
-
-                        <LinearLayout
-                                android:id="@+id/chatBottomLeftLayout"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:gravity="center_vertical">
-
-                            <Button
-                                    android:id="@+id/showEmotionBtn"
-                                    android:layout_width="@dimen/chatBottomBtnSize"
-                                    android:layout_height="@dimen/chatBottomBtnSize"
-                                    android:layout_marginLeft="3dp"
-                                    android:background="@drawable/btn_chat_emo_selector"
-                                    android:gravity="center"/>
-
-                        </LinearLayout>
-
-                        <include layout="@layout/chat_bottom_text_layout"/>
-
-                        <include layout="@layout/chat_bottom_record_layout"/>
-                    </LinearLayout>
-
-                    <include layout="@layout/chat_bottom_more_layout"/>
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <Button
-                    android:layout_width="65dp"
-                    android:layout_height="@dimen/button_height"
-                    android:id="@+id/btn_chat"
-                    style="@style/txt_font_12_white"
-                    android:background="@drawable/corner_all_green"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="-10dp"
-                    android:paddingRight="5dp"
-                    android:text="评论>>"/>
         </RelativeLayout>
 
     </LinearLayout>

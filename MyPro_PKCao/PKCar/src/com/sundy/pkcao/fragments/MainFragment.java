@@ -85,7 +85,6 @@ public class MainFragment extends _AbstractFragment {
         lv_main.setPullRefreshEnable(true);
         lv_main.setXListViewListener(ixListViewListener);
 
-
         linear_main_bottom = (LinearLayout) aq.find(R.id.linear_main_bottom).getView();
         aq.id(R.id.btnAdd).clicked(onClick);
         aq.id(R.id.btn_filter_mine).clicked(onClick);
@@ -159,6 +158,7 @@ public class MainFragment extends _AbstractFragment {
         }
     };
 
+    //获取槽点
     private void getCaodians() {
         showProgress(progressbar);
         caodian_query.orderByDescending(Caodian.createdAt);

@@ -62,6 +62,9 @@
         <activity android:name=".activitys.ChatActivity"
                   android:screenOrientation="portrait"/>
 
+        <activity android:name=".activitys.CommentsActivity"
+                  android:screenOrientation="portrait"/>
+
         <activity
                 android:name="cn.sharesdk.framework.ShareSDKUIShell"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"

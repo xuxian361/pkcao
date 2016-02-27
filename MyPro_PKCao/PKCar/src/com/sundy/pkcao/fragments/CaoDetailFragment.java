@@ -19,6 +19,7 @@ import android.widget.*;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
+import com.sundy.pkcao.activitys.CommentsActivity;
 import com.sundy.pkcao.activitys.ScaleImageViewActivity;
 import com.sundy.pkcao.adapters.CommentsAdapter;
 import com.sundy.pkcao.taker.CommonUtility;
@@ -42,6 +43,7 @@ import java.util.*;
 public class CaoDetailFragment extends _AbstractFragment {
 
     private final String TAG = "CaoDetailFragment";
+    private int Video_Image_Height = CommonUtility.SCREEN_WIDTH * 16 / 9;
     private AVObject item;
     private Fragment fragment;
     private View v;
@@ -59,18 +61,6 @@ public class CaoDetailFragment extends _AbstractFragment {
             CommonUtility.showShare(context, data);
         }
     };
-
-    private EmotionEditText contentEdit;
-    private XListView xListView;
-    private ProgressWheel progressbar;
-    private CommentsAdapter adapter;
-    private List commentsList = new ArrayList();
-    private int curPage = 1;
-    private int pageNum = 10;
-    private boolean ishasMore = true;
-    private boolean isRefreshing = false;
-    private String last_updated_time = "";
-    private int Video_Image_Height = CommonUtility.SCREEN_WIDTH * 16 / 9;
 
     public CaoDetailFragment() {
     }
@@ -98,30 +88,12 @@ public class CaoDetailFragment extends _AbstractFragment {
 
     private void init() {
         aq.id(R.id.txt_header_title).text(getString(R.string.detail));
-        progressbar = (ProgressWheel) aq.id(R.id.progressbar).getView();
-        last_updated_time = getString(R.string.just_now);
-
         aq.id(R.id.btn_share).clicked(onClick);
         aq.id(R.id.btn_add).clicked(onClick);
         aq.id(R.id.btn_delete).clicked(onClick);
-        aq.id(R.id.btn_chat).clicked(onClick);
-        aq.id(R.id.sendBtn).clicked(onClick);
-
+        aq.id(R.id.btn_comments).clicked(onClick);
+        aq.id(R.id.txt_check_more_comments).clicked(onClick);
         Video_Image_Height = DensityUtil.px2dip(context, Video_Image_Height);
-
-        contentEdit = (EmotionEditText) aq.id(R.id.textEdit).getView();
-        contentEdit.setOnClickListener(onClick);
-        contentEdit.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() > 0) {
-                    aq.id(R.id.sendBtn).enabled(true);
-                } else {
-                    aq.id(R.id.sendBtn).enabled(false);
-                }
-                super.onTextChanged(s, start, before, count);
-            }
-        });
         try {
             if (type.equals("2"))
                 aq.id(R.id.btn_delete).visible();
@@ -133,53 +105,77 @@ public class CaoDetailFragment extends _AbstractFragment {
         }
         getLikesCount();
         showCaodian();
-
-        if (commentsList != null)
-            commentsList.clear();
-
-        xListView = (XListView) aq.id(R.id.listview).getView();
-        xListView.setPullRefreshEnable(true);
-        xListView.setPullLoadEnable(true);
-        xListView.setXListViewListener(ixListViewListener);
-        adapter = new CommentsAdapter(context, inflater);
-        xListView.setAdapter(adapter);
+        getComments();
     }
 
-    private void onLoad() {
-        xListView.stopRefresh();
-        xListView.stopLoadMore();
-        xListView.setRefreshTime(last_updated_time);
-    }
-
-    private XListView.IXListViewListener ixListViewListener = new XListView.IXListViewListener() {
+    private View.OnClickListener onClick = new View.OnClickListener() {
         @Override
-        public void onRefresh() {
-            ishasMore = true;
-            if (isRefreshing)
-                return;
-            if (commentsList != null)
-                commentsList.clear();
-            xListView.setAdapter(adapter);
-            curPage = 1;
-            last_updated_time = CommonUtility.getLastUpdatedTime();
-
-            getComments();
-            onLoad();
-        }
-
-        @Override
-        public void onLoadMore() {
-            isRefreshing = false;
-            if (ishasMore) {
-                if (commentsList.size() / pageNum == curPage - 1)
-                    return;
-                curPage++;
-                getComments();
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btn_share:
+                    share();
+                    break;
+                case R.id.btn_add:
+                    if (CommonUtility.isLogin(context)) {
+                        likeCaodian();
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case R.id.btn_delete:
+                    delete();
+                    break;
+                case R.id.btn_comments:
+                    goCommentsPage();
+                    break;
+                case R.id.txt_check_more_comments:
+                    goCommentsPage();
+                    break;
+                default:
+                    break;
             }
-            onLoad();
         }
     };
 
+    //获取最多5条评论
+    private void getComments() {
+        AVQuery<AVObject> query = AVQuery.getQuery(Comment.table_name);
+        query.orderByDescending(Comment.createdAt);
+        query.whereEqualTo(Comment.post, item);
+        query.include(Comment.author);
+        query.setLimit(5);
+        query.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> comments, AVException e) {
+                try {
+                    if (e == null) {
+                        if (comments != null && comments.size() != 0) {
+                            aq.id(R.id.linear_comments).visible();
+                            showComments();
+
+                        } else {
+                            aq.id(R.id.linear_comments).invisible();
+                        }
+                    } else {
+                        Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+    }
+
+    //显最多5条评论
+    private void showComments() {
+        LinearLayout linear_comments_content = (LinearLayout) aq.id(R.id.linear_comments_content).getView();
+        linear_comments_content.removeAllViews();
+        View view = inflater.inflate(R.layout.comments_to_item, null);
+        
+
+    }
+
+    //获取"赞"数量
     private void getLikesCount() {
         AVRelation<AVObject> relation = item.getRelation(Caodian.likes);
         relation.getQuery().findInBackground(new FindCallback<AVObject>() {
@@ -201,6 +197,7 @@ public class CaoDetailFragment extends _AbstractFragment {
         });
     }
 
+    //显示槽点内容
     private void showCaodian() {
         aq.id(R.id.txt_title).text(item.getString(Caodian.title));
         aq.id(R.id.txt_content).text(item.getString(Caodian.content));
@@ -353,150 +350,13 @@ public class CaoDetailFragment extends _AbstractFragment {
 
     }
 
-    private View.OnClickListener onClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.btn_share:
-                    share();
-                    break;
-                case R.id.btn_add:
-                    if (CommonUtility.isLogin(context)) {
-                        likeCaodian();
-                    } else {
-                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
-                    }
-                    break;
-                case R.id.btn_delete:
-                    delete();
-                    break;
-                case R.id.btn_chat:
-                    ScrollView scrollView_detial = (ScrollView) aq.id(R.id.scrollView_detial).getView();
-                    RelativeLayout relative_comments = (RelativeLayout) aq.id(R.id.relative_comments).getView();
-                    int visibility = relative_comments.getVisibility();
-                    if (visibility == View.VISIBLE) {
-                        scrollView_detial.setVisibility(View.VISIBLE);
-                        relative_comments.setVisibility(View.GONE);
-                        aq.id(R.id.btn_chat).text(getString(R.string.show_comments));
-                    } else {
-                        scrollView_detial.setVisibility(View.GONE);
-                        relative_comments.setVisibility(View.VISIBLE);
-                        aq.id(R.id.btn_chat).text(getString(R.string.show_content));
-                        if (commentsList != null)
-                            commentsList.clear();
-                        getComments();
-                    }
-                    break;
-                case R.id.textEdit:
-                    scrollToLast();
-                    break;
-                case R.id.sendBtn:
-                    commitComments();
-                    break;
-            }
-        }
-    };
-
-    private void getComments() {
-        showProgress(progressbar);
-        AVQuery<AVObject> query = AVQuery.getQuery(Comment.table_name);
-        query.orderByDescending(Comment.createdAt);
-        query.whereEqualTo(Comment.post, item);
-        query.include(Comment.author);
-        int skip = (curPage - 1) * pageNum;
-        query.setSkip(skip);
-        query.setLimit(pageNum);
-        isRefreshing = true;
-
-        query.findInBackground(new FindCallback<AVObject>() {
-            @Override
-            public void done(List<AVObject> comments, AVException e) {
-                stopProgress(progressbar);
-                isRefreshing = false;
-                onLoad();
-                try {
-                    if (e == null) {
-                        if (comments != null && comments.size() != 0) {
-                            for (int i = 0; i < comments.size(); i++) {
-                                commentsList.add(comments.get(i));
-                            }
-                            if (commentsList.size() % pageNum != 0) {
-                                ishasMore = false;
-                            }
-
-                            adapter.setData(commentsList);
-                            adapter.notifyDataSetChanged();
-                            scrollToLast();
-                        } else {
-                            ishasMore = false;
-                            xListView.setFooterViewText(getString(R.string.no_result));
-                        }
-                    } else {
-                        ishasMore = false;
-                        Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
+    //跳转至评论页
+    private void goCommentsPage() {
+        Intent intent = new Intent(context, CommentsActivity.class);
+        startActivity(intent);
     }
 
-    private void commitComments() {
-        try {
-            String content = contentEdit.getText().toString().trim();
-            if (content.length() == 0)
-                return;
-            showProgress(progressbar);
-            AVUser currentUser = AVUser.getCurrentUser();
-            if (currentUser != null) {
-                //创建一个评论对象
-                AVObject comment = new AVObject(Comment.table_name);
-                comment.put(Comment.content, content);
-                comment.put(Comment.post, item);
-                comment.put(Comment.author, currentUser);
-                comment.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(AVException e) {
-                        stopProgress(progressbar);
-                        if (e == null) {
-                            Toast.makeText(context, getString(R.string.send_success), Toast.LENGTH_SHORT).show();
-                            contentEdit.setText("");
-                            ishasMore = true;
-                            if (isRefreshing)
-                                return;
-                            if (commentsList != null)
-                                commentsList.clear();
-                            xListView.setAdapter(adapter);
-                            curPage = 1;
-                            last_updated_time = CommonUtility.getLastUpdatedTime();
-
-                            getComments();
-                            onLoad();
-                        } else {
-                            Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void scrollToLast() {
-        try {
-            xListView.post(new Runnable() {
-                @Override
-                public void run() {
-                    xListView.smoothScrollToPosition(xListView.getAdapter().getCount() - 1);
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
+    //删除该槽点弹出提示框
     private void delete() {
         View view = inflater.inflate(R.layout.dialog_ok_cancel, null);
         final Dialog dialog = new Dialog(context, R.style.dialog);
@@ -521,6 +381,7 @@ public class CaoDetailFragment extends _AbstractFragment {
         dialog.show();
     }
 
+    //删除该槽点内容
     private void deleteCaodian() {
         item.deleteInBackground(new DeleteCallback() {
             @Override
@@ -528,12 +389,13 @@ public class CaoDetailFragment extends _AbstractFragment {
                 if (e == null) {
                     mCallback.switchContent(new MainFragment());
                 } else {
-
+                    Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
+    //赞
     public void likeCaodian() {
         try {
             AVUser currentUser = AVUser.getCurrentUser();
@@ -547,6 +409,7 @@ public class CaoDetailFragment extends _AbstractFragment {
                             aq.id(R.id.btn_add).background(R.drawable.corner_all_light_blue_strok).enabled(false);
                         } else {
                             aq.id(R.id.btn_add).background(R.drawable.corner_all_white2_strok).enabled(true);
+                            Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -556,6 +419,7 @@ public class CaoDetailFragment extends _AbstractFragment {
         }
     }
 
+    //分享
     private void share() {
         try {
             AVFile caodian_video = item.getAVFile(Caodian.caodian_video);
@@ -635,8 +499,6 @@ public class CaoDetailFragment extends _AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (progressbar != null)
-            progressbar = null;
     }
 
     @Override
