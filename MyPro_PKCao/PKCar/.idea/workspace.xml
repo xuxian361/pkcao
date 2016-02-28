@@ -91,28 +91,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53487273-d380-42de-b9c2-73f86343589c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/tools/HackyViewPager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PKCao.apk" afterPath="$PROJECT_DIR$/PKCao.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$10.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$11.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$12.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$7.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$9.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$MyBroadcastReceiver.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$MyBroadcastReceiver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/cao_detail.xml" afterPath="$PROJECT_DIR$/res/layout/cao_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/service/AddCaodianService.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/service/AddCaodianService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard-project.txt" afterPath="$PROJECT_DIR$/proguard-project.txt" />
     </list>
     <ignored path="pkcao.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -151,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaoDetailFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CaoDetailFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6458753">
-              <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="112" column="10" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="10" />
               <folding>
                 <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="e#2860#2886#0" expanded="true" />
@@ -176,6 +159,16 @@
                 <element signature="method#onDestroy#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="class#MyBroadcastReceiver#0;class#CaoDetailFragment#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="proguard-project.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proguard-project.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35755813">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1939,7 +1932,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/login.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractFragment.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/AddCaoDianFragment.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" />
@@ -1990,6 +1982,7 @@
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/service/AddCaodianService.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/cao_detail.xml" />
+        <option value="$PROJECT_DIR$/proguard-project.txt" />
       </list>
     </option>
   </component>
@@ -2067,10 +2060,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2082,29 +2071,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pkcao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2138,10 +2105,11 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="pkcao" />
     <property name="ExportedModule" value="PKCao" />
     <property name="ExportedApkPath" value="$PROJECT_DIR$/PKCao.apk" />
-    <property name="AndroidRunProguardForReleaseBuild" value="false" />
+    <property name="AndroidRunProguardForReleaseBuild" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/sundy/Documents/Projects/Android_PKCao_Git/MyPro_PKCao/PKCar/res/layout/cao_detail.xml" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="AndroidProguardConfigPaths" value="$PROJECT_DIR$/../../../../../../Android_sdk/android-sdk-macosx/tools/proguard/proguard-android.txt:/Users/sundy/Documents/Projects/Android_PKCao_Git/PKCao/pkcao/MyPro_PKCao/PKCar/proguard-project.txt" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -2474,12 +2442,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="23" width="1234" height="777" extended-state="6" />
+    <frame x="46" y="23" width="1234" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20333838" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39453718" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31335953" sideWeight="0.50042266" order="14" side_tool="true" content_ui="tabs" />
@@ -2489,9 +2457,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18968134" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10925645" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5523521" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2080537" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37632778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2506,7 +2475,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35387886" sideWeight="0.50033134" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45068285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2563,23 +2531,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/service/CacheService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29675812">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/caodian_img.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../../../Android_sdk/android-sdk-macosx/platforms/android-22/data/res/values/attrs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33217993">
@@ -2980,8 +2931,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6458753">
-          <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="10" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="10" />
           <folding>
             <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
             <element signature="e#2860#2886#0" expanded="true" />
@@ -3002,6 +2953,22 @@
             <element signature="method#onDestroy#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="class#MyBroadcastReceiver#0;class#CaoDetailFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/EditPageFakeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33233532">
+          <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proguard-project.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35755813">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
