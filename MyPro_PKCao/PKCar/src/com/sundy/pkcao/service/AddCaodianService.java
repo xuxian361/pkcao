@@ -33,7 +33,7 @@ public class AddCaodianService extends IntentService {
     private ArrayList<String> photoList;
     private String video_thumbnail_path;
 
-    private final int UPLOAD_FILE = 10;
+    private final int UPLOAD_FILE = 10;//10MB
 
     private Handler mHandler = new Handler() {
         @Override
@@ -172,6 +172,7 @@ public class AddCaodianService extends IntentService {
                 }
             }
         }
+        Toast.makeText(getApplicationContext(), getString(R.string.uploading), Toast.LENGTH_SHORT).show();
         caodian.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {

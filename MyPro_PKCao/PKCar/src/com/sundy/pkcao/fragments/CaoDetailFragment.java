@@ -247,29 +247,39 @@ public class CaoDetailFragment extends _AbstractFragment {
         if (caodian_video != null) {
             final String video_url = caodian_video.getUrl();
             if (video_url != null && video_url.length() != 0) {
+                aq.id(R.id.relative_video).visible();
+
                 AVFile thumbnail = item.getAVFile(Caodian.caodian_video_thumbnail);
                 if (thumbnail != null) {
                     String thumbnail_url = thumbnail.getUrl();
                     if (thumbnail_url != null && thumbnail_url.length() != 0) {
-                        aq.id(R.id.relative_video).visible();
 
                         ImageView video_img = aq.id(R.id.img).getImageView();
                         ViewGroup.LayoutParams param = video_img.getLayoutParams();
                         param.height = Video_Image_Height;
                         video_img.setLayoutParams(param);
 
-                        aq.id(R.id.img).image(thumbnail_url).clicked(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                String type = "video/mp4";
-                                Uri uri = Uri.parse(video_url);
-                                intent.setDataAndType(uri, type);
-                                context.startActivity(intent);
-                            }
-                        });
+                        aq.id(R.id.img).image(thumbnail_url);
                     }
+                } else {
+                    ImageView video_img = aq.id(R.id.img).getImageView();
+                    ViewGroup.LayoutParams param = video_img.getLayoutParams();
+                    param.height = Video_Image_Height;
+                    video_img.setLayoutParams(param);
+
+                    aq.id(R.id.img).image(R.drawable.logo);
                 }
+
+                aq.id(R.id.img).clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        String type = "video/mp4";
+                        Uri uri = Uri.parse(video_url);
+                        intent.setDataAndType(uri, type);
+                        context.startActivity(intent);
+                    }
+                });
             }
         }
 
