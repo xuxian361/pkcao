@@ -20,7 +20,7 @@ public class ScaleImageActivity extends _AbstractActivity {
     private View v;
     private ViewPager viewpager;
     private ImageViewPagerAdapter adapter;
-    private int current_position = 1;
+    private int current_position;
 
     public ScaleImageActivity() {
     }
@@ -36,6 +36,7 @@ public class ScaleImageActivity extends _AbstractActivity {
 
     private void init() {
         list = getIntent().getStringArrayListExtra("images");
+        current_position = getIntent().getIntExtra("position", 0);
 
         aq.id(R.id.btn_perious).clicked(onClickListener);
         aq.id(R.id.btn_next).clicked(onClickListener);
@@ -45,10 +46,10 @@ public class ScaleImageActivity extends _AbstractActivity {
         adapter = new ImageViewPagerAdapter(this);
         viewpager.setAdapter(adapter);
         viewpager.setOnPageChangeListener(pageChangeListener);
-
         if (list != null) {
-            aq.id(R.id.txt_count).text(current_position + "/" + list.size());
+            aq.id(R.id.txt_count).text((current_position + 1) + "/" + list.size());
             adapter.setData(list);
+            viewpager.setCurrentItem(current_position);
             adapter.notifyDataSetChanged();
         }
     }

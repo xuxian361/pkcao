@@ -37,8 +37,8 @@
     <string name="just_now">刚刚</string>
     <string name="no_result">没有更多结果!</string>
     <string name="server_error">服务器异常，请稍后再试！</string>
-    <string name="cannot_add_repeat">已+1，不用重复+1!</string>
-    <string name="add_1_failed">+1 失败，请稍后再试!</string>
+    <string name="cannot_add_repeat">已赞，不用重复点赞!</string>
+    <string name="add_1_failed">点赞失败，请稍后再试!</string>
     <string name="exit_confirm">按多一次退出</string>
     <string name="share_success">分享成功!</string>
     <string name="update_success">更新成功,下次登录请使用新密码</string>
@@ -46,8 +46,8 @@
     <string name="user_edit">编辑</string>
     <string name="add_caodian">添加槽点</string>
     <string name="detail">详情</string>
-    <string name="i_like">我 +</string>
-    <string name="ta_like">TA +</string>
+    <string name="i_like">我Like</string>
+    <string name="ta_like">TA Like</string>
     <string name="record">聊天记录</string>
     <string name="fill_password_old">旧密码 (6~16个英文字或者数字)</string>
     <string name="fill_password_new">新密码 (6~16个英文字或者数字)</string>

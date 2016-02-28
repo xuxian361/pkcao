@@ -18,6 +18,7 @@ import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.activitys.CommentsActivity;
+import com.sundy.pkcao.activitys.ScaleImageActivity;
 import com.sundy.pkcao.activitys.ScaleImageViewActivity;
 import com.sundy.pkcao.adapters.CommentsAdapter;
 import com.sundy.pkcao.taker.CommonUtility;
@@ -285,109 +286,61 @@ public class CaoDetailFragment extends _AbstractFragment {
         AVFile img4 = item.getAVFile(Caodian.img4);
         AVFile img5 = item.getAVFile(Caodian.img5);
 
-        final List<String> images = new ArrayList<String>();
+        final ArrayList<String> images = new ArrayList<String>();
         if (img1 != null) {
             final String img1_url = img1.getUrl();
             if (img1_url != null && img1_url.length() != 0) {
-                ImageView v1 = new ImageView(context);
-                AQuery aq_v1 = new AQuery(v1);
                 images.add(img1_url);
-                aq_v1.image(img1_url).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), ScaleImageViewActivity.class);
-                        intent.putExtra("image", img1_url);
-                        startActivity(intent);
-                    }
-                });
-                v1.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                v1.setLayoutParams(params);
-                linear_img.addView(v1);
-                linear_img.setVisibility(View.VISIBLE);
             }
         }
         if (img2 != null) {
             final String img2_url = img2.getUrl();
             if (img2_url != null && img2_url.length() != 0) {
-                ImageView v2 = new ImageView(context);
-                AQuery aq_v2 = new AQuery(v2);
                 images.add(img2_url);
-                aq_v2.image(img2_url).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), ScaleImageViewActivity.class);
-                        intent.putExtra("image", img2_url);
-                        startActivity(intent);
-                    }
-                });
-                v2.setScaleType(ImageView.ScaleType.FIT_START);
-                v2.setLayoutParams(params);
-                linear_img.addView(v2);
-                linear_img.setVisibility(View.VISIBLE);
             }
         }
         if (img3 != null) {
             final String img3_url = img3.getUrl();
             if (img3_url != null && img3_url.length() != 0) {
-                ImageView v3 = new ImageView(context);
-                AQuery aq_v3 = new AQuery(v3);
                 images.add(img3_url);
-                aq_v3.image(img3_url).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), ScaleImageViewActivity.class);
-                        intent.putExtra("image", img3_url);
-                        startActivity(intent);
-                    }
-                });
-                v3.setScaleType(ImageView.ScaleType.FIT_START);
-                v3.setLayoutParams(params);
-                linear_img.addView(v3);
-                linear_img.setVisibility(View.VISIBLE);
             }
         }
         if (img4 != null) {
             final String img4_url = img4.getUrl();
             if (img4_url != null && img4_url.length() != 0) {
-                ImageView v4 = new ImageView(context);
-                AQuery aq_v4 = new AQuery(v4);
                 images.add(img4_url);
-                aq_v4.image(img4_url).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), ScaleImageViewActivity.class);
-                        intent.putExtra("image", img4_url);
-                        startActivity(intent);
-                    }
-                });
-                v4.setScaleType(ImageView.ScaleType.FIT_START);
-                v4.setLayoutParams(params);
-                linear_img.addView(v4);
-                linear_img.setVisibility(View.VISIBLE);
             }
         }
         if (img5 != null) {
             final String img5_url = img5.getUrl();
             if (img5_url != null && img5_url.length() != 0) {
-                ImageView v5 = new ImageView(context);
-                AQuery aq_v5 = new AQuery(v5);
                 images.add(img5_url);
-                aq_v5.image(img5_url).clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), ScaleImageViewActivity.class);
-                        intent.putExtra("image", img5_url);
-                        startActivity(intent);
-                    }
-                });
-                v5.setScaleType(ImageView.ScaleType.FIT_START);
-                v5.setLayoutParams(params);
-                linear_img.addView(v5);
-                linear_img.setVisibility(View.VISIBLE);
             }
         }
 
-
+        for (int i = 0; i < images.size(); i++) {
+            String imgUrl = images.get(i);
+            if (imgUrl != null && imgUrl.length() != 0) {
+                linear_img.setVisibility(View.VISIBLE);
+                ImageView imageView = new ImageView(context);
+                AQuery aq_v1 = new AQuery(imageView);
+                final int finalI = i;
+                aq_v1.image(imgUrl).clicked(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), ScaleImageActivity.class);
+                        intent.putStringArrayListExtra("images", images);
+                        intent.putExtra("position", finalI);
+                        startActivity(intent);
+                    }
+                });
+                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                imageView.setLayoutParams(params);
+                linear_img.addView(imageView);
+            } else {
+                linear_img.setVisibility(View.GONE);
+            }
+        }
     }
 
     //跳转至评论页
