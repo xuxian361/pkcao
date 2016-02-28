@@ -1,9 +1,7 @@
 package com.sundy.pkcao.fragments;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.*;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -61,6 +59,7 @@ public class CaoDetailFragment extends _AbstractFragment {
             CommonUtility.showShare(context, data);
         }
     };
+    private MyBroadcastReceiver receiver;
 
     public CaoDetailFragment() {
     }
@@ -106,6 +105,22 @@ public class CaoDetailFragment extends _AbstractFragment {
         getLikesCount();
         showCaodian();
         getComments();
+
+        registerBroadcast();
+    }
+
+    //注册广播
+    private void registerBroadcast() {
+        receiver = new MyBroadcastReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.sundy.pkcao.fragments.CaoDetailFragment");
+        context.registerReceiver(receiver, filter);
+    }
+
+    //解注册广播
+    private void unregisterBroadcast() {
+        if (receiver != null)
+            context.unregisterReceiver(receiver);
     }
 
     private View.OnClickListener onClick = new View.OnClickListener() {
@@ -158,7 +173,6 @@ public class CaoDetailFragment extends _AbstractFragment {
                 try {
                     if (e == null) {
                         if (comments != null && comments.size() != 0) {
-                            Log.e("sundy", "-------->size = " + comments.size());
                             aq.id(R.id.linear_comments).visible();
                             showComments(comments);
                         } else {
@@ -531,6 +545,17 @@ public class CaoDetailFragment extends _AbstractFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        unregisterBroadcast();
+    }
+
+    private class MyBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String msg = intent.getStringExtra("msg");
+            if (msg.equals("refreshComments")) {
+                getComments();
+            }
+        }
     }
 
 }

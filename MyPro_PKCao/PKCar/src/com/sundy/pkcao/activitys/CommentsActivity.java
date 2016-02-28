@@ -1,5 +1,6 @@
 package com.sundy.pkcao.activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -129,6 +130,7 @@ public class CommentsActivity extends _AbstractActivity {
                     if (avObject == null)
                         return;
                     AVQuery<AVObject> query = AVQuery.getQuery(Comment.table_name);
+                    query.orderByDescending(Comment.createdAt);
                     query.whereEqualTo(Comment.post, avObject);
                     query.include(Comment.author);
                     int skip = (curPage - 1) * pageNum;
@@ -154,7 +156,7 @@ public class CommentsActivity extends _AbstractActivity {
 
                                         adapter.setData(commentsList);
                                         adapter.notifyDataSetChanged();
-                                        scrollToLast();
+                                        scrollToFirst();
                                     } else {
                                         ishasMore = false;
                                         xListView.setFooterViewText(getString(R.string.no_result));
@@ -201,6 +203,7 @@ public class CommentsActivity extends _AbstractActivity {
                                 public void done(AVException e) {
                                     stopProgress(progressbar);
                                     if (e == null) {
+                                        sendBroadcast2RefreshComments();
                                         Toast.makeText(CommentsActivity.this, getString(R.string.send_success), Toast.LENGTH_SHORT).show();
                                         contentEdit.setText("");
                                         ishasMore = true;
@@ -235,7 +238,7 @@ public class CommentsActivity extends _AbstractActivity {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.textEdit:
-                    scrollToLast();
+                    scrollToFirst();
                     break;
                 case R.id.sendBtn:
                     commitComments();
@@ -247,19 +250,27 @@ public class CommentsActivity extends _AbstractActivity {
         }
     };
 
-    //ListView 滚动到最后一条
-    private void scrollToLast() {
+    //ListView 滚动到第一条
+    private void scrollToFirst() {
         try {
             xListView.post(new Runnable() {
                 @Override
                 public void run() {
-                    xListView.smoothScrollToPosition(xListView.getAdapter().getCount() - 1);
+                    xListView.smoothScrollToPosition(0);
                 }
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    //发送广播更新CaoDetailFragment 的Comments
+    private void sendBroadcast2RefreshComments() {
+        Intent intent = new Intent("com.sundy.pkcao.fragments.CaoDetailFragment");
+        intent.putExtra("msg", "refreshComments");
+        sendBroadcast(intent);
+    }
+
 
     private void showProgress(ProgressWheel progressWheel) {
         if (progressWheel != null) {

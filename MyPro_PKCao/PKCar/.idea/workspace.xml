@@ -91,37 +91,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53487273-d380-42de-b9c2-73f86343589c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/item_comments.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CommentsAdapter$1.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$layout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/slidingmenu/lib/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$menu.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$xml.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ChatActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ChatActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ChatActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ChatActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$6.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/EditImageActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/EditImageActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/EditImageActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/EditImageActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/LoadingActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/LoadingActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageViewActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageViewActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageViewActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/ScaleImageViewActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CommentsAdapter$ViewHolder.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CommentsAdapter$ViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CommentsAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CommentsAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/AddCaoDianFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/AddCaoDianFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$10.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$11.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$11.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$12.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$12.class" />
@@ -138,40 +119,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$9.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/ILikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/ILikeFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RecordFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RecordFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/TaLikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/TaLikeFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/_AbstractFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/_AbstractFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$2$1$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$2$1$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$2$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$2$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_comments.xml" afterPath="$PROJECT_DIR$/res/layout/activity_comments.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/cao_detail.xml" afterPath="$PROJECT_DIR$/res/layout/cao_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values-en/strings.xml" afterPath="$PROJECT_DIR$/res/values-en/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/CommentsActivity.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/CommentsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Caodian.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Caodian.java" />
     </list>
     <ignored path="pkcao.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -210,16 +160,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaoDetailFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CaoDetailFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.074074">
-              <caret line="198" column="13" selection-start-line="184" selection-start-column="12" selection-end-line="198" selection-end-column="13" />
+            <state vertical-scroll-proportion="12.061905">
+              <caret line="554" column="0" selection-start-line="554" selection-start-column="0" selection-end-line="554" selection-end-column="0" />
               <folding>
                 <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#5238#6107#0" expanded="true" />
-                <element signature="e#6106#6107#0" expanded="true" />
+                <element signature="method#onCreateView#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#registerBroadcast#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="method#getComments#0;class#CaoDetailFragment#0" expanded="false" />
+                <element signature="e#5649#6436#0" expanded="true" />
+                <element signature="e#6435#6436#0" expanded="true" />
+                <element signature="method#showComments#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#goCommentsPage#0;class#CaoDetailFragment#0" expanded="false" />
@@ -228,57 +181,7 @@
                 <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
                 <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_comments.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/item_comments.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.4545455">
-              <caret line="54" column="41" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentsActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/CommentsActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27649006">
-              <caret line="209" column="43" selection-start-line="209" selection-start-column="43" selection-end-line="209" selection-end-column="43" />
-              <folding>
-                <element signature="e#1561#1589#0" expanded="true" />
-                <element signature="e#1693#1721#0" expanded="true" />
-                <element signature="e#1980#2395#0" expanded="true" />
-                <element signature="e#2394#2395#0" expanded="true" />
-                <element signature="method#onLoad#0;class#CommentsActivity#0" expanded="false" />
-                <element signature="e#4007#6578#0" expanded="true" />
-                <element signature="e#4647#6389#0" expanded="true" />
-                <element signature="e#5869#5898#0" expanded="true" />
-                <element signature="e#6109#6141#0" expanded="true" />
-                <element signature="e#6388#6389#0" expanded="true" />
-                <element signature="e#6475#6507#0" expanded="true" />
-                <element signature="e#6577#6578#0" expanded="true" />
-                <element signature="e#6921#9299#0" expanded="true" />
-                <element signature="e#7702#9064#0" expanded="true" />
-                <element signature="e#8025#8057#0" expanded="true" />
-                <element signature="e#8901#8933#0" expanded="true" />
-                <element signature="e#9063#9064#0" expanded="true" />
-                <element signature="e#9184#9216#0" expanded="true" />
-                <element signature="e#9298#9299#0" expanded="true" />
-                <element signature="e#9427#9871#0" expanded="true" />
-                <element signature="e#9870#9871#0" expanded="true" />
-                <element signature="method#scrollToLast#0;class#CommentsActivity#0" expanded="false" />
-                <element signature="e#9972#10175#0" expanded="true" />
-                <element signature="e#10174#10175#0" expanded="true" />
-                <element signature="method#showProgress#0;class#CommentsActivity#0" expanded="false" />
-                <element signature="method#stopProgress#0;class#CommentsActivity#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#CommentsActivity#0" expanded="false" />
+                <element signature="method#onDestroy#0;class#CaoDetailFragment#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2090,10 +1993,10 @@
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Caodian.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_comments.xml" />
         <option value="$PROJECT_DIR$/res/layout/cao_detail.xml" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/CommentsActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
       </list>
     </option>
   </component>
@@ -2593,7 +2496,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18968134" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22306526" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5978756" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2080537" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08497724" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3072,27 +2975,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.074074">
-          <caret line="198" column="13" selection-start-line="184" selection-start-column="12" selection-end-line="198" selection-end-column="13" />
-          <folding>
-            <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#5238#6107#0" expanded="true" />
-            <element signature="e#6106#6107#0" expanded="true" />
-            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#goCommentsPage#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.489083">
@@ -3111,36 +2993,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/CommentsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27649006">
-          <caret line="209" column="43" selection-start-line="209" selection-start-column="43" selection-end-line="209" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.35238096">
+          <caret line="296" column="5" selection-start-line="296" selection-start-column="5" selection-end-line="296" selection-end-column="5" />
           <folding>
-            <element signature="e#1561#1589#0" expanded="true" />
-            <element signature="e#1693#1721#0" expanded="true" />
-            <element signature="e#1980#2395#0" expanded="true" />
-            <element signature="e#2394#2395#0" expanded="true" />
+            <element signature="e#1592#1620#0" expanded="true" />
+            <element signature="e#1724#1752#0" expanded="true" />
+            <element signature="e#2011#2426#0" expanded="true" />
+            <element signature="e#2425#2426#0" expanded="true" />
             <element signature="method#onLoad#0;class#CommentsActivity#0" expanded="false" />
-            <element signature="e#4007#6578#0" expanded="true" />
-            <element signature="e#4647#6389#0" expanded="true" />
-            <element signature="e#5869#5898#0" expanded="true" />
-            <element signature="e#6109#6141#0" expanded="true" />
-            <element signature="e#6388#6389#0" expanded="true" />
-            <element signature="e#6475#6507#0" expanded="true" />
-            <element signature="e#6577#6578#0" expanded="true" />
-            <element signature="e#6921#9299#0" expanded="true" />
-            <element signature="e#7702#9064#0" expanded="true" />
-            <element signature="e#8025#8057#0" expanded="true" />
-            <element signature="e#8901#8933#0" expanded="true" />
-            <element signature="e#9063#9064#0" expanded="true" />
-            <element signature="e#9184#9216#0" expanded="true" />
-            <element signature="e#9298#9299#0" expanded="true" />
-            <element signature="e#9427#9871#0" expanded="true" />
-            <element signature="e#9870#9871#0" expanded="true" />
-            <element signature="method#scrollToLast#0;class#CommentsActivity#0" expanded="false" />
-            <element signature="e#9972#10175#0" expanded="true" />
-            <element signature="e#10174#10175#0" expanded="true" />
+            <element signature="class#3070:3831" expanded="false" />
+            <element signature="method#getComments#0;class#CommentsActivity#0" expanded="false" />
+            <element signature="e#4038#6674#0" expanded="true" />
+            <element signature="e#4742#6485#0" expanded="true" />
+            <element signature="e#5965#5994#0" expanded="true" />
+            <element signature="e#6205#6237#0" expanded="true" />
+            <element signature="e#6484#6485#0" expanded="true" />
+            <element signature="e#6571#6603#0" expanded="true" />
+            <element signature="e#6673#6674#0" expanded="true" />
+            <element signature="e#7017#9468#0" expanded="true" />
+            <element signature="e#7798#9233#0" expanded="true" />
+            <element signature="e#8194#8226#0" expanded="true" />
+            <element signature="e#9070#9102#0" expanded="true" />
+            <element signature="e#9232#9233#0" expanded="true" />
+            <element signature="e#9353#9385#0" expanded="true" />
+            <element signature="e#9467#9468#0" expanded="true" />
+            <element signature="method#scrollToFirst#0;class#CommentsActivity#0" expanded="false" />
+            <element signature="e#10142#10309#0" expanded="true" />
+            <element signature="e#10308#10309#0" expanded="true" />
             <element signature="method#showProgress#0;class#CommentsActivity#0" expanded="false" />
             <element signature="method#stopProgress#0;class#CommentsActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#CommentsActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="12.061905">
+          <caret line="554" column="0" selection-start-line="554" selection-start-column="0" selection-end-line="554" selection-end-column="0" />
+          <folding>
+            <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#registerBroadcast#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getComments#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="e#5649#6436#0" expanded="true" />
+            <element signature="e#6435#6436#0" expanded="true" />
+            <element signature="method#showComments#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#goCommentsPage#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#CaoDetailFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
