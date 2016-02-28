@@ -219,6 +219,7 @@
     <string name="uploading_caodian">您的槽点正在上传中,请等待片刻!</string>
     <string name="uploading">上传中</string>
     <string name="edit_image">图片编辑</string>
+    <string name="comments">评论</string>
     <!--leancloud end-->
 
 </resources>

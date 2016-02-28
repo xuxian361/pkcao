@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
@@ -62,51 +63,35 @@ public class CommentsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        ViewHolder holder = null;
+        if (view == null) {
+            view = inflater.inflate(R.layout.item_comments, viewGroup, false);
+            holder = new ViewHolder();
+            AQuery aq = new AQuery(view);
+            holder.img = (CircleImageView) aq.id(R.id.img).getImageView();
+            holder.txt_username = aq.id(R.id.txt_username).getTextView();
+            holder.txt_comment = aq.id(R.id.txt_comment).getTextView();
+            holder.txt_date = aq.id(R.id.txt_date).getTextView();
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
         try {
-            ViewHolder holder = null;
             AVObject comment = (AVObject) list.get(i);
-            AVObject user = comment.getAVObject(Comment.author);
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            if (view == null) {
-                AVUser currentUser = AVUser.getCurrentUser();
-                if (currentUser != null) {
-                    if (currentUser.equals(user)) {
-                        view = inflater.inflate(R.layout.comments_to_item, null);
-                    } else {
-                        view = inflater.inflate(R.layout.comments_from_item, null);
-                    }
-                } else {
-                    view = inflater.inflate(R.layout.comments_from_item, null);
-                }
-                holder = new ViewHolder();
-                AQuery aq = new AQuery(view);
-                holder.img = (CircleImageView) aq.id(R.id.img).getView();
-                holder.txt_content = aq.id(R.id.txt_content).getTextView();
-                holder.txt_date = aq.id(R.id.txt_date).getTextView();
-
-                view.setTag(holder);
-            } else {
-                holder = (ViewHolder) view.getTag();
-            }
-
             if (comment != null) {
-                holder.txt_content.setText(comment.getString(Comment.content));
-                holder.txt_date.setText(CommonUtility.formatDate2String(comment.getCreatedAt()));
-                AQuery aq_img = new AQuery(holder.img);
-
+                AVObject user = comment.getAVObject(Comment.author);
                 AVFile img_file = user.getAVFile(User.user_img);
                 String user_img = img_file.getUrl();
+                AQuery aq_img = new AQuery(holder.img);
                 if (user_img != null && user_img.length() != 0) {
-                    aq_img.image(user_img);
+                    aq_img.id(R.id.img).image(user_img);
                 } else {
-                    aq_img.image(R.drawable.icon_profile);
+                    aq_img.id(R.id.img).image(R.drawable.icon_profile);
                 }
-                aq_img.clicked(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Log.e("sundy", "------------click ");
-                    }
-                });
+
+                holder.txt_username.setText(user.getString(User.username));
+                holder.txt_comment.setText((comment.getString(Comment.content)));
+                holder.txt_date.setText(CommonUtility.formatDate2String(comment.getCreatedAt()));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -114,8 +99,8 @@ public class CommentsAdapter extends BaseAdapter {
         return view;
     }
 
-    class ViewHolder {
-        TextView txt_content, txt_date;
+    static class ViewHolder {
+        TextView txt_username, txt_comment, txt_date;
         CircleImageView img;
     }
 }

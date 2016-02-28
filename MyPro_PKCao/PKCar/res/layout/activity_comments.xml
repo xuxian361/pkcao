@@ -5,10 +5,31 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include android:layout_width="match_parent"
-             android:layout_height="60dp"
-             layout="@layout/topbar_back"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
 
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_header_title"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/grey"
+                android:gravity="center"
+        />
+        <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:id="@+id/btnBack"
+                android:src="@drawable/icon_back"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="5dp"
+                android:padding="7dp"/>
+    </RelativeLayout>
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,33 +54,8 @@
                 android:background="@drawable/home_bg_bottombar"
                 android:orientation="vertical">
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/chatBottomHeight"
-                    android:orientation="horizontal">
+            <include layout="@layout/chat_bottom_text_layout"/>
 
-                <LinearLayout
-                        android:id="@+id/chatBottomLeftLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical">
-
-                    <Button
-                            android:id="@+id/showEmotionBtn"
-                            android:layout_width="@dimen/chatBottomBtnSize"
-                            android:layout_height="@dimen/chatBottomBtnSize"
-                            android:layout_marginLeft="3dp"
-                            android:background="@drawable/btn_chat_emo_selector"
-                            android:gravity="center"/>
-
-                </LinearLayout>
-
-                <include layout="@layout/chat_bottom_text_layout"/>
-
-                <include layout="@layout/chat_bottom_record_layout"/>
-            </LinearLayout>
-
-            <include layout="@layout/chat_bottom_more_layout"/>
         </LinearLayout>
 
         <com.sundy.pkcao.tools.ProgressWheel

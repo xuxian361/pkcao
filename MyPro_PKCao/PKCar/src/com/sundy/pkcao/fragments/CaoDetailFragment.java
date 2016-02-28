@@ -119,17 +119,25 @@ public class CaoDetailFragment extends _AbstractFragment {
                     if (CommonUtility.isLogin(context)) {
                         likeCaodian();
                     } else {
-                        Toast.makeText(context, context.getString(R.string.please_login), Toast.LENGTH_SHORT).show();
+                        mCallback.addContent(new LoginFragment());
                     }
                     break;
                 case R.id.btn_delete:
                     delete();
                     break;
                 case R.id.btn_comments:
-                    goCommentsPage();
+                    if (CommonUtility.isLogin(context)) {
+                        goCommentsPage();
+                    } else {
+                        mCallback.addContent(new LoginFragment());
+                    }
                     break;
                 case R.id.txt_check_more_comments:
-                    goCommentsPage();
+                    if (CommonUtility.isLogin(context)) {
+                        goCommentsPage();
+                    } else {
+                        mCallback.addContent(new LoginFragment());
+                    }
                     break;
                 default:
                     break;
@@ -150,9 +158,9 @@ public class CaoDetailFragment extends _AbstractFragment {
                 try {
                     if (e == null) {
                         if (comments != null && comments.size() != 0) {
+                            Log.e("sundy", "-------->size = " + comments.size());
                             aq.id(R.id.linear_comments).visible();
-                            showComments();
-
+                            showComments(comments);
                         } else {
                             aq.id(R.id.linear_comments).invisible();
                         }
@@ -167,12 +175,30 @@ public class CaoDetailFragment extends _AbstractFragment {
     }
 
     //显最多5条评论
-    private void showComments() {
+    private void showComments(List<AVObject> comments) {
         LinearLayout linear_comments_content = (LinearLayout) aq.id(R.id.linear_comments_content).getView();
         linear_comments_content.removeAllViews();
-        View view = inflater.inflate(R.layout.comments_to_item, null);
-        
+        for (int i = 0; i < comments.size(); i++) {
+            View view = inflater.inflate(R.layout.item_comments, null);
+            AQuery aq1 = new AQuery(view);
 
+            AVObject comment = comments.get(i);
+            if (comment != null) {
+                AVObject user = comment.getAVObject(Comment.author);
+                AVFile img_file = user.getAVFile(User.user_img);
+                String user_img = img_file.getUrl();
+                if (user_img != null && user_img.length() != 0) {
+                    aq1.id(R.id.img).image(user_img);
+                } else {
+                    aq1.id(R.id.img).image(R.drawable.icon_profile);
+                }
+
+                aq1.id(R.id.txt_username).text(user.getString(User.username));
+                aq1.id(R.id.txt_comment).text(comment.getString(Comment.content));
+                aq1.id(R.id.txt_date).text(CommonUtility.formatDate2String(comment.getCreatedAt()));
+            }
+            linear_comments_content.addView(view);
+        }
     }
 
     //获取"赞"数量
@@ -260,7 +286,7 @@ public class CaoDetailFragment extends _AbstractFragment {
                         startActivity(intent);
                     }
                 });
-                v1.setScaleType(ImageView.ScaleType.FIT_START);
+                v1.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 v1.setLayoutParams(params);
                 linear_img.addView(v1);
                 linear_img.setVisibility(View.VISIBLE);
@@ -353,6 +379,7 @@ public class CaoDetailFragment extends _AbstractFragment {
     //跳转至评论页
     private void goCommentsPage() {
         Intent intent = new Intent(context, CommentsActivity.class);
+        intent.putExtra(Caodian.caodian_id, item.getObjectId());
         startActivity(intent);
     }
 
