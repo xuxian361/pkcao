@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.androidquery.AQuery;
 import com.avos.avoscloud.*;
-import com.baidu.frontia.framework.IModule;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
 import com.sundy.pkcao.tools.DensityUtil;

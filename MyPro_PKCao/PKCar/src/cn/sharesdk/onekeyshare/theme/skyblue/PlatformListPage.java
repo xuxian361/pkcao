@@ -19,15 +19,15 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.PlatformListFakeActivity;
 
-import static cn.sharesdk.framework.utils.R.getLayoutRes;
-import static cn.sharesdk.framework.utils.R.getStringRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getLayoutRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
 
 public class PlatformListPage extends PlatformListFakeActivity implements View.OnClickListener {
 	private PlatformGridViewAdapter gridViewAdapter;
 
 	public void onCreate() {
 		super.onCreate();
-		activity.setContentView(getLayoutRes(activity, "skyblue_share_platform_list"));
+		activity.setContentView(getLayoutRes(activity, "ssdk_oks_skyblue_share_platform_list"));
 
 		initView();
 	}
@@ -83,7 +83,7 @@ public class PlatformListPage extends PlatformListFakeActivity implements View.O
 
 		List<Object> checkedPlatforms = gridViewAdapter.getCheckedItems();
 		if(checkedPlatforms.size() == 0){
-			Toast.makeText(activity, getStringRes(activity, "select_one_plat_at_least"), Toast.LENGTH_SHORT).show();
+			Toast.makeText(activity, getStringRes(activity, "ssdk_oks_select_one_plat_at_least"), Toast.LENGTH_SHORT).show();
 			return;
 		}
 

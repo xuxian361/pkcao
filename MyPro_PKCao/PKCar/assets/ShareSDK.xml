@@ -62,7 +62,7 @@
             SortId="1"
             AppKey="568898243"
             AppSecret="38a4f8204cc784f81f9f0daaf31e02e3"
-            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             ShareByAppClient="false"
             Enable="false"/>
 
@@ -71,7 +71,7 @@
             SortId="2"
             AppKey="1104590004"
             AppSecret="Mn9bYvsAxHOeSnXr"
-            RedirectUri="http://a.app.qq.com/o/simple.jsp?pkgname=com.sundy.pkcaodian"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
@@ -132,7 +132,7 @@
             SortId="8"
             ConsumerKey="896919783684513"
             ConsumerSecret="f8f17b6467abf5bd6cb2ddf498d56877"
-            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <Twitter
@@ -140,8 +140,8 @@
             SortId="9"
             ConsumerKey="TKantJ5z9s7P82pAjzSWLe5cy"
             ConsumerSecret="Eq6g48dFwURskGlAFCq5Y4WqTwl7kfW3aFYKQ6KwG82trbSBwD"
-            CallbackUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
-            Enable="false"/>
+            CallbackUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
+            Enable="true"/>
 
     <Renren
             Id="10"
@@ -156,7 +156,7 @@
             SortId="11"
             AppKey="358443394194887cee81ff5890870c7c"
             AppSecret="da32179d859c016169f66d90b6db2a23"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <Email
@@ -174,7 +174,7 @@
             SortId="16"
             ApiKey="02e2cbe5ca06de5908a863b15e149b0b"
             Secret="9f1e7b4f71304f2f"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <YouDao
@@ -183,7 +183,7 @@
             HostType="product"
             ConsumerKey="dcde25dca105bcc36884ed4534dab940"
             ConsumerSecret="d98217b4020e7f1874263795f44838fe"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <SohuSuishenkan
@@ -191,7 +191,7 @@
             SortId="18"
             AppKey="e16680a815134504b746c86e08a19db0"
             AppSecret="b8eec53707c3976efc91614dd16ef81c"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <!-- 
@@ -218,7 +218,7 @@
             SortId="20"
             ApiKey="ejo5ibkye3vo"
             SecretKey="cC7B2jpxITqPLZ5M"
-            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <GooglePlus
@@ -231,7 +231,7 @@
             SortId="22"
             ClientID="G0ZI20FM30SJAJTX2RIBGD05QV1NE2KVIM2SPXML2XUJNXEU"
             ClientSecret="3XHQNSMMHIFBYOLWEPONNV4DOTCDBQH0AEMVGCBG0MZ32XNU"
-            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <Pinterest
@@ -245,7 +245,7 @@
             SortId="24"
             ApiKey="33d833ee6b6fca49943363282dd313dd"
             ApiSecret="3a2c5b42a8fbb8bb"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <Tumblr
@@ -253,7 +253,7 @@
             SortId="25"
             OAuthConsumerKey="2QUXqO9fcgGdtGG1FcvML6ZunIQzAEL8xY6hIaxdJnDti2DYwM"
             SecretKey="3Rt0sPFj7u2g39mEVB3IBpOzKnM3JnTtxX2bao2JKk4VV1gtNo"
-            CallbackUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            CallbackUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <Dropbox
@@ -261,7 +261,7 @@
             SortId="26"
             AppKey="i5vw2mex1zcgjcj"
             AppSecret="3i9xifsgb4omr0s"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <VKontakte
@@ -275,7 +275,7 @@
             SortId="28"
             ClientId="ff68e3216b4f4f989121aa1c2962d058"
             ClientSecret="1b2e82f110264869b3505c3fe34e31a1"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <!-- 
@@ -309,7 +309,7 @@
             SortId="31"
             AppKey="EEEE9578D1D431D3215D8C21BF5357E3"
             AppSecret="5EDE59F37B3EFA8F65EEFB9976A4E933"
-            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUri="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 
     <Line
@@ -357,6 +357,6 @@
             SortId="39"
             ConsumerKey="107704292745179"
             ConsumerSecret="38053202e1a5fe26c80c753071f0b573"
-            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao-1-1.0.html"
+            RedirectUrl="http://apk.91.com/Soft/Android/com.sundy.pkcao.html"
             Enable="true"/>
 </DevInfor>

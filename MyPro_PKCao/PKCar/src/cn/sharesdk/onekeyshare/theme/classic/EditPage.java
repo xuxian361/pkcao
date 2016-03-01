@@ -8,12 +8,12 @@
 
 package cn.sharesdk.onekeyshare.theme.classic;
 
-import static cn.sharesdk.framework.utils.BitmapHelper.blur;
-import static cn.sharesdk.framework.utils.BitmapHelper.captureView;
-import static cn.sharesdk.framework.utils.R.dipToPx;
-import static cn.sharesdk.framework.utils.R.getBitmapRes;
-import static cn.sharesdk.framework.utils.R.getScreenWidth;
-import static cn.sharesdk.framework.utils.R.getStringRes;
+import static com.mob.tools.utils.BitmapHelper.blur;
+import static com.mob.tools.utils.BitmapHelper.captureView;
+import static com.mob.tools.utils.R.dipToPx;
+import static com.mob.tools.utils.R.getScreenWidth;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +47,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,10 +55,11 @@ import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.TitleLayout;
-import cn.sharesdk.framework.utils.UIHandler;
 import cn.sharesdk.onekeyshare.EditPageFakeActivity;
 import cn.sharesdk.onekeyshare.PicViewer;
 import cn.sharesdk.onekeyshare.ShareCore;
+
+import com.mob.tools.utils.UIHandler;
 
 /**
  * Photo-text Sharing will be handling in this page
@@ -82,6 +84,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	private ImageInfo imgInfo;
 	// shared image container
 	private ImageView ivImage;
+	private ProgressBar progressBar;
 	private Bitmap image;
 	private LinearLayout llPlat;
 //	private LinearLayout llAt;
@@ -109,7 +112,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			return;
 		}
 
-		genBackground();
+		getBackground();
 		activity.setContentView(getPageView());
 		onTextChanged(etContent.getText(), 0, etContent.length(), 0);
 		showThumb();
@@ -117,31 +120,35 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		// requests platform list and remove platforms share in their clients
 		new Thread(){
 			public void run() {
-				platformList = ShareSDK.getPlatformList();
-				if (platformList == null) {
-					return;
-				}
-
-				ArrayList<Platform> list = new ArrayList<Platform>();
-				for (Platform plat : platformList) {
-					String name = plat.getName();
-					if ((plat instanceof CustomPlatform)
-							|| ShareCore.isUseClientToShare(name)) {
-						continue;
+				try {
+					platformList = ShareSDK.getPlatformList();
+					if (platformList == null) {
+						return;
 					}
-					list.add(plat);
-				}
-				platformList = new Platform[list.size()];
-				for (int i = 0; i < platformList.length; i++) {
-					platformList[i] = list.get(i);
-				}
 
-				UIHandler.sendEmptyMessage(1, new Callback() {
-					public boolean handleMessage(Message msg) {
-						afterPlatformListGot();
-						return false;
+					ArrayList<Platform> list = new ArrayList<Platform>();
+					for (Platform plat : platformList) {
+						String name = plat.getName();
+						if ((plat instanceof CustomPlatform)
+								|| ShareCore.isUseClientToShare(name)) {
+							continue;
+						}
+						list.add(plat);
 					}
-				});
+					platformList = new Platform[list.size()];
+					for (int i = 0; i < platformList.length; i++) {
+						platformList[i] = list.get(i);
+					}
+
+					UIHandler.sendEmptyMessage(1, new Callback() {
+						public boolean handleMessage(Message msg) {
+							afterPlatformListGot();
+							return false;
+						}
+					});
+				} catch (Throwable t) {
+					t.printStackTrace();
+				}
 			}
 		}.start();
 	}
@@ -176,18 +183,19 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	// title bar
 	private TitleLayout getPageTitle() {
 		llTitle = new TitleLayout(getContext());
-		llTitle.setId(1);
-//		int resId = getBitmapRes(activity, "title_back");
-//		if (resId > 0) {
-//			llTitle.setBackgroundResource(resId);
-//		}
+		llTitle.setId(22222);
+		int resId = getBitmapRes(activity, "title_back");
+		if (resId > 0) {
+			llTitle.setBackgroundResource(resId);
+		}
 		llTitle.getBtnBack().setOnClickListener(this);
-		int resId = getStringRes(activity, "multi_share");
+
+		resId = getStringRes(activity, "ssdk_oks_multi_share");
 		if (resId > 0) {
 			llTitle.getTvTitle().setText(resId);
 		}
 		llTitle.getBtnRight().setVisibility(View.VISIBLE);
-		resId = getStringRes(activity, "share");
+		resId = getStringRes(activity, "ssdk_oks_share");
 		if (resId > 0) {
 			llTitle.getBtnRight().setText(resId);
 		}
@@ -206,7 +214,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	private LinearLayout getPageBody() {
 		llBody = new LinearLayout(getContext());
 		llBody.setId(2);
-		int resId = getBitmapRes(activity, "edittext_back");
+		int resId = getBitmapRes(activity, "ssdk_oks_edittext_back");
 		if (resId > 0) {
 			llBody.setBackgroundResource(resId);
 		}
@@ -275,7 +283,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		rlThumb.setLayoutParams(lpThumb);
 
 		ivImage = new ImageView(getContext());
-		int resId = getBitmapRes(activity, "btn_back_nor");
+		int resId = getBitmapRes(activity, "ssdk_oks_btn_back_nor");
 		if (resId > 0) {
 			ivImage.setBackgroundResource(resId);
 		}
@@ -302,6 +310,15 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		});
 		rlThumb.addView(ivImage);
 
+		int dp_24 = dipToPx(getContext(), 24);
+		progressBar = new ProgressBar(getContext());
+		progressBar.setPadding(dp_24, dp_24, dp_24, dp_24);
+		RelativeLayout.LayoutParams pb
+			= new RelativeLayout.LayoutParams(dp_74, dp_74);
+		pb.setMargins(0, dp_16, dp_8, 0);
+		progressBar.setLayoutParams(pb);
+		rlThumb.addView(progressBar);
+
 		Button btn = new Button(getContext());
 		btn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -311,7 +328,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 				removeImage(imgInfo);
 			}
 		});
-		resId = getBitmapRes(activity, "img_cancel");
+		resId = getBitmapRes(activity, "ssdk_oks_img_cancel");
 		if (resId > 0) {
 			btn.setBackgroundResource(resId);
 		}
@@ -323,7 +340,9 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		btn.setLayoutParams(lpBtn);
 		rlThumb.addView(btn);
 
-		rlThumb.setVisibility(View.GONE);
+		if(!haveImage()){
+			rlThumb.setVisibility(View.GONE);
+		}
 		return rlThumb;
 	}
 
@@ -333,11 +352,12 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			public void onFinish(ArrayList<ImageInfo> results) {
 				if(results == null || results.size() == 0)
 					return;
-				//TODO: 支持多图
+				//支持多图
 				imgInfo = results.get(0);
 				image = imgInfo.bitmap;
 				rlThumb.setVisibility(View.VISIBLE);
 				ivPin.setVisibility(View.VISIBLE);
+				progressBar.setVisibility(View.GONE);
 				ivImage.setImageBitmap(image);
 			}
 		});
@@ -384,14 +404,21 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		llAt.setLayoutParams(lpAt);
 		llAt.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				FollowListPage subPage = new FollowListPage();
-				subPage.setPlatform(platforms.get(0));
-				subPage.showForResult(activity, null, EditPage.this);
+				if(platforms != null && platforms.size() > 0){
+					FollowListPage subPage = new FollowListPage();
+					subPage.setPlatform(platforms.get(0));
+					subPage.showForResult(activity, null, EditPage.this);
+				} else {
+					int resId = getStringRes(activity, "ssdk_oks_select_one_plat_at_least");
+					if (resId > 0) {
+						Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
+					}
+				}
 			}
 		});
 
 		TextView tvAt = new TextView(getContext());
-		int resId = getBitmapRes(activity, "btn_back_nor");
+		int resId = getBitmapRes(activity, "ssdk_oks_btn_back_nor");
 		if (resId > 0) {
 			tvAt.setBackgroundResource(resId);
 		}
@@ -409,7 +436,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		TextView tvName = new TextView(getContext());
 		tvName.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 		tvName.setTextColor(0xff000000);
-		resId = getStringRes(activity, "list_friends");
+		resId = getStringRes(activity, "ssdk_oks_list_friends");
 		String text = getContext().getString(resId, getName(platform));
 		tvName.setText(text);
 		LayoutParams lpName = new LayoutParams(
@@ -439,7 +466,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		llToolBar.setLayoutParams(lpTb);
 
 		TextView tvShareTo = new TextView(getContext());
-		int resId = getStringRes(activity, "share_to");
+		int resId = getStringRes(activity, "ssdk_oks_share_to");
 		if (resId > 0) {
 			tvShareTo.setText(resId);
 		}
@@ -473,7 +500,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	// the pin
 	private ImageView getImagePin() {
 		ivPin = new ImageView(getContext());
-		int resId = getBitmapRes(activity, "pin");
+		int resId = getBitmapRes(activity, "ssdk_oks_pin");
 		if (resId > 0) {
 			ivPin.setImageResource(resId);
 		}
@@ -490,7 +517,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		return ivPin;
 	}
 
-	private void genBackground() {
+	private void getBackground() {
 		background = new ColorDrawable(DIM_COLOR);
 		if (backgroundView != null) {
 			try {
@@ -509,7 +536,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			return "";
 		}
 
-		int resId = getStringRes(getContext(), platform);
+		int resId = getStringRes(getContext(), "ssdk_" + platform.toLowerCase());
 		return getContext().getString(resId);
 	}
 
@@ -545,7 +572,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			if (platforms.size() > 0) {
 				setResultAndFinish();
 			} else {
-				int resId = getStringRes(activity, "select_one_plat_at_least");
+				int resId = getStringRes(activity, "ssdk_oks_select_one_plat_at_least");
 				if (resId > 0) {
 					Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
 				}
@@ -628,7 +655,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			return null;
 		}
 
-		String resName = "logo_" + plat.getName();
+		String resName = "ssdk_oks_logo_" + plat.getName();
 		int resId = getBitmapRes(activity, resName.toLowerCase());
 		if(resId > 0) {
 			return BitmapFactory.decodeResource(activity.getResources(), resId);
@@ -683,7 +710,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			rlPage.setBackgroundColor(DIM_COLOR);
 			rlPage.postDelayed(new Runnable() {
 				public void run() {
-					genBackground();
+					getBackground();
 					rlPage.setBackgroundDrawable(background);
 				}
 			}, 1000);
@@ -695,7 +722,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			rlPage.setBackgroundColor(DIM_COLOR);
 			rlPage.postDelayed(new Runnable() {
 				public void run() {
-					genBackground();
+					getBackground();
 					rlPage.setBackgroundDrawable(background);
 				}
 			}, 1000);

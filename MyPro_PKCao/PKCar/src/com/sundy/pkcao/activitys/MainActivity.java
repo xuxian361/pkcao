@@ -12,15 +12,19 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.sundy.pkcao.R;
+import com.sundy.pkcao.baidupush.Utils;
 import com.sundy.pkcao.fragments.AddCaoDianFragment;
 import com.sundy.pkcao.fragments.MainFragment;
 import com.sundy.pkcao.fragments.MenuFragment;
 import com.sundy.pkcao.fragments._AbstractFragment;
 import com.sundy.pkcao.service.AddCaodianService;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.taker.MyConstantUtil;
 import com.sundy.pkcao.taker.ResourceTaker;
 import com.sundy.pkcao.tools.OperationFileHelper;
 
@@ -119,7 +123,7 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
     @Override
     public void switchContent(Fragment fragment) {
         try {
-            if (fragment == null && mContent == fragment) {
+            if (fragment == null) {
                 return;
             } else {
                 mContent = fragment;
@@ -145,7 +149,7 @@ public class MainActivity extends SlidingFragmentActivity implements MainFragmen
 
     @Override
     public void addContent(Fragment fragment) {
-        if (fragment == null && mContent == fragment) {
+        if (fragment == null || mContent == fragment) {
             return;
         } else {
             mContent = fragment;

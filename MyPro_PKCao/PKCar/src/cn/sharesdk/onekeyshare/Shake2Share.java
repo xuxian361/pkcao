@@ -8,19 +8,20 @@
 
 package cn.sharesdk.onekeyshare;
 
-import static cn.sharesdk.framework.utils.R.*;
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.FloatMath;
 import android.view.Window;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
-import cn.sharesdk.framework.FakeActivity;
+import android.widget.Toast;
+
+import com.mob.tools.FakeActivity;
 
 /** 摇一摇启动分享的例子 */
 public class Shake2Share extends FakeActivity implements SensorEventListener {
@@ -63,7 +64,7 @@ public class Shake2Share extends FakeActivity implements SensorEventListener {
 			activity.setContentView(iv);
 		}
 
-		resId = getStringRes(activity, "shake2share");
+		resId = getStringRes(activity, "ssdk_oks_shake2share");
 		if (resId > 0) {
 			Toast.makeText(activity, resId, Toast.LENGTH_SHORT).show();
 		}
@@ -106,7 +107,7 @@ public class Shake2Share extends FakeActivity implements SensorEventListener {
 				float deltaX = x - mLastX;
 				float deltaY = y - mLastY;
 				float deltaZ = z - mLastZ;
-				float delta = FloatMath.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ) / diffTime * 10000;
+				float delta = (float)Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ) / diffTime * 10000;
 				if (delta > SHAKE_THRESHOLD) {
 					if (!shaken) {
 						shaken = true;

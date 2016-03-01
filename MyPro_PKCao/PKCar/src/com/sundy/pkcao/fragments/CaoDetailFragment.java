@@ -48,18 +48,7 @@ public class CaoDetailFragment extends _AbstractFragment {
     private View v;
     private SharedPreferences preferences;
     private String type = "1";
-    private String image_url;
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            HashMap<String, String> data = new HashMap<String, String>();
-            data.put("title", item.getString(Caodian.title));
-            data.put("content", item.getString(Caodian.content));
-            if (image_url != null && image_url.length() != 0)
-                data.put("img_url", image_url);
-            CommonUtility.showShare(context, data);
-        }
-    };
+    private String share_image_url;
     private MyBroadcastReceiver receiver;
 
     public CaoDetailFragment() {
@@ -432,57 +421,37 @@ public class CaoDetailFragment extends _AbstractFragment {
                 if (video_thumbnail != null) {
                     final String video_thumbnail_img = video_thumbnail.getUrl();
                     if (video_thumbnail_img != null && video_thumbnail_img.length() != 0) {
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(video_thumbnail_img));
-                                    image_url = CommonUtility.savePhoto(bitmap);
-                                    bitmap = CommonUtility.compressBitmap(image_url, bitmap);
-                                    image_url = CommonUtility.savePhoto(bitmap);
-
-                                    handler.sendMessage(handler.obtainMessage());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }).start();
+                        share_image_url = video_thumbnail_img;
                     }
+                } else {
+                    share_image_url = "";
                 }
             } else {
                 final AVFile img1 = item.getAVFile(Caodian.img1);
                 if (img1 != null) {
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(img1.getUrl()));
-                                image_url = CommonUtility.savePhoto(bitmap);
-                                bitmap = CommonUtility.compressBitmap(image_url, bitmap);
-                                image_url = CommonUtility.savePhoto(bitmap);
-
-                                handler.sendMessage(handler.obtainMessage());
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }).start();
+                    share_image_url = img1.getUrl();
+                } else {
+                    share_image_url = "";
                 }
             }
+            shareContent();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public InputStream getImageStream(String path) throws Exception {
-        URL url = new URL(path);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setConnectTimeout(5 * 1000);
-        conn.setRequestMethod("GET");
-        if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
-            return conn.getInputStream();
+    //分享内容
+    private void shareContent() {
+        try {
+            HashMap<String, String> data = new HashMap<String, String>();
+            data.put("title", item.getString(Caodian.title));
+            data.put("content", item.getString(Caodian.content));
+            if (share_image_url != null && share_image_url.length() != 0)
+                data.put("img_url", share_image_url);
+            CommonUtility.showShare(context, data);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return null;
     }
 
     @Override

@@ -27,9 +27,10 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.onekeyshare.CustomerLogo;
 import cn.sharesdk.onekeyshare.ShareCore;
 
-import static cn.sharesdk.framework.utils.R.getBitmapRes;
-import static cn.sharesdk.framework.utils.R.getIdRes;
-import static cn.sharesdk.framework.utils.R.getLayoutRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getIdRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getLayoutRes;
 
 public class PlatformGridViewAdapter extends BaseAdapter implements View.OnClickListener {
 
@@ -68,7 +69,7 @@ public class PlatformGridViewAdapter extends BaseAdapter implements View.OnClick
 	public View getView(int position, View view, ViewGroup viewGroup) {
 		ViewHolder viewHolder;
 		if(view == null) {
-			view = LayoutInflater.from(context).inflate(getLayoutRes(context, "skyblue_share_platform_list_item"), null);
+			view = LayoutInflater.from(context).inflate(getLayoutRes(context, "ssdk_oks_skyblue_share_platform_list_item"), null);
 			viewHolder = new ViewHolder();
 			viewHolder.checkedImageView = (ImageView) view.findViewById(getIdRes(context, "checkedImageView"));
 			viewHolder.logoImageView = (ImageView) view.findViewById(getIdRes(context, "logoImageView"));
@@ -101,7 +102,7 @@ public class PlatformGridViewAdapter extends BaseAdapter implements View.OnClick
 			//TODO 需要整理
 		//	view.setOnClickListener(((CustomerLogo) item).listener);
 		}
-		String checkedResName = directOnlyPosition != -1 && directOnlyPosition != position ? "skyblue_platform_checked_disabled" : "skyblue_platform_checked";
+		String checkedResName = directOnlyPosition != -1 && directOnlyPosition != position ? "ssdk_oks_skyblue_platform_checked_disabled" : "ssdk_oks_skyblue_platform_checked";
 		viewHolder.position = position;
 		viewHolder.checkedImageView.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), getBitmapRes(context, checkedResName)));
 		viewHolder.checkedImageView.setVisibility(checkedPositionList.contains(viewHolder.position) ? View.VISIBLE : View.GONE);
@@ -188,7 +189,7 @@ public class PlatformGridViewAdapter extends BaseAdapter implements View.OnClick
 	}
 
 	private Bitmap getIcon(Platform plat, String subfix) {
-		String resName = "skyblue_logo_" + plat.getName() + subfix;
+		String resName = "ssdk_oks_skyblue_logo_" + plat.getName() + subfix;
 		int resId = getBitmapRes(context, resName);
 		return BitmapFactory.decodeResource(context.getResources(), resId);
 	}
@@ -203,7 +204,7 @@ public class PlatformGridViewAdapter extends BaseAdapter implements View.OnClick
 			return "";
 		}
 
-		int resId = cn.sharesdk.framework.utils.R.getStringRes(context, plat.getName());
+		int resId = getStringRes(context, "ssdk_" + plat.getName());
 		if (resId > 0) {
 			return context.getString(resId);
 		}

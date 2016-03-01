@@ -179,7 +179,6 @@ public class MenuFragment extends Fragment {
                     main = new MainFragment(MenuFragment.this);
                 fragment = main;
                 curRadioId = index;
-
                 break;
             case R.id.btn_login:
                 mCallback.addContent(new LoginFragment());

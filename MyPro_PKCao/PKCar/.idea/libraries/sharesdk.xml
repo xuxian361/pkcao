@@ -1,16 +1,20 @@
 <component name="libraryTable">
   <library name="sharesdk">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/mframework.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Core-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Email-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Facebook-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-QQ-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-ShortMessage-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Core-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Favorite-2.5.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Moments-2.5.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Favorite-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Core-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-SinaWeibo-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Core-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Line-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Facebook-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Twitter-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Email-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-ShortMessage-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Moments-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK-WhatsApp-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/MobTools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/MobCommons.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -466,15 +466,16 @@ public class CommonUtility {
             //关闭sso授权
             oks.disableSSOWhenAuthorize();
             // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-            oks.setTitle("《pk槽点》专业的吐槽神器!");
+            oks.setTitle("《pk槽点》最好玩的槽点PK平台");
             // text是分享文本，所有平台都需要这个字段
-            oks.setText("《pk槽点》: " + data.get("title") + MyConstantUtil.DOWNLOAD_LINK);
+            oks.setText("《pk槽点》: " + data.get("title") + "\n" + MyConstantUtil.DOWNLOAD_LINK);
             // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
             oks.setImagePath(data.get("img_url"));//确保SDcard下面存在此张图片
+            oks.setImageUrl(data.get("img_url"));
             // url仅在微信（包括好友和朋友圈）中使用
             oks.setUrl(MyConstantUtil.DOWNLOAD_LINK);
             // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-            oks.setComment("《pk槽点》专业的吐槽神器! : " + data.get("content"));
+            oks.setComment("《pk槽点》最好玩的槽点PK平台 : " + data.get("content"));
             // site是分享此内容的网站名称，仅在QQ空间使用
             oks.setSite(MyConstantUtil.DOWNLOAD_LINK);
             // 启动分享GUI

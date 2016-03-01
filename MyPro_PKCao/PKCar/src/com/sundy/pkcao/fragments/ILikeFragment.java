@@ -196,9 +196,35 @@ public class ILikeFragment extends _AbstractFragment {
         }
     };
 
+    //更新用户状态
+    private void refreshUserInfo() {
+        if (CommonUtility.isLogin(context)) {
+            getUserInfo();
+        } else {
+            aq.id(R.id.btnMenu).image(R.drawable.logo);
+        }
+    }
+
+    //获取用户信息
+    private void getUserInfo() {
+        AVUser currentUser = AVUser.getCurrentUser();
+        if (currentUser != null) {
+            AVFile img_file = currentUser.getAVFile(User.user_img);
+            String user_img = img_file.getUrl();
+            if (user_img != null && user_img.length() != 0)
+                aq.id(R.id.btnMenu).image(user_img);
+            else {
+                aq.id(R.id.btnMenu).image(R.drawable.logo);
+            }
+        } else {
+            aq.id(R.id.btnMenu).image(R.drawable.logo);
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+        refreshUserInfo();
     }
 
     @Override

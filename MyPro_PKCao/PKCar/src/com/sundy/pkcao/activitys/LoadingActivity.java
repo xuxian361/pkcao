@@ -7,8 +7,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import com.avos.avoscloud.AVAnalytics;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.sundy.pkcao.R;
 import com.sundy.pkcao.taker.CommonUtility;
+import com.sundy.pkcao.taker.MyConstantUtil;
 import com.sundy.pkcao.tools.OperationFileHelper;
 
 import java.io.File;
@@ -47,6 +50,11 @@ public class LoadingActivity extends _AbstractActivity {
         AVAnalytics.trackAppOpened(getIntent());
 
         init();
+
+        //启动百度Push
+        PushManager.startWork(getApplicationContext(),
+                PushConstants.LOGIN_TYPE_API_KEY,
+                MyConstantUtil.BAIDU_PUSH_KEY);
     }
 
     private void init() {

@@ -1,14 +1,14 @@
 package com.sundy.pkcao;
 
+import android.app.Application;
 import android.util.Log;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.BitmapAjaxCallback;
-import com.baidu.frontia.FrontiaApplication;
 
 /**
  * Created by sundy on 15/3/21.
  */
-public class MainApplication extends FrontiaApplication {
+public class MainApplication extends Application {
 
     private final String TAG = "MainApplication";
 

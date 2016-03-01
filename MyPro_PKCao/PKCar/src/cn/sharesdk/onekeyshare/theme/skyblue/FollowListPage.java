@@ -35,22 +35,23 @@ import java.util.HashMap;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.TitleLayout;
-import cn.sharesdk.framework.utils.UIHandler;
+import com.mob.tools.gui.AsyncImageView;
+import com.mob.tools.gui.BitmapProcessor;
+import com.mob.tools.gui.PullToRefreshListAdapter;
+import com.mob.tools.gui.PullToRefreshView;
+import com.mob.tools.utils.UIHandler;
 import cn.sharesdk.onekeyshare.FollowerListFakeActivity;
-import m.framework.ui.widget.asyncview.AsyncImageView;
-import m.framework.ui.widget.asyncview.BitmapProcessor;
-import m.framework.ui.widget.pulltorefresh.PullToRefreshListAdapter;
-import m.framework.ui.widget.pulltorefresh.PullToRefreshView;
 
-import static cn.sharesdk.framework.utils.R.dipToPx;
-import static cn.sharesdk.framework.utils.R.getBitmapRes;
-import static cn.sharesdk.framework.utils.R.getStringRes;
+import static com.mob.tools.utils.R.dipToPx;
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
 
 /** 获取好友或关注列表 */
 public class FollowListPage extends FollowerListFakeActivity implements OnClickListener, OnItemClickListener {
 	private TitleLayout llTitle;
 	private FollowAdapter adapter;
 	private int lastPosition = -1;
+
 
 	public void onCreate() {
 		LinearLayout llPage = new LinearLayout(getContext());
@@ -60,17 +61,17 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 
 		// 标题栏
 		llTitle = new TitleLayout(getContext());
-		int resId = getBitmapRes(getContext(), "title_back");
+		int resId = getBitmapRes(getContext(), "ssdk_oks_title_back");
 		if (resId > 0) {
 			llTitle.setBackgroundResource(resId);
 		}
 		llTitle.getBtnBack().setOnClickListener(this);
-		resId = getStringRes(getContext(), "multi_share");
+		resId = getStringRes(getContext(), "ssdk_oks_multi_share");
 		if (resId > 0) {
 			llTitle.getTvTitle().setText(resId);
 		}
 		llTitle.getBtnRight().setVisibility(View.VISIBLE);
-		resId = getStringRes(getContext(), "finish");
+		resId = getStringRes(getContext(), "ssdk_oks_finish");
 		if (resId > 0) {
 			llTitle.getBtnRight().setText(resId);
 		}
@@ -98,7 +99,7 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 		adapter.getListView().setOnItemClickListener(this);
 
 		ImageView ivShadow = new ImageView(getContext());
-		resId = getBitmapRes(getContext(), "title_shadow");
+		resId = getBitmapRes(getContext(), "ssdk_oks_title_shadow");
 		if (resId > 0) {
 			ivShadow.setBackgroundResource(resId);
 		}
@@ -161,11 +162,11 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 
 			llHeader = new PRTHeader(getContext());
 
-			int resId = getBitmapRes(getContext(), "auth_follow_cb_chd");
+			int resId = getBitmapRes(getContext(), "ssdk_oks_auth_follow_cb_chd");
 			if (resId > 0) {
 				bmChd = BitmapFactory.decodeResource(view.getResources(), resId);
 			}
-			resId = getBitmapRes(getContext(), "auth_follow_cb_unc");
+			resId = getBitmapRes(getContext(), "ssdk_oks_auth_follow_cb_unc");
 			if (resId > 0) {
 				bmUnch = BitmapFactory.decodeResource(view.getResources(), resId);
 			}
@@ -191,9 +192,9 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 				llItem.setTag(item);
 				convertView = llItem;
 
-				int dp_52 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 52);
-				int dp_10 = cn.sharesdk.framework.utils.R.dipToPx(parent.getContext(), 10);
-				int dp_5 = cn.sharesdk.framework.utils.R.dipToPx(parent.getContext(), 5);
+				int dp_52 = com.mob.tools.utils.R.dipToPx(getContext(), 52);
+				int dp_10 = com.mob.tools.utils.R.dipToPx(parent.getContext(), 10);
+				int dp_5 = com.mob.tools.utils.R.dipToPx(parent.getContext(), 5);
 
 				if(!simpleMode) {
 					item.aivIcon = new AsyncImageView(getContext());
@@ -254,10 +255,10 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 					if (bm != null && !bm.isRecycled()) {
 						item.aivIcon.setImageBitmap(bm);
 					} else {
-						item.aivIcon.execute(null, AsyncImageView.DEFAULT_TRANSPARENT);
+						item.aivIcon.execute(null, 0);
 					}
 				} else {
-					item.aivIcon.execute(following.icon);
+					item.aivIcon.execute(following.icon,0);
 				}
 			}
 
@@ -383,7 +384,7 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 			tvHeader = new TextView(getContext());
 			tvHeader.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 			tvHeader.setGravity(Gravity.CENTER);
-			int dp_10 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 10);
+			int dp_10 = com.mob.tools.utils.R.dipToPx(getContext(), 10);
 			tvHeader.setPadding(dp_10, dp_10, dp_10, dp_10);
 			tvHeader.setTextColor(0xff000000);
 			LayoutParams lpTv = new LayoutParams(
@@ -407,12 +408,12 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 			}
 
 			if (percent < 100) {
-				int resId = getStringRes(getContext(), "pull_to_refresh");
+				int resId = getStringRes(getContext(), "ssdk_oks_pull_to_refresh");
 				if (resId > 0) {
 					tvHeader.setText(resId);
 				}
 			} else {
-				int resId = getStringRes(getContext(), "release_to_refresh");
+				int resId = getStringRes(getContext(), "ssdk_oks_release_to_refresh");
 				if (resId > 0) {
 					tvHeader.setText(resId);
 				}
@@ -422,7 +423,7 @@ public class FollowListPage extends FollowerListFakeActivity implements OnClickL
 		public void onRequest() {
 			ivArrow.setVisibility(View.GONE);
 			pbRefreshing.setVisibility(View.VISIBLE);
-			int resId = getStringRes(getContext(), "refreshing");
+			int resId = getStringRes(getContext(), "ssdk_oks_refreshing");
 			if (resId > 0) {
 				tvHeader.setText(resId);
 			}

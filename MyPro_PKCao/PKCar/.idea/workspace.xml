@@ -87,15 +87,339 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.sundy.pkcao" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53487273-d380-42de-b9c2-73f86343589c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_auth_follow_cb_chd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_auth_follow_cb_unc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_auth_title_back.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_blue_point.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_btn_back_nor.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_edittext_back.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_img_cancel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_light_blue_point.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_alipay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_bluetooth.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_douban.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_dropbox.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_email.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_evernote.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_facebook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_facebookmessenger.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_flickr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_foursquare.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_googleplus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_instagram.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_instapaper.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_kaixin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_kakaostory.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_kakaotalk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_laiwang.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_laiwangmoments.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_linkedin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_mingdao.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_pinterest.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_pocket.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_qq.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_qzone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_renren.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_shortmessage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_sinaweibo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_sohusuishenkan.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_tencentweibo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_tumblr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_twitter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_vkontakte.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_wechat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_wechatfavorite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_wechatmoments.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_whatsapp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_yixin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_yixinmoments.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_logo_youdao.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_pin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_actionbar_back_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_actionbar_ok_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_editpage_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_editpage_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_editpage_divider.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_editpage_image_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_editpage_image_remove.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_alipayshare.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_alipayshare_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_baidutieba.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_baidutieba_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_bluetooth.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_bluetooth_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_douban.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_douban_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_dropbox.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_dropbox_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_email.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_email_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_evernote.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_evernote_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_facebook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_facebook_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_facebookmessenger.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_facebookmessenger_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_flickr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_flickr_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_foursquare.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_foursquare_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_googleplus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_googleplus_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_instagram.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_instagram_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_instapaper.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_instapaper_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_kaixin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_kaixin_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_kakaostory.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_kakaostory_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_kakaotalk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_kakaotalk_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_laiwangmoments.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_laiwangmoments_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_line_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_linkedin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_linkedin_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_mingdao.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_mingdao_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_neteasemicroblog.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_neteasemicroblog_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_pinterest.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_pinterest_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_pocket.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_pocket_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_qq.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_qq_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_qzone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_qzone_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_renren.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_renren_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_shortmessage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_shortmessage_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_sinaweibo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_sinaweibo_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_sohumicroblog.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_sohumicroblog_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_sohusuishenkan.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_sohusuishenkan_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_tencentweibo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_tencentweibo_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_tumblr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_tumblr_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_twitter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_twitter_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_vkontakte.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_vkontakte_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_wechat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_wechat_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_wechatfavorite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_wechatfavorite_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_wechatmoments.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_wechatmoments_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_whatsapp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_whatsapp_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_yixin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_yixin_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_yixinmoments.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_yixinmoments_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_youdao.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_logo_youdao_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_platform_checked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_skyblue_platform_checked_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_title_back.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ssdk_oks_title_shadow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ssdk_oks_classic_platform_corners_bg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ssdk_oks_skyblue_platform_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ssdk_oks_skyblue_platform_list_item_selected.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ssdk_oks_skyblue_platform_list_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ssdk_oks_skyblue_editpage.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ssdk_oks_skyblue_editpage_at_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ssdk_oks_skyblue_editpage_inc_image_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ssdk_oks_skyblue_share_actionbar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ssdk_oks_skyblue_share_platform_list.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ssdk_oks_skyblue_share_platform_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values-en/ssdk_oks_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/ssdk_instapaper_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/ssdk_oks_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/ReflectableShareContentCustomizeCallback.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-Core-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-Email-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-Facebook-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-QQ-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-ShortMessage-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-Wechat-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-Wechat-Core-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-Wechat-Favorite-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShareSDK-Wechat-Moments-2.5.9.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/armeabi/libbdpush_V2_2.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/mframework.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/pushservice-4.3.0.4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$10.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$11.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$12.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PKCao.apk" afterPath="$PROJECT_DIR$/PKCao.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/PKCao/PKCao.unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageInfo.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageListResultsCallback.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity$ImageListResultsCallback.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/EditPageFakeActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/FollowerListFakeActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/OnekeyShare.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PicViewer.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PicViewer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/PlatformListFakeActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/Shake2Share.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/Shake2Share.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ShareCore.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/ShareCore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$7.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/EditPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowListItem.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$FollowListItem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$PRTHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage$PRTHeader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/FollowListPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$GridView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$GridView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$PlatformAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView$PlatformAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/EditPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowListItem.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$FollowListItem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$PRTHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$PRTHeader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$RotateImageView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage$RotateImageView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter$ViewHolder.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter$ViewHolder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage.class" afterPath="$PROJECT_DIR$/out/production/PKCao/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainApplication.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/MainApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$menu.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$styleable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$xml.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R$xml.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/CommentsActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/LoadingActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/LoadingActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/LoadingActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/LoadingActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/activitys/MainActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$ViewHolder.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter$ViewHolder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/adapters/CaoListAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/baidupush/MyPushMessageReceiver.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/baidupush/MyPushMessageReceiver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/AddCaoDianFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/AddCaoDianFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$7.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$8.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$9.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$MyBroadcastReceiver.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment$MyBroadcastReceiver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/CaoDetailFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment$4$1.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment$4$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/EditUserFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/ILikeFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/ILikeFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/ILikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/ILikeFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/LoginFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MainFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment$5.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment$6.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/MenuFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RecordFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RecordFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$2.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$4.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/RegisterFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/TaLikeFragment$3.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/TaLikeFragment$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/TaLikeFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/TaLikeFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/_AbstractFragment.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/fragments/_AbstractFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/service/AddCaodianService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/CommonUtility.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/CommonUtility.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/MyConstantUtil.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/taker/MyConstantUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/RecordButton.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewFooter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" afterPath="$PROJECT_DIR$/out/production/PKCao/com/sundy/pkcao/tools/xlistview/XListViewHeader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/baidupush.xml" afterPath="$PROJECT_DIR$/.idea/libraries/baidupush.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/sharesdk.xml" afterPath="$PROJECT_DIR$/.idea/libraries/sharesdk.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/ShareSDK.xml" afterPath="$PROJECT_DIR$/assets/ShareSDK.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard-project.txt" afterPath="$PROJECT_DIR$/proguard-project.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard_logs/dump.txt" afterPath="$PROJECT_DIR$/proguard_logs/dump.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard_logs/mapping.txt" afterPath="$PROJECT_DIR$/proguard_logs/mapping.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard_logs/seeds.txt" afterPath="$PROJECT_DIR$/proguard_logs/seeds.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard_logs/usage.txt" afterPath="$PROJECT_DIR$/proguard_logs/usage.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values-en/ssdk_strings.xml" afterPath="$PROJECT_DIR$/res/values-en/ssdk_strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/ssdk_strings.xml" afterPath="$PROJECT_DIR$/res/values/ssdk_strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/EditPageFakeActivity.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/EditPageFakeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/FollowerListFakeActivity.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/FollowerListFakeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/OnekeyShare.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/OnekeyShare.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/PicViewer.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/PicViewer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/PlatformListFakeActivity.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/PlatformListFakeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/Shake2Share.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/Shake2Share.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/ShareCore.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/ShareCore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/EditPage.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/EditPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/FollowListPage.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/FollowListPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/PlatformGridView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/classic/PlatformListPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/EditPage.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/EditPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/FollowListPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/PlatformGridViewAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage.java" afterPath="$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/theme/skyblue/PlatformListPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/MainApplication.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/MainApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/LoadingActivity.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/LoadingActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/baidupush/MyPushMessageReceiver.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/baidupush/MyPushMessageReceiver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/ILikeFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/ILikeFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MainFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MainFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MenuFragment.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MenuFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sundy/pkcao/taker/MyConstantUtil.java" afterPath="$PROJECT_DIR$/src/com/sundy/pkcao/taker/MyConstantUtil.java" />
     </list>
     <ignored path="pkcao.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -124,50 +448,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
+      <file leaf-file-name="ShareSDK.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/ShareSDK.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.192307">
-              <caret line="33" column="38" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CaoDetailFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="112" column="10" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="10" />
-              <folding>
-                <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#2860#2886#0" expanded="true" />
-                <element signature="method#registerBroadcast#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="method#getComments#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#6281#6313#0" expanded="true" />
-                <element signature="method#showComments#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="method#goCommentsPage#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#14036#14070#0" expanded="true" />
-                <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#14919#14959#0" expanded="true" />
-                <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="e#15809#15849#0" expanded="true" />
-                <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#CaoDetailFragment#0" expanded="false" />
-                <element signature="class#MyBroadcastReceiver#0;class#CaoDetailFragment#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="proguard-project.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/proguard-project.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35755813">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="2.3522012">
+              <caret line="64" column="76" selection-start-line="64" selection-start-column="76" selection-end-line="64" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -1932,12 +2217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/_AbstractFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/AddCaoDianFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/caodian/CaoDetailFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/login/EditUserFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/ilike/ILikeFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/login/LoginFragment.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/talike/TaLikeFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/dialog_ok.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/register/RegisterFragment.java" />
@@ -1954,7 +2233,6 @@
         <option value="$PROJECT_DIR$/res/layout/caodian_img.xml" />
         <option value="$PROJECT_DIR$/../../../../../../Android_sdk/android-sdk-macosx/platforms/android-22/android.jar!/android/provider/MediaStore.class" />
         <option value="$PROJECT_DIR$/../../../../../../Android_sdk/android-sdk-macosx/platforms/android-22/android.jar!/android/media/ThumbnailUtils.class" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/notification_view_upload_caodian.xml" />
         <option value="$PROJECT_DIR$/res/layout/edit_image.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/EditImageActivity.java" />
@@ -1962,15 +2240,10 @@
         <option value="$PROJECT_DIR$/res/layout/add_cao.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/tools/DensityUtil.java" />
         <option value="$PROJECT_DIR$/res/layout/cao_item.xml" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MainFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/MyConstantUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" />
         <option value="$PROJECT_DIR$/res/layout/item_comments.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/vo/Caodian.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_comments.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CommentsAdapter.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/CommentsActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/ilike.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
@@ -1980,9 +2253,21 @@
         <option value="$PROJECT_DIR$/res/layout/scale_image.xml" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/AddCaoDianFragment.java" />
         <option value="$PROJECT_DIR$/src/com/sundy/pkcao/service/AddCaodianService.java" />
-        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/cao_detail.xml" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MenuFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MainFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/ILikeFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/MainApplication.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/baidupush/MyPushMessageReceiver.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/activitys/LoadingActivity.java" />
         <option value="$PROJECT_DIR$/proguard-project.txt" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java" />
+        <option value="$PROJECT_DIR$/assets/ShareSDK.xml" />
+        <option value="$PROJECT_DIR$/src/com/sundy/pkcao/taker/MyConstantUtil.java" />
       </list>
     </option>
   </component>
@@ -1997,9 +2282,9 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="46" />
+    <option name="x" value="23" />
     <option name="y" value="23" />
-    <option name="width" value="1234" />
+    <option name="width" value="1135" />
     <option name="height" value="777" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -2028,7 +2313,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2061,23 +2346,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PKCar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2090,18 +2361,14 @@
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="A10ECMM2FJBC" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_6_4_Sony_by_User" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Android_ICAC_SVN/ICAC_20140401" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/mframework.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.1546875" />
     <property name="project.structure.side.proportion" value="0.20406905" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="507" />
-    <property name="restartRequiresConfirmation" value="true" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
-    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="pkcao" />
     <property name="ExportedModule" value="PKCao" />
     <property name="ExportedApkPath" value="$PROJECT_DIR$/PKCao.apk" />
@@ -2112,15 +2379,13 @@
     <property name="AndroidProguardConfigPaths" value="$PROJECT_DIR$/../../../../../../Android_sdk/android-sdk-macosx/tools/proguard/proguard-android.txt:/Users/sundy/Documents/Projects/Android_PKCao_Git/PKCao/pkcao/MyPro_PKCao/PKCar/proguard-project.txt" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
+      <recent name="$PROJECT_DIR$/res/drawable-hdpi" />
+      <recent name="$PROJECT_DIR$/res/drawable" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.sundy.pkcao" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/libs" />
-      <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
-      <recent name="$PROJECT_DIR$/libs/armeabi" />
-      <recent name="$PROJECT_DIR$/res/values" />
-      <recent name="$PROJECT_DIR$/res" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sundy.pkcao.adapters" />
@@ -2128,13 +2393,15 @@
       <recent name="com.sundy.pkcao.tools.emoji" />
       <recent name="com.sundy.pkcao" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/res/values-en" />
+      <recent name="$PROJECT_DIR$/res/values" />
+      <recent name="$PROJECT_DIR$/res/layout" />
       <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
-      <recent name="$PROJECT_DIR$/res/drawable-hdpi" />
-      <recent name="$PROJECT_DIR$/res/drawable" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.PKCar">
+  <component name="RunManager" selected="Android Application.PKCao">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -2393,7 +2660,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="PKCar" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="false" name="PKCao" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="PKCao" />
       <option name="ACTIVITY_CLASS" value="com.sundy.pkcao.activitys.LoadingActivity" />
       <option name="MODE" value="specific_activity" />
@@ -2411,21 +2678,21 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="Please select a project..." />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="Please select a project..." />
       <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="Cloud configuration not specified" />
       <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="Cloud configuration not specified" />
       <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <RunnerSettings RunnerId="AndroidDebugRunner" />
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Android Application.PKCar" />
+      <item index="0" class="java.lang.String" itemvalue="Android Application.PKCao" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -2442,12 +2709,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="23" width="1234" height="777" extended-state="0" />
-    <editor active="true" />
+    <frame x="23" y="23" width="1135" height="777" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39453718" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39453718" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31335953" sideWeight="0.50042266" order="14" side_tool="true" content_ui="tabs" />
@@ -2457,9 +2724,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18968134" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5523521" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4552352" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37632778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2493,7 +2760,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20333838" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39453718" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36241612" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2501,10 +2768,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18968134" sideWeight="0.49966556" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5311077" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2080537" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4552352" sideWeight="0.49957734" order="13" side_tool="false" content_ui="tabs" x="0" y="23" width="1236" height="777" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35387886" sideWeight="0.50033134" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45068285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37632778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -2531,92 +2798,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../../../../Android_sdk/android-sdk-macosx/platforms/android-22/data/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33217993">
-          <caret line="623" column="23" selection-start-line="623" selection-start-column="13" selection-end-line="623" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/notification_view_upload_caodian.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6923075">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/tools/MosaicView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15044248">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/edit_image.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5">
-          <caret line="230" column="1" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17958412">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/style.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0543131">
-          <caret line="169" column="5" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/tools/BitmapUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8011363">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/tools/DensityUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32386363">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/EditImageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.6909666">
-          <caret line="150" column="88" selection-start-line="150" selection-start-column="88" selection-end-line="150" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/_AbstractActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16481775">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/add_cao.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.088541664">
-          <caret line="3" column="77" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2624,20 +2805,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.346154">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/MyConstantUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16164818">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48494452">
-          <caret line="470" column="50" selection-start-line="470" selection-start-column="50" selection-end-line="470" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -2679,7 +2846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2693,38 +2859,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5734596">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4099526">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/LoadingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9336493">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/avoscloud-sdk-v3.0.4.jar!/com/avos/avoscloud/GetCallback.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19701986">
           <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78313255">
-          <caret line="281" column="66" selection-start-line="281" selection-start-column="23" selection-end-line="281" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -2745,13 +2883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="9" selection-start-line="95" selection-start-column="8" selection-end-line="110" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_comments.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2769,13 +2900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.4545455">
           <caret line="54" column="41" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.489083">
-          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -2805,13 +2929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2777778">
           <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/ILikeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94216865">
-          <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -2867,21 +2984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="187" column="54" selection-start-line="187" selection-start-column="54" selection-end-line="187" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2164#2165#0" expanded="false" />
-            <element signature="e#2204#2205#0" expanded="false" />
-            <element signature="e#2273#2274#0" expanded="false" />
-            <element signature="e#2323#2324#0" expanded="false" />
-            <element signature="method#selectVideo#0;class#AddCaoDianFragment#0" expanded="false" />
-            <element signature="method#selectPhoto#0;class#AddCaoDianFragment#0" expanded="false" />
-            <element signature="e#19469#19470#0" expanded="false" />
-            <element signature="e#19501#19502#0" expanded="false" />
-            <element signature="e#19544#19545#0" expanded="false" />
-            <element signature="e#19575#19576#0" expanded="false" />
-            <element signature="e#19904#19905#0" expanded="false" />
-            <element signature="e#19937#19938#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2889,19 +2991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32329637">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="e#2132#6488#0" expanded="true" />
-            <element signature="e#6487#6488#0" expanded="true" />
-            <element signature="e#9000#9029#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.192307">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2914,7 +3003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.5612648">
           <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2925,49 +3013,217 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8076923">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6196513">
+          <caret line="320" column="13" selection-start-line="320" selection-start-column="13" selection-end-line="320" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/ILikeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21077655">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/MenuFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="336" column="20" selection-start-line="336" selection-start-column="20" selection-end-line="336" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/MainApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8328841">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proguard-project.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16164818">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/baidupush/MyPushMessageReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2725832">
+          <caret line="257" column="17" selection-start-line="257" selection-start-column="17" selection-end-line="257" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/LoadingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026941363">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/ssdk_oks_classic_platform_corners_bg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/ssdk_oks_skyblue_editpage_at_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-en/ssdk_oks_strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/ssdk_instapaper_strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/sharesdk/demo/wxapi/WXEntryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18328841">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/activitys/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/adapters/CaoListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1458004">
+          <caret line="129" column="19" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
+          <folding>
+            <element signature="e#3910#4327#0" expanded="false" />
+            <element signature="e#4326#4327#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/MobTools.jar!/com/mob/tools/MobUIShell.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39568347">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/ShareSDK-Core-2.6.6.jar!/cn/sharesdk/framework/Service.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16887417">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/ShareSDK-Core-2.6.6.jar!/cn/sharesdk/framework/ShareSDK.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16887417">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/ShareSDK-Core-2.6.6.jar!/cn/sharesdk/framework/PlatformDb.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16887417">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20934255">
+          <caret line="84" column="17" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/CommonUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5552326">
+          <caret line="480" column="22" selection-start-line="480" selection-start-column="22" selection-end-line="480" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/fragments/CaoDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="10" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="10" />
+        <state vertical-scroll-proportion="7.2151165">
+          <caret line="456" column="0" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
           <folding>
-            <element signature="method#CaoDetailFragment#1;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#2860#2886#0" expanded="true" />
+            <element signature="method#init#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="e#2372#2398#0" expanded="true" />
             <element signature="method#registerBroadcast#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#unregisterBroadcast#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#getComments#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#6281#6313#0" expanded="true" />
+            <element signature="e#5793#5825#0" expanded="true" />
             <element signature="method#showComments#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#getLikesCount#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="method#showCaodian#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#goCommentsPage#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="method#delete#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#14036#14070#0" expanded="true" />
+            <element signature="e#13548#13582#0" expanded="true" />
             <element signature="method#deleteCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#14919#14959#0" expanded="true" />
+            <element signature="e#14431#14471#0" expanded="true" />
             <element signature="method#likeCaodian#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="e#15809#15849#0" expanded="true" />
-            <element signature="method#share#0;class#CaoDetailFragment#0" expanded="false" />
-            <element signature="method#getImageStream#0;class#CaoDetailFragment#0" expanded="false" />
+            <element signature="e#15321#15361#0" expanded="true" />
             <element signature="method#onDestroy#0;class#CaoDetailFragment#0" expanded="false" />
             <element signature="class#MyBroadcastReceiver#0;class#CaoDetailFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/sharesdk/onekeyshare/EditPageFakeActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/sundy/pkcao/taker/MyConstantUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33233532">
-          <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.13470681">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proguard-project.txt">
+    <entry file="file://$PROJECT_DIR$/assets/ShareSDK.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35755813">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state vertical-scroll-proportion="2.3522012">
+          <caret line="64" column="76" selection-start-line="64" selection-start-column="76" selection-end-line="64" selection-end-column="76" />
           <folding />
         </state>
       </provider>
@@ -3048,7 +3304,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>sharesdk</last-edited>
+          <last-edited>leancloud</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

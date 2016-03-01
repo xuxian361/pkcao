@@ -23,7 +23,7 @@
 -dontwarn com.androidquery.**
 -keep class com.androidquery.**{*; }
 
--libraryjars libs/pushservice-4.3.0.4.jar
+-libraryjars libs/pushservice-4.6.0.68.jar
 -dontwarn com.baidu.**
 -keep class com.baidu.**{*; }
 

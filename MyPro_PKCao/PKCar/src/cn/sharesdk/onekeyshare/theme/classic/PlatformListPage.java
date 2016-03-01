@@ -8,8 +8,8 @@
 
 package cn.sharesdk.onekeyshare.theme.classic;
 
-import static cn.sharesdk.framework.utils.R.getStringRes;
-import static cn.sharesdk.framework.utils.R.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
 
 import java.util.ArrayList;
 
@@ -91,13 +91,13 @@ public class PlatformListPage extends PlatformListFakeActivity implements View.O
 		btnCancel = new Button(getContext());
 		btnCancel.setTextColor(0xff3a65ff);
 		btnCancel.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-		int resId = getStringRes(getContext(), "cancel");
+		int resId = getStringRes(getContext(), "ssdk_oks_cancel");
 		if (resId > 0) {
 			btnCancel.setText(resId);
 		}
-		btnCancel.setPadding(0, 0, 0, cn.sharesdk.framework.utils.R.dipToPx(getContext(), 5));
+		btnCancel.setPadding(0, 0, 0, com.mob.tools.utils.R.dipToPx(getContext(), 5));
 
-		resId = getBitmapRes(getContext(), "classic_platform_corners_bg");
+		resId = getBitmapRes(getContext(), "ssdk_oks_classic_platform_corners_bg");
 		if(resId > 0){
 			btnCancel.setBackgroundResource(resId);
 		}else {
@@ -105,8 +105,8 @@ public class PlatformListPage extends PlatformListFakeActivity implements View.O
 		}
 
 		LinearLayout.LayoutParams lpBtn = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT, cn.sharesdk.framework.utils.R.dipToPx(getContext(), 45));
-		int dp_10 = cn.sharesdk.framework.utils.R.dipToPx(getContext(), 10);
+				LinearLayout.LayoutParams.MATCH_PARENT, com.mob.tools.utils.R.dipToPx(getContext(), 45));
+		int dp_10 = com.mob.tools.utils.R.dipToPx(getContext(), 10);
 		lpBtn.setMargins(dp_10, dp_10, dp_10, dp_10);
 		btnCancel.setLayoutParams(lpBtn);
 		llPage.addView(btnCancel);

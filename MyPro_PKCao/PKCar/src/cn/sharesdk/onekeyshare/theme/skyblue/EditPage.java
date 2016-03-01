@@ -28,9 +28,9 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.EditPageFakeActivity;
 import cn.sharesdk.onekeyshare.PicViewer;
 
-import static cn.sharesdk.framework.utils.R.getIdRes;
-import static cn.sharesdk.framework.utils.R.getLayoutRes;
-import static cn.sharesdk.framework.utils.R.getStringRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getIdRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getLayoutRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
 
 /** 执行图文分享的页面，此页面不支持微信平台的分享 */
 public class EditPage extends EditPageFakeActivity implements OnClickListener, TextWatcher {
@@ -47,7 +47,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 			return;
 		}
 
-		activity.setContentView(getLayoutRes(activity, "skyblue_editpage"));
+		activity.setContentView(getLayoutRes(activity, "ssdk_oks_skyblue_editpage"));
 		initView();
 	}
 
@@ -99,7 +99,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		for(Platform platform : platforms) {
 			String platformName = platform.getName();
 			if (isShowAtUserLayout(platformName)) {
-				View view = LayoutInflater.from(activity).inflate(getLayoutRes(activity, "skyblue_editpage_at_layout"), null);
+				View view = LayoutInflater.from(activity).inflate(getLayoutRes(activity, "ssdk_oks_skyblue_editpage_at_layout"), null);
 				TextView atDescTextView = (TextView) view.findViewById(getIdRes(activity, "atDescTextView"));
 				TextView atTextView = (TextView) view.findViewById(getIdRes(activity, "atTextView"));
 
@@ -116,7 +116,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 				atDescTextView.setOnClickListener(atBtnClickListener);
 
 				atTextView.setText(getAtUserButtonText(platformName));
-				atDescTextView.setText(getContext().getString(getStringRes(activity, "list_friends"), getLogoName(platformName)));
+				atDescTextView.setText(getContext().getString(getStringRes(activity, "ssdk_oks_list_friends"), getLogoName(platformName)));
 
 				atLayout.addView(view);
 			}
@@ -147,7 +147,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	}
 
 	private View makeImageItemView(final ImageInfo imageInfo) {
-		final View view = LayoutInflater.from(activity).inflate(getLayoutRes(activity, "skyblue_editpage_inc_image_layout"), null);
+		final View view = LayoutInflater.from(activity).inflate(getLayoutRes(activity, "ssdk_oks_skyblue_editpage_inc_image_layout"), null);
 
 		ImageView imageView = (ImageView) view.findViewById(getIdRes(activity, "imageView"));
 		imageView.setImageBitmap(imageInfo.bitmap);

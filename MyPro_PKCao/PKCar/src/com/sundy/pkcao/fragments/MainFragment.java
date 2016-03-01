@@ -321,7 +321,6 @@ public class MainFragment extends _AbstractFragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.e("sundy", "-------->onResume");
         refreshUserInfo();
     }
 

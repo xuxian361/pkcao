@@ -911,6 +911,7 @@ cn.sharesdk.facebook.b
 cn.sharesdk.facebook.c
 cn.sharesdk.facebook.d
 cn.sharesdk.facebook.e
+cn.sharesdk.facebook.f
 cn.sharesdk.framework.CustomPlatform:
     public CustomPlatform(android.content.Context)
     protected final void initDevInfo(java.lang.String)
@@ -925,24 +926,14 @@ cn.sharesdk.framework.CustomPlatform:
     protected void follow(java.lang.String)
     protected void timeline(int,int,java.lang.String)
     protected void userInfor(java.lang.String)
-    protected void getFriendList(int,int,java.lang.String)
     protected void doCustomerProtocol(java.lang.String,java.lang.String,int,java.util.HashMap,java.util.HashMap)
     protected final cn.sharesdk.framework.statistics.b.f$a filterShareContent(cn.sharesdk.framework.Platform$ShareParams,java.util.HashMap)
-cn.sharesdk.framework.FakeActivity:
-    public void setContentViewLayoutResName(java.lang.String)
-    public android.view.View getContentView()
-    public android.view.View findViewByResName(android.view.View,java.lang.String)
-    public void startActivity(android.content.Intent)
-    public void startActivityForResult(android.content.Intent,int)
-    public cn.sharesdk.framework.FakeActivity getParent()
-    public final void setResult(java.util.HashMap)
-    public void runOnUIThread(java.lang.Runnable)
-    public void runOnUIThread(java.lang.Runnable,long)
-    public void setRequestedOrientation(int)
-    public void requestPortraitOrientation()
-    public void requestLandscapeOrientation()
-    public int getOrientation()
-    public void requestFullScreen(boolean)
+    protected void getFriendList(int,int,java.lang.String)
+    protected java.util.HashMap getFollowings(int,int,java.lang.String)
+    protected java.util.HashMap getFollowers(int,int,java.lang.String)
+    protected java.util.HashMap getBilaterals(int,int,java.lang.String)
+    protected java.util.HashMap filterFriendshipInfo(int,java.util.HashMap)
+    public boolean hasShareCallback()
 cn.sharesdk.framework.Platform:
     public static final int ACTION_AUTHORIZING
     public static final int ACTION_GETTING_FRIEND_LIST
@@ -951,6 +942,8 @@ cn.sharesdk.framework.Platform:
     public static final int ACTION_TIMELINE
     public static final int ACTION_USER_INFOR
     public static final int ACTION_SHARE
+    protected static final int ACTION_GETTING_BILATERAL_LIST
+    protected static final int ACTION_GETTING_FOLLOWER_LIST
     protected static final int ACTION_CUSTOMER
     public static final int CUSTOMER_ACTION_MASK
     public static final int SHARE_TEXT
@@ -980,6 +973,10 @@ cn.sharesdk.framework.Platform:
     public void followFriend(java.lang.String)
     public void getTimeLine(java.lang.String,int,int)
     public void listFriend(int,int,java.lang.String)
+    protected abstract java.util.HashMap getFollowings(int,int,java.lang.String)
+    protected abstract java.util.HashMap getFollowers(int,int,java.lang.String)
+    protected abstract java.util.HashMap getBilaterals(int,int,java.lang.String)
+    protected abstract java.util.HashMap filterFriendshipInfo(int,java.util.HashMap)
     public void customerProtocol(java.lang.String,java.lang.String,short,java.util.HashMap,java.util.HashMap)
     protected void afterRegister(int,java.lang.Object)
     public void removeAccount()
@@ -987,6 +984,7 @@ cn.sharesdk.framework.Platform:
     public java.lang.String getShortLintk(java.lang.String,boolean)
     protected java.lang.String uploadImageToFileServer(java.lang.String)
     protected java.lang.String uploadImageToFileServer(android.graphics.Bitmap)
+    public abstract boolean hasShareCallback()
 cn.sharesdk.framework.Platform$ShareParams:
     public java.lang.String text
     public java.lang.String imagePath
@@ -1010,7 +1008,6 @@ cn.sharesdk.framework.PlatformDb:
     public java.lang.String exportData()
     public void importData(java.lang.String)
     public boolean isValid()
-    public java.lang.String getUserGender()
 cn.sharesdk.framework.ReflectablePlatformActionListener
 cn.sharesdk.framework.Service:
     private android.content.Context a
@@ -1047,12 +1044,26 @@ cn.sharesdk.framework.ShareSDK:
     public static int platformNameToId(java.lang.String)
     public static boolean isRemoveCookieOnAuthorize()
     public static void closeDebug()
+    public static boolean isDebug()
     static void a(java.lang.String,java.lang.String)
     static void a(int,int)
     static java.lang.String a(java.lang.String,boolean,int,java.lang.String)
     static java.lang.String a(java.lang.String)
     static java.lang.String a(android.graphics.Bitmap)
 cn.sharesdk.framework.TitleLayout
+cn.sharesdk.framework.a:
+    cn.sharesdk.framework.PlatformActionListener a()
+    void a(cn.sharesdk.framework.Platform,int,java.lang.Object)
+cn.sharesdk.framework.a.a:
+    private a()
+    public static cn.sharesdk.framework.a.a a()
+    public java.lang.String b(java.lang.String,java.util.ArrayList,java.lang.String,int)
+    public java.lang.String a(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,java.lang.String,int)
+    public java.lang.String a(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,java.util.ArrayList,java.lang.String,int)
+    public java.lang.String a(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,java.util.ArrayList,com.mob.tools.network.NetworkHelper$NetworkTimeOut,java.lang.String,int)
+    public java.lang.String b(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,java.util.ArrayList,com.mob.tools.network.NetworkHelper$NetworkTimeOut,java.lang.String,int)
+    public void a(java.lang.String,java.util.ArrayList,com.mob.tools.network.HTTPPart,com.mob.tools.network.RawNetworkCallback,java.lang.String,int)
+    public java.lang.String b(java.lang.String,java.util.ArrayList,java.util.ArrayList,com.mob.tools.network.NetworkHelper$NetworkTimeOut,java.lang.String,int)
 cn.sharesdk.framework.authorize.AuthorizeAdapter
 cn.sharesdk.framework.authorize.AuthorizeHelper
 cn.sharesdk.framework.authorize.RegisterView
@@ -1070,14 +1081,8 @@ cn.sharesdk.framework.authorize.g$a
 cn.sharesdk.framework.authorize.h
 cn.sharesdk.framework.authorize.i
 cn.sharesdk.framework.authorize.j
-cn.sharesdk.framework.b
 cn.sharesdk.framework.c
 cn.sharesdk.framework.d:
-    d()
-    cn.sharesdk.framework.PlatformActionListener a()
-    void a(cn.sharesdk.framework.Platform,int,java.lang.Object)
-cn.sharesdk.framework.f
-cn.sharesdk.framework.g:
     protected static final java.lang.String TEXT
     protected static final java.lang.String IMAGE_PATH
     protected static final java.lang.String FILE_PATH
@@ -1114,7 +1119,7 @@ cn.sharesdk.framework.g:
     protected static final java.lang.String INSTALL_URL
     protected static final java.lang.String IS_SHARE_TENCENT_WEIBO
     protected static final java.lang.String IMAGE_ARRAY
-    public g(java.lang.String)
+    public d(java.lang.String)
     public void set(java.lang.String,java.lang.Object)
     public void setText(java.lang.String)
     public java.lang.String getText()
@@ -1187,33 +1192,11 @@ cn.sharesdk.framework.g:
     public void setShareTencentWeibo(boolean)
     public java.lang.String[] getImageArray()
     public void setImageArray(java.lang.String[])
-cn.sharesdk.framework.gui.AsyncImageView
-cn.sharesdk.framework.gui.BitmapProcessor
-cn.sharesdk.framework.gui.BitmapProcessor$BitmapCallback
-cn.sharesdk.framework.gui.BitmapProcessor$a
-cn.sharesdk.framework.gui.BitmapProcessor$b
-cn.sharesdk.framework.gui.BitmapProcessor$c
-cn.sharesdk.framework.gui.BitmapProcessor$d
-cn.sharesdk.framework.gui.OnListStopScrollListener
-cn.sharesdk.framework.gui.PullToRefreshView
-cn.sharesdk.framework.gui.ScaledImageView
-cn.sharesdk.framework.gui.ScaledImageView$OnMatrixChangedListener
-cn.sharesdk.framework.gui.Scrollable
-cn.sharesdk.framework.gui.Scrollable$OnScrollListener
-cn.sharesdk.framework.gui.ScrollableListView
-cn.sharesdk.framework.gui.ViewPagerClassic
-cn.sharesdk.framework.gui.a
-cn.sharesdk.framework.gui.b
-cn.sharesdk.framework.gui.c
-cn.sharesdk.framework.gui.d
-cn.sharesdk.framework.gui.e
-cn.sharesdk.framework.gui.f
-cn.sharesdk.framework.gui.g
-cn.sharesdk.framework.h
-cn.sharesdk.framework.i:
+cn.sharesdk.framework.e
+cn.sharesdk.framework.f:
     private android.content.Context b
     private cn.sharesdk.framework.PlatformDb c
-    public i(cn.sharesdk.framework.Platform,android.content.Context)
+    public f(cn.sharesdk.framework.Platform,android.content.Context)
     public int a()
     public cn.sharesdk.framework.PlatformActionListener c()
     public boolean d()
@@ -1231,37 +1214,14 @@ cn.sharesdk.framework.i:
     protected cn.sharesdk.framework.PlatformActionListener i()
     public java.lang.String d(java.lang.String)
     public java.lang.String a(android.graphics.Bitmap)
-cn.sharesdk.framework.k
-cn.sharesdk.framework.m
-cn.sharesdk.framework.n:
-    public java.lang.String a(android.content.Context,java.lang.String,java.lang.String,boolean,int,java.lang.String)
-    public java.lang.String a(android.content.Context,java.lang.String)
-    public java.lang.String a(android.content.Context,android.graphics.Bitmap)
+cn.sharesdk.framework.h
+cn.sharesdk.framework.i:
+    public java.lang.String a(java.lang.String,boolean,int,java.lang.String)
+    public java.lang.String a(java.lang.String)
+    public java.lang.String a(android.graphics.Bitmap)
     public void a(int,int,java.util.HashMap)
-cn.sharesdk.framework.network.ProgressCallback
-cn.sharesdk.framework.network.RawNetworkCallback
-cn.sharesdk.framework.network.a
-cn.sharesdk.framework.network.b
-cn.sharesdk.framework.network.d:
-    public void a(java.io.File)
-cn.sharesdk.framework.network.i:
-    public java.lang.String a(android.content.Context,java.lang.String,java.lang.String,boolean)
-    public void a(java.lang.String,cn.sharesdk.framework.network.RawNetworkCallback)
-    public java.lang.String b(java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)
-    public void a(java.lang.String,java.util.ArrayList,cn.sharesdk.framework.network.e,cn.sharesdk.framework.network.RawNetworkCallback)
-    public java.lang.String b(java.lang.String,java.util.ArrayList,cn.sharesdk.framework.network.f,java.util.ArrayList,java.util.ArrayList)
-cn.sharesdk.framework.network.k:
-    private k()
-    public static cn.sharesdk.framework.network.k a()
-    public java.lang.String b(java.lang.String,java.util.ArrayList,java.lang.String,int)
-    public java.lang.String a(java.lang.String,java.util.ArrayList,cn.sharesdk.framework.network.f,java.lang.String,int)
-    public java.lang.String a(java.lang.String,java.util.ArrayList,cn.sharesdk.framework.network.f,java.util.ArrayList,java.lang.String,int)
-    public java.lang.String a(java.lang.String,java.util.ArrayList,cn.sharesdk.framework.network.f,java.util.ArrayList,java.util.ArrayList,java.lang.String,int)
-    public java.lang.String b(java.lang.String,java.util.ArrayList,cn.sharesdk.framework.network.f,java.util.ArrayList,java.util.ArrayList,java.lang.String,int)
-    public void a(java.lang.String,java.util.ArrayList,cn.sharesdk.framework.network.e,cn.sharesdk.framework.network.RawNetworkCallback,java.lang.String,int)
-    public java.lang.String b(java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList,java.lang.String,int)
-cn.sharesdk.framework.p:
-    private boolean n
+cn.sharesdk.framework.k:
+    private boolean m
     public void a(java.lang.Class)
     public void b(java.lang.Class)
     public cn.sharesdk.framework.Service c(java.lang.Class)
@@ -1270,114 +1230,63 @@ cn.sharesdk.framework.p:
     public void a(int)
     public void b(int)
     public void b(boolean)
-    public boolean f()
+    public boolean d()
     public void a(java.lang.String,java.util.HashMap)
     public java.lang.String c(int)
-    public int c(java.lang.String)
+    public int b(java.lang.String)
     public void a(java.lang.String,java.lang.String)
     public void a(int,int)
     public java.lang.String a(java.lang.String,boolean,int,java.lang.String)
-    public java.lang.String d(java.lang.String)
+    public java.lang.String c(java.lang.String)
     public java.lang.String a(android.graphics.Bitmap)
-    public void i()
-cn.sharesdk.framework.s
+    public void g()
+cn.sharesdk.framework.n
 cn.sharesdk.framework.statistics.a:
-    public java.lang.String d(java.lang.String)
+    public java.lang.String a(java.lang.String,int,boolean,java.lang.String)
+    private java.lang.String a(java.lang.String,java.lang.String,int,java.lang.String)
+    public java.lang.String a(java.lang.String)
     public java.lang.String a(android.graphics.Bitmap)
-    private java.lang.String a(java.lang.String,byte[])
-    public java.lang.String a(java.lang.String,java.lang.String,int,boolean,java.lang.String)
-    private java.lang.String a(java.lang.String,java.lang.String,java.lang.String,int,java.lang.String)
-    private java.lang.String d(java.lang.String,java.lang.String)
-cn.sharesdk.framework.utils.BitmapHelper:
-    public BitmapHelper()
-    public static android.graphics.Bitmap getBitmap(java.lang.String,int)
-    public static android.graphics.Bitmap getBitmap(java.io.File,int)
-    public static android.graphics.Bitmap getBitmap(java.io.InputStream,int)
-    public static android.graphics.Bitmap getBitmap(java.lang.String)
-    public static android.graphics.Bitmap getBitmap(android.content.Context,java.lang.String)
-    public static java.lang.String downloadBitmap(android.content.Context,java.lang.String)
-    public static java.lang.String saveViewToImage(android.view.View)
-    public static java.lang.String saveViewToImage(android.view.View,int,int)
-    public static android.graphics.Bitmap captureView(android.view.View,int,int)
-    public static android.graphics.Bitmap blur(android.graphics.Bitmap,int,int)
-    private static android.graphics.Bitmap a(android.graphics.Bitmap,int,boolean)
-    public static android.graphics.Bitmap roundBitmap(android.graphics.Bitmap,int,int,float,float,float,float)
-    public static int[] fixRect(int[],int[])
-    public static int[] fixRect_2(int[],int[])
-    public static java.lang.String saveBitmap(android.content.Context,android.graphics.Bitmap,android.graphics.Bitmap$CompressFormat,int)
-    public static java.lang.String saveBitmap(android.content.Context,android.graphics.Bitmap)
-    public static android.graphics.Bitmap$CompressFormat getBmpFormat(byte[])
-    public static android.graphics.Bitmap cropBitmap(android.graphics.Bitmap,int,int,int,int)
-    public static boolean isBlackBitmap(android.graphics.Bitmap)
-    public static int mixAlpha(int,int)
+cn.sharesdk.framework.statistics.a.e:
+    public boolean d()
+cn.sharesdk.framework.statistics.c:
+    private java.lang.String p()
+    public java.util.HashMap a(java.lang.String,java.util.ArrayList,int,java.lang.String)
+    private java.lang.String e(java.lang.String)
 cn.sharesdk.framework.utils.Escaper
-cn.sharesdk.framework.utils.R:
-    public R()
-    public static int pxToDip(android.content.Context,int)
+cn.sharesdk.framework.utils.ShareSDKR:
+    public ShareSDKR()
     public static int getStringArrayRes(android.content.Context,java.lang.String)
     public static int getStyleRes(android.content.Context,java.lang.String)
     public static int getColorRes(android.content.Context,java.lang.String)
     public static int getRawRes(android.content.Context,java.lang.String)
     public static int getPluralsRes(android.content.Context,java.lang.String)
-    public static void setCacheRoot(java.lang.String)
-    public static java.lang.String getImageCachePath(android.content.Context)
-    public static void clearCache(android.content.Context)
-    public static void deleteFileAndFolder(java.io.File)
-    public static java.lang.String toWordText(java.lang.String,int)
-    public static int getTextLengthInWord(java.lang.String)
-    public static long strToDate(java.lang.String)
-    public static long dateStrToLong(java.lang.String)
-    public static java.util.Date longToDate(long)
-    public static java.lang.String longToTime(long,int)
-    public static long dateToLong(java.lang.String)
-    public static int[] covertTimeInYears(long)
-    public static android.net.Uri pathToContentUri(android.content.Context,java.lang.String)
-    public static java.lang.String contentUriToPath(android.content.Context,android.net.Uri)
-    public static java.lang.String encodeUrl(android.os.Bundle)
-    public static java.lang.String encodeUrl(java.util.ArrayList)
-    public static boolean copyFile(java.lang.String,java.lang.String)
-    public static void copyFile(java.io.FileInputStream,java.io.FileOutputStream)
-    public static boolean saveObjectToFile(java.lang.String,java.lang.Object)
-    public static java.lang.Object readObjectFromFile(java.lang.String)
-cn.sharesdk.framework.utils.UIHandler:
-    public UIHandler()
-    public static boolean sendMessageDelayed(android.os.Message,long,android.os.Handler$Callback)
-    public static boolean sendMessageAtTime(android.os.Message,long,android.os.Handler$Callback)
-    public static boolean sendMessageAtFrontOfQueue(android.os.Message,android.os.Handler$Callback)
-    public static boolean sendEmptyMessageAtTime(int,long,android.os.Handler$Callback)
-    public static boolean sendEmptyMessageDelayed(int,long,android.os.Handler$Callback)
-cn.sharesdk.framework.utils.a:
-    public static byte[] a(byte[],java.lang.String)
-    public static java.lang.String b(java.lang.String)
-    public static java.lang.String d(java.lang.String)
-cn.sharesdk.framework.utils.b:
-    public java.lang.String h()
-    public java.lang.String j()
-    public java.lang.String r()
-    public java.lang.String u()
+    public static int getAnimRes(android.content.Context,java.lang.String)
+cn.sharesdk.framework.utils.a
+cn.sharesdk.framework.utils.a$1
+cn.sharesdk.framework.utils.a$a
+cn.sharesdk.framework.utils.a$b
+cn.sharesdk.framework.utils.b
 cn.sharesdk.framework.utils.c
 cn.sharesdk.framework.utils.g
-cn.sharesdk.framework.utils.g$1
-cn.sharesdk.framework.utils.g$a
-cn.sharesdk.framework.utils.g$b
 cn.sharesdk.framework.utils.h
 cn.sharesdk.framework.utils.i
-cn.sharesdk.framework.utils.k
-cn.sharesdk.framework.utils.l
-cn.sharesdk.framework.utils.m
-cn.sharesdk.framework.utils.n
-cn.sharesdk.framework.utils.n$a
+cn.sharesdk.framework.utils.j
+cn.sharesdk.framework.utils.j$a
+cn.sharesdk.line.Line
+cn.sharesdk.line.LineClientNotExistException
+cn.sharesdk.line.a
 cn.sharesdk.onekeyshare.EditPageFakeActivity:
     protected java.util.ArrayList toFriendList
-    71:76:public java.lang.String getLogoName(java.lang.String)
-    80:80:protected boolean isShowAtUserLayout(java.lang.String)
-    86:86:protected java.lang.String getAtUserButtonText(java.lang.String)
-    90:104:protected java.lang.String getJoinSelectedUser(java.util.HashMap)
-    108:177:protected boolean initImageList(cn.sharesdk.onekeyshare.EditPageFakeActivity$ImageListResultsCallback)
-    181:184:protected void removeImage(cn.sharesdk.onekeyshare.EditPageFakeActivity$ImageInfo)
-    187:236:protected void setResultAndFinish()
-    29:29:static synthetic java.util.ArrayList access$000(cn.sharesdk.onekeyshare.EditPageFakeActivity)
-    29:29:static synthetic android.app.Activity access$100(cn.sharesdk.onekeyshare.EditPageFakeActivity)
+    70:75:public java.lang.String getLogoName(java.lang.String)
+    79:79:protected boolean isShowAtUserLayout(java.lang.String)
+    85:85:protected java.lang.String getAtUserButtonText(java.lang.String)
+    89:103:protected java.lang.String getJoinSelectedUser(java.util.HashMap)
+    107:122:public boolean haveImage()
+    126:193:protected boolean initImageList(cn.sharesdk.onekeyshare.EditPageFakeActivity$ImageListResultsCallback)
+    197:200:protected void removeImage(cn.sharesdk.onekeyshare.EditPageFakeActivity$ImageInfo)
+    203:248:protected void setResultAndFinish()
+    28:28:static synthetic java.util.ArrayList access$000(cn.sharesdk.onekeyshare.EditPageFakeActivity)
+    28:28:static synthetic android.app.Activity access$100(cn.sharesdk.onekeyshare.EditPageFakeActivity)
 cn.sharesdk.onekeyshare.EditPageFakeActivity$1
 cn.sharesdk.onekeyshare.EditPageFakeActivity$ImageInfo
 cn.sharesdk.onekeyshare.EditPageFakeActivity$ImageListResultsCallback
@@ -1388,34 +1297,34 @@ cn.sharesdk.onekeyshare.OnekeyShare:
     private static final int MSG_TOAST
     private static final int MSG_ACTION_CCALLBACK
     private static final int MSG_CANCEL_NOTIFY
-    131:132:public void setTheme(cn.sharesdk.onekeyshare.OnekeyShareTheme)
-    138:139:public void setAddress(java.lang.String)
-    153:154:public void setTitleUrl(java.lang.String)
-    167:167:public java.lang.String getText()
-    182:184:public void setImageUrl(java.lang.String)
-    197:198:public void setFilePath(java.lang.String)
-    218:219:public void setSiteUrl(java.lang.String)
-    225:226:public void setVenueName(java.lang.String)
-    232:233:public void setVenueDescription(java.lang.String)
-    239:240:public void setLatitude(float)
-    246:247:public void setLongitude(float)
-    253:254:public void setSilent(boolean)
-    260:261:public void setPlatform(java.lang.String)
-    267:268:public void setInstallUrl(java.lang.String)
-    274:275:public void setExecuteUrl(java.lang.String)
-    281:282:public void setMusicUrl(java.lang.String)
-    288:289:public void setCallback(cn.sharesdk.framework.PlatformActionListener)
-    295:295:public cn.sharesdk.framework.PlatformActionListener getCallback()
-    302:303:public void setShareContentCustomizeCallback(cn.sharesdk.onekeyshare.ShareContentCustomizeCallback)
-    309:309:public cn.sharesdk.onekeyshare.ShareContentCustomizeCallback getShareContentCustomizeCallback()
-    316:322:public void setCustomerLogo(android.graphics.Bitmap,android.graphics.Bitmap,java.lang.String,android.view.View$OnClickListener)
-    335:337:public void setDialogMode()
-    343:344:public void addHiddenPlatform(java.lang.String)
-    351:356:public void setViewToShare(android.view.View)
-    362:363:public void setImageArray(java.lang.String[])
-    366:367:public void setEditPageBackground(android.view.View)
-    370:371:public void setOnShareButtonClickListener(cn.sharesdk.onekeyshare.PlatformListFakeActivity$OnShareButtonClickListener)
-    669:670:public void setShareFromQQAuthSupport(boolean)
+    130:131:public void setTheme(cn.sharesdk.onekeyshare.OnekeyShareTheme)
+    135:136:public void setAddress(java.lang.String)
+    148:149:public void setTitleUrl(java.lang.String)
+    158:158:public java.lang.String getText()
+    180:181:public void setFilePath(java.lang.String)
+    195:196:public void setSiteUrl(java.lang.String)
+    200:201:public void setVenueName(java.lang.String)
+    205:206:public void setVenueDescription(java.lang.String)
+    210:211:public void setLatitude(float)
+    215:216:public void setLongitude(float)
+    220:221:public void setSilent(boolean)
+    225:226:public void setPlatform(java.lang.String)
+    230:231:public void setInstallUrl(java.lang.String)
+    235:236:public void setExecuteUrl(java.lang.String)
+    240:241:public void setMusicUrl(java.lang.String)
+    245:246:public void setCallback(cn.sharesdk.framework.PlatformActionListener)
+    250:250:public cn.sharesdk.framework.PlatformActionListener getCallback()
+    255:256:public void setShareContentCustomizeCallback(cn.sharesdk.onekeyshare.ShareContentCustomizeCallback)
+    260:260:public cn.sharesdk.onekeyshare.ShareContentCustomizeCallback getShareContentCustomizeCallback()
+    265:271:public void setCustomerLogo(android.graphics.Bitmap,android.graphics.Bitmap,java.lang.String,android.view.View$OnClickListener)
+    280:281:public void shareVideoToWechat()
+    285:287:public void setDialogMode()
+    291:292:public void addHiddenPlatform(java.lang.String)
+    297:302:public void setViewToShare(android.view.View)
+    306:307:public void setImageArray(java.lang.String[])
+    310:311:public void setEditPageBackground(android.view.View)
+    314:315:public void setOnShareButtonClickListener(cn.sharesdk.onekeyshare.PlatformListFakeActivity$OnShareButtonClickListener)
+    621:622:public void setShareFromQQAuthSupport(boolean)
 cn.sharesdk.onekeyshare.PicViewer
 cn.sharesdk.onekeyshare.PlatformListFakeActivity:
     69:69:public java.util.HashMap getShareParamsMap()
@@ -1425,6 +1334,7 @@ cn.sharesdk.onekeyshare.PlatformListFakeActivity:
     109:109:public cn.sharesdk.onekeyshare.PlatformListFakeActivity$OnShareButtonClickListener getOnShareButtonClickListener()
     117:117:public boolean isDialogMode()
     125:125:public cn.sharesdk.onekeyshare.ThemeShareCallback getThemeShareCallback()
+cn.sharesdk.onekeyshare.ReflectableShareContentCustomizeCallback
 cn.sharesdk.onekeyshare.Shake2Share
 cn.sharesdk.onekeyshare.Shake2Share$OnShakeListener
 cn.sharesdk.onekeyshare.ShareCore:
@@ -1449,7 +1359,7 @@ cn.sharesdk.onekeyshare.theme.classic.FollowListPage$RotateImageView
 cn.sharesdk.onekeyshare.theme.classic.PlatformGridView:
     private static final int MIN_CLICK_INTERVAL
     private static final int MSG_PLATFORM_LIST_GOT
-    78:80:public PlatformGridView(android.content.Context,android.util.AttributeSet)
+    77:79:public PlatformGridView(android.content.Context,android.util.AttributeSet)
 cn.sharesdk.onekeyshare.theme.skyblue.EditPage
 cn.sharesdk.onekeyshare.theme.skyblue.EditPage$1
 cn.sharesdk.onekeyshare.theme.skyblue.EditPage$2
@@ -1461,35 +1371,37 @@ cn.sharesdk.onekeyshare.theme.skyblue.FollowListPage$FollowAdapter
 cn.sharesdk.onekeyshare.theme.skyblue.FollowListPage$FollowListItem
 cn.sharesdk.onekeyshare.theme.skyblue.FollowListPage$PRTHeader
 cn.sharesdk.onekeyshare.theme.skyblue.FollowListPage$RotateImageView
+cn.sharesdk.sina.weibo.SinaWeibo
+cn.sharesdk.sina.weibo.SinaWeibo$ShareParams
+cn.sharesdk.sina.weibo.a
+cn.sharesdk.sina.weibo.b
+cn.sharesdk.sina.weibo.c
+cn.sharesdk.sina.weibo.d
+cn.sharesdk.sina.weibo.e
+cn.sharesdk.sina.weibo.f
+cn.sharesdk.sina.weibo.g
+cn.sharesdk.sina.weibo.h
+cn.sharesdk.sina.weibo.i
+cn.sharesdk.sina.weibo.i$a
 cn.sharesdk.system.email.ActionListener
 cn.sharesdk.system.email.Email
 cn.sharesdk.system.email.Email$ShareParams
 cn.sharesdk.system.email.a
 cn.sharesdk.system.email.b
+cn.sharesdk.system.email.c
 cn.sharesdk.system.text.ActionListener
 cn.sharesdk.system.text.ShortMessage
 cn.sharesdk.system.text.ShortMessage$ShareParams
 cn.sharesdk.system.text.a
 cn.sharesdk.system.text.b
-cn.sharesdk.tencent.qq.QQ
-cn.sharesdk.tencent.qq.QQ$ShareParams
-cn.sharesdk.tencent.qq.QQClientNotExistException
-cn.sharesdk.tencent.qq.QQWebShareAdapter
-cn.sharesdk.tencent.qq.TencentSSOClientNotInstalledException
-cn.sharesdk.tencent.qq.a
-cn.sharesdk.tencent.qq.b
-cn.sharesdk.tencent.qq.c
-cn.sharesdk.tencent.qq.d
-cn.sharesdk.tencent.qq.e
-cn.sharesdk.tencent.qq.f
-cn.sharesdk.tencent.qq.g
-cn.sharesdk.tencent.qq.h
-cn.sharesdk.tencent.qq.i
-cn.sharesdk.tencent.qq.j
-cn.sharesdk.tencent.qq.k
-cn.sharesdk.tencent.qq.l
-cn.sharesdk.tencent.qq.m
-cn.sharesdk.tencent.qq.n
+cn.sharesdk.system.text.c
+cn.sharesdk.twitter.Twitter
+cn.sharesdk.twitter.Twitter$ShareParams
+cn.sharesdk.twitter.a
+cn.sharesdk.twitter.b
+cn.sharesdk.twitter.c
+cn.sharesdk.twitter.d
+cn.sharesdk.twitter.e
 cn.sharesdk.wechat.favorite.WechatFavorite
 cn.sharesdk.wechat.favorite.WechatFavorite$ShareParams
 cn.sharesdk.wechat.favorite.a
@@ -1532,7 +1444,7 @@ cn.sharesdk.wechat.utils.WechatFavoriteNotSupportedException
 cn.sharesdk.wechat.utils.WechatHelper:
     public void a(cn.sharesdk.wechat.utils.k)
     public boolean b()
-    public void a(cn.sharesdk.wechat.utils.k,cn.sharesdk.framework.Platform$ShareParams)
+    public void a(cn.sharesdk.wechat.utils.k,cn.sharesdk.framework.Platform$ShareParams,cn.sharesdk.framework.PlatformActionListener)
     public void b(cn.sharesdk.wechat.utils.k)
     private void a(java.lang.String,java.lang.String,int,cn.sharesdk.wechat.utils.k)
     private void a(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,cn.sharesdk.wechat.utils.k)
@@ -1575,7 +1487,7 @@ cn.sharesdk.wechat.utils.j:
     private android.content.Context a
     private java.lang.String b
     public boolean a(android.content.Context,java.lang.String)
-    public void a(cn.sharesdk.wechat.utils.l)
+    public void a(cn.sharesdk.wechat.utils.m)
     public boolean a()
     public boolean b()
     private boolean d()
@@ -1590,6 +1502,316 @@ cn.sharesdk.wechat.utils.k:
     public cn.sharesdk.framework.Platform b()
     public cn.sharesdk.framework.PlatformActionListener c()
 cn.sharesdk.wechat.utils.l
+cn.sharesdk.wechat.utils.m
+cn.sharesdk.whatsapp.WhatsApp
+cn.sharesdk.whatsapp.WhatsApp$ShareParams
+cn.sharesdk.whatsapp.WhatsAppClientNotExistException
+cn.sharesdk.whatsapp.a
+cn.sharesdk.whatsapp.b
+cn.sharesdk.whatsapp.c
+com.mob.commons.authorize.DeviceAuthorizer
+com.mob.commons.authorize.MobProduct
+com.mob.commons.authorize.a
+com.mob.tools.FakeActivity:
+    43:44:public static void setShell(java.lang.Class)
+    47:58:public static void registerExecutor(java.lang.String,java.lang.Object)
+    65:72:public void setContentViewLayoutResName(java.lang.String)
+    84:84:public android.view.View getContentView()
+    97:104:public android.view.View findViewByResName(android.view.View,java.lang.String)
+    201:202:public void startActivity(android.content.Intent)
+    205:209:public void startActivityForResult(android.content.Intent,int)
+    217:217:public void onRequestPermissionsResult(int,java.lang.String[],int[])
+    288:288:public com.mob.tools.FakeActivity getParent()
+    297:298:public final void setResult(java.util.HashMap)
+    327:333:public void runOnUIThread(java.lang.Runnable)
+    341:347:public void runOnUIThread(java.lang.Runnable,long)
+    364:368:public void setRequestedOrientation(int)
+    371:372:public void requestPortraitOrientation()
+    375:376:public void requestLandscapeOrientation()
+    384:384:public int getOrientation()
+    393:405:public void requestFullScreen(boolean)
+com.mob.tools.FakeActivity$2
+com.mob.tools.FakeActivity$3
+com.mob.tools.MobLog:
+    8:9:private MobLog()
+com.mob.tools.MobUIShell:
+    190:193:public void onRequestPermissionsResult(int,java.lang.String[],int[])
+    203:203:public java.lang.Object getExecutor()
+com.mob.tools.SSDKHandlerThread:
+    private static final int MSG_START
+    private static final int MSG_STOP
+    23:23:public java.lang.String getName()
+com.mob.tools.SSDKWebViewClient
+com.mob.tools.SSDKWebViewClient$1
+com.mob.tools.SSDKWebViewClient$2
+com.mob.tools.gui.AsyncImageView
+com.mob.tools.gui.BitmapProcessor
+com.mob.tools.gui.BitmapProcessor$BitmapCallback
+com.mob.tools.gui.BitmapProcessor$ImageReq
+com.mob.tools.gui.BitmapProcessor$ManagerThread
+com.mob.tools.gui.BitmapProcessor$ManagerThread$1
+com.mob.tools.gui.BitmapProcessor$PatchInputStream
+com.mob.tools.gui.BitmapProcessor$WorkerThread
+com.mob.tools.gui.BitmapProcessor$WorkerThread$1
+com.mob.tools.gui.CachePool:
+    86:88:public synchronized void clear()
+    91:111:public synchronized void trimBeforeTime(long)
+    114:114:public int size()
+com.mob.tools.gui.CachePool$Node:
+    122:122:static synthetic long access$2(com.mob.tools.gui.CachePool$Node)
+com.mob.tools.gui.ListInnerAdapter
+com.mob.tools.gui.MobViewPager
+com.mob.tools.gui.MobViewPager$1
+com.mob.tools.gui.OnListStopScrollListener
+com.mob.tools.gui.PullToRefreshAdatper
+com.mob.tools.gui.PullToRefreshBaseListAdapter
+com.mob.tools.gui.PullToRefreshGridAdapter
+com.mob.tools.gui.PullToRefreshGridAdapter$1
+com.mob.tools.gui.PullToRefreshListAdapter
+com.mob.tools.gui.PullToRefreshListAdapter$1
+com.mob.tools.gui.PullToRefreshView
+com.mob.tools.gui.PullToRefreshView$1
+com.mob.tools.gui.ScaledImageView
+com.mob.tools.gui.ScaledImageView$OnMatrixChangedListener
+com.mob.tools.gui.Scrollable
+com.mob.tools.gui.Scrollable$OnScrollListener
+com.mob.tools.gui.ScrollableGridView
+com.mob.tools.gui.ScrollableGridView$1
+com.mob.tools.gui.ScrollableListView
+com.mob.tools.gui.ScrollableListView$1
+com.mob.tools.gui.ViewPagerAdapter:
+    private com.mob.tools.gui.MobViewPager parent
+    10:11:final void setMobViewPager(com.mob.tools.gui.MobViewPager)
+    22:25:public void invalidate()
+com.mob.tools.gui.ViewPagerClassic:
+    private static final int SNAP_VELOCITY
+    private static final int TOUCH_STATE_REST
+    private static final int TOUCH_STATE_SCROLLING
+    457:464:public void scrollLeft()
+    468:476:public void scrollRight()
+com.mob.tools.log.LogCollector:
+    public static final int LEVEL_NORMAL
+    public static final int LEVEL_CRASH
+    public static final int LEVEL_NATIVE
+com.mob.tools.log.MobUncaughtExceptionHandler:
+    16:17:public static void disable()
+    20:21:public static void closeLog()
+    24:25:public static void openLog()
+com.mob.tools.log.NLog:
+    54:54:public final int v(java.lang.Throwable)
+    58:60:public final varargs int v(java.lang.Object,java.lang.Object[])
+    64:67:public final varargs int v(java.lang.Throwable,java.lang.Object,java.lang.Object[])
+    81:84:public final varargs int d(java.lang.Throwable,java.lang.Object,java.lang.Object[])
+    88:88:public final int i(java.lang.Throwable)
+    98:101:public final varargs int i(java.lang.Throwable,java.lang.Object,java.lang.Object[])
+    122:122:public final int e(java.lang.Throwable)
+    126:128:public final varargs int e(java.lang.Object,java.lang.Object[])
+    132:135:public final varargs int e(java.lang.Throwable,java.lang.Object,java.lang.Object[])
+com.mob.tools.log.NativeErrorHandler:
+    private static final int MAX_LOG_SIZE
+    13:13:public NativeErrorHandler()
+com.mob.tools.network.BufferedByteArrayOutputStream
+com.mob.tools.network.ByteArrayPart
+com.mob.tools.network.FilePart:
+    11:12:public void setFile(java.io.File)
+com.mob.tools.network.HTTPPart:
+    15:16:public void setOffset(long)
+    28:31:public java.lang.Object getInputStreamEntity()
+    35:36:public void setOnReadListener(com.mob.tools.network.OnReadListener)
+com.mob.tools.network.HttpConnection:
+    public abstract java.util.Map getHeaderFields()
+com.mob.tools.network.HttpConnectionImpl
+com.mob.tools.network.HttpConnectionImpl23:
+    29:29:public java.util.Map getHeaderFields()
+com.mob.tools.network.HttpPatch
+com.mob.tools.network.NetworkHelper:
+    103:222:public java.lang.String downloadCache(android.content.Context,java.lang.String,java.lang.String,boolean,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    227:259:public void rawGet(java.lang.String,com.mob.tools.network.RawNetworkCallback,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    263:337:public java.lang.String jsonPost(java.lang.String,java.util.ArrayList,java.util.ArrayList,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    515:580:public void rawPost(java.lang.String,java.util.ArrayList,com.mob.tools.network.HTTPPart,com.mob.tools.network.RawNetworkCallback,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    584:621:public void rawPost(java.lang.String,java.util.ArrayList,com.mob.tools.network.HTTPPart,com.mob.tools.network.HttpResponseCallback,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    626:672:public void getHttpPostResponse(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,java.util.ArrayList,com.mob.tools.network.HttpResponseCallback,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    676:748:public java.lang.String httpPut(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,java.util.ArrayList,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    754:791:public java.util.ArrayList httpHead(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,java.util.ArrayList,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    797:802:public void httpPatch(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,long,java.util.ArrayList,com.mob.tools.network.OnReadListener,com.mob.tools.network.HttpResponseCallback,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    807:881:private void httpPatchImpl(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,long,java.util.ArrayList,com.mob.tools.network.OnReadListener,com.mob.tools.network.HttpResponseCallback,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+    886:935:public void httpPatchImpl23(java.lang.String,java.util.ArrayList,com.mob.tools.network.KVPair,long,java.util.ArrayList,com.mob.tools.network.OnReadListener,com.mob.tools.network.HttpResponseCallback,com.mob.tools.network.NetworkHelper$NetworkTimeOut)
+com.mob.tools.network.ProgressCallback
+com.mob.tools.network.RawNetworkCallback
+com.mob.tools.network.SSLSocketFactoryEx
+com.mob.tools.network.SSLSocketFactoryEx$1
+com.mob.tools.utils.BitmapHelper:
+    27:27:public BitmapHelper()
+    30:33:public static android.graphics.Bitmap getBitmap(java.lang.String,int)
+    37:44:public static android.graphics.Bitmap getBitmap(java.io.File,int)
+    48:57:public static android.graphics.Bitmap getBitmap(java.io.InputStream,int)
+    61:61:public static android.graphics.Bitmap getBitmap(java.lang.String)
+    65:66:public static android.graphics.Bitmap getBitmap(android.content.Context,java.lang.String)
+    70:71:public static java.lang.String downloadBitmap(android.content.Context,java.lang.String)
+    76:86:public static java.lang.String saveViewToImage(android.view.View)
+    91:103:public static java.lang.String saveViewToImage(android.view.View,int,int)
+    107:109:public static android.graphics.Bitmap captureView(android.view.View,int,int)
+    113:127:public static android.graphics.Bitmap blur(android.graphics.Bitmap,int,int)
+    160:361:private static android.graphics.Bitmap blur(android.graphics.Bitmap,int,boolean)
+    366:390:public static android.graphics.Bitmap roundBitmap(android.graphics.Bitmap,int,int,float,float,float,float)
+    395:406:public static int[] fixRect(int[],int[])
+    411:422:public static int[] fixRect_2(int[],int[])
+    427:437:public static java.lang.String saveBitmap(android.content.Context,android.graphics.Bitmap,android.graphics.Bitmap$CompressFormat,int)
+    441:441:public static java.lang.String saveBitmap(android.content.Context,android.graphics.Bitmap)
+    450:455:public static android.graphics.Bitmap$CompressFormat getBmpFormat(byte[])
+    546:556:public static android.graphics.Bitmap cropBitmap(android.graphics.Bitmap,int,int,int,int)
+    560:576:public static boolean isBlackBitmap(android.graphics.Bitmap)
+    581:589:public static int mixAlpha(int,int)
+    597:603:public static android.graphics.Bitmap scaleBitmapByHeight(android.content.Context,int,int)
+    607:608:public static android.graphics.Bitmap scaleBitmapByHeight(android.graphics.Bitmap,int)
+com.mob.tools.utils.Data:
+    private static final java.lang.String CHAT_SET
+    26:26:public Data()
+    45:64:public static byte[] SHA1(java.io.InputStream)
+    68:81:public static byte[] SHA1(java.io.File)
+    120:133:public static byte[] AES128Encode(byte[],java.lang.String)
+    138:144:public static java.lang.String AES128Decode(java.lang.String,byte[])
+    183:189:public static java.lang.String base62(long)
+    219:237:public static java.lang.String MD5(java.io.File)
+    332:336:public static java.lang.String urlEncode(java.lang.String)
+    340:363:public static java.lang.String CRC32(byte[])
+    368:383:public static byte[] rawRSAEncode(byte[],byte[],int)
+    388:404:public static byte[] rawRSADecode(byte[],byte[],int)
+com.mob.tools.utils.DeviceHelper:
+    97:97:public boolean isRooted()
+    365:365:public java.lang.String getMime()
+    417:417:public java.lang.String getDeviceDataNotAES()
+    446:446:public java.lang.String getOSVersion()
+    456:456:public java.lang.String getOSVersionName()
+    461:461:public java.lang.String getOSLanguage()
+    466:466:public java.lang.String getOSCountry()
+    519:529:public java.lang.String getMCC()
+    533:543:public java.lang.String getMNC()
+    548:553:public java.lang.String getSimSerialNumber()
+    558:563:public java.lang.String getLine1Number()
+    656:671:public java.lang.String getNetworkTypeForStatic()
+    756:772:public org.json.JSONArray getRunningApp()
+    776:784:public java.lang.String getRunningAppStr()
+    985:991:public java.lang.String getNetworkOperator()
+    1094:1101:public void hideSoftInput(android.view.View)
+    1105:1112:public void showSoftInput(android.view.View)
+    1120:1120:public boolean isMainProcess(android.content.Context,int)
+    1142:1160:public java.lang.String getIMSI()
+    1165:1181:public java.lang.String getIPAddress()
+    1187:1197:public float[] getLocation(int,int)
+    1201:1261:public java.util.HashMap ping(java.lang.String,int,int)
+    1298:1310:public java.lang.String getDeviceType()
+com.mob.tools.utils.DownloadFileHelper
+com.mob.tools.utils.DownloadFileHelper$1
+com.mob.tools.utils.DownloadFileHelper$DownloadListener
+com.mob.tools.utils.FileLocker:
+    53:53:public synchronized boolean lock()
+com.mob.tools.utils.HEX:
+    5:5:public HEX()
+    17:34:public static byte[] toByte(java.lang.String)
+    38:39:public static java.lang.String encodeHexString(byte[])
+    43:43:public static byte[] decodeHexString(java.lang.String)
+    47:65:public static byte[] decodeHex(char[])
+    69:73:protected static int toDigit(char,int)
+    77:87:public static char[] encodeHex(byte[])
+    91:91:public byte[] decode(byte[])
+    96:100:public byte[] decode(java.lang.Object)
+    105:105:public byte[] encode(byte[])
+    110:114:public char[] encode(java.lang.Object)
+com.mob.tools.utils.Hashon:
+    212:216:public java.lang.String format(java.lang.String)
+    221:246:private java.lang.String format(java.lang.String,java.util.HashMap)
+    251:275:private java.lang.String format(java.lang.String,java.util.ArrayList)
+com.mob.tools.utils.LocalDB:
+    101:103:public void putBoolean(java.lang.String,java.lang.Boolean)
+    106:112:public boolean getBoolean(java.lang.String)
+    133:135:public void putInt(java.lang.String,java.lang.Integer)
+    138:144:public int getInt(java.lang.String)
+    149:151:public void putFloat(java.lang.String,java.lang.Float)
+    154:160:public float getFloat(java.lang.String)
+    165:170:public void remove(java.lang.String)
+com.mob.tools.utils.LocationHelper
+com.mob.tools.utils.R:
+    private static int deviceWidth
+    33:33:public R()
+    46:49:public static int pxToDip(android.content.Context,int)
+    53:57:public static int designToDevice(android.content.Context,int,int)
+    61:64:public static int designToDevice(android.content.Context,float,int)
+    108:115:public static void setResourceProvider(java.lang.Object)
+    156:156:public static int getBitmapRes(android.content.Context,java.lang.String)
+    160:160:public static int getStringRes(android.content.Context,java.lang.String)
+    164:164:public static int getStringArrayRes(android.content.Context,java.lang.String)
+    168:168:public static int getLayoutRes(android.content.Context,java.lang.String)
+    172:172:public static int getStyleRes(android.content.Context,java.lang.String)
+    180:180:public static int getColorRes(android.content.Context,java.lang.String)
+    184:184:public static int getRawRes(android.content.Context,java.lang.String)
+    188:188:public static int getPluralsRes(android.content.Context,java.lang.String)
+    192:192:public static int getAnimRes(android.content.Context,java.lang.String)
+    198:198:public static void setCacheRoot(java.lang.String)
+    243:243:public static java.lang.String getImageCachePath(android.content.Context)
+    247:250:public static void clearCache(android.content.Context)
+    253:275:public static void deleteFilesInFolder(java.io.File)
+    312:322:public static java.lang.String toWordText(java.lang.String,int)
+    326:331:public static int getTextLengthInWord(java.lang.String)
+    338:341:public static long strToDate(java.lang.String)
+    346:349:public static long dateStrToLong(java.lang.String)
+    353:355:public static java.util.Date longToDate(long)
+    366:375:public static java.lang.String longToTime(long,int)
+    381:389:public static long dateToLong(java.lang.String)
+    405:436:public static int[] covertTimeInYears(long)
+    443:463:public static android.net.Uri pathToContentUri(android.content.Context,java.lang.String)
+    468:511:public static java.lang.String contentUriToPath(android.content.Context,android.net.Uri)
+    516:535:public static java.lang.String encodeUrl(android.os.Bundle)
+    539:561:public static java.lang.String encodeUrl(java.util.ArrayList)
+    747:747:public static java.lang.String toString(java.lang.Object)
+    753:766:public static boolean copyFile(java.lang.String,java.lang.String)
+    770:778:public static void copyFile(java.io.FileInputStream,java.io.FileOutputStream)
+    781:786:public static long getFileSize(java.lang.String)
+    790:803:public static long getFileSize(java.io.File)
+    813:843:public static boolean saveObjectToFile(java.lang.String,java.lang.Object)
+    852:877:public static java.lang.Object readObjectFromFile(java.lang.String)
+com.mob.tools.utils.ReflectHelper:
+    13:13:public ReflectHelper()
+    105:115:public static varargs java.lang.Object newInstance(java.lang.String,java.lang.Object[])
+    121:140:private static varargs java.lang.Object onNewInstance(java.lang.String,java.lang.Object[])
+    149:159:public static varargs java.lang.Object invokeStaticMethod(java.lang.String,java.lang.String,java.lang.Object[])
+    167:205:private static varargs java.lang.Object onInvokeStaticMethod(java.lang.String,java.lang.String,java.lang.Object[])
+com.mob.tools.utils.ReflectHelper$ReflectRunnable
+com.mob.tools.utils.SQLiteHelper
+com.mob.tools.utils.SQLiteHelper$SingleTableDB
+com.mob.tools.utils.SQLiteHelper$SingleTableDB$1
+com.mob.tools.utils.SharePrefrenceHelper:
+    25:26:public void open(java.lang.String)
+    74:77:public void putFloat(java.lang.String,java.lang.Float)
+    80:80:public float getFloat(java.lang.String)
+    123:126:public void remove(java.lang.String)
+com.mob.tools.utils.UIHandler:
+    20:20:public UIHandler()
+    115:116:public static boolean sendMessageDelayed(android.os.Message,long,android.os.Handler$Callback)
+    120:121:public static boolean sendMessageAtTime(android.os.Message,long,android.os.Handler$Callback)
+    125:126:public static boolean sendMessageAtFrontOfQueue(android.os.Message,android.os.Handler$Callback)
+    135:136:public static boolean sendEmptyMessageAtTime(int,long,android.os.Handler$Callback)
+    140:141:public static boolean sendEmptyMessageDelayed(int,long,android.os.Handler$Callback)
+com.mob.tools.virtualdisk.FileDisk
+com.mob.tools.virtualdisk.FileDisk$FDFileInputStream
+com.mob.tools.virtualdisk.FileDisk$FDFileOutputStream
+com.mob.tools.virtualdisk.MemDisk
+com.mob.tools.virtualdisk.MemDisk$IOUtils
+com.mob.tools.virtualdisk.MemDisk$MDFileInputStream
+com.mob.tools.virtualdisk.MemDisk$MDFileOutputStream
+com.mob.tools.virtualdisk.RamDisk
+com.mob.tools.virtualdisk.RamDisk$RDFileInputStream
+com.mob.tools.virtualdisk.RamDisk$RDFileOutputStream
+com.mob.tools.virtualdisk.VirtualDisk
+com.sina.sso.RemoteSSO
+com.sina.sso.RemoteSSO$Stub
+com.sina.sso.RemoteSSO$Stub$Proxy
+com.sina.weibo.sdk.api.ImageObject
+com.sina.weibo.sdk.api.ImageObject$1
+com.sina.weibo.sdk.api.TextObject
+com.sina.weibo.sdk.api.TextObject$1
+com.sina.weibo.sdk.api.WebpageObject
+com.sina.weibo.sdk.api.WebpageObject$1
 com.slidingmenu.lib.BuildConfig
 com.slidingmenu.lib.CanvasTransformerBuilder
 com.slidingmenu.lib.CanvasTransformerBuilder$1
@@ -1667,7 +1889,7 @@ com.slidingmenu.lib.app.SlidingMapActivity
 com.slidingmenu.lib.app.SlidingPreferenceActivity
 com.sundy.pkcao.BuildConfig
 com.sundy.pkcao.R:
-    10:1436:public R()
+    10:1629:public R()
 com.sundy.pkcao.R$anim
 com.sundy.pkcao.R$attr
 com.sundy.pkcao.R$bool
@@ -1680,18 +1902,18 @@ com.sundy.pkcao.R$menu
 com.sundy.pkcao.R$string
 com.sundy.pkcao.R$style
 com.sundy.pkcao.R$styleable:
-    1436:1436:public R$styleable()
+    1629:1629:public R$styleable()
 com.sundy.pkcao.R$xml
 com.sundy.pkcao.activitys.ChatActivity:
     private android.view.View chatTextLayout
     private android.view.View chatAudioLayout
 com.sundy.pkcao.activitys.MainActivity:
     private android.app.ProgressDialog loadingDailog
-    102:106:public void onLoading()
-    110:117:public void finishLoading()
-    205:218:public void reloadActivity()
-    222:223:public void switchContent(int)
-    29:29:static synthetic android.app.ProgressDialog access$000(com.sundy.pkcao.activitys.MainActivity)
+    106:110:public void onLoading()
+    114:121:public void finishLoading()
+    209:222:public void reloadActivity()
+    226:227:public void switchContent(int)
+    33:33:static synthetic android.app.ProgressDialog access$000(com.sundy.pkcao.activitys.MainActivity)
 com.sundy.pkcao.activitys.MainActivity$1
 com.sundy.pkcao.activitys.ScaleImageActivity:
     private android.view.View v
@@ -1711,6 +1933,7 @@ com.sundy.pkcao.baidupush.Utils:
     public static final java.lang.String EXTRA_MESSAGE
     15:15:public Utils()
     54:60:public static boolean hasBind(android.content.Context)
+    64:73:public static void setBind(android.content.Context,boolean)
     76:91:public static java.util.List getTagsList(java.lang.String)
     95:97:public static java.lang.String getLogText(android.content.Context)
     101:106:public static void setLogText(android.content.Context,java.lang.String)
@@ -1759,7 +1982,7 @@ com.sundy.pkcao.taker.CommonUtility:
     48:48:public CommonUtility()
     63:70:public static java.util.Date parseString2Date(java.lang.String)
     153:174:public static android.graphics.Bitmap getBitmapFromCamera(android.content.Intent,android.app.Activity)
-    496:497:public static void stopBaiduPush(android.app.Activity)
+    497:498:public static void stopBaiduPush(android.app.Activity)
 com.sundy.pkcao.taker.MyConstantUtil
 com.sundy.pkcao.taker.ResourceTaker:
     6:6:public ResourceTaker()
@@ -1889,105 +2112,6 @@ it.sephiroth.android.library.widget.HListView$FocusSelector
 it.sephiroth.android.library.widget.HeaderViewListAdapter
 it.sephiroth.android.library.widget.OverScroller
 it.sephiroth.android.library.widget.OverScroller$SplineOverScroller
-m.framework.network.ByteArrayPart
-m.framework.network.FilePart
-m.framework.network.HTTPPart
-m.framework.network.KVPair
-m.framework.network.MultiPart
-m.framework.network.MultiPartInputStream
-m.framework.network.NetworkHelper
-m.framework.network.ResponseCallback
-m.framework.network.SSLSocketFactoryEx
-m.framework.network.SSLSocketFactoryEx$1
-m.framework.network.StringPart
-m.framework.ui.widget.asyncview.AsyncImageView
-m.framework.ui.widget.asyncview.AsyncView
-m.framework.ui.widget.asyncview.BitmapCallback
-m.framework.ui.widget.asyncview.BitmapProcessor
-m.framework.ui.widget.asyncview.BitmapProcessor$ImageReq
-m.framework.ui.widget.asyncview.BitmapProcessor$ManagerThread
-m.framework.ui.widget.asyncview.BitmapProcessor$ManagerThread$1
-m.framework.ui.widget.asyncview.BitmapProcessor$PatchInputStream
-m.framework.ui.widget.asyncview.BitmapProcessor$WorkerThread
-m.framework.ui.widget.asyncview.BitmapProcessor$WorkerThread$1
-m.framework.ui.widget.asyncview.OnImageGotListener
-m.framework.ui.widget.asyncview.SimpleOnImageGotListener
-m.framework.ui.widget.pulltorefresh.GroupListView
-m.framework.ui.widget.pulltorefresh.GroupListView$1
-m.framework.ui.widget.pulltorefresh.GroupListView$GroupListAdapter
-m.framework.ui.widget.pulltorefresh.GroupListView$ItemHolder
-m.framework.ui.widget.pulltorefresh.ListInnerAdapter
-m.framework.ui.widget.pulltorefresh.OnListStopScrollListener
-m.framework.ui.widget.pulltorefresh.OnScrollListener
-m.framework.ui.widget.pulltorefresh.PullToRefreshAdatper
-m.framework.ui.widget.pulltorefresh.PullToRefreshBaseListAdapter
-m.framework.ui.widget.pulltorefresh.PullToRefreshGridAdapter
-m.framework.ui.widget.pulltorefresh.PullToRefreshGridAdapter$1
-m.framework.ui.widget.pulltorefresh.PullToRefreshGroupListAdapter
-m.framework.ui.widget.pulltorefresh.PullToRefreshGroupListAdapter$1
-m.framework.ui.widget.pulltorefresh.PullToRefreshGroupListAdapter$2
-m.framework.ui.widget.pulltorefresh.PullToRefreshListAdapter
-m.framework.ui.widget.pulltorefresh.PullToRefreshListAdapter$1
-m.framework.ui.widget.pulltorefresh.PullToRefreshView
-m.framework.ui.widget.pulltorefresh.PullToRefreshView$1
-m.framework.ui.widget.pulltorefresh.Scrollable
-m.framework.ui.widget.pulltorefresh.ScrollableGridView
-m.framework.ui.widget.pulltorefresh.ScrollableGridView$1
-m.framework.ui.widget.pulltorefresh.ScrollableGroupListView
-m.framework.ui.widget.pulltorefresh.ScrollableGroupListView$1
-m.framework.ui.widget.pulltorefresh.ScrollableListView
-m.framework.ui.widget.pulltorefresh.ScrollableListView$1
-m.framework.ui.widget.slidingmenu.BodyContainer
-m.framework.ui.widget.slidingmenu.MenuAdapter
-m.framework.ui.widget.slidingmenu.MenuConfig
-m.framework.ui.widget.slidingmenu.SlidingMenu
-m.framework.ui.widget.slidingmenu.SlidingMenu$1
-m.framework.ui.widget.slidingmenu.SlidingMenu$1$1
-m.framework.ui.widget.slidingmenu.SlidingMenu$2
-m.framework.ui.widget.slidingmenu.SlidingMenu$3
-m.framework.ui.widget.slidingmenu.SlidingMenu$3$1
-m.framework.ui.widget.slidingmenu.SlidingMenu$4
-m.framework.ui.widget.slidingmenu.SlidingMenu$5
-m.framework.ui.widget.slidingmenu.SlidingMenu$6
-m.framework.ui.widget.slidingmenu.SlidingMenu$6$1
-m.framework.ui.widget.slidingmenu.SlidingMenuGroup
-m.framework.ui.widget.slidingmenu.SlidingMenuItem
-m.framework.ui.widget.viewpager.ViewPagerClassic:
-    private static final int SNAP_VELOCITY
-    private static final int TOUCH_STATE_REST
-    private static final int TOUCH_STATE_SCROLLING
-    454:461:public void scrollLeft()
-    465:473:public void scrollRight()
-m.framework.utils.Data
-m.framework.utils.DeviceHelper
-m.framework.utils.HEX
-m.framework.utils.Hashon
-m.framework.utils.UIHandler:
-    13:13:public UIHandler()
-    17:25:public static void prepare()
-    28:34:private static void handleMessage(android.os.Message)
-    43:45:private static android.os.Message getShellMessage(int,android.os.Handler$Callback)
-    53:53:public static boolean sendMessageDelayed(android.os.Message,long,android.os.Handler$Callback)
-    57:57:public static boolean sendMessageAtTime(android.os.Message,long,android.os.Handler$Callback)
-    61:61:public static boolean sendMessageAtFrontOfQueue(android.os.Message,android.os.Handler$Callback)
-    65:65:public static boolean sendEmptyMessage(int,android.os.Handler$Callback)
-    69:69:public static boolean sendEmptyMessageAtTime(int,long,android.os.Handler$Callback)
-    73:73:public static boolean sendEmptyMessageDelayed(int,long,android.os.Handler$Callback)
-    27:27:static synthetic void access$0(android.os.Message)
-m.framework.utils.UIHandler$1
-m.framework.utils.Utils:
-    private static float density
-    18:18:public Utils()
-    23:26:public static int dipToPx(android.content.Context,int)
-    36:36:public static boolean isNullOrEmpty(java.lang.String)
-    42:42:public static android.graphics.Bitmap getBitmap(java.lang.String)
-    46:46:public static android.graphics.Bitmap getBitmap(java.io.InputStream)
-    50:50:public static android.graphics.Bitmap getBitmap(java.lang.String,int)
-    54:57:public static android.graphics.Bitmap getBitmap(java.io.File,int)
-    61:66:private static android.graphics.Bitmap getBitmap(java.io.InputStream,int)
-    76:102:public static java.lang.String getFileMime(java.lang.String)
-    107:120:public static java.lang.String getCachePath(android.content.Context,java.lang.String)
-    128:128:public static int getScreenHeight(android.content.Context)
 org.java_websocket.AbstractWrappedByteChannel
 org.java_websocket.SSLSocketChannel2
 org.java_websocket.SocketChannelIOHelper

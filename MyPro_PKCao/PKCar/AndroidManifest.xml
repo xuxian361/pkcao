@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.sundy.pkcao"
-          android:versionCode="2"
-          android:versionName="1.0.1">
+          android:versionCode="3"
+          android:versionName="2.0">
     <uses-sdk android:minSdkVersion="15"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -14,12 +14,14 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
 
     <!-- 蓝牙分享所需的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH"/>
@@ -37,8 +39,7 @@
 
         <activity android:name=".activitys.LoadingActivity"
                   android:label="@string/app_name"
-                  android:launchMode="singleTask"
-        >
+                  android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -48,8 +49,7 @@
         <activity android:name=".activitys.MainActivity"
                   android:screenOrientation="portrait"
                   android:launchMode="singleTask"
-                  android:windowSoftInputMode="adjustPan"
-        />
+                  android:windowSoftInputMode="adjustPan"/>
 
         <activity android:name=".activitys.ScaleImageActivity"
                   android:screenOrientation="portrait"/>
@@ -79,6 +79,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.mob.tools.MobUIShell"/>
 
         <!--微信分享回调 -->
         <activity
@@ -88,9 +89,15 @@
                 android:exported="true"
                 android:screenOrientation="portrait"/>
 
+        <!-- 4.6.0版本增加一个可选的Activity声明 -->
+        <activity
+                android:name="com.baidu.android.pushservice.PushKeepAlive"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
         <!-- push应用定义消息receiver声明 -->
         <receiver android:name=".baidupush.MyPushMessageReceiver">
             <intent-filter>
+
                 <!-- 接收push消息 -->
                 <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
                 <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
@@ -100,26 +107,35 @@
         </receiver>
 
         <!-- push必须的receviver和service声明 -->
-        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver"
-                  android:process=":bdservice_v1">
+        <receiver
+                android:name="com.baidu.android.pushservice.PushServiceReceiver"
+                android:process=":bdservice_v1">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
                 <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
                 <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+                <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver"
-                  android:process=":bdservice_v1">
+        <receiver
+                android:name="com.baidu.android.pushservice.RegistrationReceiver"
+                android:process=":bdservice_v1">
             <intent-filter>
                 <action android:name="com.baidu.android.pushservice.action.METHOD"/>
                 <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
                 <data android:scheme="package"/>
             </intent-filter>
         </receiver>
+
         <service
                 android:name="com.baidu.android.pushservice.PushService"
                 android:exported="true"
@@ -128,9 +144,14 @@
                 <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
             </intent-filter>
         </service>
-        <!-- push结束 -->
+        <service
+                android:name="com.baidu.android.pushservice.CommandService"
+                android:exported="true"/>
+
         <!-- 在百度开发者中心查询应用的API Key -->
-        <meta-data android:name="api_key" android:value="P64lYhgIxUXDBpVgWvq7A0aH"/>
+        <meta-data
+                android:name="api_key"
+                android:value="P64lYhgIxUXDBpVgWvq7A0aH"/>
 
         <!--LeanCloud 即时聊天-->
         <service android:name="com.avos.avoscloud.PushService"/>
